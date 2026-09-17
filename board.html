@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DevStudio Board</title>
+<style>
+#back a{color:var(--muted);text-decoration:none;font-size:12.5px}
+#back a:hover{color:var(--accent)}
+:root{
+  --hot:#fdf0ee;
+  --bg:#fbfbfa; --panel:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e3e2dd;
+  --done:#3f8f5f; --active:#c08b2a; --failed:#c0503f; --todo:#a3a39d; --unknown:#8a8ad0;
+  --accent:#2f5fd0; --code:#f3f2ee;
+}
+@media (prefers-color-scheme:dark){:root{
+  --hot:#2a2022; --bg:#17181a; --panel:#1f2124; --ink:#e9e8e4; --muted:#9a9a94; --line:#33353a;
+  --done:#63b183; --active:#d9aa4d; --failed:#e0796a; --todo:#6a6c72; --unknown:#9fa0e0;
+  --accent:#7fa5f5; --code:#26282c;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:19px;margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:13px;margin-top:3px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;
+  padding-bottom:18px;border-bottom:1px solid var(--line)}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--panel);
+  color:var(--ink);border-radius:7px;padding:6px 11px}
+button:hover{border-color:var(--accent)}
+
+/* hero: what do I do next */
+.next{margin:22px 0;padding:18px 20px;background:var(--panel);border:1px solid var(--line);
+  border-left:4px solid var(--accent);border-radius:10px}
+.next.blocked{border-left-color:var(--failed);background:var(--hot)}
+.next.blocked .eyebrow{color:var(--failed)}
+.raised{margin-top:10px;font-size:12.5px;color:var(--muted)}
+.raised a{color:var(--accent)}
+.next .eyebrow{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.next h2{margin:6px 0 4px;font-size:22px;letter-spacing:-.015em}
+.next .why{color:var(--muted);font-size:13.5px}
+.prompt{margin-top:14px;display:flex;gap:10px;align-items:flex-start}
+.prompt pre{flex:1;margin:0;padding:11px 13px;background:var(--code);border-radius:8px;
+  white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+
+/* spine */
+.spine{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;margin-top:26px}
+.stage{display:grid;grid-template-columns:26px 1fr auto;gap:12px;align-items:center;
+  background:var(--panel);padding:10px 14px;cursor:pointer;text-align:left;border:0;border-radius:0}
+.stage:hover{background:var(--code)}
+.stage[aria-expanded="true"]{background:var(--code)}
+.dot{width:11px;height:11px;border-radius:50%;justify-self:center}
+.s-done .dot{background:var(--done)} .s-active .dot{background:var(--active)}
+.s-failed .dot{background:var(--failed)} .s-todo .dot{background:var(--todo)}
+.s-unknown .dot{background:var(--unknown);opacity:.65}
+.stage .label{font-weight:500}
+.stage .detail{color:var(--muted);font-size:13px}
+.owner{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line);border-radius:20px;padding:2px 8px}
+.panel{background:var(--panel);padding:2px 14px 14px 52px;font-size:13.5px;color:var(--muted)}
+.panel a{color:var(--accent)}
+.panel ul{margin:8px 0;padding-left:18px}
+.miss{color:var(--failed)}
+
+section.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:26px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card h3{margin:0 0 8px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.big{font-size:26px;letter-spacing:-.02em}
+.card ol{margin:6px 0 0;padding-left:18px;font-size:13px}
+.card li{margin-bottom:5px}
+h2.sec{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:28px 0 10px}
+.tl{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px 0}
+.ev{display:grid;grid-template-columns:78px 15px 1fr auto;gap:10px;align-items:baseline;
+  padding:7px 14px;font-size:13px}
+.ev+.ev{border-top:1px solid var(--line)}
+.ev .when{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.ev .pip{width:7px;height:7px;border-radius:50%;background:var(--done);justify-self:center;
+  position:relative;top:-2px}
+.ev.human .pip{background:var(--active)}
+.ev .what{font-weight:500}
+.ev .by{color:var(--muted);font-size:12px}
+.ev .stg{color:var(--muted);font-size:11px;border:1px solid var(--line);border-radius:20px;padding:1px 7px}
+.nopp{background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:14px 16px;
+  color:var(--muted);font-size:13px}
+.nopp code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:12px}
+footer{margin-top:30px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div id="back"></div>
+      <h1 id="slug">loading…</h1>
+      <div class="sub mono" id="root"></div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span class="sub" id="gen"></span>
+      <button onclick="load()">Refresh</button>
+    </div>
+  </header>
+
+  <div class="next" id="next"></div>
+  <div class="spine" id="spine"></div>
+  <section class="cards" id="cards"></section>
+  <section id="passport"></section>
+
+  <footer>
+    Read-only. This board runs nothing — it reads the filesystem and <span class="mono">gh</span>.
+    Stages 0–3 and 8–9 live in Drive and stay <em>unknown</em> until you record them in
+    <span class="mono">.devstudio-board.json</span>.
+  </footer>
+</div>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function stagePanel(s, d) {
+  let h = "";
+  if (s.link) h += `<div><a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.link)}</a></div>`;
+  h += `<div>Produced by <span class="mono">${esc(s.producer)}</span></div>`;
+  if (s.id === 4 || s.id === 5) {
+    const f = d.fs.figures;
+    if (f.length) h += "<ul>" + f.map(x =>
+      `<li class="mono ${x.present ? "" : "miss"}">${esc(x.ref)}${x.present ? "" : " — missing"}</li>`).join("") + "</ul>";
+    if (d.fs.flags.length) h += `<div>${d.fs.flags.length} open flag(s):</div><ul>` +
+      d.fs.flags.map(x => `<li class="mono">L${x.line} ${esc(x.text)}</li>`).join("") + "</ul>";
+  }
+  if (s.id === 6 || s.id === 7) {
+    const p = d.archive_pr;
+    if (p) h += `<ul><li>${esc(p.state)}${p.draft ? " (draft)" : ""} · review: ${esc(p.review || "none")}</li>
+      <li>checks — ${p.checks.pass} pass, ${p.checks.fail} fail, ${p.checks.pending} pending</li>
+      <li>idle ${p.parked_days} days</li></ul>`;
+  }
+  if (s.id === 5 && d.fs.assets.length)
+    h += `<div>${d.fs.assets.length} asset file(s) on disk</div>`;
+  return h;
+}
+
+function render(d) {
+  document.getElementById("back").innerHTML =
+    (d.fleet_size > 1) ? `<a href="/">← all ${d.fleet_size} DevNotes</a>` : "";
+  document.getElementById("slug").textContent = d.slug;
+  document.getElementById("root").textContent = d.fs.root;
+  document.getElementById("gen").textContent =
+    d.demo ? "demo data"
+           : d.gh_pending ? "local state · checking GitHub…"
+                 : "read " + d.generated.replace("T", " ").replace("+00:00", "Z");
+
+  const n = d.next, b = d.block;
+  document.getElementById("next").className = "next" + (b ? " blocked" : "");
+  document.getElementById("next").innerHTML =
+    `<div class="eyebrow">${b ? "Blocked · waiting on a person" : "Next"}</div>
+     <h2>${esc(n.title)}</h2><div class="why">${esc(n.why)}</div>` +
+    (b ? `<div class="raised">Raised by ${esc(b.who || "unknown")}${
+        b.ts ? ` · ${ago(b.ts)}` : ""}${b.inline ? " · inline marker" : " · recorded in the passport"}
+      ${b.ref ? ` · <a href="${esc(b.ref)}" target="_blank" rel="noopener">${
+        b.ref.startsWith("http") ? "open the comment" : esc(b.ref)}</a>` : ""}
+      <div style="margin-top:6px">Clear it with
+        <code>passport.py unblock . --stage ${b.stage} --resolution "…"</code></div></div>` : "") +
+    (n.prompt
+      ? `<div class="prompt"><pre id="p">${esc(n.prompt)}</pre><button onclick="copyPrompt(this)">Copy</button></div>`
+      : (n.link && !b ? `<div class="prompt"><a href="${esc(n.link)}" target="_blank" rel="noopener">Open it →</a></div>` : ""));
+
+  document.getElementById("spine").innerHTML = d.stages.map(s => `
+    <button class="stage s-${s.status}" aria-expanded="false" onclick="toggle(${s.id})">
+      <span class="dot"></span>
+      <span><span class="label">${s.id}. ${esc(s.label)}</span>
+        <span class="detail"> — ${esc(s.detail)}</span></span>
+      <span class="owner">${esc(s.owner)}</span>
+    </button>
+    <div class="panel" id="panel-${s.id}" hidden>${stagePanel(s, d)}</div>`).join("");
+
+  const done = d.stages.filter(s => s.status === "done").length;
+  const parked = d.archive_pr ? d.archive_pr.parked_days + "d" : "—";
+  document.getElementById("cards").innerHTML = `
+    <div class="card"><h3>Stages resolved</h3><div class="big">${done} / ${d.stages.length}</div></div>
+    <div class="card"><h3>Open flags</h3><div class="big">${d.fs.flags.length}</div></div>
+    <div class="card"><h3>Figures missing</h3><div class="big">${d.fs.figures.filter(f => !f.present).length}
+      <span class="sub">of ${d.fs.figures.length}</span></div></div>
+    <div class="card"><h3>Archive PR idle</h3><div class="big">${d.gh_pending ? "…" : parked}</div></div>`;
+  renderPassport(d);
+  window._d = d;
+}
+
+function ago(ts) {
+  const d = (Date.now() - new Date(ts)) / 86400000;
+  if (d < 1) return Math.round(d * 24) + "h ago";
+  return d.toFixed(d < 10 ? 1 : 0) + "d ago";
+}
+
+function renderPassport(d) {
+  const el = document.getElementById("passport");
+  const pp = d.passport;
+  if (!pp) {
+    el.innerHTML = `<h2 class="sec">Passport</h2>
+      <div class="nopp">No <code>passport.json</code> here, so every stage above is inferred from
+      file mtimes and <code>gh</code> — which is why the Drive stages read <em>unknown</em>.
+      Start one with <code>python3 passport.py init ${esc(d.fs.root)}</code> and have each skill
+      append as it acts.</div>`;
+    return;
+  }
+  const evs = [...pp.events].reverse();
+  const checks = Object.entries(pp.checks || {});
+  el.innerHTML = `<h2 class="sec">Passport — ${evs.length} events${
+      pp.author ? ` · ${esc(pp.author)}` : ""}</h2>
+    <div class="tl">${evs.map(e => `
+      <div class="ev ${e.actor === "human" ? "human" : ""}">
+        <span class="when">${ago(e.ts)}</span><span class="pip"></span>
+        <span><span class="what">${esc((e.event || "").replace(/_/g, " "))}</span>
+          <span class="by"> — ${esc(e.detail || "")}${
+            e.skill ? ` <span class="mono">${esc(e.skill)}</span>` : ""}</span></span>
+        <span class="stg">stage ${e.stage}</span>
+      </div>`).join("")}</div>
+    ${checks.length ? `<h2 class="sec">Recorded checks</h2><div class="tl">${checks.map(([k, v]) => `
+      <div class="ev"><span class="when">${ago(v.ts)}</span>
+        <span class="pip" style="background:var(--${v.status === "pass" ? "done" : "failed"})"></span>
+        <span><span class="what">${esc(k)}</span><span class="by"> — ${esc(v.detail || "")}</span></span>
+        <span class="stg">${esc(v.status)}</span></div>`).join("")}</div>` : ""}`;
+}
+
+function toggle(id) {
+  const p = document.getElementById("panel-" + id);
+  p.hidden = !p.hidden;
+  p.previousElementSibling.setAttribute("aria-expanded", String(!p.hidden));
+}
+function copyPrompt(btn) {
+  navigator.clipboard.writeText(document.getElementById("p").textContent)
+    .then(() => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy", 1400); })
+    .catch(() => btn.textContent = "Select manually");
+}
+const I = new URLSearchParams(location.search).get("i") || "0";
+async function load() {
+  // Filesystem state paints immediately; gh takes ~30s and layers in after.
+  render(await (await fetch(`/api/state?i=${I}&gh=0`)).json());
+  render(await (await fetch(`/api/state?i=${I}`)).json());
+}
+load();
+</script>
+</body>
+</html>

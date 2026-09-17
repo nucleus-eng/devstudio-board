@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DevStudio Fleet</title>
+<style>
+:root{
+  --bg:#fbfbfa; --panel:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e3e2dd;
+  --done:#3f8f5f; --active:#c08b2a; --failed:#c0503f; --todo:#c9c9c3; --unknown:#8a8ad0;
+  --accent:#2f5fd0; --code:#f3f2ee; --you:#c0503f; --hot:#fdf0ee;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#17181a; --panel:#1f2124; --ink:#e9e8e4; --muted:#9a9a94; --line:#33353a;
+  --done:#63b183; --active:#d9aa4d; --failed:#e0796a; --todo:#44464b; --unknown:#9fa0e0;
+  --accent:#7fa5f5; --code:#26282c; --you:#e0796a; --hot:#2a2022;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 16px 120px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+h1{font-size:19px;margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:13px}
+header{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  padding-bottom:16px;border-bottom:1px solid var(--line)}
+.badge{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);
+  border-radius:20px;padding:2px 9px;color:var(--muted);vertical-align:middle;margin-left:8px}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--panel);
+  color:var(--ink);border-radius:7px;padding:5px 10px;font-size:13px}
+button:hover{border-color:var(--accent)}
+
+.toggle{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.toggle button{border:0;border-radius:0;background:transparent;padding:5px 11px;color:var(--muted)}
+.toggle button.on{background:var(--code);color:var(--ink);font-weight:500}
+
+/* phase view */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px;
+  margin-top:22px;align-items:start}
+.col{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.col>h3{margin:0;padding:10px 13px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.col .wip{color:var(--ink)}
+.card .stage a{color:var(--done);text-decoration:none}
+.card .stage a:hover{text-decoration:underline}
+.card .stage.inmap{color:var(--done)}
+.card{padding:10px 13px;border-bottom:1px solid var(--line)}
+.card:last-child{border-bottom:0}
+.card:hover{background:var(--code)}
+.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card .name{word-break:break-word}
+.urlrow{display:flex;align-items:center;gap:6px;margin-top:7px;padding:4px 6px;
+  background:var(--code);border:1px solid var(--line);border-radius:6px;cursor:pointer}
+.urlrow:hover{border-color:var(--accent)}
+.urlrow .u{flex:1;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--muted);
+  word-break:break-all;line-height:1.35}
+.urlrow .cp{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;
+  flex:none}
+.card .stage{color:var(--muted);font-size:11.5px;margin-top:2px}
+.card .act{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:9px}
+.card .act button{padding:4px 9px;font-size:12px;white-space:nowrap}
+.card .act .t{font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card.blocked{box-shadow:inset 3px 0 0 var(--you)}
+.card.gate{box-shadow:inset 3px 0 0 var(--active)}
+.empty{padding:16px 13px;color:var(--muted);font-size:12.5px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:18px 0 8px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.tile.alarm{border-color:var(--you);background:var(--hot)}
+.tile h3{margin:0 0 4px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.tile .big{font-size:25px;letter-spacing:-.02em;line-height:1.1}
+.tile.alarm .big{color:var(--you)}
+
+h2.group{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  margin:26px 0 8px;display:flex;align-items:center;gap:8px}
+h2.group .n{color:var(--ink);font-size:12px}
+h2.group.you{color:var(--you)}
+
+.rows{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden}
+.row{display:grid;grid-template-columns:20px 100px minmax(118px,1fr) minmax(170px,1.45fr) 46px 62px;
+  gap:10px;align-items:center;background:var(--panel);padding:7px 12px}
+.row:hover{background:var(--code)}
+.row.sel{background:var(--code)}
+@media(max-width:640px){.row{grid-template-columns:20px 100px 1fr 62px;row-gap:5px}
+  .row .next{grid-column:2/5} .row .park{display:none}}
+.spine{display:flex;gap:2.5px}
+.d{width:7px;height:7px;border-radius:50%;background:var(--todo);flex:none}
+.d.done{background:var(--done)} .d.active{background:var(--active)}
+.d.failed{background:var(--failed)} .d.unknown{background:var(--unknown);opacity:.5}
+.name{font-weight:500;letter-spacing:-.01em}
+.cell{overflow:hidden}
+.cell>span:first-child{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.name a{color:inherit;text-decoration:none} .name a:hover{color:var(--accent)}
+.who{color:var(--muted);font-size:12px}
+.next{font-size:13.5px}
+.next .t{font-weight:500}
+.next .t{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.next .why{color:var(--muted);font-size:11.5px;display:block;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.park{text-align:right;font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted)}
+.park.hot{color:var(--you);font-weight:600}
+.chips{display:inline-flex;gap:4px;flex-wrap:wrap;margin-left:2px;vertical-align:middle}
+.chip{font-size:10.5px;border:1px solid var(--line);border-radius:20px;padding:1px 7px;color:var(--muted)}
+.chip.bad{color:var(--you);border-color:var(--you)}
+.chip.dn{color:var(--done);border-color:var(--done);text-decoration:none}
+.chip.dn:hover{filter:brightness(1.15)}
+.picker .dncount{color:var(--done);font-size:11px;white-space:nowrap}
+.picker .dncount.none{color:var(--muted)}
+input[type=checkbox]{accent-color:var(--accent);width:14px;height:14px;cursor:pointer}
+
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);
+  padding:20px 22px;max-width:520px;width:calc(100% - 32px);font:inherit}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+dialog h3{margin:0 0 2px;font-size:17px;letter-spacing:-.01em}
+dialog label{display:block;margin-top:14px;font-size:13px;font-weight:500}
+dialog label .sub{font-weight:400;margin-left:6px}
+dialog input{display:block;width:100%;margin-top:5px;padding:7px 9px;font:inherit;font-size:14px;
+  background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:7px}
+dialog input:focus{outline:none;border-color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+.picker{max-height:190px;overflow:auto;border:1px solid var(--line);border-radius:8px;
+  background:var(--bg)}
+.picker label{display:flex;gap:9px;align-items:baseline;margin:0;padding:6px 10px;
+  font-weight:400;font-size:13px;cursor:pointer;border-bottom:1px solid var(--line)}
+.picker label:last-child{border-bottom:0}
+.picker label:hover{background:var(--code)}
+.picker input{width:auto;margin:0;flex:none}
+.picker .nm{flex:1;font-family:ui-monospace,Menlo,monospace;font-size:12px}
+.picker .ag{color:var(--muted);font-size:11.5px}
+.picker .none{padding:12px 10px;color:var(--muted);font-size:12.5px}
+#newdn{max-width:620px}
+.preview{margin-top:16px;padding:11px 13px;background:var(--code);border-radius:8px}
+.preview .big{font-size:15px;margin-top:3px;word-break:break-all}
+.preview .sub{font-size:11.5px}
+dialog .prompt{margin-top:12px}
+dialog .prompt pre{margin:0;padding:10px 12px;background:var(--code);border-radius:8px;
+  white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,Menlo,monospace;font-size:12px;
+  color:var(--muted)}
+.row-btns{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:500}
+button.primary:hover{filter:brightness(1.08)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.status[hidden]{display:none}
+.status{margin-top:14px;padding:11px 13px;border-radius:8px;font-size:13px;
+  background:var(--code);border:1px solid var(--line)}
+.status.err{border-color:var(--you);color:var(--you)}
+.status.ok{border-color:var(--done)}
+.status a{color:var(--accent)}
+.status .done-head{font-weight:600;font-size:14px}
+.status a.link{display:block;margin-top:8px;font-family:ui-monospace,Menlo,monospace;
+  font-size:11.5px;word-break:break-all}
+.banner{display:flex;align-items:center;gap:10px;margin-top:16px;padding:10px 14px;
+  background:var(--panel);border:1px solid var(--done);border-radius:10px;font-size:13.5px}
+.banner[hidden]{display:none}
+.banner .grow{flex:1}
+.banner a{color:var(--accent)}
+.status pre{margin:7px 0 0;white-space:pre-wrap;word-break:break-word;font-size:11px;
+  color:var(--muted);max-height:130px;overflow:auto}
+.spin{display:inline-block;width:11px;height:11px;border:2px solid var(--line);
+  border-top-color:var(--accent);border-radius:50%;animation:sp .8s linear infinite;
+  vertical-align:-1px;margin-right:7px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.warn{color:var(--you)}
+.bar{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:5;
+  background:var(--panel);border:1px solid var(--line);border-radius:11px;
+  box-shadow:0 8px 28px rgba(0,0,0,.18);padding:10px 14px;display:none;gap:12px;align-items:center}
+.bar.on{display:flex}
+footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><h1>DevStudio <span class="badge" id="mode">loading…</span></h1>
+      <div class="sub" id="tag">Live from San Francisco Node in Drive</div></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button onclick="openNewLog()">+ New Log</button>
+      <button onclick="openNewDevNote()">+ New DevNote</button>
+      <button onclick="load()">Refresh</button>
+    </div>
+  </header>
+
+  <div class="banner" id="banner" hidden></div>
+  <div class="tiles" id="tiles"></div>
+  <div id="groups"></div>
+
+  <footer>
+    Log and DevNote are read live from <span class="mono">San Francisco Node</span> in Drive.
+    Which Logs a DevNote was pooled from comes from
+    <span class="mono">devnotes/devnote-log-map.json</span>, the shared cache every TA reads —
+    a Log can appear in more than one DevNote.
+  </footer>
+</div>
+
+<dialog id="cn">
+  <form method="dialog" onsubmit="return false">
+    <h3>Curvenote draft submission</h3>
+    <p class="sub">Runs <span class="mono">curvenote check</span> then
+      <span class="mono">curvenote submit --draft</span> from here, and returns the URL to
+      inspect. A draft does not publish.</p>
+    <p class="sub"><b>Test-mode shortcut.</b> Submits under your own Curvenote token, not
+      tied to a PR. The production path is a draft PR to the archive, where
+      <span class="mono">draft.yml</span> builds the preview and posts the link.</p>
+
+    <div class="preview"><span class="sub">Submitting</span>
+      <div class="mono big" id="cn-name">—</div>
+      <div class="sub" id="cn-detail" style="margin-top:7px"></div></div>
+
+    <div class="status" id="cn-status" hidden></div>
+    <div class="row-btns" id="cn-foot">
+      <button id="cn-cancel" onclick="closeCN()">Cancel</button>
+      <button id="cn-go" class="primary" onclick="runCN()">Submit draft</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="g2m">
+  <form method="dialog" onsubmit="return false">
+    <h3>DevNote(G) → DevNote(M)</h3>
+    <p class="sub">Converts the reviewed draft into MyST — <span class="mono">main.md</span>,
+      <span class="mono">curvenote.yml</span>, and the experiments/figures/plasmids tree.</p>
+
+    <div class="preview"><span class="sub">DevNote</span>
+      <div class="mono big" id="g2m-name">—</div>
+      <div class="sub" style="margin-top:8px">Writes to</div>
+      <div class="mono" id="g2m-target" style="font-size:12px;word-break:break-all">…</div>
+      <div class="sub" id="g2m-plan" style="margin-top:7px"></div></div>
+
+    <p class="sub" style="margin-top:12px">Reads Drive, writes only to that directory, and
+      stops before opening any PR so you can inspect it first.</p>
+
+    <div class="status" id="g2m-status" hidden></div>
+    <div class="row-btns" id="g2m-foot">
+      <button id="g2m-cancel" onclick="closeG2M()">Cancel</button>
+      <button id="g2m-go" class="primary" onclick="runG2M()">Convert to MyST</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="newdn">
+  <form method="dialog" onsubmit="return false" autocomplete="off">
+    <h3>New DevNote</h3>
+    <p class="sub">Pools the Log folders you pick into one draft Doc in
+      <span class="mono">San Francisco Node/devnotes</span>.</p>
+
+    <div class="two">
+      <label>Author name <input id="dn-author" placeholder="Anton Molina"
+        oninput="dnPreview()" onchange="dnPreview()"></label>
+      <label>Email <span class="sub">optional</span>
+        <input id="dn-email" placeholder="you@bnext.bio" oninput="dnPreview()"></label>
+    </div>
+    <div class="two">
+      <label>ORCID <span class="sub">optional</span>
+        <input id="dn-orcid" placeholder="0000-0002-1825-0097" oninput="dnPreview()"></label>
+      <label>Institution <span class="sub">optional</span>
+        <input id="dn-inst" placeholder="b.next" oninput="dnPreview()"></label>
+    </div>
+
+    <label>Supporting Log folders
+      <span class="sub">the selection is authoritative — nothing else is read</span></label>
+    <input id="dn-filter" placeholder="filter…" oninput="dnRenderLogs()" style="margin-bottom:6px">
+    <div class="picker" id="dn-logs"></div>
+
+    <div class="preview"><span class="sub">DevNote folder</span>
+      <div class="mono big" id="dn-name">—</div>
+      <div class="sub" id="dn-warn"></div></div>
+
+    <div class="status" id="dn-status" hidden></div>
+    <div class="row-btns" id="dn-foot">
+      <button id="dn-cancel" onclick="closeDn()">Cancel</button>
+      <button id="dn-create" class="primary" onclick="createDevNote()">Create DevNote</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="newlog">
+  <form method="dialog" onsubmit="return false" autocomplete="off">
+    <h3>New Log folder</h3>
+    <p class="sub">Seeded from <span class="mono">00-template-LOG</span> into
+      <span class="mono">San Francisco Node/log</span>.</p>
+    <label>Date <span class="sub">experiment date, not today if they differ</span>
+      <input id="nl-date" type="date" oninput="previewName()" onchange="previewName()"></label>
+    <label>Initials <span class="sub">the experimenter's</span>
+      <input id="nl-init" placeholder="am" maxlength="4" autocomplete="off" oninput="previewName()" onchange="previewName()"></label>
+    <label>Experiment <span class="sub">short, says what it is</span>
+      <input id="nl-slug" placeholder="mg titration" autocomplete="off" oninput="previewName()" onchange="previewName()"></label>
+
+    <div class="preview"><span class="sub">Folder name</span>
+      <div class="mono big" id="nl-name">—</div>
+      <div class="sub" id="nl-warn"></div></div>
+
+    <div class="prompt"><pre id="nl-prompt"></pre></div>
+    <div class="status" id="nl-status" hidden></div>
+    <div class="row-btns" id="nl-foot">
+      <button id="nl-cancel" onclick="closeNewLog()">Cancel</button>
+      <button id="nl-copy" onclick="copyNewLog()">Copy prompt</button>
+      <button id="nl-create" class="primary" onclick="createNewLog()">Create folder</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="bar" id="bar">
+  <span id="barn" class="sub"></span>
+  <button onclick="copySelected()">Copy prompts</button>
+  <button onclick="clearSel()">Clear</button>
+</div>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let ROWS = [], SEL = new Set(), LAST_LOG = null, DRIVE_ERR = null, DEVNOTE_ROWS = [],
+    OUT_ROOT = null, VENUE = null;
+
+function allRows() { return ROWS.concat(DRIVE_ROWS); }
+
+function render() {
+  renderPhase();
+  syncBar();
+}
+
+// The full URL, visible and copyable — clicking the title navigates away, which is
+// no use when you want to paste the location to someone.
+function urlLine(url) {
+  if (!url) return "";
+  return `<div class="urlrow" title="Click to copy" onclick="copyUrl(this,'${esc(url)}')">
+    <span class="u">${esc(url)}</span><span class="cp">copy</span></div>`;
+}
+
+function copyUrl(el, url) {
+  copy(url);
+  const c = el.querySelector(".cp");
+  c.textContent = "copied";
+  setTimeout(() => c.textContent = "copy", 1400);
+}
+
+function logCard(r) {
+  const n = (r.devnotes || []).length;
+  return `<div class="card">
+    <div class="top"><span class="name"><a href="${esc(r.url)}" target="_blank"
+      rel="noopener">${esc(r.slug)}</a></span>
+      <span class="park${r.parked_days >= 7 ? " hot" : ""}">${
+        r.parked_days == null ? "—" : r.parked_days + "d"}</span></div>
+    ${n ? `<div class="stage inmap">in ${r.devnotes.map(d =>
+      `<a href="${esc(d.doc_url || d.url)}" target="_blank" rel="noopener">${esc(d.name)}</a>`
+      ).join(", ")}</div>`
+       : `<div class="stage">not yet in a DevNote</div>`}
+    ${urlLine(r.url)}
+  </div>`;
+}
+
+function devnoteCard(r) {
+  return `<div class="card">
+    <div class="top"><span class="name"><a href="${esc(r.doc_url || r.url)}" target="_blank"
+      rel="noopener">${esc(r.slug)}</a></span></div>
+    ${r.myst ? `<div class="stage" style="color:${r.myst.buildable ? "var(--done)" : "var(--you)"}">
+      MyST${(r.myst.dirty || []).length ? ` · ${r.myst.dirty.length} uncommitted` : ""}${
+        r.myst.buildable ? " · builds"
+        : ` · ${r.myst.missing_figures.length} figure(s) missing`}</div>` : ""}
+    <div class="stage">${r.logs.length
+      ? `from ${r.logs.map(esc).join(", ")}`
+      : r.mapped ? "no source logs recorded" : "not in the shared map"}</div>
+    ${urlLine(r.url)}
+    <div class="act">
+      <span style="display:flex;flex-wrap:wrap;gap:6px">
+        ${r.doc_url ? `<button onclick="window.open('${esc(r.doc_url)}','_blank','noopener')">Draft</button>` : ""}
+        <button onclick="window.open('${esc(r.url)}','_blank','noopener')">Folder</button>
+        ${r.doc_url ? `<button onclick="openG2M('${esc(r.slug)}')"
+          title="Convert the reviewed draft to MyST">→ MyST</button>` : ""}
+        ${r.myst ? `<button onclick="runPreview('${esc(r.slug)}')"
+          title="Render locally with curvenote start — no submission">Preview</button>` : ""}
+        ${r.myst && !r.myst.buildable ? `<button onclick="runAssets('${esc(r.slug)}')"
+          title="Re-fetch assets only — does not re-run the conversion">Assets</button>` : ""}
+        ${r.myst && r.myst.buildable ? `<button class="primary" onclick="openCN('${esc(r.slug)}')"
+          title="Test-mode: draft submission straight from here, bypassing the PR">Curvenote</button>` : ""}
+      </span>
+    </div>
+  </div>`;
+}
+
+function renderPhase() {
+  const cols = [
+    ["Log", DRIVE_ROWS, logCard, "sf-node/log"],
+    ["DevNote", DEVNOTE_ROWS, devnoteCard, "sf-node/devnotes"],
+    ["Docs", [], null, "sf-node/docs"],
+  ];
+  document.getElementById("groups").innerHTML = `<div class="cols">` + cols.map(
+    ([label, rows, fn, src]) => `<div class="col">
+      <h3>${label} <span class="wip">${rows.length}</span></h3>
+      ${rows.length ? rows.map(fn).join("")
+        : `<div class="empty">${fn ? `nothing in ${src} yet`
+            : `${src} not wired up yet`}</div>`}</div>`).join("") + `</div>`;
+}
+
+function toggleSel(i) { SEL.has(i) ? SEL.delete(i) : SEL.add(i); render(); }
+function clearSel() { SEL.clear(); render(); }
+function syncBar() {
+  const bar = document.getElementById("bar");
+  bar.classList.toggle("on", SEL.size > 0);
+  document.getElementById("barn").textContent = `${SEL.size} selected`;
+}
+function copy(text, note) {
+  navigator.clipboard.writeText(text).then(() => {
+    const b = document.getElementById("barn");
+    if (note && b) { b.textContent = note; setTimeout(syncBar, 1600); }
+  });
+}
+function copyOne(i) {
+  const r = allRows().find(x => String(x.index) === String(i));
+  copy(r.next_prompt);
+  const btn = document.querySelector(`#row-${i} button`);
+  if (btn) { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy", 1400); }
+}
+function copySelected() {
+  const rs = allRows().filter(r => SEL.has(r.index) && r.next_prompt);
+  const text = rs.map((r, n) => `${n + 1}. ${r.next_prompt}`).join("\n\n");
+  copy(`Work through these DevStudio tasks one at a time, reporting after each:\n\n${text}`,
+       `${rs.length} prompts copied`);
+}
+
+// --- Assets only --------------------------------------------------------
+async function runAssets(name) {
+  G2M_NAME = name;
+  document.getElementById("g2m-name").textContent = name;
+  document.getElementById("g2m-target").textContent =
+    (DEVNOTE_ROWS.find(x => x.slug === name)?.myst?.dir) || "";
+  document.getElementById("g2m-plan").innerHTML =
+    `Fetch only — re-downloads assets into the existing directory. `
+    + `<span class="mono">main.md</span> and <span class="mono">curvenote.yml</span> are not touched.`;
+  document.getElementById("g2m-go").hidden = true;
+  document.getElementById("g2m-cancel").textContent = "Close";
+  document.getElementById("g2m").showModal();
+  G2M_T0 = Date.now();
+  G2M_PHASE = "assets";
+  g2mProgress("assets");
+  G2M_TICK = setInterval(() => g2mProgress("assets"), 1000);
+  let job;
+  try {
+    const r = await fetch("/api/assemble-assets", {method: "POST",
+      headers: {"Content-Type": "application/json"}, body: JSON.stringify({name})});
+    job = await r.json();
+    if (!r.ok) throw new Error(job.error || "refused");
+  } catch (e) {
+    clearInterval(G2M_TICK); G2M_TICK = null;
+    return g2mStatus(`Could not start: ${esc(e.message)}`, "err");
+  }
+  G2M_POLL = setInterval(async () => {
+    const j = await (await fetch(`/api/job?id=${job.job}`)).json();
+    if (j.status === "running") return;
+    clearInterval(G2M_POLL); G2M_POLL = null;
+    clearInterval(G2M_TICK); G2M_TICK = null;
+    loadDevNotes();
+    g2mStatus(j.status === "done"
+      ? `<div class="done-head">Assets complete</div><div class="sub">Every figure reference
+         resolves — ready for a Curvenote draft.</div>`
+      : `<b>Still incomplete.</b> ${esc(j.error || "")}
+         ${(j.missing_figures || []).length ? `<div class="sub mono">${
+           esc(j.missing_figures.join(", "))}</div>` : ""}
+         ${j.assets_log ? `<pre>${esc(j.assets_log.slice(-1200))}</pre>` : ""}`,
+      j.status === "done" ? "ok" : "err");
+  }, 4000);
+}
+
+// --- Local preview ------------------------------------------------------
+async function runPreview(name) {
+  G2M_NAME = name;
+  document.getElementById("g2m-name").textContent = name;
+  document.getElementById("g2m-target").textContent =
+    (DEVNOTE_ROWS.find(x => x.slug === name)?.myst?.dir) || "";
+  document.getElementById("g2m-plan").innerHTML =
+    `Runs <span class="mono">curvenote start</span> in that directory and serves it locally. `
+    + `Nothing is submitted and nothing is written to Drive.`;
+  document.getElementById("g2m-go").hidden = true;
+  document.getElementById("g2m-cancel").textContent = "Close";
+  document.getElementById("g2m").showModal();
+  G2M_T0 = Date.now();
+  g2mStatus(`<span class="spin"></span>Starting the preview server — first build can take
+    a minute. <b>0:00</b> elapsed.`);
+  G2M_TICK = setInterval(() => {
+    const s = Math.round((Date.now() - G2M_T0) / 1000);
+    g2mStatus(`<span class="spin"></span>Starting the preview server — first build can take
+      a minute. <b>${mmss(s)}</b> elapsed.`);
+  }, 1000);
+  let d;
+  try {
+    const r = await fetch("/api/preview", {method: "POST",
+      headers: {"Content-Type": "application/json"}, body: JSON.stringify({name})});
+    d = await r.json();
+    if (!r.ok) throw new Error(d.error || "could not start the preview");
+  } catch (e) {
+    clearInterval(G2M_TICK); G2M_TICK = null;
+    return g2mStatus(`<b>Preview failed.</b> ${esc(e.message)}`, "err");
+  }
+  clearInterval(G2M_TICK); G2M_TICK = null;
+  g2mStatus(`<div class="done-head">Preview running</div>
+    <div class="urlrow" onclick="copyUrl(this,'${esc(d.url)}')">
+      <span class="u">${esc(d.url)}</span><span class="cp">copy</span></div>
+    <div class="row-btns" style="justify-content:flex-start">
+      <button onclick="window.open('${esc(d.url)}','_blank','noopener')">Open preview</button>
+      <button onclick="stopPreview(this)">Stop server</button>
+    </div>
+    <div class="sub" style="margin-top:6px">It rebuilds as you edit the files.</div>`, "ok");
+}
+
+async function stopPreview(btn) {
+  btn.textContent = "Stopping…";
+  await fetch("/api/preview", {method: "POST",
+    headers: {"Content-Type": "application/json"}, body: JSON.stringify({stop: true})});
+  btn.textContent = "Stopped";
+}
+
+// --- Curvenote draft submission -----------------------------------------
+let CN_NAME = null, CN_POLL = null, CN_TICK = null, CN_T0 = 0;
+
+function closeCN() {
+  if (CN_POLL) { clearInterval(CN_POLL); CN_POLL = null; }
+  if (CN_TICK) { clearInterval(CN_TICK); CN_TICK = null; }
+  document.getElementById("cn").close();
+}
+
+function cnStatus(html, cls) {
+  const el = document.getElementById("cn-status");
+  el.hidden = false;
+  el.className = "status" + (cls ? " " + cls : "");
+  el.innerHTML = html;
+}
+
+async function openCN(name) {
+  CN_NAME = name;
+  const r = DEVNOTE_ROWS.find(x => x.slug === name);
+  document.getElementById("cn-name").textContent = name;
+  document.getElementById("cn-status").hidden = true;
+  document.getElementById("cn-go").hidden = false;
+  document.getElementById("cn-cancel").textContent = "Cancel";
+  const m = r && r.myst;
+  document.getElementById("cn-detail").innerHTML = m
+    ? `MyST version ${m.version} · venue <span class="mono">${esc(VENUE || "—")}</span>
+       <div class="mono" style="font-size:11px;word-break:break-all;margin-top:4px">${esc(m.dir)}</div>`
+    : "no local MyST build";
+  document.getElementById("cn-go").disabled = !(m && m.buildable);
+  document.getElementById("cn").showModal();
+  if (m && !m.buildable) {
+    cnStatus(`<b>Not submittable.</b> ${m.missing_figures.length} figure reference(s) do not
+      resolve, so the build would fail: <span class="mono">${
+      esc(m.missing_figures.slice(0, 4).join(", "))}</span>
+      <div class="sub" style="margin-top:6px">Run <b>Assets</b> first.</div>`, "err");
+  }
+}
+
+function cnProgress() {
+  const s = Math.round((Date.now() - CN_T0) / 1000);
+  const step = s < 45 ? "running venue checks" : "building and uploading the draft";
+  cnStatus(`<span class="spin"></span>${step} — <b>${mmss(s)}</b> elapsed.`
+    + `<div class="sub" style="margin-top:6px">Safe to close — it keeps running.</div>`);
+}
+
+async function runCN() {
+  document.getElementById("cn-go").disabled = true;
+  CN_T0 = Date.now();
+  cnProgress();
+  CN_TICK = setInterval(cnProgress, 1000);
+  let job;
+  try {
+    const r = await fetch("/api/curvenote-draft", {method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({name: CN_NAME})});
+    job = await r.json();
+    if (!r.ok) throw new Error((job.error || "refused") + (job.hint ? ` ${job.hint}` : ""));
+  } catch (e) {
+    clearInterval(CN_TICK); CN_TICK = null;
+    document.getElementById("cn-go").disabled = false;
+    return cnStatus(`<b>Not submitted.</b> ${esc(e.message)}`, "err");
+  }
+  CN_POLL = setInterval(async () => {
+    const j = await (await fetch(`/api/job?id=${job.job}`)).json();
+    if (j.status === "running") return;
+    clearInterval(CN_POLL); CN_POLL = null;
+    clearInterval(CN_TICK); CN_TICK = null;
+    if (j.status === "done") {
+      cnStatus(`<div class="done-head">Draft submitted to ${esc(j.venue)}</div>
+        ${j.url ? `<div class="sub">Send this to the TA to inspect:</div>
+          <div class="urlrow" onclick="copyUrl(this,'${esc(j.url)}')">
+            <span class="u">${esc(j.url)}</span><span class="cp">copy</span></div>
+          <div class="row-btns" style="justify-content:flex-start">
+            <button onclick="window.open('${esc(j.url)}','_blank','noopener')">Open draft</button>
+          </div>`
+        : `<div class="sub">Submitted, but no URL appeared in the output — check the log.</div>`}
+        ${j.check_ok === false ? `<div class="sub" style="margin-top:8px;color:var(--you)">
+          Venue checks reported problems — worth reading before the TA does.</div>` : ""}
+        <pre>${esc((j.check || "").slice(-900))}</pre>`, "ok");
+      document.getElementById("cn-go").hidden = true;
+      document.getElementById("cn-cancel").textContent = "Done";
+    } else {
+      document.getElementById("cn-go").disabled = false;
+      cnStatus(`<b>Failed.</b> ${esc(j.error || "curvenote did not finish")}`
+        + (j.log ? `<pre>${esc(j.log.slice(-1500))}</pre>` : ""), "err");
+    }
+  }, 3000);
+}
+
+// --- DevNote(G) -> DevNote(M) -------------------------------------------
+let G2M_NAME = null, G2M_POLL = null, G2M_TICK = null, G2M_T0 = 0, G2M_PHASE = null;
+
+async function openG2M(name) {
+  G2M_NAME = name;
+  document.getElementById("g2m-name").textContent = name;
+  document.getElementById("g2m-target").textContent = "…";
+  document.getElementById("g2m-plan").textContent = "working out where this goes…";
+  document.getElementById("g2m-status").hidden = true;
+  document.getElementById("g2m-go").hidden = false;
+  document.getElementById("g2m-go").disabled = true;
+  document.getElementById("g2m-cancel").textContent = "Cancel";
+  document.getElementById("g2m").showModal();
+
+  // Ask the server what it would do, so nothing about the target is a surprise.
+  let plan;
+  try {
+    const r = await fetch("/api/devnote-to-myst", {method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({name, dryRun: true})});
+    plan = await r.json();
+    if (!r.ok) throw new Error(plan.error || "could not plan the conversion");
+  } catch (e) {
+    document.getElementById("g2m-plan").textContent = e.message;
+    return;
+  }
+  document.getElementById("g2m-target").textContent = plan.target;
+  const el = document.getElementById("g2m-plan");
+  el.className = "sub";
+  if (plan.action === "rebuild") {
+    el.innerHTML = `<b style="color:var(--active)">Rebuilding in place</b> — ${esc(plan.why)}.
+      Keeping curvenote project id <span class="mono">${esc(plan.carry_uuid || "—")}</span>${
+      plan.carry_uuid ? ", so the venue sees a new version rather than an unrelated project"
+                      : ""}.`;
+  } else if (plan.action === "blocked") {
+    el.innerHTML = `<b style="color:var(--you)">Blocked.</b> ${esc(plan.why)}`
+      + ((plan.dirty || []).length
+         ? `<div class="mono" style="font-size:11px;margin-top:5px">${
+             esc(plan.dirty.join(", "))}</div>` : "");
+  } else {
+    el.textContent = "New DevNote(M) — nothing here yet.";
+  }
+  document.getElementById("g2m-go").disabled = !OUT_ROOT || plan.action === "blocked";
+}
+
+function closeG2M() {
+  if (G2M_POLL) { clearInterval(G2M_POLL); G2M_POLL = null; }
+  if (G2M_TICK) { clearInterval(G2M_TICK); G2M_TICK = null; }
+  document.getElementById("g2m").close();
+}
+
+function g2mStatus(html, cls) {
+  const el = document.getElementById("g2m-status");
+  el.hidden = false;
+  el.className = "status" + (cls ? " " + cls : "");
+  el.innerHTML = html;
+}
+
+function g2mProgress(phase) {
+  const s = Math.round((Date.now() - G2M_T0) / 1000);
+  const step = phase === "assets"
+    ? "2 of 2 — fetching notebooks, data and figures from Drive"
+    : (s < 60 ? "1 of 2 — reading the Doc and its Specification/Authors tables"
+      : s < 180 ? "1 of 2 — mapping sections and converting tables"
+      : "1 of 2 — writing main.md, curvenote.yml and the directory tree");
+  g2mStatus(`<span class="spin"></span>Converting <span class="mono">${esc(G2M_NAME)}</span>`
+    + ` — ${step}. <b>${mmss(s)}</b> elapsed.`
+    + `<div class="sub" style="margin-top:6px">Safe to close — it keeps running.</div>`);
+}
+
+async function runG2M() {
+  document.getElementById("g2m-go").disabled = true;
+  G2M_T0 = Date.now();
+  G2M_PHASE = "transform";
+  g2mProgress(G2M_PHASE);
+  G2M_TICK = setInterval(() => g2mProgress(G2M_PHASE), 1000);
+  let job;
+  try {
+    const r = await fetch("/api/devnote-to-myst", {method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({name: G2M_NAME})});
+    job = await r.json();
+    if (!r.ok) throw new Error(job.error || "request refused");
+  } catch (e) {
+    clearInterval(G2M_TICK); G2M_TICK = null;
+    document.getElementById("g2m-go").disabled = false;
+    return g2mStatus(`Could not start: ${esc(e.message)}`, "err");
+  }
+  G2M_POLL = setInterval(async () => {
+    const j = await (await fetch(`/api/job?id=${job.job}`)).json();
+    if (j.status === "running") { G2M_PHASE = j.phase || "transform"; return; }
+    clearInterval(G2M_POLL); G2M_POLL = null;
+    clearInterval(G2M_TICK); G2M_TICK = null;
+    if (j.status === "done") {
+      g2mStatus(`<div class="done-head">Wrote <span class="mono">${esc(j.name)}</span></div>
+        <div class="sub">Structure written · assets fetched · figure references all resolve</div>
+        ${j.merge_warning ? `<div class="sub" style="margin-top:6px;color:var(--you)">
+            <b>Merge conflicts.</b> ${esc(j.merge_warning)}</div>` : ""}
+        ${j.merge_note ? `<div class="sub" style="margin-top:6px;color:var(--done)">
+            ${esc(j.merge_note)}</div>` : ""}
+        <div class="sub">${(j.files || []).length} top-level entries: ${
+          esc((j.files || []).join(", "))}${j.uuid
+          ? ` · project id <span class="mono">${esc(j.uuid)}</span>` : ""}</div>
+        <div class="urlrow" onclick="copyUrl(this,'${esc(j.out_dir)}')">
+          <span class="u">${esc(j.out_dir)}</span><span class="cp">copy</span></div>
+        ${j.warning
+          ? `<div class="sub" style="margin-top:8px;color:var(--you)"><b>Incomplete.</b>
+              ${esc(j.warning)}</div>`
+          : `<div class="sub" style="margin-top:8px">Figure references all resolve. Inspect it,
+              then hand off to <span class="mono">devstudio-submit-to-github</span>.</div>`}`,
+        j.warning ? "" : "ok");
+      document.getElementById("g2m-go").hidden = true;
+      document.getElementById("g2m-cancel").textContent = "Done";
+    } else {
+      document.getElementById("g2m-go").disabled = false;
+      // A transform that worked but whose fetch came up short is a different
+      // outcome from a transform that failed — say which.
+      g2mStatus(j.transform_ok
+        ? `<b>Structure written, assets incomplete.</b> ${esc(j.warning || j.error || "")}
+           ${j.merge_warning ? `<div class="sub" style="margin-top:6px;color:var(--you)">
+             <b>Merge conflicts.</b> ${esc(j.merge_warning)}</div>` : ""}
+           <div class="urlrow" onclick="copyUrl(this,'${esc(j.out_dir || "")}')">
+             <span class="u">${esc(j.out_dir || "")}</span><span class="cp">copy</span></div>
+           <div class="sub" style="margin-top:6px">Use <b>Assets</b> on the card to retry just
+             the fetch — that will not re-run the 12-minute conversion. To undo everything:
+             <span class="mono">git restore --source=HEAD -- devnotes/${esc(j.name || "")}</span></div>`
+        : `<b>Failed.</b> ${esc(j.error || "the skill did not finish")}`
+          + (j.log ? `<pre>${esc(j.log.slice(-1500))}</pre>` : ""), "err");
+    }
+  }, 4000);
+}
+
+// --- New DevNote --------------------------------------------------------
+let DN_SEL = new Set(), DN_POLL = null, DN_TICK = null, DN_T0 = 0, DN_JOB = null;
+
+function dnRenderLogs() {
+  const q = (document.getElementById("dn-filter").value || "").toLowerCase();
+  const rows = DRIVE_ROWS.filter(r => !q || r.slug.toLowerCase().includes(q))
+    .sort((a, b) => (a.parked_days ?? 1e9) - (b.parked_days ?? 1e9));
+  const el = document.getElementById("dn-logs");
+  if (!DRIVE_ROWS.length) {
+    el.innerHTML = `<div class="none">No Log folders loaded yet — Drive takes ~40s on
+      first load. Reopen this once the Log column fills in.</div>`;
+    return;
+  }
+  el.innerHTML = rows.length ? rows.map(r => `
+    <label><input type="checkbox" ${DN_SEL.has(r.slug) ? "checked" : ""}
+        onchange="dnToggle('${esc(r.slug)}')">
+      <span class="nm">${esc(r.slug)}</span>
+      <span class="dncount ${(r.devnotes || []).length ? "" : "none"}">${
+        (r.devnotes || []).length ? `in ${r.devnotes.length} DevNote${
+          r.devnotes.length > 1 ? "s" : ""}` : ""}</span>
+      <span class="ag">${r.parked_days == null ? "" : r.parked_days + "d"}</span></label>`).join("")
+    : `<div class="none">Nothing matches "${esc(q)}".</div>`;
+}
+
+function dnToggle(slug) {
+  DN_SEL.has(slug) ? DN_SEL.delete(slug) : DN_SEL.add(slug);
+  dnPreview();
+}
+
+function dnName() {
+  const author = document.getElementById("dn-author").value.trim();
+  const ini = (author.match(/[A-Za-z]+/g) || []).map(w => w[0].toLowerCase()).join("").slice(0, 4);
+  const dates = [...new Set([...DN_SEL].flatMap(n => n.match(/20\d{6}/g) || []))].sort();
+  const span = dates.length ? (dates[0] === dates[dates.length - 1]
+    ? [dates[0]] : [dates[0], dates[dates.length - 1]]) : [];
+  return {author, ini, dates,
+          name: ini && span.length ? ["devnote", ini, ...span].join("-") : "",
+          ok: !!(author && DN_SEL.size && span.length)};
+}
+
+function dnPreview() {
+  const {name, ok, author} = dnName();
+  const orcid = document.getElementById("dn-orcid").value.trim();
+  const email = document.getElementById("dn-email").value.trim();
+  document.getElementById("dn-name").textContent = name || "—";
+  let warn = "";
+  if (author && !DN_SEL.size) warn = "Pick at least one Log folder.";
+  else if (DN_SEL.size && !name && author) warn = "No date in the selected folder names.";
+  else if (!author && DN_SEL.size) warn = "An author name is needed to derive the name.";
+  if (orcid && !/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/.test(orcid)) warn = "ORCID looks wrong.";
+  if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) warn = "Email looks wrong.";
+  const reused = [...DN_SEL].filter(s =>
+    (DRIVE_ROWS.find(r => r.slug === s)?.devnotes || []).length);
+  document.getElementById("dn-warn").textContent = warn
+    || (DN_SEL.size
+        ? `Pooling ${DN_SEL.size} Log folder${DN_SEL.size > 1 ? "s" : ""}.`
+          + (reused.length ? ` ${reused.length} already appear${reused.length > 1 ? "" : "s"}`
+             + ` in another DevNote — allowed, just so you know.` : "")
+        : "");
+  document.getElementById("dn-create").disabled = !ok || !!warn;
+}
+
+function openNewDevNote() {
+  DN_SEL = new Set();
+  document.getElementById("newdn").showModal();
+  ["dn-author", "dn-email", "dn-orcid", "dn-inst", "dn-filter"]
+    .forEach(id => document.getElementById(id).value = "");
+  document.getElementById("dn-status").hidden = true;
+  document.getElementById("dn-create").hidden = false;
+  document.getElementById("dn-cancel").textContent = "Cancel";
+  dnRenderLogs();
+  dnPreview();
+  document.getElementById("dn-author").focus();
+}
+
+function closeDn() {
+  if (DN_POLL) { clearInterval(DN_POLL); DN_POLL = null; }
+  if (DN_TICK) { clearInterval(DN_TICK); DN_TICK = null; }
+  document.getElementById("newdn").close();
+}
+
+function dnStatus(html, cls) {
+  const el = document.getElementById("dn-status");
+  el.hidden = false;
+  el.className = "status" + (cls ? " " + cls : "");
+  el.innerHTML = html;
+}
+
+function dnProgress(name, n) {
+  const s = Math.round((Date.now() - DN_T0) / 1000);
+  const step = s < 60 ? `reading the ${n} selected Log folder${n > 1 ? "s" : ""}`
+             : s < 180 ? "inventorying assets and checking for stubs"
+             : s < 360 ? "synthesizing the draft across the set"
+             : "writing the Doc and figure manifest";
+  dnStatus(`<span class="spin"></span>Drafting <span class="mono">${esc(name)}</span> — ${step}.`
+    + ` <b>${mmss(s)}</b> elapsed, usually several minutes.`
+    + `<div class="sub" style="margin-top:6px">Safe to close — it keeps running and the `
+    + `links come back on the board.</div>`);
+}
+
+async function createDevNote() {
+  const {name, ok} = dnName();
+  if (!ok) return;
+  const body = {
+    author: document.getElementById("dn-author").value.trim(),
+    email: document.getElementById("dn-email").value.trim(),
+    orcid: document.getElementById("dn-orcid").value.trim(),
+    institution: document.getElementById("dn-inst").value.trim(),
+    logs: [...DN_SEL],
+  };
+  document.getElementById("dn-create").disabled = true;
+  DN_T0 = Date.now();
+  dnProgress(name, DN_SEL.size);
+  DN_TICK = setInterval(() => dnProgress(name, body.logs.length), 1000);
+  let job;
+  try {
+    const r = await fetch("/api/new-devnote", {method: "POST",
+      headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+    job = await r.json();
+    if (!r.ok) throw new Error(job.error || "request refused");
+  } catch (e) {
+    clearInterval(DN_TICK); DN_TICK = null;
+    document.getElementById("dn-create").disabled = false;
+    return dnStatus(`Could not start: ${esc(e.message)}`, "err");
+  }
+  DN_JOB = job.job;
+  try { localStorage.setItem("devstudio.job", job.job); } catch (e) {}
+  DN_POLL = setInterval(async () => {
+    const j = await (await fetch(`/api/job?id=${DN_JOB}`)).json();
+    if (j.status === "running") return;
+    clearInterval(DN_POLL); DN_POLL = null;
+    clearInterval(DN_TICK); DN_TICK = null;
+    if (j.status === "done") {
+      LAST_LOG = {...j, id: DN_JOB};
+      dnStatus(`<div class="done-head">Drafted <span class="mono">${esc(j.name)}</span></div>
+        <div class="sub">Pooled ${body.logs.length} Log folder(s). Review the draft and
+        comment in the Doc before it goes to MyST.</div>
+        <a class="link" href="${esc(j.doc_url || j.url)}" target="_blank" rel="noopener">${
+          esc(j.doc_url || j.url)}</a>
+        <div class="row-btns" style="justify-content:flex-start">
+          <button onclick="window.open('${esc(j.doc_url || j.url)}','_blank','noopener')">Open the draft</button>
+          <button onclick="window.open('${esc(j.url)}','_blank','noopener')">Open the folder</button>
+          <button onclick="copyLink(this)">Copy link</button>
+        </div>`, "ok");
+      document.getElementById("dn-create").hidden = true;
+      document.getElementById("dn-cancel").textContent = "Done";
+      renderBanner();
+      loadDriveLogs(); loadDevNotes();
+    } else {
+      document.getElementById("dn-create").disabled = false;
+      dnStatus(`<b>Failed.</b> ${esc(j.error || "the skill did not finish")}`
+        + (j.log ? `<pre>${esc(j.log.slice(-1500))}</pre>` : ""), "err");
+    }
+  }, 4000);
+}
+
+// --- New Log ------------------------------------------------------------
+// The board executes nothing, so this builds the name and hands you the prompt.
+const slugify = s => s.toLowerCase().trim()
+  .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+function newLogName() {
+  const d = (document.getElementById("nl-date").value || "").replace(/-/g, "");
+  const i = slugify(document.getElementById("nl-init").value);
+  const s = slugify(document.getElementById("nl-slug").value);
+  return {d, i, s, name: [d, i, s].filter(Boolean).join("-"), ok: d && i && s};
+}
+
+function previewName() {
+  const {name, ok, d} = newLogName();
+  document.getElementById("nl-name").textContent = name || "—";
+  const clash = allRows().some(r => r.slug === name);
+  const future = d && d > new Date().toISOString().slice(0, 10).replace(/-/g, "");
+  document.getElementById("nl-warn").className = "sub" + (clash ? " warn" : "");
+  document.getElementById("nl-warn").textContent = clash
+    ? "A work stream with this name already exists — pick another slug."
+    : future ? "That date is in the future." : "";
+  document.getElementById("nl-prompt").textContent = ok
+    ? `Use devstudio-new-log to create the Log folder ${name} in San Francisco Node/log, `
+      + `seeded from 00-template-LOG.`
+    : "Fill in all three parts.";
+  document.getElementById("nl-copy").disabled = !ok || clash;
+  document.getElementById("nl-create").disabled = !ok || clash;
+}
+
+function openNewLog() {
+  document.getElementById("nl-date").value = new Date().toISOString().slice(0, 10);
+  document.getElementById("nl-init").value = "";
+  document.getElementById("nl-slug").value = "";
+  document.getElementById("nl-status").hidden = true;
+  document.getElementById("nl-create").hidden = false;
+  document.getElementById("nl-copy").hidden = false;
+  document.getElementById("nl-cancel").textContent = "Cancel";
+  document.getElementById("newlog").showModal();
+  // Clear AFTER showModal: the browser restores values as the dialog opens, so
+  // clearing first lets a stale value come back and the next keystroke appends to it.
+  document.getElementById("nl-init").value = "";
+  document.getElementById("nl-slug").value = "";
+  previewName();
+  document.getElementById("nl-init").focus();
+}
+
+let NL_POLL = null, NL_TICK = null, NL_T0 = 0;
+
+const mmss = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+
+function nlProgress(name) {
+  const s = Math.round((Date.now() - NL_T0) / 1000);
+  const step = s < 20 ? "resolving the log folder and template"
+             : s < 40 ? "creating the folder"
+             : "copying LOG, BUILD-PLATE, notebooks and resources/";
+  nlStatus(`<span class="spin"></span>Creating <span class="mono">${esc(name)}</span>`
+    + ` — ${step}. <b>${mmss(s)}</b> elapsed, usually about 1:00.`
+    + `<div class="sub" style="margin-top:6px">Safe to close this — the run continues and the `
+    + `link comes back on the board.</div>`);
+}
+
+function nlStatus(html, cls) {
+  const el = document.getElementById("nl-status");
+  el.hidden = false;
+  el.className = "status" + (cls ? " " + cls : "");
+  el.innerHTML = html;
+}
+
+function closeNewLog() {
+  if (NL_POLL) { clearInterval(NL_POLL); NL_POLL = null; }
+  if (NL_TICK) { clearInterval(NL_TICK); NL_TICK = null; }
+  document.getElementById("newlog").close();
+}
+
+function nlBusy(on) {
+  document.getElementById("nl-create").disabled = on;
+  document.getElementById("nl-copy").disabled = on;
+}
+
+async function createNewLog() {
+  const {d, i, s, name, ok} = newLogName();
+  if (!ok) return;
+  nlBusy(true);
+  NL_T0 = Date.now();
+  nlProgress(name);
+  NL_TICK = setInterval(() => nlProgress(name), 1000);
+  let job;
+  try {
+    const r = await fetch("/api/new-log", {method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({date: d, initials: i, slug: s})});
+    job = await r.json();
+    if (r.status === 409) {
+      nlBusy(false);
+      return nlStatus(`<b>Already exists.</b> ${esc(job.error)}`
+        + (job.existing ? ` <a href="${esc(job.existing)}" target="_blank" rel="noopener">`
+          + `Open the existing folder →</a>` : "")
+        + `<div class="sub" style="margin-top:6px">Nothing was created. `
+        + `Change the experiment slug to make a distinct name.</div>`, "err");
+    }
+    if (!r.ok) throw new Error(job.error || "request refused");
+  } catch (e) {
+    nlBusy(false);
+    return nlStatus(`Could not start: ${esc(e.message)}`, "err");
+  }
+  LAST_LOG = {id: job.job};
+  NL_POLL = setInterval(() => pollJob(job.job), 2500);
+  try { localStorage.setItem("devstudio.job", job.job); } catch (e) {}
+}
+
+async function pollJob(id) {
+  const j = await (await fetch(`/api/job?id=${id}`)).json();
+  if (j.status === "running") return;
+  clearInterval(NL_POLL); NL_POLL = null;
+  if (NL_TICK) { clearInterval(NL_TICK); NL_TICK = null; }
+  nlBusy(false);
+  if (j.status === "done") {
+    nlDone(j);
+  } else {
+    nlStatus(`<b>Failed.</b> ${esc(j.error || "the skill did not finish")}`
+      + (j.log ? `<pre>${esc(j.log.slice(-1200))}</pre>` : ""), "err");
+  }
+}
+
+// Split out so the success state can be exercised without creating a Drive folder.
+function nlDone(j) {
+  LAST_LOG = {...j, id: LAST_LOG && LAST_LOG.id ? LAST_LOG.id : j.id};
+  loadDriveLogs();
+  nlStatus(
+    `<div class="done-head">Created <span class="mono">${esc(j.name)}</span></div>
+     <div class="sub">LOG, BUILD-PLATE, both notebooks and resources/ copied from the template.</div>
+     <a class="link" href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.url)}</a>
+     <div class="row-btns" style="justify-content:flex-start">
+       <button onclick="window.open('${esc(j.url)}','_blank','noopener')">Open in Drive</button>
+       <button onclick="copyLink(this)">Copy link</button>
+     </div>`, "ok");
+  document.getElementById("nl-create").hidden = true;
+  document.getElementById("nl-copy").hidden = true;
+  document.getElementById("nl-cancel").textContent = "Done";
+  renderBanner();
+}
+
+function copyLink(btn) {
+  if (!LAST_LOG) return;
+  copy(LAST_LOG.url);
+  btn.textContent = "Copied";
+  setTimeout(() => btn.textContent = "Copy link", 1400);
+}
+
+// The link outlives the dialog -- the folder is the thing you paste to someone.
+function renderBanner() {
+  if (!LAST_LOG) return;
+  const el = document.getElementById("banner");
+  el.hidden = false;
+  el.innerHTML = `<span>New Log folder <span class="mono">${esc(LAST_LOG.name)}</span></span>
+    <span class="grow"></span>
+    <a href="${esc(LAST_LOG.doc_url || LAST_LOG.url)}" target="_blank" rel="noopener">Open in Drive →</a>
+    <button onclick="copyLink(this)">Copy link</button>
+    <button onclick="dismissBanner()">Dismiss</button>`;
+}
+
+function copyNewLog() {
+  const {ok} = newLogName();
+  if (!ok) return;
+  copy(document.getElementById("nl-prompt").textContent);
+  const b = document.getElementById("nl-copy");
+  b.textContent = "Copied";
+  setTimeout(() => { b.textContent = "Copy prompt"; document.getElementById("newlog").close(); }, 900);
+}
+
+async function paint(url) {
+  const d = await (await fetch(url)).json();
+  ROWS = d.rows;
+  document.getElementById("mode").textContent =
+    d.gh_pending ? "loading Drive…" : "live";
+  render();
+}
+let DRIVE_ROWS = [];
+
+async function loadDevNotes() {
+  try {
+    const d = await (await fetch("/api/devnotes")).json();
+    DEVNOTE_ROWS = (d.rows || []).map((r, n) => ({...r, index: `n${n}`}));
+    OUT_ROOT = d.out_root || null;
+    VENUE = d.venue || null;
+  } catch (e) { /* leave empty */ }
+  render();
+}
+
+async function loadDriveLogs() {
+  try {
+    const d = await (await fetch("/api/logs")).json();
+    DRIVE_ROWS = (d.rows || []).map((r, n) => ({...r, index: `d${n}`}));
+    DRIVE_ERR = d.error || null;
+  } catch (e) {
+    DRIVE_ERR = e.message;
+  }
+  render();
+}
+
+function dismissed() {
+  try { return JSON.parse(localStorage.getItem("devstudio.dismissed") || "[]"); }
+  catch (e) { return []; }
+}
+
+function dismissBanner() {
+  document.getElementById("banner").hidden = true;
+  if (!LAST_LOG || !LAST_LOG.id) return;
+  try {
+    localStorage.setItem("devstudio.dismissed",
+      JSON.stringify([...dismissed(), LAST_LOG.id].slice(-40)));
+  } catch (e) {}
+}
+
+// A run started before a reload still finishes. Pick it back up.
+async function resumeJobs() {
+  let jobs = [];
+  try { jobs = (await (await fetch("/api/jobs")).json()).jobs || []; } catch (e) { return; }
+  const running = jobs.find(j => j.status === "running");
+  if (running) {
+    LAST_LOG = running;
+    const el = document.getElementById("banner");
+    el.hidden = false;
+    el.innerHTML = `<span class="spin"></span><span>Creating
+      <span class="mono">${esc(running.name)}</span> — still running.</span>`;
+    NL_POLL = setInterval(async () => {
+      const j = await (await fetch(`/api/job?id=${running.id}`)).json();
+      if (j.status === "running") return;
+      clearInterval(NL_POLL); NL_POLL = null;
+      LAST_LOG = {...j, id: running.id};
+      if (j.status === "done") { renderBanner(); loadDriveLogs(); loadDevNotes(); }
+      else { el.innerHTML = `<span>Creating <span class="mono">${esc(running.name)}</span>
+        failed: ${esc(j.error || "see the server log")}</span>`; }
+    }, 3000);
+    return;
+  }
+  const skip = dismissed();
+  const last = jobs.find(j => j.status === "done" && !skip.includes(j.id));
+  if (last) { LAST_LOG = last; renderBanner(); }
+}
+
+async function load() {
+  await paint("/api/fleet?gh=0");   // paints immediately from disk
+  loadDriveLogs();                  // Drive is slow; let it land on its own
+  loadDevNotes();
+  resumeJobs();                     // a run from before a reload is still yours
+  await paint("/api/fleet");        // GitHub layers in, in parallel across DevNotes
+}
+load();
+</script>
+</body>
+</html>
