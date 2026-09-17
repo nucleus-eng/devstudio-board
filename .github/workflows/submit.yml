@@ -1,0 +1,18 @@
+name: Curvenote Submit
+on:
+  push:
+    branches: ['main']
+permissions:
+  contents: write
+jobs:
+  create-submission:
+    uses: curvenote/actions/.github/workflows/submit.yml@v1
+    with:
+      venue: bnext-devnotes
+      kind: devnote
+      collection: developer-cells
+      path: devnotes/*
+      id-pattern-regex: ^(nucleus-devnote-core-[a-zA-Z0-9-_]{3,50}|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[A-Za-z][A-Za-z0-9_-]{2,49})$
+    secrets:
+      CURVENOTE: ${{ secrets.CURVENOTE_TOKEN }}
+      GITHUB: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,5 @@
+{
+  "schema": "devstudio-devnote-log-map/1",
+  "note": "Which Log folders each DevNote was pooled from. Mirrors the copy in Drive at San Francisco Node/devnotes/devnote-log-map.json so the board can read it without a Drive round trip. A Log may appear in more than one DevNote.",
+  "devnotes": []
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "devstudio-board-config/1",
+  "note": "Config the DevStudio board reads so it does not hardcode Drive ids or venue names.",
+  "venue": {
+    "name": "bnext-devnotes",
+    "kind": "devnote",
+    "collection": "developer-cells"
+  },
+  "paths": {
+    "devnotes": "devnotes",
+    "docs": "docs",
+    "resources": "resources",
+    "devnote_log_map": ".devstudio/devnote-log-map.json"
+  },
+  "drive": {
+    "root": { "name": "San Francisco Node", "id": "1d2QuOtPDdSxuF1z7NlRt-MtJdNKgNI7s" },
+    "log": { "name": "log", "id": "1Lpy1mHiwZ1Hkdk4KG7fqwK3xUbpPeTFO" },
+    "devnotes": { "name": "devnotes", "id": "1E2aqj6SIm0OXVrTBShsciS0rNA5NmS6A" },
+    "log_template": { "name": "00-template-LOG", "id": "14qvevP5lq8a9VgxO-73b-mF1QpvC43NA" },
+    "devnote_template": { "name": "00-devnote-template", "id": "1lSouKUgE8wPYdTCfQMA6RNM8k8BVICqY" }
+  },
+  "naming": {
+    "log_folder": "YYYYMMDD-<initials>-<exp-slug>",
+    "devnote": "devnote-<initials>-<startdate>-<enddate>"
+  }
+}

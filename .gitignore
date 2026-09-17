@@ -3,3 +3,9 @@ __pycache__/
 .DS_Store
 .devnote-map.json
 .drive-logs.json
+node_modules/
+_build/
+.ipynb_checkpoints/
+# CI never runs npm install for a devnote's own package.json, so the shared
+# curvenote plugin's own node_modules is committed on purpose.
+!/plugins/seqviz/node_modules/
