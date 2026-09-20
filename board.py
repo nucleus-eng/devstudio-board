@@ -911,6 +911,15 @@ def drive_log_row(f):
 
 
 # Drafting a DevNote reads logs, notebooks and data, then writes a Doc + manifest.
+# Drafting a DevNote(G) is not Drive-only work, even though it looks like it should
+# be: pulling an embedded figure out of a Log Doc or notebook means running pandoc
+# --extract-media, a local, Bash-invoked step, on a downloaded copy of the file.
+# This list originally had no local-execution tools at all, on the wrong assumption
+# that this stage only ever calls the Drive connector. Confirmed missing in practice
+# 2026-09-20: a real run reported "Bash was not permitted during this session, so
+# pandoc with --extract-media could not run", and every figure was left blocked with
+# a REVIEW flag instead of being fabricated — the right failure mode given the
+# constraint, but the constraint itself was a bug here, not a real limit.
 DEVNOTE_TOOLS = [
     "mcp__claude_ai_Google_Drive__search_files",
     "mcp__claude_ai_Google_Drive__get_file_metadata",
@@ -918,6 +927,7 @@ DEVNOTE_TOOLS = [
     "mcp__claude_ai_Google_Drive__download_file_content",
     "mcp__claude_ai_Google_Drive__create_file",
     "mcp__claude_ai_Google_Drive__copy_file",
+    "Read", "Write", "Glob", "Grep", "Bash",
 ]
 ORCID_RE = re.compile(r"^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$")
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
@@ -1378,6 +1388,17 @@ def _run_devnote(job_id, payload, repo):
         f"Log folders from '{DRIVE_ROOT_NAME}/logs':\n{logs}\n\n"
         f"This set is the human's authoritative selection — do not add or drop folders, and "
         f"do not go looking for others.\n\n"
+        f"This run has nobody available to answer a question mid-draft, so decide figure "
+        f"selection yourself using this rule instead of stopping to ask: include every figure "
+        f"that carries a `#| label:` tag in its source notebook, and every item referenced "
+        f"through an `@claude` instruction anywhere in a log doc (a Zarr viewer URL under "
+        f"`data.nucleus.engineering/**.zarr` counts as this even if it appears only inside "
+        f"an `@claude` comment — the skill's own rule on this is to record it, never fetch "
+        f"or verify it against Drive, since it is not a Drive-hosted asset). Bundle each "
+        f"included figure with its dependencies (backing notebook, platemap, raw data) the "
+        f"normal way. Leave out anything unlabeled and not referenced through `@claude`, and "
+        f"note each omission as a REVIEW comment in the draft so the TA reviewing the Doc can "
+        f"add one back by hand if this default guessed wrong.\n\n"
         f"Write the result into '{DRIVE_ROOT_NAME}/devnotes', inside a NEW folder named "
         f"exactly '{payload['name']}'. Name the draft Google Doc 'main' and write the figure "
         f"manifest alongside it, following the existing devnotes/ layout.\n\n"

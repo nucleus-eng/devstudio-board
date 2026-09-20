@@ -1,12 +1,10 @@
 {
-  "name": "bnext-examples",
+  "name": "devnote-template",
   "version": "0.0.0",
-  "description": "Minimal package file for dependencies only.",
+  "description": "Minimal package file for build-time plugin dependencies only.",
   "type": "module",
-  "author": "Steve Purves <steve@curvenote.com>",
   "license": "MIT",
   "dependencies": {
-    "seqparse": "^0.2.1",
-    "unist-builder": "^4.0.0"
+    "seqparse": "^0.2.2"
   }
 }
