@@ -8,26 +8,26 @@
 :root{
   --bg:#fbfbfa; --panel:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e3e2dd;
   --done:#3f8f5f; --active:#c08b2a; --failed:#c0503f; --todo:#c9c9c3; --unknown:#8a8ad0;
-  --accent:#2f5fd0; --code:#f3f2ee; --you:#c0503f; --hot:#fdf0ee;
+  --accent:#0d7a3f; --code:#f5f6f3; --you:#c0503f; --hot:#fdf0ee;
 }
-@media (prefers-color-scheme:dark){:root{
+:root[data-theme="dark"]{
   --bg:#17181a; --panel:#1f2124; --ink:#e9e8e4; --muted:#9a9a94; --line:#33353a;
   --done:#63b183; --active:#d9aa4d; --failed:#e0796a; --todo:#44464b; --unknown:#9fa0e0;
-  --accent:#7fa5f5; --code:#26282c; --you:#e0796a; --hot:#2a2022;
-}}
+  --accent:#4fae72; --code:#26282c; --you:#e0796a; --hot:#2a2022;
+}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
   font:15px/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif}
 .wrap{max-width:1180px;margin:0 auto;padding:26px 16px 120px}
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
-h1{font-size:19px;margin:0;letter-spacing:-.01em}
-.sub{color:var(--muted);font-size:13px}
+h1{font-size:28px;margin:0;letter-spacing:-.01em;font-weight:800}
+.sub{color:var(--muted);font-size:14px}
 header{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
   padding-bottom:16px;border-bottom:1px solid var(--line)}
 .badge{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);
   border-radius:20px;padding:2px 9px;color:var(--muted);vertical-align:middle;margin-left:8px}
 button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--panel);
-  color:var(--ink);border-radius:7px;padding:5px 10px;font-size:13px}
+  color:var(--ink);border-radius:8px;padding:5px 10px;font-size:13px}
 button:hover{border-color:var(--accent)}
 
 .toggle{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
@@ -37,14 +37,15 @@ button:hover{border-color:var(--accent)}
 /* phase view */
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px;
   margin-top:22px;align-items:start}
-.col{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.col{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 1px 3px rgba(20,20,15,.05)}
 .col>h3{margin:0;padding:10px 13px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;
   color:var(--muted);border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
 .col .wip{color:var(--ink)}
 .card .stage a{color:var(--done);text-decoration:none}
 .card .stage a:hover{text-decoration:underline}
 .card .stage.inmap{color:var(--done)}
-.card{padding:10px 13px;border-bottom:1px solid var(--line)}
+.card{padding:16px 18px;border-bottom:1px solid var(--line)}
 .card:last-child{border-bottom:0}
 .card:hover{background:var(--code)}
 .card .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
@@ -64,7 +65,8 @@ button:hover{border-color:var(--accent)}
 .card.gate{box-shadow:inset 3px 0 0 var(--active)}
 .empty{padding:16px 13px;color:var(--muted);font-size:12.5px}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:18px 0 8px}
-.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;
+  box-shadow:0 1px 3px rgba(20,20,15,.05)}
 .tile.alarm{border-color:var(--you);background:var(--hot)}
 .tile h3{margin:0 0 4px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .tile .big{font-size:25px;letter-spacing:-.02em;line-height:1.1}

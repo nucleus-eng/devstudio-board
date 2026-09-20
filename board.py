@@ -1832,9 +1832,13 @@ def main():
         print(json.dumps(t if isinstance(t, dict) else build_state(t), indent=2))
         return
 
-    _load_devnote_cache()
-    _load_logs_cache()
-    _load_docs_cache()
+    if not a.demo:
+        # Demo mode must never leak real Drive state onto screen — that is the
+        # one thing it promises. These caches hold whatever the last real run
+        # against a real deployment Drive saw.
+        _load_devnote_cache()
+        _load_logs_cache()
+        _load_docs_cache()
     Handler.targets = targets
     Handler.repo = str(Path(a.repo).expanduser().resolve()) if a.repo else None
     global DRIVE_ROOT_NAME
