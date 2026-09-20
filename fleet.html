@@ -179,7 +179,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid va
     <div style="display:flex;gap:8px;align-items:center">
       <button onclick="openNewLog()">+ New Log</button>
       <button onclick="openNewDevNote()">+ New DevNote</button>
-      <button onclick="load()">Refresh</button>
+      <button onclick="forceRefresh()">Refresh</button>
     </div>
   </header>
 
@@ -1146,6 +1146,32 @@ async function resumeJobs() {
   const skip = dismissed();
   const last = jobs.find(j => j.status === "done" && !skip.includes(j.id));
   if (last) { LAST_LOG = last; renderBanner(); }
+}
+
+async function forceRefresh() {
+  // Clicking Refresh should mean a real check against Drive, not the same
+  // cached read a plain page load gets — that cache can hold a stale answer
+  // for up to five minutes, and a folder someone just added would not show.
+  const badge = document.getElementById("mode");
+  const was = badge.textContent;
+  badge.textContent = "checking Drive…";
+  try {
+    await Promise.all([
+      fetch("/api/logs?force=1").then(r => r.json()).then(d => {
+        DRIVE_ROWS = (d.rows || []).map((r, n) => ({...r, index: `d${n}`}));
+      }),
+      fetch("/api/devnotes?force=1").then(r => r.json()).then(d => {
+        DEVNOTE_ROWS = (d.rows || []).map((r, n) => ({...r, index: `n${n}`}));
+        OUT_ROOT = d.out_root || null;
+        VENUE = d.venue || null;
+      }),
+      fetch("/api/docs?force=1").then(r => r.json()).then(d => {
+        DOC_ROWS = (d.rows || []).map((r, n) => ({...r, index: `o${n}`}));
+      }),
+    ]);
+  } catch (e) { /* leave whatever loaded */ }
+  badge.textContent = was;
+  render();
 }
 
 async function load() {

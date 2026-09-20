@@ -1722,7 +1722,8 @@ class Handler(BaseHTTPRequestHandler):
                     else "fleet.html"
                 self._send(200, (self.here / page).read_text(), "text/html; charset=utf-8")
             elif path == "/api/logs":
-                rows, err = drive_logs(self.repo)
+                force = "force=1" in self.path
+                rows, err = drive_logs(self.repo, REFRESH_NOW if force else LOGS_TTL)
                 out = [drive_log_row(f) for f in rows
                        if f.get("name") and not TEMPLATE_RE.search(f["name"])]
                 # Cache only: never rebuild here. Rebuilding is opt-in via
@@ -1734,7 +1735,8 @@ class Handler(BaseHTTPRequestHandler):
                                             "skipped_templates": len(rows) - len(out)}),
                            "application/json")
             elif path == "/api/docs":
-                rows, err = drive_docs(self.repo)
+                force = "force=1" in self.path
+                rows, err = drive_docs(self.repo, REFRESH_NOW if force else LOGS_TTL)
                 self._send(200, json.dumps(
                     {"rows": [drive_doc_row(f) for f in rows], "error": err}),
                     "application/json")
@@ -1750,7 +1752,8 @@ class Handler(BaseHTTPRequestHandler):
                 dn, err = drive_devnotes(self.repo, names)
                 self._send(200, json.dumps({"devnotes": dn, "error": err}), "application/json")
             elif path == "/api/devnotes":
-                rows, err = drive_devnote_index(self.repo)
+                force = "force=1" in self.path
+                rows, err = drive_devnote_index(self.repo, REFRESH_NOW if force else LOGS_TTL)
                 out = []
                 for d in rows:
                     row = devnote_row(d)
