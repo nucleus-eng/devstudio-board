@@ -549,6 +549,23 @@ def fleet_row(state):
 DEFAULT_DRIVE_ROOT_NAME = "DevStudio-Event"
 DRIVE_ROOT_NAME = DEFAULT_DRIVE_ROOT_NAME
 DRIVE_ROOT_ID = "1b1vQ-C-WWDaZEjJ2DJHVX6vJHmtNCiR0"   # DevStudio-Event, 2026-09-20 deployment
+
+# A listing call has, in practice, reported a folder as one of its own children —
+# confirmed 2026-09-20: /api/docs returned the docs/ folder itself, id
+# 17ajfQQ2Z2p0reE4vUsIRI3TAcddkBssY, as a row inside docs/. Whatever asked for a
+# folder's children must never see the folder's own id come back as a result, so
+# every listing function drops rows matching a known container id below.
+KNOWN_CONTAINER_IDS = {
+    "1b1vQ-C-WWDaZEjJ2DJHVX6vJHmtNCiR0",   # DevStudio-Event (root)
+    "14sW3RW3rJ3_0orAMf3ltxAOxmRoSE86M",   # logs/
+    "11-lc-uNir9twSKUlokluy7vz8_-Jo8sd",   # devnotes/
+    "17ajfQQ2Z2p0reE4vUsIRI3TAcddkBssY",   # docs/
+}
+
+
+def drop_self_rows(rows):
+    """Filter out any row whose id is a known container's own id."""
+    return [r for r in rows if r.get("id") not in KNOWN_CONTAINER_IDS]
 DRIVE_READ_TOOLS = [
     "mcp__claude_ai_Google_Drive__search_files",
     "mcp__claude_ai_Google_Drive__get_file_metadata",
@@ -610,6 +627,7 @@ def drive_logs(repo, max_age=LOGS_TTL):
         rows = json.loads(m.group(0)) if m else None
         if not isinstance(rows, list):
             raise ValueError("no JSON array in the reply")
+        rows = drop_self_rows(rows)
         _LOGS.update({"ts": now, "rows": rows, "error": None})
         _save_logs_cache()
     except Exception as e:
@@ -669,6 +687,7 @@ def drive_docs(repo, max_age=LOGS_TTL):
         rows = json.loads(m.group(0)) if m else None
         if not isinstance(rows, list):
             raise ValueError("no JSON array in the reply")
+        rows = drop_self_rows(rows)
         _DOCS.update({"ts": now, "rows": rows, "error": None})
         _save_docs_cache()
     except Exception as e:
@@ -752,6 +771,7 @@ def drive_devnote_index(repo, max_age=LOGS_TTL):
         rows = json.loads(m.group(0)) if m else None
         if not isinstance(rows, list):
             raise ValueError("no JSON array in the reply")
+        rows = drop_self_rows(rows)
         _DEVNOTES.update({"ts": now, "rows": rows, "error": None})
         _save_devnote_cache()
     except Exception as e:
@@ -841,6 +861,7 @@ def drive_devnotes(repo, log_names, max_age=None):
         rows = json.loads(m.group(0)) if m else None
         if not isinstance(rows, list):
             raise ValueError("no JSON array in the reply")
+        rows = drop_self_rows(rows)
         _DEVNOTES.update({"ts": now, "rows": rows, "error": None})
         _save_devnote_cache()
     except Exception as e:
