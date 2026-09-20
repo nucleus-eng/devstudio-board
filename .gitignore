@@ -3,6 +3,7 @@ __pycache__/
 .DS_Store
 .devnote-map.json
 .drive-logs.json
+.drive-docs.json
 node_modules/
 _build/
 .ipynb_checkpoints/

@@ -173,7 +173,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid va
 <div class="wrap">
   <header>
     <div><h1>DevStudio <span class="badge" id="mode">loading…</span></h1>
-      <div class="sub" id="tag">Live from San Francisco Node in Drive</div></div>
+      <div class="sub" id="tag">Live from the deployment Drive</div></div>
     <div style="display:flex;gap:8px;align-items:center">
       <button onclick="openNewLog()">+ New Log</button>
       <button onclick="openNewDevNote()">+ New DevNote</button>
@@ -186,7 +186,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid va
   <div id="groups"></div>
 
   <footer>
-    Log and DevNote are read live from <span class="mono">San Francisco Node</span> in Drive.
+    Log and DevNote are read live from the deployment Drive.
     Which Logs a DevNote was pooled from comes from
     <span class="mono">devnotes/devnote-log-map.json</span>, the shared cache every TA reads —
     a Log can appear in more than one DevNote.
@@ -242,7 +242,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid va
   <form method="dialog" onsubmit="return false" autocomplete="off">
     <h3>New DevNote</h3>
     <p class="sub">Pools the Log folders you pick into one draft Doc in
-      <span class="mono">San Francisco Node/devnotes</span>.</p>
+      <span class="mono">devnotes/</span>.</p>
 
     <div class="two">
       <label>Author name <input id="dn-author" placeholder="Anton Molina"
@@ -278,7 +278,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid va
   <form method="dialog" onsubmit="return false" autocomplete="off">
     <h3>New Log folder</h3>
     <p class="sub">Seeded from <span class="mono">00-template-LOG</span> into
-      <span class="mono">San Francisco Node/log</span>.</p>
+      <span class="mono">logs/</span>.</p>
     <label>Date <span class="sub">experiment date, not today if they differ</span>
       <input id="nl-date" type="date" oninput="previewName()" onchange="previewName()"></label>
     <label>Initials <span class="sub">the experimenter's</span>
@@ -348,6 +348,18 @@ function logCard(r) {
   </div>`;
 }
 
+function docCard(r) {
+  return `<div class="card">
+    <div class="top"><span class="name">${r.url
+        ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.slug)}</a>`
+        : esc(r.slug)}</span>
+      <span class="park${r.parked_days >= 7 ? " hot" : ""}">${
+        r.parked_days == null ? "—" : r.parked_days + "d"}</span></div>
+    <div class="stage">${r.isFolder ? "folder" : "file"}</div>
+    ${urlLine(r.url)}
+  </div>`;
+}
+
 function devnoteCard(r) {
   return `<div class="card">
     <div class="top"><span class="name"><a href="${esc(r.doc_url || r.url)}" target="_blank"
@@ -379,9 +391,9 @@ function devnoteCard(r) {
 
 function renderPhase() {
   const cols = [
-    ["Log", DRIVE_ROWS, logCard, "sf-node/log"],
-    ["DevNote", DEVNOTE_ROWS, devnoteCard, "sf-node/devnotes"],
-    ["Docs", [], null, "sf-node/docs"],
+    ["Log", DRIVE_ROWS, logCard, "logs/"],
+    ["DevNote", DEVNOTE_ROWS, devnoteCard, "devnotes/"],
+    ["Docs", DOC_ROWS, docCard, "docs/"],
   ];
   document.getElementById("groups").innerHTML = `<div class="cols">` + cols.map(
     ([label, rows, fn, src]) => `<div class="col">
@@ -876,7 +888,7 @@ async function createDevNote() {
       document.getElementById("dn-create").hidden = true;
       document.getElementById("dn-cancel").textContent = "Done";
       renderBanner();
-      loadDriveLogs(); loadDevNotes();
+      loadDriveLogs(); loadDevNotes(); loadDocs();
     } else {
       document.getElementById("dn-create").disabled = false;
       dnStatus(`<b>Failed.</b> ${esc(j.error || "the skill did not finish")}`
@@ -907,7 +919,7 @@ function previewName() {
     ? "A work stream with this name already exists — pick another slug."
     : future ? "That date is in the future." : "";
   document.getElementById("nl-prompt").textContent = ok
-    ? `Use devstudio-new-log to create the Log folder ${name} in San Francisco Node/log, `
+    ? `Use devstudio-new-log to create the Log folder ${name} in logs/, `
       + `seeded from 00-template-LOG.`
     : "Fill in all three parts.";
   document.getElementById("nl-copy").disabled = !ok || clash;
@@ -1062,7 +1074,15 @@ async function paint(url) {
     d.gh_pending ? "loading Drive…" : "live";
   render();
 }
-let DRIVE_ROWS = [];
+let DRIVE_ROWS = [], DOC_ROWS = [];
+
+async function loadDocs() {
+  try {
+    const d = await (await fetch("/api/docs")).json();
+    DOC_ROWS = (d.rows || []).map((r, n) => ({...r, index: `o${n}`}));
+  } catch (e) { /* leave empty */ }
+  render();
+}
 
 async function loadDevNotes() {
   try {
@@ -1130,6 +1150,7 @@ async function load() {
   await paint("/api/fleet?gh=0");   // paints immediately from disk
   loadDriveLogs();                  // Drive is slow; let it land on its own
   loadDevNotes();
+  loadDocs();
   resumeJobs();                     // a run from before a reload is still yours
   await paint("/api/fleet");        // GitHub layers in, in parallel across DevNotes
 }

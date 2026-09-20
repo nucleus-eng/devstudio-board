@@ -542,7 +542,13 @@ def fleet_row(state):
 # ---------------------------------------------------------------- new log
 
 # The board still owns no Drive logic. It invokes the skill, which owns it.
-SF_NODE_ID = "1d2QuOtPDdSxuF1z7NlRt-MtJdNKgNI7s"   # San Francisco Node, per .devstudio/board.json
+# The deployment Drive root changes per event — pass its name with --drive-root.
+# "DevStudio-Event" was the 2026-09-20 deployment; earlier ones used
+# "San Francisco Node" with a "log" (singular) child folder and a Node layer that
+# this one dropped. Do not hardcode a specific event's name below this line.
+DEFAULT_DRIVE_ROOT_NAME = "DevStudio-Event"
+DRIVE_ROOT_NAME = DEFAULT_DRIVE_ROOT_NAME
+DRIVE_ROOT_ID = "1b1vQ-C-WWDaZEjJ2DJHVX6vJHmtNCiR0"   # DevStudio-Event, 2026-09-20 deployment
 DRIVE_READ_TOOLS = [
     "mcp__claude_ai_Google_Drive__search_files",
     "mcp__claude_ai_Google_Drive__get_file_metadata",
@@ -572,7 +578,7 @@ def _save_logs_cache():
 
 
 def drive_logs(repo, max_age=LOGS_TTL):
-    """Child folders of San Francisco Node/log, via a read-only `claude -p`.
+    """Child folders of the deployment's logs/ folder, via a read-only `claude -p`.
 
     Cached: each call costs a Claude run and several Drive round trips."""
     now = datetime.now(timezone.utc).timestamp()
@@ -590,8 +596,8 @@ def drive_logs(repo, max_age=LOGS_TTL):
                              daemon=True).start()
         return _LOGS["rows"], _LOGS["error"]
     prompt = (
-        "Find the Google Drive folder 'San Francisco Node', then its child folder 'log'. "
-        "List every child FOLDER of that 'log' folder. "
+        f"Find the Google Drive folder '{DRIVE_ROOT_NAME}', then its child folder 'logs'. "
+        "List every child FOLDER of that 'logs' folder. "
         "Output ONLY a JSON array and nothing else — no prose, no code fence. Each element: "
         '{"name": <folder title>, "id": <file id>, "url": <viewUrl>, '
         '"createdTime": <RFC3339>, "modifiedTime": <RFC3339>}'
@@ -609,6 +615,77 @@ def drive_logs(repo, max_age=LOGS_TTL):
     except Exception as e:
         _LOGS.update({"ts": now, "error": f"could not read Drive: {e}"})
     return _LOGS["rows"], _LOGS["error"]
+
+
+# Docs is manual for now — no skill drafts or converts anything here. The board only
+# lists what a human already put in docs/, the same read-only pattern as Log.
+_DOCS = {"ts": 0.0, "rows": [], "error": None}
+DOCS_CACHE_FILE = Path(__file__).with_name(".drive-docs.json")
+
+
+def _load_docs_cache():
+    try:
+        d = json.loads(DOCS_CACHE_FILE.read_text())
+        if isinstance(d.get("rows"), list):
+            _DOCS.update({"ts": d.get("ts", 0.0), "rows": d["rows"], "error": None})
+    except (OSError, ValueError):
+        pass
+
+
+def _save_docs_cache():
+    try:
+        DOCS_CACHE_FILE.write_text(json.dumps({"ts": _DOCS["ts"], "rows": _DOCS["rows"]}))
+    except OSError:
+        pass
+
+
+def drive_docs(repo, max_age=LOGS_TTL):
+    """Direct children of the deployment's docs/ folder, folders and files both —
+    Docs(M) pages have no settled shape here yet, so this does not assume one."""
+    now = datetime.now(timezone.utc).timestamp()
+    if _DOCS["rows"] and now - _DOCS["ts"] < max_age:
+        return _DOCS["rows"], _DOCS["error"]
+    if not repo:
+        return _DOCS["rows"], "no --repo given, so Drive cannot be read"
+    if _DOCS["rows"] and max_age is not REFRESH_NOW:
+        if not _DOCS.get("refreshing"):
+            _DOCS["refreshing"] = True
+            threading.Thread(target=lambda: (drive_docs(repo, REFRESH_NOW),
+                                             _DOCS.update({"refreshing": False})),
+                             daemon=True).start()
+        return _DOCS["rows"], _DOCS["error"]
+    prompt = (
+        f"Find the Google Drive folder '{DRIVE_ROOT_NAME}', then its child folder 'docs'. "
+        "List every direct child of that 'docs' folder, folders and files both. "
+        "Output ONLY a JSON array and nothing else — no prose, no code fence. Each element: "
+        '{"name": <title>, "id": <file id>, "url": <viewUrl>, "isFolder": <true/false>, '
+        '"mimeType": <mimeType>, "createdTime": <RFC3339>, "modifiedTime": <RFC3339>}'
+    )
+    try:
+        r = subprocess.run(["claude", "-p", prompt, "--allowedTools", "ToolSearch",
+                            *DRIVE_READ_TOOLS], cwd=repo, capture_output=True,
+                           text=True, timeout=300)
+        m = re.search(r"\[.*\]", r.stdout or "", re.S)
+        rows = json.loads(m.group(0)) if m else None
+        if not isinstance(rows, list):
+            raise ValueError("no JSON array in the reply")
+        _DOCS.update({"ts": now, "rows": rows, "error": None})
+        _save_docs_cache()
+    except Exception as e:
+        _DOCS.update({"ts": now, "error": f"could not read docs/: {e}"})
+    return _DOCS["rows"], _DOCS["error"]
+
+
+def drive_doc_row(f):
+    """A Drive docs/ entry as a fleet card. No pipeline stage, no action buttons —
+    docs are handled by a human outside the board for now."""
+    return {
+        "slug": f.get("name"), "phase": "docs", "group": "drive", "source": "drive",
+        "url": f.get("url"), "doc_url": f.get("url") if not f.get("isFolder") else None,
+        "isFolder": bool(f.get("isFolder")),
+        "parked_days": days_since(f.get("modifiedTime") or f.get("createdTime")),
+        "author": None, "next_title": None, "next_prompt": None,
+    }
 
 
 # A DevNote's source Logs never change once it is drafted, so this map is near-static.
@@ -638,7 +715,7 @@ def _save_devnote_cache():
 
 
 def drive_devnote_index(repo, max_age=LOGS_TTL):
-    """DevNote folders in sf-node/devnotes, plus the shared log map stored beside them."""
+    """DevNote folders in the deployment devnotes/, plus the shared log map stored beside them."""
     now = datetime.now(timezone.utc).timestamp()
     if _DEVNOTES["rows"] and (max_age is not REFRESH_NOW and now - _DEVNOTES["ts"] < max_age):
         return _DEVNOTES["rows"], _DEVNOTES["error"]
@@ -653,7 +730,7 @@ def drive_devnote_index(repo, max_age=LOGS_TTL):
                 daemon=True).start()
         return _DEVNOTES["rows"], _DEVNOTES["error"]
     prompt = (
-        "Find the Google Drive folder 'San Francisco Node', then its child folder 'devnotes'. "
+        f"Find the Google Drive folder '{DRIVE_ROOT_NAME}', then its child folder 'devnotes'. "
         "Do two things:\n"
         f"1. Download the file named '{MAP_FILENAME}' in that folder if it exists, and read "
         "its 'devnotes' array.\n"
@@ -707,7 +784,7 @@ def push_devnote_map(repo, rows):
                        "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
                        "devnotes": rows}, indent=2)
     prompt = (
-        "In the Google Drive folder 'San Francisco Node' > 'devnotes':\n"
+        f"In the Google Drive folder '{DRIVE_ROOT_NAME}' > 'devnotes':\n"
         f"1. Note the file id of the existing file named '{MAP_FILENAME}', if any.\n"
         f"2. Create a new file named exactly '{MAP_FILENAME}' in that folder with "
         "contentMimeType 'application/json' and disableConversionToGoogleType true, whose "
@@ -742,7 +819,7 @@ def drive_devnotes(repo, log_names, max_age=None):
         return _DEVNOTES["rows"], None
     listing = ", ".join(sorted(log_names))
     prompt = (
-        "Find the Google Drive folder 'San Francisco Node', then its child folder 'devnotes'. "
+        f"Find the Google Drive folder '{DRIVE_ROOT_NAME}', then its child folder 'devnotes'. "
         "For each child FOLDER of 'devnotes' (skip any whose name contains 'template'): "
         "find the file inside it whose name contains 'manifest' and download its content. "
         "If the manifest has a 'source_logs' array, use it verbatim — that is authoritative. "
@@ -980,21 +1057,29 @@ def _run_curvenote(job_id, devnote_dir, venue, run_check=False):
                              capture_output=True, text=True, timeout=1800)
         out = ((sub.stdout or "") + (sub.stderr or "")).strip()
         result["log"] = out[-6000:]
-        # The venue link may be on curvenote.com, curve.space, or the venue's own
-        # domain, so collect every URL and pick the most submission-shaped one
-        # rather than assuming a host.
-        found = [u.rstrip(".,)>\"'") for u in re.findall(r"https?://[^\s\"'<>]+", out)]
-        seen = set()
-        urls = [u for u in found if not (u in seen or seen.add(u))]
-        def rank(u):
-            return (("submission" in u or "/s/" in u or "draft" in u) * 4
-                    + ("curvenote" in u or "curve.space" in u) * 2
-                    + ("nucleus" in u))
-        result["urls"] = urls
-        result["url"] = max(urls, key=rank) if urls else None
         result["status"] = "done" if sub.returncode == 0 else "error"
         if sub.returncode != 0:
+            # A failed run has no submission to link to. Curvenote's own CLI prints
+            # unrelated links on failure too (its update banner links x.com/curvenote),
+            # and picking one of those up here would show a fake "submitted" URL for
+            # a run that never submitted anything.
             result["error"] = "curvenote submit failed — see the log"
+        else:
+            # The venue link may be on curvenote.com, curve.space, or the venue's own
+            # domain, so collect every URL and pick the most submission-shaped one
+            # rather than assuming a host.
+            found = [u.rstrip(".,)>\"'") for u in re.findall(r"https?://[^\s\"'<>]+", out)]
+            seen = set()
+            urls = [u for u in found if not (u in seen or seen.add(u))]
+            def rank(u):
+                return (("submission" in u or "/s/" in u or "draft" in u) * 4
+                        + ("curvenote.com" in u or "curve.space" in u) * 2
+                        + ("nucleus" in u))
+            result["urls"] = urls
+            result["url"] = max(urls, key=rank) if urls else None
+            if not result["url"]:
+                result["status"] = "error"
+                result["error"] = "curvenote submit reported success but printed no URL"
     except subprocess.TimeoutExpired:
         result.update({"status": "error", "error": "curvenote timed out"})
     except FileNotFoundError:
@@ -1064,7 +1149,9 @@ def run_assemble(target: Path, drive_url, repo, doc_url=None):
         f"to be discovered:\n"
         f"  Target: {target}\n"
         f"  DevNote(G): {doc_url or '(unknown — find it in the DevNote folder below)'}\n"
-        f"  SF-Node folder ID: {SF_NODE_ID}\n\n"
+        f"  Root folder ID (the skill's invocation model calls this the 'SF-Node folder "
+        f"ID' — it is the deployment's current root, not literally San Francisco Node): "
+        f"{DRIVE_ROOT_ID}\n\n"
         f"The DevNote folder in Drive, which holds the figure manifest, is:\n"
         f"  {drive_url}\n\n"
         f"**Read the manifest first and use the Drive ids it already carries** — the "
@@ -1267,10 +1354,10 @@ def _run_devnote(job_id, payload, repo):
     a = payload
     prompt = (
         f"Use the devstudio-log-to-devnote-g skill to draft ONE DevNote(G) by pooling these "
-        f"Log folders from 'San Francisco Node/log':\n{logs}\n\n"
+        f"Log folders from '{DRIVE_ROOT_NAME}/logs':\n{logs}\n\n"
         f"This set is the human's authoritative selection — do not add or drop folders, and "
         f"do not go looking for others.\n\n"
-        f"Write the result into 'San Francisco Node/devnotes', inside a NEW folder named "
+        f"Write the result into '{DRIVE_ROOT_NAME}/devnotes', inside a NEW folder named "
         f"exactly '{payload['name']}'. Name the draft Google Doc 'main' and write the figure "
         f"manifest alongside it, following the existing devnotes/ layout.\n\n"
         f"Fill the Authors table with exactly one row and no others:\n"
@@ -1346,9 +1433,9 @@ def valid_log_name(date, initials, slug):
 def _run_new_log(job_id, name, repo):
     prompt = (
         f"Use the devstudio-new-log skill to create a new Log folder named exactly "
-        f"'{name}' inside the 'San Francisco Node/log' Google Drive folder, seeded from "
-        f"'00-template-LOG'. The folder name is already decided — do not ask for or change "
-        f"any part of it. Do not create anything outside San Francisco Node/log. "
+        f"'{name}' inside the '{DRIVE_ROOT_NAME}/logs' Google Drive folder, seeded from "
+        f"'00-TEMPLATE-LOG'. The folder name is already decided — do not ask for or change "
+        f"any part of it. Do not create anything outside {DRIVE_ROOT_NAME}/logs. "
         f"If a folder with that exact name already exists, stop and do not create a second one. "
         f"When you are finished, print the new folder's URL on the final line, "
         f"prefixed exactly with 'FOLDER_URL: '."
@@ -1450,7 +1537,7 @@ class Handler(BaseHTTPRequestHandler):
         hit = next((f for f in existing if (f.get("name") or "").strip() == name), None)
         if hit:
             return self._send(409, json.dumps(
-                {"error": f"A Log folder named {name} already exists in San Francisco Node/log.",
+                {"error": f"A Log folder named {name} already exists in {DRIVE_ROOT_NAME}/logs.",
                  "existing": hit.get("url"), "name": name}), "application/json")
 
         job_id = uuid.uuid4().hex[:12]
@@ -1521,7 +1608,7 @@ class Handler(BaseHTTPRequestHandler):
         known = {d.get("name") for d in _DEVNOTES["rows"]}
         if name not in known:
             return self._send(400, json.dumps(
-                {"error": f"{name or '(blank)'} is not a DevNote in sf-node/devnotes"}),
+                {"error": f"{name or '(blank)'} is not a DevNote in devnotes/"}),
                 "application/json")
         d = next(x for x in _DEVNOTES["rows"] if x.get("name") == name)
         if not d.get("doc_url"):
@@ -1583,7 +1670,7 @@ class Handler(BaseHTTPRequestHandler):
         unknown = [n for n in logs if n not in names]
         if unknown and known:
             return self._send(400, json.dumps(
-                {"error": f"not Log folders in sf-node/log: {', '.join(unknown)}"}),
+                {"error": f"not Log folders in logs/: {', '.join(unknown)}"}),
                 "application/json")
 
         name, err = devnote_name(author, logs)
@@ -1646,6 +1733,11 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(200, json.dumps({"rows": out, "error": err,
                                             "skipped_templates": len(rows) - len(out)}),
                            "application/json")
+            elif path == "/api/docs":
+                rows, err = drive_docs(self.repo)
+                self._send(200, json.dumps(
+                    {"rows": [drive_doc_row(f) for f in rows], "error": err}),
+                    "application/json")
             elif path == "/api/devnotes/push":
                 ok, log = push_devnote_map(self.repo, _DEVNOTES["rows"])
                 self._send(200 if ok else 502,
@@ -1709,6 +1801,8 @@ def main():
     ap.add_argument("--out", help="directory to write DevNote(M) output into "
                                   "(default ~/Documents/code/devnote-out)")
     ap.add_argument("--venue", default="bnext-devnotes", help="Curvenote venue")
+    ap.add_argument("--drive-root", help="Deployment Drive root folder name "
+                                         f"(default: {DEFAULT_DRIVE_ROOT_NAME!r})")
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--json", action="store_true", help="print state and exit")
     a = ap.parse_args()
@@ -1740,8 +1834,12 @@ def main():
 
     _load_devnote_cache()
     _load_logs_cache()
+    _load_docs_cache()
     Handler.targets = targets
     Handler.repo = str(Path(a.repo).expanduser().resolve()) if a.repo else None
+    global DRIVE_ROOT_NAME
+    if a.drive_root:
+        DRIVE_ROOT_NAME = a.drive_root
     Handler.venue = a.venue
     Handler.out_root = str(Path(a.out).expanduser().resolve()) if a.out \
         else str(Path("~/Documents/code/devnote-out").expanduser())
