@@ -4,6 +4,7 @@ __pycache__/
 .devnote-map.json
 .drive-logs.json
 .drive-docs.json
+.pr-map.json
 node_modules/
 _build/
 .ipynb_checkpoints/

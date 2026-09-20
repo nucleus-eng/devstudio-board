@@ -1020,6 +1020,123 @@ def job_guard(fn):
     return wrapper
 
 
+# ---------------------------------------------------------------- open a PR
+
+PR_CACHE_FILE = Path(__file__).with_name(".pr-map.json")
+_PRS = {}
+
+
+def _load_pr_cache():
+    try:
+        d = json.loads(PR_CACHE_FILE.read_text())
+        if isinstance(d, dict):
+            _PRS.update(d)
+    except (OSError, ValueError):
+        pass
+
+
+def _save_pr_cache():
+    try:
+        PR_CACHE_FILE.write_text(json.dumps(_PRS, indent=1))
+    except OSError:
+        pass
+
+
+def git_remote_slug(repo):
+    """owner/repo, parsed from the git remote origin url."""
+    url = sh(["git", "-C", str(repo), "remote", "get-url", "origin"])
+    if not url:
+        return None
+    m = re.search(r"github\.com[:/]+([^/]+)/([^/.]+?)(?:\.git)?/?$", url)
+    return f"{m.group(1)}/{m.group(2)}" if m else None
+
+
+PREVIEW_LINK_RE = re.compile(r"\[Inspect\]\((https://scms\.curvenote\.com/build/[^)]+)\)")
+
+
+def pr_status(name):
+    """Live state of a devnote's tracked PR, including the Curvenote preview link
+    once draft.yml has posted its comment. Never assumes the comment exists yet —
+    that Action can still be running when this is checked."""
+    rec = _PRS.get(name)
+    if not rec:
+        return None
+    out = sh(["gh", "pr", "view", str(rec["number"]), "--repo", rec["repo"],
+             "--json", "state,url,comments"], timeout=20)
+    if not out:
+        return {**rec, "state": "unknown", "preview_url": None}
+    try:
+        d = json.loads(out)
+    except ValueError:
+        return {**rec, "state": "unknown", "preview_url": None}
+    preview = None
+    for c in reversed(d.get("comments") or []):
+        m = PREVIEW_LINK_RE.search(c.get("body") or "")
+        if m:
+            preview = m.group(1)
+            break
+    return {**rec, "state": (d.get("state") or "unknown").lower(),
+            "url": d.get("url") or rec.get("url"), "preview_url": preview}
+
+
+@job_guard
+def _run_open_pr(job_id, name, target, repo):
+    branch = f"devnote/{name}"
+    result = {"name": name}
+    try:
+        cur = sh(["git", "-C", repo, "rev-parse", "--abbrev-ref", "HEAD"])
+        existing_branch = sh(["git", "-C", repo, "rev-parse", "--verify", branch])
+        if existing_branch:
+            sh(["git", "-C", repo, "checkout", branch])
+        else:
+            sh(["git", "-C", repo, "checkout", "-b", branch])
+        subprocess.run(["git", "-C", repo, "add", f"devnotes/{name}"],
+                       capture_output=True, text=True)
+        diff = subprocess.run(["git", "-C", repo, "diff", "--cached", "--quiet"],
+                              capture_output=True)
+        if diff.returncode != 0:
+            subprocess.run(["git", "-C", repo, "-c", "user.name=devstudio-board",
+                            "-c", "user.email=devstudio-board@bnext.bio",
+                            "commit", "-m", f"Submit {name} for Curvenote draft review"],
+                           capture_output=True, text=True, timeout=30)
+        push = subprocess.run(["git", "-C", repo, "push", "-u", "origin", branch],
+                              capture_output=True, text=True, timeout=60)
+        if push.returncode != 0:
+            result.update({"status": "error",
+                           "error": f"git push failed: {push.stderr.strip()[-500:]}"})
+            with JOBS_LOCK:
+                JOBS[job_id].update(result)
+            return
+
+        remote = git_remote_slug(repo)
+        listed = sh(["gh", "pr", "list", "--repo", remote, "--head", branch,
+                    "--state", "all", "--json", "number,url"], timeout=20)
+        pr = None
+        try:
+            items = json.loads(listed) if listed else []
+            pr = items[0] if items else None
+        except ValueError:
+            pr = None
+        if not pr:
+            created = sh(["gh", "pr", "create", "--repo", remote,
+                         "--base", "main", "--head", branch,
+                         "--title", f"Submit {name} for Curvenote draft review",
+                         "--body", f"Adds/updates `devnotes/{name}` for review. "
+                                   f"Opened by the DevStudio board's Open PR button."],
+                        timeout=30)
+            num_match = re.search(r"/pull/(\d+)", created or "")
+            pr = {"number": int(num_match.group(1)) if num_match else None, "url": created}
+
+        _PRS[name] = {"repo": remote, "number": pr.get("number"),
+                     "url": pr.get("url"), "branch": branch}
+        _save_pr_cache()
+        result.update({"status": "done", **_PRS[name]})
+    finally:
+        pass
+    with JOBS_LOCK:
+        JOBS[job_id].update(result)
+
+
 PREVIEW = {"proc": None, "name": None, "url": None, "dir": None, "log": []}
 PREVIEW_LOCK = threading.Lock()
 URL_RE = re.compile(r"https?://(?:localhost|127\.0\.0\.1):\d+\S*")
@@ -1527,7 +1644,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         path = self.path.split("?")[0]
         if path not in ("/api/new-log", "/api/new-devnote", "/api/devnote-to-myst",
-                        "/api/curvenote-draft", "/api/assemble-assets", "/api/preview"):
+                        "/api/curvenote-draft", "/api/assemble-assets", "/api/preview",
+                        "/api/open-pr"):
             return self._send(404, "not found", "text/plain")
         try:
             n = int(self.headers.get("Content-Length") or 0)
@@ -1543,6 +1661,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._curvenote(body)
         if path == "/api/assemble-assets":
             return self._assemble(body)
+        if path == "/api/open-pr":
+            return self._open_pr(body)
         if path == "/api/preview":
             name = (body.get("name") or "").strip()
             if str(body.get("stop", "")).lower() in ("1", "true", "yes"):
@@ -1608,6 +1728,43 @@ class Handler(BaseHTTPRequestHandler):
                                d.get("doc_url")),
                          daemon=True).start()
         self._send(202, json.dumps({"job": job_id, "name": name, **st}), "application/json")
+
+    def _open_pr(self, body):
+        name = (body.get("name") or "").strip()
+        st = myst_state(self.out_root, name)
+        if not st:
+            return self._send(400, json.dumps(
+                {"error": f"no local DevNote(M) for {name} — run \u2192 MyST first"}),
+                "application/json")
+        if not st["has_main"] or not st["has_config"]:
+            return self._send(400, json.dumps(
+                {"error": f"{st['dir']} is missing "
+                          + ("main.md" if not st["has_main"] else "curvenote.yml")}),
+                "application/json")
+        if st["missing_figures"]:
+            return self._send(409, json.dumps(
+                {"error": f"{len(st['missing_figures'])} figure reference(s) do not resolve, "
+                          f"so this would fail the same way in CI: "
+                          + ", ".join(st["missing_figures"][:4]),
+                 "hint": "Run Assets first.", "dir": st["dir"]}), "application/json")
+        repo = git_root(Path(st["dir"]))
+        if not repo:
+            return self._send(400, json.dumps(
+                {"error": f"{st['dir']} is not inside a git repository"}), "application/json")
+        if str(body.get("dryRun", "")).lower() in ("1", "true", "yes"):
+            existing = _PRS.get(name)
+            return self._send(200, json.dumps(
+                {"name": name, "dryRun": True, "branch": f"devnote/{name}",
+                 "repo": git_remote_slug(repo), "existing_pr": existing}),
+                "application/json")
+
+        job_id = uuid.uuid4().hex[:12]
+        with JOBS_LOCK:
+            JOBS[job_id] = {"status": "running", "name": name, "kind": "open-pr",
+                            "started": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+        threading.Thread(target=_run_open_pr, args=(job_id, name, st["dir"], str(repo)),
+                         daemon=True).start()
+        self._send(202, json.dumps({"job": job_id, "name": name}), "application/json")
 
     def _curvenote(self, body):
         name = (body.get("name") or "").strip()
@@ -1801,6 +1958,9 @@ class Handler(BaseHTTPRequestHandler):
                     row = devnote_row(d)
                     row["myst"] = myst_state(self.out_root, row["slug"],
                                              [r.get("name") for r in rows])
+                    # Only a live network call when a PR is actually tracked for this
+                    # devnote -- everything else stays as cheap as it was before.
+                    row["pr"] = pr_status(row["slug"]) if row["slug"] in _PRS else None
                     out.append(row)
                 self._send(200, json.dumps(
                     {"rows": out, "raw": rows, "error": err, "venue": self.venue,
@@ -1884,6 +2044,7 @@ def main():
         _load_devnote_cache()
         _load_logs_cache()
         _load_docs_cache()
+        _load_pr_cache()
     Handler.targets = targets
     Handler.repo = str(Path(a.repo).expanduser().resolve()) if a.repo else None
     global DRIVE_ROOT_NAME
