@@ -1,0 +1,67 @@
+version: 1
+project:
+  id: fc981b62-0509-46a5-b17e-8eb7bac93682
+  title: 'First Nucleus Cytosol Testing'
+  date: '2026-09-13'
+  # Date from Specification table in DevNote(G); experiments were conducted 2025-11-04 — 2025-11-07
+  authors:
+    - name: Anton Molina
+      email: antonmolina@bnext.bio
+      orcid: 0000-0002-7253-2714
+      affiliations:
+        - name: b.next
+      corresponding: true
+      roles:
+        - Conceptualization
+        - Data curation
+        - Investigation
+        - Methodology
+        - Writing – original draft
+  abbreviations:
+    MyST: Markedly Structured Text
+    CDK: cell development kit
+  references:
+    devnotes: https://devnotes.bnext.bio
+  github: https://github.com/bnext-bio/nucleus-developer-notes
+  license: CC-BY-4.0
+  open_access: true
+  venue: Nucleus
+  subject: Developer Note
+  plugins:
+    - lorem.mjs
+    - ../../plugins/seqviz/seqviz.mjs
+  jupyter: true
+  funding:
+    - statement: This work was supported by the Schmidt Sciences Developer Cell (DevCell) project.
+      sources:
+        - name: Schmidt Sciences Foundation
+  exports:
+    - format: meca
+      id: data-bundle
+    - format: typst
+      template: https://github.com/curvenote-templates/bnext.git
+      article: main.md
+      output: devnote.pdf
+      id: article
+  requirements:
+    - environment.yml
+  # keywords:                  # REVIEW: generate from content against controlled vocabulary
+  # parts: abstract — handled by +++ { "part": "abstract" } block in main.md
+  toc:
+    - file: main.md
+    - file: experiments/20251104-NucleusPURE_deGFP/Analysis.ipynb
+    - file: experiments/20251107-NucleusPURE_deGFP_MgSweep/Analysis.ipynb
+    - file: experiments/20251107-Microscopy/microscopy_20251107.ipynb
+  resources:
+    - experiments/**/*
+    - plasmids/**/*
+    - figures/**/*
+    - general/**/*
+  downloads:
+    - id: article
+      title: Download Article PDF
+    - id: data-bundle
+      title: Download Data Bundle
+site:
+  template: article-theme
+  nav: []
