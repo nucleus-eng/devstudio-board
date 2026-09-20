@@ -212,14 +212,14 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid va
     <div class="status" id="cn-status" hidden></div>
     <div class="row-btns" id="cn-foot">
       <button id="cn-cancel" onclick="closeCN()">Cancel</button>
-      <button id="cn-go" class="primary" onclick="runCN()">Submit draft</button>
+      <button id="cn-go" class="primary" onclick="runCN()">Confirm action</button>
     </div>
   </form>
 </dialog>
 
 <dialog id="g2m">
   <form method="dialog" onsubmit="return false">
-    <h3>DevNote(G) → DevNote(M)</h3>
+    <h3 id="g2m-title">DevNote(G) → DevNote(M)</h3>
     <p class="sub">Converts the reviewed draft into MyST — <span class="mono">main.md</span>,
       <span class="mono">curvenote.yml</span>, and the experiments/figures/plasmids tree.</p>
 
@@ -235,7 +235,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid va
     <div class="status" id="g2m-status" hidden></div>
     <div class="row-btns" id="g2m-foot">
       <button id="g2m-cancel" onclick="closeG2M()">Cancel</button>
-      <button id="g2m-go" class="primary" onclick="runG2M()">Convert to MyST</button>
+      <button id="g2m-go" class="primary" onclick="runG2M()">Confirm action</button>
     </div>
   </form>
 </dialog>
@@ -271,7 +271,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid va
     <div class="status" id="dn-status" hidden></div>
     <div class="row-btns" id="dn-foot">
       <button id="dn-cancel" onclick="closeDn()">Cancel</button>
-      <button id="dn-create" class="primary" onclick="createDevNote()">Create DevNote</button>
+      <button id="dn-create" class="primary" onclick="createDevNote()">Confirm action</button>
     </div>
   </form>
 </dialog>
@@ -297,7 +297,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;border-top:1px solid va
     <div class="row-btns" id="nl-foot">
       <button id="nl-cancel" onclick="closeNewLog()">Cancel</button>
       <button id="nl-copy" onclick="copyNewLog()">Copy prompt</button>
-      <button id="nl-create" class="primary" onclick="createNewLog()">Create folder</button>
+      <button id="nl-create" class="primary" onclick="createNewLog()">Confirm action</button>
     </div>
   </form>
 </dialog>
@@ -387,13 +387,13 @@ function devnoteCard(r) {
         <button onclick="window.open('${esc(r.url)}','_blank','noopener')">Folder</button>
         ${r.doc_url ? `<button onclick="openG2M('${esc(r.slug)}')"
           title="Convert the reviewed draft to MyST">→ MyST</button>` : ""}
-        ${r.myst ? `<button onclick="runPreview('${esc(r.slug)}')"
+        ${r.myst ? `<button onclick="openPreview('${esc(r.slug)}')"
           title="Render locally with curvenote start — no submission">Preview</button>` : ""}
-        ${r.myst && !r.myst.buildable ? `<button onclick="runAssets('${esc(r.slug)}')"
+        ${r.myst && !r.myst.buildable ? `<button onclick="openAssets('${esc(r.slug)}')"
           title="Re-fetch assets only — does not re-run the conversion">Assets</button>` : ""}
         ${r.myst && r.myst.buildable ? `<button class="primary" onclick="openCN('${esc(r.slug)}')"
           title="Test-mode: draft submission straight from here, bypassing the PR">Curvenote</button>` : ""}
-        ${r.myst && r.myst.buildable ? `<button onclick="runOpenPR('${esc(r.slug)}')"
+        ${r.myst && r.myst.buildable ? `<button onclick="openOpenPR('${esc(r.slug)}')"
           title="Commit, push, and open a pull request — draft.yml builds the real preview">${
           r.pr ? "Update PR" : "Open PR"}</button>` : ""}
         ${r.pr && r.pr.url ? `<button onclick="window.open('${esc(r.pr.url)}','_blank','noopener')">View PR</button>` : ""}
@@ -443,7 +443,8 @@ function copySelected() {
 }
 
 // --- Assets only --------------------------------------------------------
-async function runAssets(name) {
+function openAssets(name) {
+  document.getElementById("g2m-title").textContent = "Fetch assets";
   G2M_NAME = name;
   document.getElementById("g2m-name").textContent = name;
   document.getElementById("g2m-target").textContent =
@@ -451,9 +452,17 @@ async function runAssets(name) {
   document.getElementById("g2m-plan").innerHTML =
     `Fetch only — re-downloads assets into the existing directory. `
     + `<span class="mono">main.md</span> and <span class="mono">curvenote.yml</span> are not touched.`;
-  document.getElementById("g2m-go").hidden = true;
-  document.getElementById("g2m-cancel").textContent = "Close";
+  document.getElementById("g2m-status").hidden = true;
+  document.getElementById("g2m-go").hidden = false;
+  document.getElementById("g2m-go").disabled = false;
+  document.getElementById("g2m-go").onclick = runAssets;
+  document.getElementById("g2m-cancel").textContent = "Cancel";
   document.getElementById("g2m").showModal();
+}
+
+async function runAssets() {
+  const name = G2M_NAME;
+  document.getElementById("g2m-go").hidden = true;
   G2M_T0 = Date.now();
   G2M_PHASE = "assets";
   g2mProgress("assets");
@@ -485,16 +494,28 @@ async function runAssets(name) {
   }, 4000);
 }
 
-async function runOpenPR(name) {
+function openOpenPR(name) {
+  document.getElementById("g2m-title").textContent = "Open pull request";
   G2M_NAME = name;
   document.getElementById("g2m-name").textContent = name;
   document.getElementById("g2m-target").textContent = "";
+  const existing = DEVNOTE_ROWS.find(x => x.slug === name)?.pr;
   document.getElementById("g2m-plan").textContent =
-    "Commits the current build, pushes a branch, and opens (or updates) a pull request. "
+    (existing
+      ? `Updates the existing pull request (#${existing.number}) with the current build. `
+      : "Commits the current build, pushes a branch, and opens a new pull request. ")
     + "draft.yml then builds the real Curvenote preview and comments its link on the PR.";
-  document.getElementById("g2m-go").hidden = true;
-  document.getElementById("g2m-cancel").textContent = "Close";
+  document.getElementById("g2m-status").hidden = true;
+  document.getElementById("g2m-go").hidden = false;
+  document.getElementById("g2m-go").disabled = false;
+  document.getElementById("g2m-go").onclick = runOpenPR;
+  document.getElementById("g2m-cancel").textContent = "Cancel";
   document.getElementById("g2m").showModal();
+}
+
+async function runOpenPR() {
+  const name = G2M_NAME;
+  document.getElementById("g2m-go").hidden = true;
   G2M_T0 = Date.now();
   const tick = () => {
     const s = Math.round((Date.now() - G2M_T0) / 1000);
@@ -535,7 +556,8 @@ async function runOpenPR(name) {
 }
 
 // --- Local preview ------------------------------------------------------
-async function runPreview(name) {
+function openPreview(name) {
+  document.getElementById("g2m-title").textContent = "Local preview";
   G2M_NAME = name;
   document.getElementById("g2m-name").textContent = name;
   document.getElementById("g2m-target").textContent =
@@ -543,9 +565,17 @@ async function runPreview(name) {
   document.getElementById("g2m-plan").innerHTML =
     `Runs <span class="mono">curvenote start</span> in that directory and serves it locally. `
     + `Nothing is submitted and nothing is written to Drive.`;
-  document.getElementById("g2m-go").hidden = true;
-  document.getElementById("g2m-cancel").textContent = "Close";
+  document.getElementById("g2m-status").hidden = true;
+  document.getElementById("g2m-go").hidden = false;
+  document.getElementById("g2m-go").disabled = false;
+  document.getElementById("g2m-go").onclick = runPreview;
+  document.getElementById("g2m-cancel").textContent = "Cancel";
   document.getElementById("g2m").showModal();
+}
+
+async function runPreview() {
+  const name = G2M_NAME;
+  document.getElementById("g2m-go").hidden = true;
   G2M_T0 = Date.now();
   g2mStatus(`<span class="spin"></span>Starting the preview server — first build can take
     a minute. <b>0:00</b> elapsed.`);
@@ -675,6 +705,7 @@ async function runCN() {
 let G2M_NAME = null, G2M_POLL = null, G2M_TICK = null, G2M_T0 = 0, G2M_PHASE = null;
 
 async function openG2M(name) {
+  document.getElementById("g2m-title").textContent = "DevNote(G) → DevNote(M)";
   G2M_NAME = name;
   document.getElementById("g2m-name").textContent = name;
   document.getElementById("g2m-target").textContent = "…";
@@ -683,6 +714,7 @@ async function openG2M(name) {
   document.getElementById("g2m-go").hidden = false;
   document.getElementById("g2m-go").disabled = true;
   document.getElementById("g2m-cancel").textContent = "Cancel";
+  document.getElementById("g2m-go").onclick = runG2M;
   document.getElementById("g2m").showModal();
 
   // Ask the server what it would do, so nothing about the target is a surprise.
