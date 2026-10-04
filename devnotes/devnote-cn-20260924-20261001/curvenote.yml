@@ -3,15 +3,17 @@ project:
   # Candidate title from the platemap Experiment column:
   # "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL" and
   # "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL" — QC to confirm.
-  # No Specification table exists in any of the three source logs.
+  # No Specification table exists in any of the four source logs.
   title: '[PLEASE FILL IN]'
   description: >
     EsaR(D91G) repression of single- and dual-operator EsaO-mNG sensor
-    constructs in Nucleus Cytosol, across three days: an EsaR titration at
-    fixed sensor DNA, a sensor DNA titration at fixed EsaR, and a repeat of
-    that titration with EsaR pre-expressed overnight.
-  # No Authors table exists in any of the three source logs. The Log folders
-  # are prefixed CN — QC to confirm the full name, ORCID and affiliation.
+    constructs in Nucleus Cytosol, across four days: an EsaR titration at
+    fixed sensor DNA, a sensor DNA titration at fixed EsaR, a repeat of that
+    titration with EsaR pre-expressed overnight, and a magnesium sweep with
+    EsaR and DNA pre-incubated before the reaction.
+  # No Authors table exists in any of the four source logs. Three Log folders
+  # are prefixed CN; the fourth is prefixed MB and its notebook names JM-MB.
+  # QC to confirm every full name, ORCID and affiliation, and the author order.
   authors:
     - name: '[PLEASE FILL IN]'
       affiliations:
@@ -27,13 +29,14 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
-  # REVIEW: the two notebook entries below resolve the quarto-label figures.
-  # Neither file is in the tree yet. devstudio-assemble-devnote-assets places
-  # them, and the build fails until it does.
+  # REVIEW: the three notebook entries below resolve the quarto-label figures.
+  # None of the files is in the tree yet. devstudio-assemble-devnote-assets
+  # places them, and the build fails until it does.
   toc:
     - file: main.md
     - file: experiments/20260925-platereader.ipynb
     - file: experiments/20260926-platereader.ipynb
+    - file: experiments/20261001-mg-osmo-sweep.ipynb
   resources:
     - experiments/**
   id: 99d20115-67f3-42c1-bf8f-90b7af4a0d80

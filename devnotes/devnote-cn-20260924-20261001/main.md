@@ -7,8 +7,9 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 
 [PLEASE FILL IN]
 
-<!-- No source log carries an overview or introduction section. The three logs
-open directly on Notes or on "Day #1". Candidate framing, from the platemap
+<!-- No source log carries an overview or introduction section. The four logs
+open directly on Notes, on "Day #1", or on their own first sentence.
+Candidate framing, from the platemap
 Experiment column, not adopted: "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL"
 and "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at
 highest prior dose)". -->
@@ -18,7 +19,8 @@ highest prior dose)". -->
 
 **Title and authors.** No source log carries a Specification table or an
 Authors table. `curvenote.yml` holds `[PLEASE FILL IN]` for both, with
-candidate text in comments. The Log folders are prefixed `CN`.
+candidate text in comments. Three Log folders are prefixed `CN`. The fourth
+is prefixed `MB`, and its notebook names `JM-MB`.
 
 **Two figures have no surviving producing cell.** {numref}`fig-20260924-esao`
 and {numref}`fig-20260924-esao2` were pasted into the 2026-09-24 log. The
@@ -36,7 +38,15 @@ construct-to-file identity claim is made here.
 
 **Agarose gel image missing.** The 2026-09-24 log states that the constructs
 were run on an agarose gel and instructs "Ask Manuel for image". No gel image
-exists in any of the three Log folders.
+exists in any of the four Log folders.
+
+**No build file for 2026-10-01.** The file named `build` in that folder is a
+platemap. It holds `Well`, `Date`, `Experiment`, `Name` and `Type` and nothing
+else, so it carries no component, no concentration and no volume. No
+composition table can be produced for that day and no sidecar exists.
+{numref}`tbl-volumes-20261001` carries the log's own volume table instead, and
+that table has no stock or final concentrations in it. Supply a build file in
+the canonical format.
 :::
 
 :::{admonition} Open review items
@@ -49,12 +59,12 @@ exists in any of the three Log folders.
 Both carry 20260924 inside a later folder. Each is the file that folder's own
 notebook loads, so both read as naming slips rather than wrong data. The folder
 date and the filename date still disagree, and that is a human call. The `Date`
-column inside every platemap also reads `2026-09-24` for all three days.
+column inside all three CN platemaps also reads `2026-09-24`.
 
-**Template residue in every `test-data/` subfolder.** All three folders hold an
+**Template residue in every `test-data/` subfolder.** All four folders hold an
 identical `20251111-122213-cytation5-pure-timecourse-gfp-MFG-98-tRNA-QC.txt`
 plus `platemap-microscopy.csv` and `platemap-platereader.csv`. These look like
-unedited copies from `00-template-LOG`, not CN's data. Nothing here links them.
+unedited copies from `00-template-LOG`, not run data. Nothing here links them.
 
 **EsaR volume labels in {numref}`tbl-composition-20260924`.** The condition
 names read 0, 1, 4 and 7 µL EsaR. The `Pre-expressed EsaR` row reads 0, 2, 8
@@ -99,7 +109,21 @@ tagged `cn-20250926-fig1`, which reads 2025. A `cell_label` is carried verbatim
 and is never reformatted, so `main.md` and `manifest.json` both use the string
 as written. Retag the cell and this DevNote follows.
 
-**Uncertainty markers.** Every result paragraph in all three logs is prefixed
+**The 2026-10-01 platemap date disagrees with everything around it.** The
+folder is `2026/10/01 - MB - MgSweepof preeincubation` and the data file is
+`20261001-181311-...`. Every row of the platemap reads `2026-10-02`. Confirm
+which date is the run date.
+
+**An unused platemap copy sits in the 2026-10-01 folder.**
+`build-platemap-csv.csv` holds the same sixteen wells as the `build` Sheet. Its
+`Type` column is empty where the Sheet reads `Sample`. The notebook loads the
+Sheet. Delete the copy, or say which one is authoritative.
+
+**Authorship of the 2026-10-01 experiment.** The folder and the notebook name
+MB and JM. The cell label reads `mbcn-20261001-fig1`. Name every author of that
+day's work, and say where they sit in the author list.
+
+**Uncertainty markers.** Every result paragraph in all three CN logs is prefixed
 `*Prior to analysis` or `*Prior to data analysis`. Those statements are the
 author's pre-analysis impressions, carried verbatim, and must be resolved or
 confirmed before this reaches DevNote(M).
@@ -107,7 +131,7 @@ confirmed before this reaches DevNote(M).
 
 # Reagents
 
-:::{table} Reagents and equipment. Component names come from the three build sheets and from the 2026-09-23 construct preparation. No source carries vendor, catalog, price or storage data.
+:::{table} Reagents and equipment. Component names come from the three CN build sheets, from the 2026-10-01 log's own volume table, and from the 2026-09-23 construct preparation. No source carries vendor, catalog, price or storage data.
 :label: tbl-reagents
 :align: center
 
@@ -125,6 +149,8 @@ confirmed before this reaches DevNote(M).
 | HF buffer | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
 | M15 Fwd primer | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
 | M15 Rev primer | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
+| Magnesium | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
+| E.coli pol | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
 :::
 
 # Constructs
@@ -147,7 +173,7 @@ confirmed before this reaches DevNote(M).
 <!-- Four of these seven templates (T7-mNG, T7-PLA1, T7-[EsaO]-PLA1,
 T7-[EsaO]2-PLA1) were prepared on 2026-09-23 but do not appear in any
 composition table in this DevNote. T7-mNG is used as the unrepressed control
-in all three experiments. The three PLA1 templates are not used here. -->
+in the three CN experiments. The three PLA1 templates are not used here. -->
 
 # Protocol
 
@@ -300,6 +326,51 @@ compared to previous experiment". -->
 :::
 ::::
 
+## 2026-10-01 — Magnesium sweep with EsaR and DNA pre-incubation
+
+Optimising EsaR repression by preeincubating EsaR with the DNA with a higher Mg
+concentration
+
+Preexpressing EsaR for 3-4h
+
+And then add the DNA with the PURE reaction for 1h at 37 to ensure full
+repression
+
+::::{admonition} Reaction volumes, 2026-10-01
+:class: dropdown
+
+:::{table} Reaction volumes as the 2026-10-01 log writes them. This is not a composition table. It carries no stock or final concentrations, and no build file exists to source one from. The first column sums to the stated 10 µL and the second to the stated 33 µL, a 3.3-fold scale.
+:label: tbl-volumes-20261001
+:align: center
+
+| Component | Volume (µL) | Scaled (µL) |
+| --- | --- | --- |
+| S-mix | 3 | 9.9 |
+| Ribosomes | 1.8 | 5.94 |
+| P-mix | 1.2 | 3.96 |
+| T rna | 1 | 3.3 |
+| E.coli pol | 0 | 0 |
+| DNA | 0.15 | 0.495 |
+| Rnase inhibitor | 0.25 | 0.825 |
+| EsaR | 2.3 | 7.59 |
+| AHL optional | 0.15 | 0.495 |
+| Mg | 0.15 | 0.495 |
+| Total | 10 | 33 |
+:::
+::::
+
+The log continues:
+
+Mix of DNA and EsaR pure reaction:
+Final is 0.332
+DNA stock at 22ng/µL
+2.6 overall\* 3.5
+Mg concentrations: 5, 10, 20 locally:
+Stocks of Mg:
+X20 = 346.7mM
+X10 = 173.3mM
+X5 = 86.6mM
+
 # Results
 
 ## 2026-09-24 — EsaR titration at fixed sensor DNA
@@ -397,6 +468,32 @@ in which the EsaR was pre-expressed for 3 hrs @ 37 ˚C, rather than 17 hrs @
 30˚C. **Include fluorescein control in each graph, and also plot fold
 change/steady state ratio of induced:uninduced to enable comparison between DNA
 titration**.
+
+## 2026-10-01 — Magnesium sweep with EsaR and DNA pre-incubation
+
+[PLEASE FILL IN]
+
+<!-- The 2026-10-01 log carries no results narrative. It ends on the magnesium
+stock concentrations. The figure below is the only reported outcome. -->
+
+:::{figure} #mbcn-20261001-fig1
+:label: fig-20261001-mg-sweep
+:align: center
+:width: 100%
+Added magnesium at 0, 5 and 10 mM, each minus and plus 5 µM AHSL, after pre-incubating EsaR with the DNA. Reaction volumes are in {numref}`tbl-volumes-20261001`.
+:::
+
+[`fig-20261001-mg-sweep`, notebook:`2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb`, platemap:`build (Sheet, tab gid 0)`, data source:`20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`, caption: (Added magnesium at 0, 5 and 10 mM, minus and plus 5 µM AHSL.)]
+
+:::{admonition} The 20 mM magnesium arm is unreported
+:class: warning
+:name: review-20261001-missing-arm
+
+The platemap carries four magnesium levels: 0, 5, 10 and 20, each minus and
+plus AHSL, in two wells apiece. The log names "5, 10, 20 locally" and gives a
+stock for each. Cell 8 plots 0, 5 and 10 only. The 20 mM wells were run and
+have no reported panel.
+:::
 
 # Notes
 
