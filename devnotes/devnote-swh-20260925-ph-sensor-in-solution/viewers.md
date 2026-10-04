@@ -7,6 +7,9 @@ The viewers are stacked rather than tabbed. The Vizarr widget creates its viewer
 detached element with no width and never re-measures, so any instance hidden when the page
 mounts renders blank permanently.
 
+Each viewer sets `"menuOpen": true`. The widget starts its sidebar closed by default, and
+that sidebar holds the per-channel contrast sliders a reader needs.
+
 These viewers do not survive JATS conversion. {numref}`fig-microscopy-summary` on the main
 page is the archival record.
 
@@ -16,7 +19,8 @@ page is the archival record.
 
 {
     "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/SH-0925-D4_2026-09-25_11-27-49.059491.zarr/D/4/0",
-    "height": "600px"
+    "height": "600px",
+    "menuOpen": true
 }
 :::
 
@@ -26,7 +30,8 @@ page is the archival record.
 
 {
     "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/SH-0925-D5_2026-09-25_11-32-48.009691.zarr/D/5/0",
-    "height": "600px"
+    "height": "600px",
+    "menuOpen": true
 }
 :::
 
@@ -36,7 +41,8 @@ page is the archival record.
 
 {
     "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/SH-0925-E4_2026-09-25_12-03-09.447054.zarr/E/4/0",
-    "height": "600px"
+    "height": "600px",
+    "menuOpen": true
 }
 :::
 
@@ -46,7 +52,8 @@ page is the archival record.
 
 {
     "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/SH-0925-E5-2_2026-09-25_12-04-22.672843.zarr/E/5/0",
-    "height": "600px"
+    "height": "600px",
+    "menuOpen": true
 }
 :::
 
