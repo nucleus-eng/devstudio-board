@@ -72,19 +72,19 @@ every sequence has to be added inline. No `.gb` file for any of the seven was
 located, so `devstudio-verify-dna-constructs` was not run and no
 construct-to-file identity claim is made here.
 
-**Two of seven supplied and verified.** `T7-EsaR(D91G)-T7term` is at
-`dna/t7pro-ls1-esard91g.gbk` with its sequence in {ref}`seq-esar-d91g`.
-`T7-\[EsaO\]-mNG-T7term` is at `dna/t7pro-esao-ls1-mneongreen.gbk` with its
-sequence in {ref}`seq-esao-mng`.
+**Every construct used in this DevNote is supplied and verified, except the
+control.** The three that carry the experiments are in the tree:
+`T7-EsaR(D91G)-T7term` in {ref}`seq-esar-d91g`, `T7-\[EsaO\]-mNG-T7term` in
+{ref}`seq-esao-mng` and `T7-\[EsaO\]2-mNG-t7term` in {ref}`seq-esao2-mng`.
+The three agree with each other: both reporters share one mNeonGreen coding
+sequence byte for byte, and all three operator boxes are the same 19 bp.
 
-Five are still missing. `T7-\[EsaO\]2-mNG-t7term`, the dual-operator
-reporter, is the one that matters most, because it carries the strongest
-repression in every experiment here and is the only construct in the
-2026-09-26 and 2026-10-01 runs. Its Drive link returns "Requested entity was
-not found" through the Drive connector, and a sign-in page over HTTP.
-
-Four have no source at all: T7-mNG-t7term, T7-PLA1-t7term,
-T7-\[EsaO\]-PLA1-T7term and T7-\[EsaO\]2-PLA1-t7term.
+Four are still missing, and only one of them is used here. `T7-mNG-t7term` is
+the unrepressed control on all three CN days and has no source. The three PLA1
+templates, `T7-PLA1-t7term`, `T7-\[EsaO\]-PLA1-T7term` and
+`T7-\[EsaO\]2-PLA1-t7term`, were prepared on 2026-09-23 and appear in no
+experiment in this DevNote. Supply the control, and either supply the PLA1
+sequences or drop those three rows from {numref}`tbl-constructs`.
 
 The three PLA1 templates were prepared on 2026-09-23 and are used in no
 experiment here. Dropping them from {numref}`tbl-constructs` is one
@@ -236,16 +236,15 @@ name MB and JM. The cell label reads `mbcn-20261001-fig1`.
 of initials appear because multiple experiments share one plate. The author
 list itself is still open, under the blocking title-and-authors item. -->
 
-**Both sequence files say circular, and the constructs are linear.** The
-`LOCUS` line of `dna/t7pro-ls1-esard91g.gbk` and of
-`dna/t7pro-esao-ls1-mneongreen.gbk` both read `circular`. The 2026-09-23
+**All three sequence files say circular, and the constructs are linear.** The
+`LOCUS` line of every file in `dna/` reads `circular`. The 2026-09-23
 protocol amplifies these from gBlocks, which gives a linear product.
 {numref}`tbl-constructs` calls all seven linear templates. Correct the topology
-in both files.
+in all three files.
 
-**The log names M15 primers, and both sequence files name M13.** The
+**The log names M15 primers, and all three sequence files name M13.** The
 2026-09-23 protocol reads "amplified using Q5 polymerase (2x HF buffer) and M15
-Fwd and Rev primers". The feature labels in both files read `M13_Fwd` and
+Fwd and Rev primers". The feature labels in all three files read `M13_Fwd` and
 `M13_Rev`. Say which is right.
 
 **Two more experiments belong in this DevNote.** Review cycle v2, prompt 22,
@@ -306,12 +305,58 @@ replaced.
 | --- | --- | --- |
 | T7-mNG-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | [T7-\[EsaO\]-mNG-T7term](./dna/t7pro-esao-ls1-mneongreen.gbk) | {ref}`seq-esao-mng` | [PLEASE FILL IN] |
-| T7-\[EsaO\]2-mNG-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| [T7-\[EsaO\]2-mNG-t7term](./dna/t7pro-esao2-ls1-mneongreen.gbk) | {ref}`seq-esao2-mng` | [PLEASE FILL IN] |
 | T7-PLA1-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | T7-\[EsaO\]-PLA1-T7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | T7-\[EsaO\]2-PLA1-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | [T7-EsaR(D91G)-T7term](./dna/t7pro-ls1-esard91g.gbk) | {ref}`seq-esar-d91g` | [PLEASE FILL IN] |
 :::
+
+::::{admonition} T7-\[EsaO\]2-mNG-t7term, full sequence
+:class: dropdown
+:name: seq-esao2-mng
+
+Source file:
+[`dna/t7pro-esao2-ls1-mneongreen.gbk`](./dna/t7pro-esao2-ls1-mneongreen.gbk),
+1118 bp. Verified against its own header and against the single-operator file.
+The `LOCUS` line declares 1118 bp and the `ORIGIN` block holds exactly 1118
+bases. The CDS at 171..881 translates to 236 residues plus a stop, with no
+internal stops, starting `MVSKGEEDNM`.
+
+Its mNeonGreen coding sequence is byte-identical to the one in
+{ref}`seq-esao-mng`, so the two reporters differ only in the operator region.
+
+The file carries two `EsaO` features, 19 bp each, at 62..80 and 82..100. Both
+read `CCTGTACTATAGTGCAGGT`, which is also the single box in
+{ref}`seq-esao-mng`. One `T` separates them, at position 81. The file is
+exactly 20 bp longer than the single-operator construct, which is one operator
+plus that spacer base.
+
+Features, in order: 5' spacer, M13_Fwd, T7pro, +1, EsaO, EsaO, LS1,
+mNeonGreen, T7 terminator, M13_Rev, 3' spacer.
+
+```
+GGGACCATTACGGAGGCAGTGTAAAACGACGGCCAGTGCCGGTTAATACGACTCACTATA
+GCCTGTACTATAGTGCAGGTTCCTGTACTATAGTGCAGGTGGAGATTGTGAGCGGATAAC
+AATTCCCCTCTAGAAATAATTTTGTTTAACTTTAAGAAGGAGATATACATATGGTGAGCA
+AAGGCGAAGAGGATAATATGGCAAGCCTGCCTGCAACACATGAACTGCATATTTTTGGTA
+GCATTAACGGCGTGGATTTTGATATGGTTGGTCAAGGCACCGGTAATCCGAATGATGGTT
+ATGAAGAACTGAATCTGAAAAGCACCAAAGGCGATCTGCAGTTTAGCCCGTGGATTCTGG
+TTCCGCATATTGGTTATGGTTTTCATCAGTATCTGCCGTATCCGGATGGTATGAGCCCGT
+TTCAGGCAGCAATGGTTGATGGTAGCGGTTATCAGGTTCATCGTACCATGCAGTTTGAAG
+ATGGTGCAAGCCTGACCGTTAATTATCGTTATACCTATGAAGGCAGCCACATTAAAGGTG
+AAGCACAGGTTAAAGGTACAGGTTTTCCGGCAGATGGTCCGGTTATGACCAATAGTCTGA
+CCGCAGCAGATTGGTGTCGTAGCAAAAAAACCTATCCGAACGATAAAACCATCATCAGCA
+CCTTCAAATGGTCATATACCACCGGCAATGGTAAACGTTATCGTAGCACCGCACGTACCA
+CCTATACCTTTGCAAAACCGATGGCAGCAAACTATCTGAAAAATCAGCCGATGTATGTGT
+TTCGCAAAACGGAACTGAAACATTCCAAAACCGAGCTGAACTTTAAAGAATGGCAGAAAG
+CATTTACCGATGTGATGGGCATGGATGAACTATACAAATAAGGATCCCGGGAATTCTCGA
+GTAAGGTTAACCTGCAGGAGGCCTTTAATTAAGGTGGTGCGGCCGCGCTAGCGGTCCCGG
+GGGATCGATCCGGCTGCTAACAAAGCCCGAAAGGAAGCTGAGTTGGCTGCTGCCACCGCT
+GAGCAATAACTAGCATAACCCCTTGGGGCCTCTAAACGGGTCTTGAGGGGTTTTTTGCAT
+GGTCATAGCTGTTTCCTGCCTGATGCATGAGCTAGCAG
+```
+::::
 
 ::::{admonition} T7-\[EsaO\]-mNG-T7term, full sequence
 :class: dropdown
