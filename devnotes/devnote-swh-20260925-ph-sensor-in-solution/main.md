@@ -95,14 +95,20 @@ Two entries are ambiguous rather than missing. The tracker stocks two mineral oi
 
 | Name | Sequence | Purpose |
 | --- | --- | --- |
-| pT7-toehold9-PLA1 DNA template | ./dna/Linear-T7-toehold9-PLA1-t7hyb6-extra-BbsI-site.gbk | DNA template for PLA1 expression in the GUV inner solution. 80 nM stock, 2 nM final. Source note: "sequence file not verified". |
+| [pT7-toehold9-PLA1](./dna/Linear-T7-toehold9-PLA1-t7hyb6-extra-BbsI-site.gbk) | Sequence map below | DNA template for PLA1 expression in the GUV inner solution. 80 nM stock, 2 nM final. Linear construct, 1203 bp. |
 | [pH-responsive_ssDNA#2](./dna/ph-responsive-ssdna2.gb) | TTCTCTTCTCGTTTGCTCTTCTCTTGTGTGGTATTGTCCAAGAGAAGAG | pH-responsive strand of the gate, 49 bp. |
 | [Trigger_ssDNA#3](./dna/trigger-ssdna3.gb) | TATGCAAACAAGACAATACCACACAATTTTTTTTTT | Trigger strand, 36 bp. |
 :::
 
 The last two anneal 3:1 in IDT duplex buffer to form the construct listed as `pH-responsive:Trigger ssDNA (3:1) annealed construct` in {numref}`tbl-pla1-guv-is`, where the 25 µM stock concentration is that of the trigger strand. Both files verified: `pH-responsive_ssDNA#2` declares 49 bp and carries 49 bases, `Trigger_ssDNA#3` declares 36 bp and carries 36 bases.
 
-The `seqviz` plugin exists at `plugins/seqviz/` in this repository but is not wired into any project, so these are linked as files rather than embedded viewers.
+`pT7-toehold9-PLA1` is 1203 bp, too long to read as inline text, so it is shown as a sequence map. The two gate oligos stay inline above, because each is under 50 bases.
+
+:::{seqviz} https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb
+:height: 600px
+:::
+
+Sequence map of `pT7-toehold9-PLA1`. The file declares 1203 bp and carries 1203 bases, and its sequence matches `pT7-toehold9-PLA1-linear.gb` on `nucleus-eng/DNA` branch `devcells/devstudio-constructs`.
 
 # Protocol
 
@@ -329,55 +335,25 @@ The viewer control panels are visible in the capture above. <!-- REVIEW: recaptu
 :::
 ::::
 
+The four wells below are described here and shown as interactive viewers on [Interactive viewers](./viewers.md). That page carries the full z-stacks. {numref}`fig-microscopy-summary` above is the archival record of the same four wells.
+
 ### D4 — pH 7.6, PLA1-GUV only
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
-:class: w-full
-
-{
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/SH-0925-D4_2026-09-25_11-27-49.059491.zarr/D/4/0",
-    "height": "600px"
-}
-:::
 
 PLA1-expressing synthetic cells at pH 7.6 after 13 h at 37 °C. Cy5 signal is retained inside the vesicles, indicating that membrane integrity was preserved and PLA1 activity did not cause dye leakage. Vesicle membranes are labeled with Rhod-PE.
 
 ### D5 — pH 6.3, PLA1-GUV only
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
-:class: w-full
-
-{
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/SH-0925-D5_2026-09-25_11-32-48.009691.zarr/D/5/0",
-    "height": "600px"
-}
-:::
 
 PLA1-expressing synthetic cells at pH 6.3 after 13 h at 37 °C. Cy5 signal is absent, indicating that acidic conditions triggered PLA1 expression, which disrupted the vesicle membrane and released the encapsulated dye.
 
 ### E4 — pH 7.6, PLA1-GUV + CPRG-LUV
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
-:class: w-full
-
-{
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/SH-0925-E4_2026-09-25_12-03-09.447054.zarr/E/4/0",
-    "height": "600px"
-}
-:::
 
 CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 7.6 after 13 h at 37 °C. Cy5 signal is detected only in the PLA1-expressing synthetic cells.
 
 ### E5 — pH 6.3, PLA1-GUV + CPRG-LUV
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
-:class: w-full
-
-{
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/SH-0925-E5-2_2026-09-25_12-04-22.672843.zarr/E/5/0",
-    "height": "600px"
-}
-:::
 
 CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 6.3 after 13 h at 37 °C. Cy5 signal is detected only in the PLA1-expressing synthetic cells. The fraction of vesicles retaining Cy5 is markedly reduced compared with E4, indicating PLA1-mediated Cy5 release.
 
