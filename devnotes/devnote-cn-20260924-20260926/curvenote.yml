@@ -1,0 +1,36 @@
+version: 1
+project:
+  # Candidate title from the platemap Experiment column:
+  # "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL" and
+  # "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL" — QC to confirm.
+  # No Specification table exists in any of the three source logs.
+  title: '[PLEASE FILL IN]'
+  description: >
+    EsaR(D91G) repression of single- and dual-operator EsaO-mNG sensor
+    constructs in Nucleus Cytosol, across three days: an EsaR titration at
+    fixed sensor DNA, a sensor DNA titration at fixed EsaR, and a repeat of
+    that titration with EsaR pre-expressed overnight.
+  # No Authors table exists in any of the three source logs. The Log folders
+  # are prefixed CN — QC to confirm the full name, ORCID and affiliation.
+  authors:
+    - name: '[PLEASE FILL IN]'
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-0
+  affiliations:
+    - id: affiliations-curvenote-generated-uid-0
+      name: b.next
+  date: '2026-09-24'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+  resources:
+    - experiments/**
+  id: 99d20115-67f3-42c1-bf8f-90b7af4a0d80
+site:
+  template: article-theme
