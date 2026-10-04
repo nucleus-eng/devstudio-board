@@ -43,8 +43,16 @@ rather than a statement by the author. Confirm University College London,
 King's College London and Imperial College London, and confirm the author
 order.
 
-Still missing, and still blocking: the title. No ORCID is recorded for any
-author.
+The title is set, to "EsaO/R-deGFP AHL Detector". It was not supplied through
+the review Doc. It appeared in `curvenote.yml` in the working tree and was
+picked up by the asset-assembly commit.
+
+Two things on it. It spells the signal "AHL", while prompt 12 ruled that
+everything is written as AHSL, so the title and the body now disagree. And the
+candidate titles this DevNote recorded from the platemap were never adopted,
+which is correct, but nobody has confirmed this one against them.
+
+No ORCID is recorded for any author.
 
 **Two figures have no surviving producing cell.** {numref}`fig-20260924-esao`
 and {numref}`fig-20260924-esao2` were pasted into the 2026-09-24 log. The
