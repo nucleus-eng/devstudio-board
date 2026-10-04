@@ -72,14 +72,19 @@ every sequence has to be added inline. No `.gb` file for any of the seven was
 located, so `devstudio-verify-dna-constructs` was not run and no
 construct-to-file identity claim is made here.
 
-**One of seven supplied and verified.** `T7-EsaR(D91G)-T7term` is in the tree
-at `dna/t7pro-ls1-esard91g.gbk`, with its sequence inline in
-{ref}`seq-esar-d91g`.
+**Two of seven supplied and verified.** `T7-EsaR(D91G)-T7term` is at
+`dna/t7pro-ls1-esard91g.gbk` with its sequence in {ref}`seq-esar-d91g`.
+`T7-\[EsaO\]-mNG-T7term` is at `dna/t7pro-esao-ls1-mneongreen.gbk` with its
+sequence in {ref}`seq-esao-mng`.
 
-Six are still missing. The two reporter links return "Requested entity was not found" through the
-Drive connector, and a sign-in page over HTTP. They are not shared with the
-account this pipeline runs as. Four have no source at all: T7-mNG-t7term,
-T7-PLA1-t7term, T7-\[EsaO\]-PLA1-T7term and T7-\[EsaO\]2-PLA1-t7term.
+Five are still missing. `T7-\[EsaO\]2-mNG-t7term`, the dual-operator
+reporter, is the one that matters most, because it carries the strongest
+repression in every experiment here and is the only construct in the
+2026-09-26 and 2026-10-01 runs. Its Drive link returns "Requested entity was
+not found" through the Drive connector, and a sign-in page over HTTP.
+
+Four have no source at all: T7-mNG-t7term, T7-PLA1-t7term,
+T7-\[EsaO\]-PLA1-T7term and T7-\[EsaO\]2-PLA1-t7term.
 
 The three PLA1 templates were prepared on 2026-09-23 and are used in no
 experiment here. Dropping them from {numref}`tbl-constructs` is one
@@ -231,16 +236,17 @@ name MB and JM. The cell label reads `mbcn-20261001-fig1`.
 of initials appear because multiple experiments share one plate. The author
 list itself is still open, under the blocking title-and-authors item. -->
 
-**The sequence file says circular, and the construct is linear.** The `LOCUS`
-line of `dna/t7pro-ls1-esard91g.gbk` reads `circular`. The 2026-09-23 protocol
-amplifies this construct from a gBlock, which gives a linear product.
+**Both sequence files say circular, and the constructs are linear.** The
+`LOCUS` line of `dna/t7pro-ls1-esard91g.gbk` and of
+`dna/t7pro-esao-ls1-mneongreen.gbk` both read `circular`. The 2026-09-23
+protocol amplifies these from gBlocks, which gives a linear product.
 {numref}`tbl-constructs` calls all seven linear templates. Correct the topology
-in the file.
+in both files.
 
-**The log names M15 primers, and the sequence file names M13.** The 2026-09-23
-protocol reads "amplified using Q5 polymerase (2x HF buffer) and M15 Fwd and
-Rev primers". The feature labels in `dna/t7pro-ls1-esard91g.gbk` read `M13_Fwd`
-and `M13_Rev`. Say which is right.
+**The log names M15 primers, and both sequence files name M13.** The
+2026-09-23 protocol reads "amplified using Q5 polymerase (2x HF buffer) and M15
+Fwd and Rev primers". The feature labels in both files read `M13_Fwd` and
+`M13_Rev`. Say which is right.
 
 **Two more experiments belong in this DevNote.** Review cycle v2, prompt 22,
 closes with two lines naming work that is not drafted here: "Missing 2026-09-30
@@ -299,13 +305,57 @@ replaced.
 | Name | Sequence | Purpose |
 | --- | --- | --- |
 | T7-mNG-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
-| T7-\[EsaO\]-mNG-T7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| [T7-\[EsaO\]-mNG-T7term](./dna/t7pro-esao-ls1-mneongreen.gbk) | {ref}`seq-esao-mng` | [PLEASE FILL IN] |
 | T7-\[EsaO\]2-mNG-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | T7-PLA1-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | T7-\[EsaO\]-PLA1-T7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | T7-\[EsaO\]2-PLA1-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | [T7-EsaR(D91G)-T7term](./dna/t7pro-ls1-esard91g.gbk) | {ref}`seq-esar-d91g` | [PLEASE FILL IN] |
 :::
+
+::::{admonition} T7-\[EsaO\]-mNG-T7term, full sequence
+:class: dropdown
+:name: seq-esao-mng
+
+Source file:
+[`dna/t7pro-esao-ls1-mneongreen.gbk`](./dna/t7pro-esao-ls1-mneongreen.gbk),
+1098 bp. Verified three ways. The `LOCUS` line declares 1098 bp and the
+`ORIGIN` block holds exactly 1098 bases. The CDS at 151..861 translates to 236
+residues plus a stop, with no internal stops. That translation starts
+`MVSKGEEDNM` and runs 236 residues, which is the mNeonGreen N-terminus at
+mNeonGreen's own length.
+
+The file carries exactly one `EsaO` feature, 19 bp at 62..80, which is what
+makes this the single-operator construct. It sits between the +1 transcription
+start and the leader sequence.
+
+Features, in order: 5' spacer, M13_Fwd, T7pro, +1, EsaO, Leader sequence 1,
+mNeonGreen, T7 terminator, M13_Rev, 3' spacer. That is the same layout as
+{ref}`seq-esar-d91g` with the operator inserted and the coding sequence
+swapped.
+
+```
+GGGACCATTACGGAGGCAGTGTAAAACGACGGCCAGTGCCGGTTAATACGACTCACTATA
+GCCTGTACTATAGTGCAGGTGGAGATTGTGAGCGGATAACAATTCCCCTCTAGAAATAAT
+TTTGTTTAACTTTAAGAAGGAGATATACATATGGTGAGCAAAGGCGAAGAGGATAATATG
+GCAAGCCTGCCTGCAACACATGAACTGCATATTTTTGGTAGCATTAACGGCGTGGATTTT
+GATATGGTTGGTCAAGGCACCGGTAATCCGAATGATGGTTATGAAGAACTGAATCTGAAA
+AGCACCAAAGGCGATCTGCAGTTTAGCCCGTGGATTCTGGTTCCGCATATTGGTTATGGT
+TTTCATCAGTATCTGCCGTATCCGGATGGTATGAGCCCGTTTCAGGCAGCAATGGTTGAT
+GGTAGCGGTTATCAGGTTCATCGTACCATGCAGTTTGAAGATGGTGCAAGCCTGACCGTT
+AATTATCGTTATACCTATGAAGGCAGCCACATTAAAGGTGAAGCACAGGTTAAAGGTACA
+GGTTTTCCGGCAGATGGTCCGGTTATGACCAATAGTCTGACCGCAGCAGATTGGTGTCGT
+AGCAAAAAAACCTATCCGAACGATAAAACCATCATCAGCACCTTCAAATGGTCATATACC
+ACCGGCAATGGTAAACGTTATCGTAGCACCGCACGTACCACCTATACCTTTGCAAAACCG
+ATGGCAGCAAACTATCTGAAAAATCAGCCGATGTATGTGTTTCGCAAAACGGAACTGAAA
+CATTCCAAAACCGAGCTGAACTTTAAAGAATGGCAGAAAGCATTTACCGATGTGATGGGC
+ATGGATGAACTATACAAATAAGGATCCCGGGAATTCTCGAGTAAGGTTAACCTGCAGGAG
+GCCTTTAATTAAGGTGGTGCGGCCGCGCTAGCGGTCCCGGGGGATCGATCCGGCTGCTAA
+CAAAGCCCGAAAGGAAGCTGAGTTGGCTGCTGCCACCGCTGAGCAATAACTAGCATAACC
+CCTTGGGGCCTCTAAACGGGTCTTGAGGGGTTTTTTGCATGGTCATAGCTGTTTCCTGCC
+TGATGCATGAGCTAGCAG
+```
+::::
 
 ::::{admonition} T7-EsaR(D91G)-T7term, full sequence
 :class: dropdown
