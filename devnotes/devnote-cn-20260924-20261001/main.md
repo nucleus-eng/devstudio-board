@@ -33,13 +33,18 @@ Authors table. `curvenote.yml` holds `[PLEASE FILL IN]` for both, with
 candidate text in comments. Three Log folders are prefixed `CN`. The fourth
 is prefixed `MB`, and its notebook names `JM-MB`.
 
-**Answered in part, review cycle v2, prompt 1.** Three authors named: Chalie
-Newell, Jonah McDonald, Manuel Bibrowski. Carried into `curvenote.yml`
-verbatim. Still missing, and still blocking: the title, an email for at least
-one author, every ORCID, every institution, and the author order. The
-Curvenote build fails its Corresponding Author check until one email exists, so
-no preview is published. Confirm the spelling of "Chalie Newell" at the same
-time.
+**Answered in part, review cycle v2, prompt 1.** Three authors named, with
+emails: Charlie Newell, Jonah McDonald and Manuel Bibrowski. The Doc first
+wrote "Chalie"; the email the author then supplied reads `charlie`, so the
+DevNote uses Charlie.
+
+Each affiliation is inferred from the author's email domain, which is evidence
+rather than a statement by the author. Confirm University College London,
+King's College London and Imperial College London, and confirm the author
+order.
+
+Still missing, and still blocking: the title. No ORCID is recorded for any
+author.
 
 **Two figures have no surviving producing cell.** {numref}`fig-20260924-esao`
 and {numref}`fig-20260924-esao2` were pasted into the 2026-09-24 log. The
