@@ -72,14 +72,25 @@ every sequence has to be added inline. No `.gb` file for any of the seven was
 located, so `devstudio-verify-dna-constructs` was not run and no
 construct-to-file identity claim is made here.
 
-**Answered in part, review cycle v2, prompt 3, and not retrievable.** Three
-Drive links were supplied, for the in-situ expressed repressor, the
-single-operator reporter and the dual-operator reporter. All three return
-"Requested entity was not found" through the Drive connector, so they are not
-shared with the account this pipeline runs as. Nothing was downloaded and no
-sequence was added. Share the three files, and supply the remaining four:
-T7-mNG-t7term, T7-PLA1-t7term, T7-\[EsaO\]-PLA1-T7term and
-T7-\[EsaO\]2-PLA1-t7term.
+**One of seven supplied and verified.** `T7-EsaR(D91G)-T7term` is in the tree
+at `dna/t7pro-ls1-esard91g.gbk`, with its sequence inline in
+{ref}`seq-esar-d91g`.
+
+Six are still missing. The two reporter links return "Requested entity was not found" through the
+Drive connector, and a sign-in page over HTTP. They are not shared with the
+account this pipeline runs as. Four have no source at all: T7-mNG-t7term,
+T7-PLA1-t7term, T7-\[EsaO\]-PLA1-T7term and T7-\[EsaO\]2-PLA1-t7term.
+
+The three PLA1 templates were prepared on 2026-09-23 and are used in no
+experiment here. Dropping them from {numref}`tbl-constructs` is one
+alternative to chasing their sequences. T7-mNG-t7term is the unrepressed
+control on all three CN days and does belong.
+
+None of the seven is in `nucleus-eng/DNA`, on `main` or on
+`devcells/devstudio-constructs`. The repo carries the neighbouring
+quorum-sensing family but nothing for EsaR or EsaO. These belong in that repo,
+and once they are there the DevNote can reference them by GitHub URL and carry
+no local copy.
 
 <!-- **Agarose gel image missing.** The 2026-09-24 log states that the
 constructs were run on an agarose gel and instructs "Ask Manuel for image". No
@@ -220,6 +231,17 @@ name MB and JM. The cell label reads `mbcn-20261001-fig1`.
 of initials appear because multiple experiments share one plate. The author
 list itself is still open, under the blocking title-and-authors item. -->
 
+**The sequence file says circular, and the construct is linear.** The `LOCUS`
+line of `dna/t7pro-ls1-esard91g.gbk` reads `circular`. The 2026-09-23 protocol
+amplifies this construct from a gBlock, which gives a linear product.
+{numref}`tbl-constructs` calls all seven linear templates. Correct the topology
+in the file.
+
+**The log names M15 primers, and the sequence file names M13.** The 2026-09-23
+protocol reads "amplified using Q5 polymerase (2x HF buffer) and M15 Fwd and
+Rev primers". The feature labels in `dna/t7pro-ls1-esard91g.gbk` read `M13_Fwd`
+and `M13_Rev`. Say which is right.
+
 **Two more experiments belong in this DevNote.** Review cycle v2, prompt 22,
 closes with two lines naming work that is not drafted here: "Missing 2026-09-30
 - Manuel initial Mg titration" and "Missing 2026-10-03 - Overnight EsaR 37 ˚C
@@ -282,8 +304,44 @@ replaced.
 | T7-PLA1-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | T7-\[EsaO\]-PLA1-T7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | T7-\[EsaO\]2-PLA1-t7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
-| T7-EsaR(D91G)-T7term | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| [T7-EsaR(D91G)-T7term](./dna/t7pro-ls1-esard91g.gbk) | {ref}`seq-esar-d91g` | [PLEASE FILL IN] |
 :::
+
+::::{admonition} T7-EsaR(D91G)-T7term, full sequence
+:class: dropdown
+:name: seq-esar-d91g
+
+Source file: [`dna/t7pro-ls1-esard91g.gbk`](./dna/t7pro-ls1-esard91g.gbk),
+1118 bp. Verified three ways. The `LOCUS` line declares 1118 bp and the
+`ORIGIN` block holds exactly 1118 bases. The CDS at 132..881 translates to 249
+residues plus a stop, with no internal stops. Residue 91 is glycine, codon
+`GGC`, which confirms the D91G the construct name claims.
+
+Features, in order: 5' spacer, M13_Fwd, T7pro, +1, LS1, EsaR, T7 terminator,
+M13_Rev, 3' spacer.
+
+```
+GGGACCATTACGGAGGCAGTGTAAAACGACGGCCAGTGCCGGTTAATACGACTCACTATA
+GGGAGATTGTGAGCGGATAACAATTCCCCTCTAGAAATAATTTTGTTTAACTTTAAGAAG
+GAGATATACATATGTTCTCTTTCTTCCTTGAAAACCAAACAATAACGGATACGCTTCAGA
+CTTACATACAGAGAAAGTTATCTCCGCTGGGTAGTCCGGATTACGCTTACACTGTTGTGA
+GCAAAAAAAATCCTTCAAATGTTCTGATTATTTCCAGTTATCCTGACGAATGGATTAGGT
+TATACCGCGCTAACAACTTTCAGCTGACCGATCCGGTTATTCTCACGGCCTTTAAACGCA
+CCTCGCCGTTTGCCTGGGATGAGAATATTACGCTGATGTCCGGCCTGCGGTTCACCAAAA
+TTTTCTCTTTATCCAAGCAATACAACATCGTTAACGGCTTTACCTATGTCCTGCATGACC
+ACATGAACAACCTTGCTCTGTTGTCCGTGATCATTAAAGGCAACGATCAGACTGCGCTGG
+AGCAACGCCTTGCTGCCGAACAGGGCACGATGCAGATGCTGCTGATTGATTTTAACGAGC
+AGATGTACCGACTGGCAGGCACCGAAGGTGAACGAGCACCGGCGTTAAATCAGAGCGCGG
+ACAAAACGATATTTTCCTCGCGTGAAAATGAGGTGTTGTACTGGGCGAGTATGGGCAAAA
+CCTATGCTGAGATTGCCGCTATTACGGGCATTTCTGTGAGTACCGTGAAGTTTCACATCA
+AGAATGTGGTCGTGAAACTGGGCGTCAGTAACGCCCGACAGGCTATCAGACTGGGTGTAG
+AACTGGATCTTATCAGACCGGCAGCGTCAGCAGCAAGGTAAGGATCCCGGGAATTCTCGA
+GTAAGGTTAACCTGCAGGAGGCCTTTAATTAAGGTGGTGCGGCCGCGCTAGCGGTCCCGG
+GGGATCGATCCGGCTGCTAACAAAGCCCGAAAGGAAGCTGAGTTGGCTGCTGCCACCGCT
+GAGCAATAACTAGCATAACCCCTTGGGGCCTCTAAACGGGTCTTGAGGGGTTTTTTGCAT
+GGTCATAGCTGTTTCCTGCCTGATGCATGAGCTAGCAG
+```
+::::
 
 <!-- Four of these seven templates (T7-mNG, T7-PLA1, T7-[EsaO]-PLA1,
 T7-[EsaO]2-PLA1) were prepared on 2026-09-23 but do not appear in any
