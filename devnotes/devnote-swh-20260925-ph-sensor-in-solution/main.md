@@ -95,7 +95,7 @@ Two entries are ambiguous rather than missing. The tracker stocks two mineral oi
 
 | Name | Sequence | Purpose |
 | --- | --- | --- |
-| pT7-toehold9-PLA1 DNA template | [PLEASE FILL IN] | DNA template for PLA1 expression in the GUV inner solution. 80 nM stock, 2 nM final. Source note: "sequence file not verified". |
+| pT7-toehold9-PLA1 DNA template | ./dna/Linear-T7-toehold9-PLA1-t7hyb6-extra-BbsI-site.gbk | DNA template for PLA1 expression in the GUV inner solution. 80 nM stock, 2 nM final. Source note: "sequence file not verified". |
 | [pH-responsive_ssDNA#2](./dna/ph-responsive-ssdna2.gb) | TTCTCTTCTCGTTTGCTCTTCTCTTGTGTGGTATTGTCCAAGAGAAGAG | pH-responsive strand of the gate, 49 bp. |
 | [Trigger_ssDNA#3](./dna/trigger-ssdna3.gb) | TATGCAAACAAGACAATACCACACAATTTTTTTTTT | Trigger strand, 36 bp. |
 :::
@@ -106,36 +106,76 @@ The `seqviz` plugin exists at `plugins/seqviz/` in this repository but is not wi
 
 # Protocol
 
-[PLEASE FILL IN]
+Section order follows the source log, which prepares the CPRG-LUVs first. The
+composition tables under Methods run in the other order.
+
+## CPRG-LUV preparation
+
+1. Add the inner solution directly to the dried lipid film.
+2. Vortex until the film is no longer visible.
+3. Sonicate the suspension for 10 min.
+4. Run 5 freeze-thaw cycles. One cycle is three operations:
+    - Freeze in liquid nitrogen.
+    - Thaw in a 35 °C water bath.
+    - Vortex for 30 s.
+5. Combine each of 12 tubes holding 50 µL LUVs with 200 µL outer solution.
+6. Centrifuge at 10,000 g for 10–20 min to pellet the vesicles.
+7. Pool the pellets into two tubes. Take 15 µL from each of six tubes, 90 µL in total.
+8. Add 160 µL outer solution to each tube, for a final volume of 250 µL.
+9. Wash 10 times. One wash is three operations:
+    - Centrifuge at 4,000 g for 10 min.
+    - Remove 200 µL supernatant without disturbing the pellet.
+    - Add 200 µL fresh outer solution.
+
+    Alternate the tube orientation with each wash, so the pellet moves to the
+    opposite side. This releases unencapsulated or trapped solution held
+    between vesicles.
+10. After the final wash, leave the tubes on ice for at least 30 min.
+11. Tap the tubes gently to resuspend the pellet. Do not pipette.
+
+## PLA1-GUV preparation
+
+The inverted emulsion method. Lipid volumes in step 1 are the 3 mL working
+scale, which is 1.5 µmol of total lipid. {numref}`tbl-pla1-guv-mb` states the
+same membrane at the 5 mL scale, which is 2.5 µmol. The mol% is identical.
+
+1. Combine three lipid stocks in a 20 mL glass vial. All three stocks are in chloroform.
+    - 41.0 µL of 25 mg/mL POPC.
+    - 1.16 µL of 50 mg/mL cholesterol.
+    - 1.95 µL of 1 mg/mL rhodamine-PE.
+
+    This gives 89.9 / 10 / 0.1 mol% POPC, cholesterol and Rhod-PE.
+2. Remove the chloroform under a gentle argon flow.
+3. Dry the vial in a vacuum desiccator for 30 min.
+4. Rehydrate the lipids in 3 mL mineral oil, to 0.5 mM total lipid in oil.
+5. Seal the vial. Disperse the lipids in four operations:
+    - Bath sonicate for 20 min.
+    - Incubate at 60 °C for 1 h.
+    - Vortex for 2 min.
+    - Bath sonicate again for 20 min.
+6. Gently layer 300 µL of the lipid-in-oil dispersion over 400 µL of vesicle outer solution in a 1.5 mL tube.
+7. Incubate the tube at room temperature for 10–20 min.
+8. Prepare the inner encapsulation solution in a separate 1.5 mL tube during that incubation.
+9. Add 600 µL of the lipid-in-oil dispersion to the inner solution.
+10. Pipette the mixture up and down thoroughly for 3 min, to produce water-in-oil monolayer emulsion droplets.
+11. Add the droplets on top of the oil-water interface formed in step 6.
+12. Centrifuge at 2,500 g for 15 min at 15 °C.
+13. Remove the oil phase carefully with a pipette.
+14. Collect the vesicles into a 0.2 mL PCR tube with a fresh pipette tip.
+15. Resuspend the vesicles gently.
+
+## LGA Gel Preparation
+
+:::{admonition}
+Please add in a protocol for preparing LGA gels and embedding cells into them.
+:::
 
 # Methods
-
-## Conditions
-
-384-well square plate, nine wells, 60 µL each. The pH 7.6 arm is plate column 4, the pH 6.3 arm is plate column 5, and `H5` is empty in the build sheet, which is why one arm has five wells and the other four. The vesicle slot is a constant 7.2 µL on every well except `H4`: outer solution plus PLA1-GUV plus CPRG-LUV sums to 7.2 on rows `D`, `E`, `F` and `G`.
-
-:::{table} Plate conditions. Per-component concentrations are in {numref}`tbl-pla1-guv-is`, {numref}`tbl-cprg-luv-is` and {numref}`tbl-outer-solution`. The full platemap is [`experiments/20260925-ph-lysis-cascade.csv`](./experiments/20260925-ph-lysis-cascade.csv).
-:label: tbl-conditions
-:align: center
-
-| Well | Name | Type | pH | Energy solution mix (µL) | Outer solution (µL) | PLA1-GUV (µL) | CPRG-LUV (µL) | Total (µL) | Result recorded |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| D4 | pH 7.6, PLA1-GUV only | Control | 7.6 | 52.8 | 6.2 | 1 | 0 | 60 | yes |
-| D5 | pH 6.3, PLA1-GUV only | Control | 6.3 | 52.8 | 6.2 | 1 | 0 | 60 | yes |
-| E4 | pH 7.6, PLA1-GUV + CPRG-LUV | Sample | 7.6 | 52.8 | 2.1 | 3 | 2.1 | 60 | yes |
-| E5 | pH 6.3, PLA1-GUV + CPRG-LUV | Sample | 6.3 | 52.8 | 2.1 | 3 | 2.1 | 60 | yes |
-| F4 | pH 7.6, PLA1-GUV + CPRG-LUV | Sample | 7.6 | 52.8 | 2.1 | 3 | 2.1 | 60 | no |
-| F5 | pH 6.3, PLA1-GUV + CPRG-LUV | Sample | 6.3 | 52.8 | 2.1 | 3 | 2.1 | 60 | no |
-| G4 | pH 7.6, CPRG-LUV only | Control | 7.6 | 52.8 | 5.1 | 0 | 2.1 | 60 | no |
-| G5 | pH 6.3, CPRG-LUV only | Control | 6.3 | 52.8 | 5.1 | 0 | 2.1 | 60 | no |
-| H4 | pH 7.6 arm, PLA1-GUV, no energy solution mix | Control | 7.6 | 0 | 59 | 1 | 0 | 60 | no |
-:::
 
 ## PLA1-expressing GUVs
 
 :::::{tab-set}
 ::::{tab-item} Inner solution
-:sync: is
 
 :::{table} PLA1-GUV inner solution.
 :label: tbl-pla1-guv-is
@@ -157,7 +197,6 @@ The `seqviz` plugin exists at `plugins/seqviz/` in this repository but is not wi
 ::::
 
 ::::{tab-item} Membrane
-:sync: mb
 
 :::{table} PLA1-GUV membrane. Volumes are for the lipid-in-oil stock, not per well.
 :label: tbl-pla1-guv-mb
@@ -179,7 +218,6 @@ Source note, carried verbatim: "dried and taken up in 3 mL mineral oil to 0.5 mM
 
 :::::{tab-set}
 ::::{tab-item} Inner solution
-:sync: is
 
 :::{table} CPRG-LUV inner solution.
 :label: tbl-cprg-luv-is
@@ -195,7 +233,6 @@ Source note, carried verbatim: "dried and taken up in 3 mL mineral oil to 0.5 mM
 ::::
 
 ::::{tab-item} Membrane
-:sync: mb
 
 :::{table} CPRG-LUV membrane. Volumes are for the lipid stock, not per well.
 :label: tbl-cprg-luv-mb
@@ -235,13 +272,21 @@ The whole 60 µL well. The first three rows are the 52.8 µL the build sheet rec
 
 The energy solution is a 2× sub-mix of ten components per Sun et al. 2013, made up to 4000 µL. It is not reproduced here: [`experiments/energy-solution-composition.csv`](./experiments/energy-solution-composition.csv), and its vendor data is in {numref}`tbl-reagents`.
 
-## Microscopy
+## Measurement
 
 Two channels were acquired. The channel labelled `Alexa Fluor 647` in the acquisition metadata reports the Cy5 signal, because the microscope names the wavelength by a representative fluorophore; the reagent in the composition is Cy5. The channel labelled `Rhodamine` reports Rhod-PE in the vesicle membranes. Data are OME-Zarr version 0.5, one well per store, with a z-stack at 1.5 µm spacing and 0.333 µm pixels.
 
 # Results
 
-[PLEASE FILL IN]
+:::{admonition}
+Please describe the overall results of the experiment. Here I've organized experiments by "Attempt", i.e. Attempt 1 - with LUVs and Attempt 2 - with SUVs
+:::
+
+## Attempt 1
+
+:::{admonition}
+Please describe details of Attempt 1
+:::
 
 :::{figure} ./figures/microscopy-summary.png
 :label: fig-microscopy-summary
@@ -259,11 +304,32 @@ The viewer control panels are visible in the capture above. <!-- REVIEW: recaptu
 [PLEASE FILL IN]
 :::
 
-<!-- REVIEW: this photograph shows a yellow well beside a purple one, the CPRG to CPR conversion. Nothing in the source log records it. Which wells, which plate and which date are unrecorded, and the caption must not be written until they are. -->
+### Conditions
 
-The four viewers below are stacked rather than tabbed. The Vizarr widget creates its viewer on a detached element with no width and never re-measures, so any instance that is hidden when the page mounts renders blank permanently.
+384-well square plate, nine wells, 60 µL each. The pH 7.6 arm is plate column 4, the pH 6.3 arm is plate column 5, and `H5` is empty in the build sheet, which is why one arm has five wells and the other four. The vesicle slot is a constant 7.2 µL on every well except `H4`: outer solution plus PLA1-GUV plus CPRG-LUV sums to 7.2 on rows `D`, `E`, `F` and `G`.
 
-## D4 — pH 7.6, PLA1-GUV only
+::::{admonition} Plate conditions Attempt 1
+:class: dropdown
+
+:::{table} Plate conditions. Per-component concentrations are in {numref}`tbl-pla1-guv-is`, {numref}`tbl-cprg-luv-is` and {numref}`tbl-outer-solution`. The full platemap is [`experiments/20260925-ph-lysis-cascade.csv`](./experiments/20260925-ph-lysis-cascade.csv).
+:label: tbl-conditions
+:align: center
+
+| Well | Name | Type | pH | Energy solution mix (µL) | Outer solution (µL) | PLA1-GUV (µL) | CPRG-LUV (µL) | Total (µL) | Result recorded |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| D4 | pH 7.6, PLA1-GUV only | Control | 7.6 | 52.8 | 6.2 | 1 | 0 | 60 | yes |
+| D5 | pH 6.3, PLA1-GUV only | Control | 6.3 | 52.8 | 6.2 | 1 | 0 | 60 | yes |
+| E4 | pH 7.6, PLA1-GUV + CPRG-LUV | Sample | 7.6 | 52.8 | 2.1 | 3 | 2.1 | 60 | yes |
+| E5 | pH 6.3, PLA1-GUV + CPRG-LUV | Sample | 6.3 | 52.8 | 2.1 | 3 | 2.1 | 60 | yes |
+| F4 | pH 7.6, PLA1-GUV + CPRG-LUV | Sample | 7.6 | 52.8 | 2.1 | 3 | 2.1 | 60 | no |
+| F5 | pH 6.3, PLA1-GUV + CPRG-LUV | Sample | 6.3 | 52.8 | 2.1 | 3 | 2.1 | 60 | no |
+| G4 | pH 7.6, CPRG-LUV only | Control | 7.6 | 52.8 | 5.1 | 0 | 2.1 | 60 | no |
+| G5 | pH 6.3, CPRG-LUV only | Control | 6.3 | 52.8 | 5.1 | 0 | 2.1 | 60 | no |
+| H4 | pH 7.6 arm, PLA1-GUV, no energy solution mix | Control | 7.6 | 0 | 59 | 1 | 0 | 60 | no |
+:::
+::::
+
+### D4 — pH 7.6, PLA1-GUV only
 
 :::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
 :class: w-full
@@ -276,7 +342,7 @@ The four viewers below are stacked rather than tabbed. The Vizarr widget creates
 
 PLA1-expressing synthetic cells at pH 7.6 after 13 h at 37 °C. Cy5 signal is retained inside the vesicles, indicating that membrane integrity was preserved and PLA1 activity did not cause dye leakage. Vesicle membranes are labeled with Rhod-PE.
 
-## D5 — pH 6.3, PLA1-GUV only
+### D5 — pH 6.3, PLA1-GUV only
 
 :::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
 :class: w-full
@@ -289,7 +355,7 @@ PLA1-expressing synthetic cells at pH 7.6 after 13 h at 37 °C. Cy5 signal is re
 
 PLA1-expressing synthetic cells at pH 6.3 after 13 h at 37 °C. Cy5 signal is absent, indicating that acidic conditions triggered PLA1 expression, which disrupted the vesicle membrane and released the encapsulated dye.
 
-## E4 — pH 7.6, PLA1-GUV + CPRG-LUV
+### E4 — pH 7.6, PLA1-GUV + CPRG-LUV
 
 :::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
 :class: w-full
@@ -302,7 +368,7 @@ PLA1-expressing synthetic cells at pH 6.3 after 13 h at 37 °C. Cy5 signal is ab
 
 CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 7.6 after 13 h at 37 °C. Cy5 signal is detected only in the PLA1-expressing synthetic cells.
 
-## E5 — pH 6.3, PLA1-GUV + CPRG-LUV
+### E5 — pH 6.3, PLA1-GUV + CPRG-LUV
 
 :::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
 :class: w-full
@@ -315,13 +381,25 @@ CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 7.6
 
 CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 6.3 after 13 h at 37 °C. Cy5 signal is detected only in the PLA1-expressing synthetic cells. The fraction of vesicles retaining Cy5 is markedly reduced compared with E4, indicating PLA1-mediated Cy5 release.
 
+## Attempt 2
+
+:::{admonition}
+Please describe details of Attempt 2. Noting that we need to pull in data from relevant Log file for this experiment. Prompts might be why this debugging strategy was pursued and what was learned
+:::
+
 # Notes
+
+:::{admonition}
+{Please add in consolidated learnings}
+:::
 
 Here no gramicidin is used
 
 # What's next
 
-[PLEASE FILL IN]
+:::{admonition}
+Please add in next steps, this can come in after final attempt is done.
+:::
 
 # Resources
 
