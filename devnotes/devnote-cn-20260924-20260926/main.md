@@ -89,10 +89,15 @@ catalog number, price or storage condition. `devstudio-build-to-materials` was
 not run against the Materials Reference, so {numref}`tbl-reagents` carries
 component names only.
 
-**Figures are static PNGs.** Only one `#| label:` tag exists across all three
-notebooks. It is `exp-1-kinetics` on cell 15 of the 2026-09-24 notebook, and it
-is not one of the six figures here. Add `#| label:` to each producing cell to
-switch these figures to the quarto-label pattern.
+**Two figures are still static PNGs.** The four 2026-09-25 and 2026-09-26
+figures now carry `#| label:` tags and resolve against their notebook cells.
+The two 2026-09-24 figures stay `static-png`, because their producing cell does
+not exist to label. That is the blocking item above.
+
+**One label carries the wrong year.** Cell 15 of the 2026-09-26 notebook is
+tagged `cn-20250926-fig1`, which reads 2025. A `cell_label` is carried verbatim
+and is never reformatted, so `main.md` and `manifest.json` both use the string
+as written. Retag the cell and this DevNote follows.
 
 **Uncertainty markers.** Every result paragraph in all three logs is prefixed
 `*Prior to analysis` or `*Prior to data analysis`. Those statements are the
@@ -334,7 +339,7 @@ Dual-operator \[EsaO\]2-mNG with 0, 1, 4 and 7 µL pre-expressed EsaR, minus and
 on \[EsaR\]:\[Sensor DNA\]. The \[EsaO\]2 constructs appear to repress more
 strongly than the \[EsaO\]1 constructs.
 
-:::{figure} ./figures/20260925-dna-titration-0p1nm.png
+:::{figure} #cn-20260925-fig1
 :label: fig-20260925-0p1nm
 :align: center
 :width: 75%
@@ -343,7 +348,7 @@ strongly than the \[EsaO\]1 constructs.
 
 [`fig-20260925-0p1nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (0.1 nM sensor DNA at approximately 576 nM EsaR and 5 µM AHSL, single operator against dual operator.)]
 
-:::{figure} ./figures/20260925-dna-titration-0p5nm.png
+:::{figure} #cn-20260925-fig2
 :label: fig-20260925-0p5nm
 :align: center
 :width: 75%
@@ -352,7 +357,7 @@ strongly than the \[EsaO\]1 constructs.
 
 [`fig-20260925-0p5nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (0.5 nM sensor DNA at approximately 576 nM EsaR and 5 µM AHSL, single operator against dual operator.)]
 
-:::{figure} ./figures/20260925-dna-titration-1nm.png
+:::{figure} #cn-20260925-fig3
 :label: fig-20260925-1nm
 :align: center
 :width: 75%
@@ -377,7 +382,7 @@ Results: \*Prior to analysis - The constructs are being repressed similarly to
 the previous experiment. Adding "spent" EsaR reactions doesn't appear to be
 improving the amount of repression noticeably.
 
-:::{figure} ./figures/20260926-esao2-dna-titration-esar-spent.png
+:::{figure} #cn-20250926-fig1
 :label: fig-20260926-esar-spent
 :align: center
 :width: 100%

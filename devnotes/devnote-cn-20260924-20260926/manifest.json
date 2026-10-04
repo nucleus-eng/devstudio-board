@@ -32,8 +32,8 @@
     },
     {
       "filename": "figures/20260925-dna-titration-0p1nm.png",
-      "pattern": "static-png",
-      "cell_label": null,
+      "pattern": "quarto-label",
+      "cell_label": "cn-20260925-fig1",
       "source_notebook": "CN-20260925-DNA_titration/platereader.ipynb",
       "platemap": "20260924-dna-titration-esar-fixed.csv",
       "data_source": "20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt",
@@ -41,15 +41,15 @@
       "asset_chain_complete": true,
       "extraction_method": "pandoc --extract-media",
       "findings": [
+        "Labelled on cell 18 as 'cn-20260925-fig1' by the author on 2026-10-04.",
         "Produced by cell 18 of platereader.ipynb, matched on the suptitle '~ 576 nM EsaR / 0.1 nM DNA / 5 uM AHSL'.",
-        "REVIEW: add #| label: to cell 18 to enable the quarto-label pattern",
         "Platemap filename carries 20260924 inside the CN-20260925 folder. The notebook loads this file deliberately."
       ]
     },
     {
       "filename": "figures/20260925-dna-titration-0p5nm.png",
-      "pattern": "static-png",
-      "cell_label": null,
+      "pattern": "quarto-label",
+      "cell_label": "cn-20260925-fig2",
       "source_notebook": "CN-20260925-DNA_titration/platereader.ipynb",
       "platemap": "20260924-dna-titration-esar-fixed.csv",
       "data_source": "20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt",
@@ -57,14 +57,14 @@
       "asset_chain_complete": true,
       "extraction_method": "pandoc --extract-media",
       "findings": [
-        "Produced by cell 19 of platereader.ipynb, matched on the suptitle '~ 576 nM EsaR / 0.5 nM DNA / 5 uM AHSL'. That cell passes units='Well', estimator=None, so replicates are drawn individually.",
-        "REVIEW: add #| label: to cell 19 to enable the quarto-label pattern"
+        "Labelled on cell 19 as 'cn-20260925-fig2' by the author on 2026-10-04.",
+        "Produced by cell 19 of platereader.ipynb, matched on the suptitle '~ 576 nM EsaR / 0.5 nM DNA / 5 uM AHSL'. That cell passes units='Well', estimator=None, so replicates are drawn individually."
       ]
     },
     {
       "filename": "figures/20260925-dna-titration-1nm.png",
-      "pattern": "static-png",
-      "cell_label": null,
+      "pattern": "quarto-label",
+      "cell_label": "cn-20260925-fig3",
       "source_notebook": "CN-20260925-DNA_titration/platereader.ipynb",
       "platemap": "20260924-dna-titration-esar-fixed.csv",
       "data_source": "20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt",
@@ -72,15 +72,15 @@
       "asset_chain_complete": true,
       "extraction_method": "pandoc --extract-media",
       "findings": [
+        "Labelled on cell 20 as 'cn-20260925-fig3' by the author on 2026-10-04.",
         "Produced by cell 20 of platereader.ipynb, matched on the suptitle '~ 576 nM EsaR / 1 nM DNA / 5 uM AHSL'.",
-        "REVIEW: add #| label: to cell 20 to enable the quarto-label pattern",
         "The 3, 6 and 9 nM conditions were run and have no reported panel. Cell 22 holds an unreported steady-state fold-induction bar plot."
       ]
     },
     {
       "filename": "figures/20260926-esao2-dna-titration-esar-spent.png",
-      "pattern": "static-png",
-      "cell_label": null,
+      "pattern": "quarto-label",
+      "cell_label": "cn-20250926-fig1",
       "source_notebook": "CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb",
       "platemap": "20260924-esao2-dna-titration.csv",
       "data_source": "20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt",
@@ -88,10 +88,11 @@
       "asset_chain_complete": true,
       "extraction_method": "pandoc --extract-media",
       "findings": [
+        "Labelled on cell 15 as 'cn-20250926-fig1' by the author on 2026-10-04.",
         "Produced by cell 15 of platereader.ipynb, a three-axis figure titled 0.1 nM, 0.5 nM and 1 nM.",
-        "REVIEW: add #| label: to cell 15 to enable the quarto-label pattern",
         "Platemap filename carries 20260924 inside the CN-20260926 folder. The notebook loads this file deliberately.",
-        "Cell 20 holds an unreported steady-state fold-induction bar plot."
+        "Cell 20 holds an unreported steady-state fold-induction bar plot.",
+        "cell_label reads 2025, not 2026. Carried verbatim per the provenance reference. Retag the cell to correct it."
       ]
     }
   ]

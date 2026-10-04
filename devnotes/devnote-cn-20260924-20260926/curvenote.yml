@@ -27,8 +27,13 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
+  # REVIEW: the two notebook entries below resolve the quarto-label figures.
+  # Neither file is in the tree yet. devstudio-assemble-devnote-assets places
+  # them, and the build fails until it does.
   toc:
     - file: main.md
+    - file: experiments/20260925-platereader.ipynb
+    - file: experiments/20260926-platereader.ipynb
   resources:
     - experiments/**
   id: 99d20115-67f3-42c1-bf8f-90b7af4a0d80
