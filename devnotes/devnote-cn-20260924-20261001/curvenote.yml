@@ -4,7 +4,7 @@ project:
   # "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL" and
   # "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL" — QC to confirm.
   # No Specification table exists in any of the four source logs.
-  title: '[PLEASE FILL IN]'
+  title: 'EsaO/R-deGFP AHL Detector'
   description: >
     EsaR(D91G) repression of single- and dual-operator EsaO-mNG sensor
     constructs in Nucleus Cytosol, across four days: an EsaR titration at
@@ -29,14 +29,11 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
-  # REVIEW: the three notebook entries below resolve the quarto-label figures.
-  # None of the files is in the tree yet. devstudio-assemble-devnote-assets
-  # places them, and the build fails until it does.
   toc:
     - file: main.md
-    - file: experiments/20260925-platereader.ipynb
-    - file: experiments/20260926-platereader.ipynb
-    - file: experiments/20261001-mg-osmo-sweep.ipynb
+    - file: experiments/20260925-dna-titration/platereader.ipynb
+    - file: experiments/20260926-dna-titration-esar-spent/platereader.ipynb
+    - file: experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb
   resources:
     - experiments/**
   id: 99d20115-67f3-42c1-bf8f-90b7af4a0d80

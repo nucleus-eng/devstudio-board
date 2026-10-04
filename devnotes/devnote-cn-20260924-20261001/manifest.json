@@ -100,15 +100,14 @@
       "pattern": "quarto-label",
       "cell_label": "mbcn-20261001-fig1",
       "source_notebook": "2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb",
-      "platemap": "build (Sheet, tab gid 0)",
+      "platemap": "20261001-mg-sweep-platemap.csv",
       "data_source": "20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt",
       "section_context": "2026-10-01 — Magnesium sweep with EsaR and DNA pre-incubation",
-      "asset_chain_complete": false,
+      "asset_chain_complete": true,
       "extraction_method": "notebook cell output",
       "findings": [
         "Labelled on cell 8 as 'mbcn-20261001-fig1' by the author on 2026-10-04.",
-        "Raw data is not in the Log folder. The notebook reads it from https://data.nucleus.engineering/platereader/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt",
-        "Platemap is read from the build Sheet's first tab via a CSV export URL, not from a file in the folder. build-platemap-csv.csv sits in the folder unused and has an empty Type column.",
+        "Raw data was fetched from https://data.nucleus.engineering/platereader/devstudio/ and vendored into experiments/20261001-mg-osmo-sweep/. The platemap was exported from the build Sheet's first tab, which is what the notebook reads.",
         "No build file exists for this day, so no composition sidecar was produced. The log's own volume table is carried instead and has no concentrations.",
         "The 20 mM magnesium arm is in the platemap and not in this figure."
       ]
