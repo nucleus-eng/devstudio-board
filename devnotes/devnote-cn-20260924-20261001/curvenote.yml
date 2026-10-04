@@ -11,14 +11,25 @@ project:
     fixed sensor DNA, a sensor DNA titration at fixed EsaR, a repeat of that
     titration with EsaR pre-expressed overnight, and a magnesium sweep with
     EsaR and DNA pre-incubated before the reaction.
-  # No Authors table exists in any of the four source logs. Three Log folders
-  # are prefixed CN; the fourth is prefixed MB and its notebook names JM-MB.
-  # QC to confirm every full name, ORCID and affiliation, and the author order.
+  # Names from review cycle v2, prompt 1, carried verbatim and in the order
+  # given. Still outstanding, and still failing the Curvenote Corresponding
+  # Author check: an email for at least one author, every ORCID, every
+  # institution, and confirmation of the author order.
+  # REVIEW: confirm the spelling of "Chalie Newell".
+  # REVIEW: affiliation defaults to b.next for all three and is unconfirmed.
   authors:
-    - name: '[PLEASE FILL IN]'
+    - name: Chalie Newell
       affiliations:
         - affiliations-curvenote-generated-uid-0
       id: contributors-curvenote-generated-uid-0
+    - name: Jonah McDonald
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-1
+    - name: Manuel Bibrowski
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-2
   affiliations:
     - id: affiliations-curvenote-generated-uid-0
       name: b.next

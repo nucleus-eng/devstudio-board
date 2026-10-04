@@ -5,9 +5,20 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 
 # Overview
 
-[PLEASE FILL IN]
+We are attempting to detect a bacterial-derived signal, alpha
+homoserine-lactone, in Nucleus cytosol reactions using a DNA sensing construct.
+The EsaR/EsaO system has previously been tested in the literature using PURE,
+with a weak on/off state. In this case, the EsaR repressor protein was
+co-expressed alongside reporter DNA controlled by the EsaO operator. Our work
+builds on this by attempting to supplement Nucleus cytosol reactions expressing
+EsaO controlled protein, with pre-expressed EsaR repressor protein to improve
+the dynamic range between the 'on' and 'off' states. We use a fluorescent
+reporter to quantify the performance of the system, varying parameters such as
+the ratio of pre-expressed EsaR protein to reporter DNA construct, and
+concentration of magnesium ions.
 
-<!-- No source log carries an overview or introduction section. The four logs
+<!-- Overview supplied by the reviewer in review cycle v2, prompt 21, and
+carried verbatim. No source log carries an overview section. The four logs
 open directly on Notes, on "Day #1", or on their own first sentence.
 Candidate framing, from the platemap
 Experiment column, not adopted: "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL"
@@ -22,6 +33,14 @@ Authors table. `curvenote.yml` holds `[PLEASE FILL IN]` for both, with
 candidate text in comments. Three Log folders are prefixed `CN`. The fourth
 is prefixed `MB`, and its notebook names `JM-MB`.
 
+**Answered in part, review cycle v2, prompt 1.** Three authors named: Chalie
+Newell, Jonah McDonald, Manuel Bibrowski. Carried into `curvenote.yml`
+verbatim. Still missing, and still blocking: the title, an email for at least
+one author, every ORCID, every institution, and the author order. The
+Curvenote build fails its Corresponding Author check until one email exists, so
+no preview is published. Confirm the spelling of "Chalie Newell" at the same
+time.
+
 **Two figures have no surviving producing cell.** {numref}`fig-20260924-esao`
 and {numref}`fig-20260924-esao2` were pasted into the 2026-09-24 log. The
 `platereader.ipynb` in `CN-20260924_repressor_test` loads the right data file
@@ -30,15 +49,31 @@ series. No cell in it produces the two-panel `EsaR/EsaO` figure that the log
 shows. The notebook was saved on 2026-09-26, after the figures were pasted.
 Restore those cells before publication.
 
+**Answered, review cycle v2, prompt 2, and deferred.** These figures will be
+rerun later against a subset of conditions that shows the DNA concentration is
+in excess relative to the repressor. Both stay `static-png` until then.
+
 **No DNA sequences.** {numref}`tbl-constructs` names seven linear templates
 and carries no sequence for any of them. A DevNote must be self-contained, so
 every sequence has to be added inline. No `.gb` file for any of the seven was
 located, so `devstudio-verify-dna-constructs` was not run and no
 construct-to-file identity claim is made here.
 
-**Agarose gel image missing.** The 2026-09-24 log states that the constructs
-were run on an agarose gel and instructs "Ask Manuel for image". No gel image
-exists in any of the four Log folders.
+**Answered in part, review cycle v2, prompt 3, and not retrievable.** Three
+Drive links were supplied, for the in-situ expressed repressor, the
+single-operator reporter and the dual-operator reporter. All three return
+"Requested entity was not found" through the Drive connector, so they are not
+shared with the account this pipeline runs as. Nothing was downloaded and no
+sequence was added. Share the three files, and supply the remaining four:
+T7-mNG-t7term, T7-PLA1-t7term, T7-\[EsaO\]-PLA1-T7term and
+T7-\[EsaO\]2-PLA1-t7term.
+
+<!-- **Agarose gel image missing.** The 2026-09-24 log states that the
+constructs were run on an agarose gel and instructs "Ask Manuel for image". No
+gel image exists in any of the four Log folders.
+
+**Resolved, review cycle v2, prompt 4.** The agarose gel is not relevant to
+this DevNote and is not reported. -->
 
 **No build file for 2026-10-01.** The file named `build` in that folder is a
 platemap. It holds `Well`, `Date`, `Experiment`, `Name` and `Type` and nothing
@@ -47,13 +82,16 @@ composition table can be produced for that day and no sidecar exists.
 {numref}`tbl-volumes-20261001` carries the log's own volume table instead, and
 that table has no stock or final concentrations in it. Supply a build file in
 the canonical format.
+
+**Answered, review cycle v2, prompt 5, and deferred.** This will be addressed
+later. The volume table stands in the meantime.
 :::
 
 :::{admonition} Open review items
 :class: warning dropdown
 :name: flags-review
 
-**Date labels on two platemaps.** `CN-20260925-DNA_titration` holds
+<!-- **Date labels on two platemaps.** `CN-20260925-DNA_titration` holds
 `20260924-dna-titration-esar-fixed.csv` and
 `CN-20260926-DNA_titration_spent_EsaR` holds `20260924-esao2-dna-titration.csv`.
 Both carry 20260924 inside a later folder. Each is the file that folder's own
@@ -61,72 +99,136 @@ notebook loads, so both read as naming slips rather than wrong data. The folder
 date and the filename date still disagree, and that is a human call. The `Date`
 column inside all three CN platemaps also reads `2026-09-24`.
 
-**Template residue in every `test-data/` subfolder.** All four folders hold an
+**Resolved, review cycle v2, prompt 6.** Each file holds the correct
+information. The filenames are the slip, not the folders. -->
+
+<!-- **Template residue in every `test-data/` subfolder.** All four folders hold an
 identical `20251111-122213-cytation5-pure-timecourse-gfp-MFG-98-tRNA-QC.txt`
 plus `platemap-microscopy.csv` and `platemap-platereader.csv`. These look like
 unedited copies from `00-template-LOG`, not run data. Nothing here links them.
 
-**EsaR volume labels in {numref}`tbl-composition-20260924`.** The condition
+**Resolved, review cycle v2, prompt 7.** They can be ignored if unedited. All
+three files report identical byte counts in all four folders, which is the
+evidence that none was edited. -->
+
+<!-- **EsaR volume labels in {numref}`tbl-composition-20260924`.** The condition
 names read 0, 1, 4 and 7 µL EsaR. The `Pre-expressed EsaR` row reads 0, 2, 8
 and 14 µL. The reactions are 65 µL against a 32.5 µL standard reaction, so the
 row is the per-65-µL volume and the name is the per-32.5-µL volume. Both are
 carried as the build file writes them.
+
+**Resolved, review cycle v2, prompt 8.** That reading is correct. -->
 
 **DNA stock disagreements.** The 2026-09-24 build sheet states one 200 ng/µL
 stock, yet EsaO takes 2.87 µL and \[EsaO\]2 takes 3.25 µL. The 2026-09-25 sheet
 states 200 ng/µL in its standard-reaction block and 10 and 150 ng/µL in its own
 comment. The comment values are the ones carried in
 {numref}`tbl-composition-20260925`. The 2026-09-26 conditions all take 0.46 µL
-because their stocks differ at 10, 50 and 100 ng/µL.
+because their stocks differ at 10, 50 and 100 ng/µL. The 2026-10-01 log states
+22 ng/µL.
 
-**Pre-expressed EsaR has no concentration.** No build sheet records a stock or
+**Deferred, review cycle v2, prompt 9.** The reviewer passed on this question.
+Every stock value above is still carried as its own source writes it.
+
+<!-- **Pre-expressed EsaR has no concentration.** No build sheet records a stock or
 final concentration for it. All four concentration cells are `—`. The 2026-09-24
 log states a final EsaR concentration of 576 nM from back-of-the-napkin maths,
 which is narrative, not a build-file value.
+
+**Resolved, review cycle v2, prompt 10.** The concentration of pre-expressed
+EsaR is not known. The dash stands, and the 576 nM figure stays narrative
+only. -->
 
 **Stale sheets in the 2026-09-24 build file.** `build` in
 `CN-20260924_repressor_test` also contains sheets named `20260926_DNA_titration`
 and `Sheet6` whose contents duplicate the 2026-09-25 titration. Only
 `20260924_Repression_test_rxns` was used here.
 
-**AHL and AHSL.** The 2026-09-24 and 2026-09-25 logs write "AHL". Every
-platemap writes "AHSL". The 2026-09-26 log writes "AHL" in its reaction
-preparation and "AHSL" in its result. All are carried as written. Agree one
-spelling.
+**Answered, review cycle v2, prompt 11, and hedged.** The reviewer says those
+sheets are "probably stale". That is not a confirmation, so this stays open.
+
+<!-- **AHL and AHSL.** Before this cycle, the 2026-09-24 and 2026-09-25 logs
+wrote "AHL", every platemap wrote "AHSL", the 2026-09-26 log wrote "AHL" in its
+reaction preparation and "AHSL" in its result, and the 2026-10-01 volume table
+wrote "AHL optional".
+
+**Resolved and applied, review cycle v2, prompt 12.** Everything is written as
+AHSL. Seven occurrences of "AHL" were replaced across Protocol, Methods,
+Results and the 2026-10-01 volume table. This is the one place where verbatim
+source wording was changed, and it was changed on the author's explicit
+instruction. -->
+
+**Reagents and construct purposes are deferred.** Review cycle v2, prompt 24:
+the reviewer will take the Reagents table and the Constructs purposes in a
+second pass.
 
 **No reagents data.** No source log or build sheet carries a vendor,
 catalog number, price or storage condition. `devstudio-build-to-materials` was
 not run against the Materials Reference, so {numref}`tbl-reagents` carries
 component names only.
 
+**Deferred, review cycle v2, prompt 13.** `devstudio-build-to-materials` will
+be run later.
+
 **Two figures are still static PNGs.** The four 2026-09-25 and 2026-09-26
 figures now carry `#| label:` tags and resolve against their notebook cells.
 The two 2026-09-24 figures stay `static-png`, because their producing cell does
 not exist to label. That is the blocking item above.
 
-**One label carries the wrong year.** Cell 15 of the 2026-09-26 notebook is
-tagged `cn-20250926-fig1`, which reads 2025. A `cell_label` is carried verbatim
-and is never reformatted, so `main.md` and `manifest.json` both use the string
-as written. Retag the cell and this DevNote follows.
+**One label carried the wrong year, and the Drive notebook still does.**
+Cell 15 of the 2026-09-26 notebook was tagged `cn-20260926-fig1`, which reads
+2025.
 
-**The 2026-10-01 platemap date disagrees with everything around it.** The
+**Answered and applied here, review cycle v2, prompt 14.** It should be 2026.
+This DevNote's copy of the notebook, `main.md` and `manifest.json` now all read
+`cn-20260926-fig1`. The Drive original was last modified at 21:20 on
+2026-10-04, before this change, so it still carries the 2025 spelling. Retag it
+there so the two do not drift.
+
+<!-- **The 2026-10-01 platemap date disagrees with everything around it.** The
 folder is `2026/10/01 - MB - MgSweepof preeincubation` and the data file is
-`20261001-181311-...`. Every row of the platemap reads `2026-10-02`. Confirm
-which date is the run date.
+`20261001-181311-...`. Every row of the platemap reads `2026-10-02`.
+
+**Resolved, review cycle v2, prompt 15.** The run date is 2026-10-01. The
+platemap was written the day after, which is why it reads 2026-10-02. -->
 
 **An unused platemap copy sits in the 2026-10-01 folder.**
 `build-platemap-csv.csv` holds the same sixteen wells as the `build` Sheet. Its
 `Type` column is empty where the Sheet reads `Sample`. The notebook loads the
 Sheet. Delete the copy, or say which one is authoritative.
 
-**Authorship of the 2026-10-01 experiment.** The folder and the notebook name
-MB and JM. The cell label reads `mbcn-20261001-fig1`. Name every author of that
-day's work, and say where they sit in the author list.
+**Answered, review cycle v2, prompt 16, and deferred.** That platemap will be
+rebuilt. The Sheet export is the copy vendored into this DevNote.
+
+<!-- **Authorship of the 2026-10-01 experiment.** The folder and the notebook
+name MB and JM. The cell label reads `mbcn-20261001-fig1`.
+
+**Resolved, review cycle v2, prompt 17.** MB is Manuel Bibrowski. Several sets
+of initials appear because multiple experiments share one plate. The author
+list itself is still open, under the blocking title-and-authors item. -->
+
+**Two more experiments belong in this DevNote.** Review cycle v2, prompt 22,
+closes with two lines naming work that is not drafted here: "Missing 2026-09-30
+- Manuel initial Mg titration" and "Missing 2026-10-03 - Overnight EsaR 37 ˚C
+pre-incubation". Neither Log folder was in the set selected for this DevNote.
+Point me at the two folders and say whether they join this DevNote as a fifth
+and sixth day, which would move the slug again.
+
+**The 2026-09-24 sensor DNA concentration has two values.** The 2026-09-24 log
+states "a sensor DNA template final concentration of 15.35 nM" in its own
+pre-analysis note. The narrative supplied in review cycle v2 states "The
+reporter construct concentration was held at 12.2 nM in each reaction". Both
+are carried above, in their own paragraphs. Say which is correct.
 
 **Uncertainty markers.** Every result paragraph in all three CN logs is prefixed
 `*Prior to analysis` or `*Prior to data analysis`. Those statements are the
-author's pre-analysis impressions, carried verbatim, and must be resolved or
-confirmed before this reaches DevNote(M).
+author's pre-analysis impressions, carried verbatim.
+
+**Answered, review cycle v2, prompt 18, and in progress.** The analysis is
+being done now. Each Results subsection already carries the reviewer's
+post-analysis narrative above the log's pre-analysis note, so both are present
+and labelled. This stays open until each pre-analysis note is confirmed or
+replaced.
 :::
 
 # Reagents
@@ -214,7 +316,7 @@ this was being prepared, varying amounts of pre-expressed T7-EsaR(D91G)-T7term
 were added to 320.5 ng T7-\[EsaO\]-mNG-T7term or T7-\[EsaO\]2-mNG-t7term
 constructs before being placed at 37˚C for 15 mins. An appropriate amount of
 H20 was then added to each mixture before adding the cytosol mastermix to a
-total volume of 65 µL. Reactions were split in half before adding AHL to one
+total volume of 65 µL. Reactions were split in half before adding AHSL to one
 set of reactions to a final concentration of 5 µM. Reactions were distributed
 in triplicate into a 384 well plate before incubation at 37˚C in a platereader
 set to detect GFP.
@@ -256,7 +358,7 @@ this was being prepared, 14 uL of pre-expressed EsaR was mixed with varying
 amounts of T7-\[EsaO\]-mNG-T7term or T7-\[EsaO\]2-mNG-t7term constructs before
 being placed at 37˚C for 15 mins. An appropriate amount of H20 was then added
 to each mixture before adding the cytosol mastermix to a total volume of 65 µL.
-Reactions were split in half before adding AHL to one set of reactions to a
+Reactions were split in half before adding AHSL to one set of reactions to a
 final concentration of 5 µM. Reactions were distributed in triplicate into a
 384 well plate before incubation at 37˚C in a platereader set to detect GFP. .
 
@@ -294,7 +396,7 @@ prepared (- DNA, - water). Whilst this was being prepared, 14 uL of
 pre-expressed EsaR was mixed with varying amounts of T7-\[EsaO\]2-mNG-t7term
 constructs before being placed at 37˚C for 15 mins. An appropriate amount of
 H20 was then added to each mixture before adding the cytosol mastermix to a
-total volume of 70 µL. Reactions were split in half before adding 0.35 µL AHL
+total volume of 70 µL. Reactions were split in half before adding 0.35 µL AHSL
 (stock: 0.5 mM) to one set of reactions (final concentration: 5 µM). Reactions
 were distributed in triplicate into a 384 well plate before incubation at 37˚C
 in a platereader set to detect GFP.
@@ -353,7 +455,7 @@ repression
 | DNA | 0.15 | 0.495 |
 | Rnase inhibitor | 0.25 | 0.825 |
 | EsaR | 2.3 | 7.59 |
-| AHL optional | 0.15 | 0.495 |
+| AHSL optional | 0.15 | 0.495 |
 | Mg | 0.15 | 0.495 |
 | Total | 10 | 33 |
 :::
@@ -374,6 +476,20 @@ X5 = 86.6mM
 # Results
 
 ## 2026-09-24 — EsaR titration at fixed sensor DNA
+
+We first sought to determine the ratio of pre-expressed EsaR repressor protein
+to DNA sensor construct at which there was a defined "on"/"off" state in signal
+output. We therefore titrated varying amounts of pre-expressed EsaR protein
+into Nucleus cytosol reactions containing two different EsaO-mNeonGreen
+reporter constructs each with either one, or two EsaO operator regions. The
+reporter construct concentration was held at 12.2 nM in each reaction.
+
+There was no difference in the "on"/"off" states with any number of EsaO
+operators. This suggested either that the EsaR protein was non-functional, or
+that the DNA sensor construct was in excess even at the highest ratio of EsaR
+protein to DNA sensor.
+
+The log's own pre-analysis note, carried verbatim:
 
 Results: \*Prior to analysis, it appeared that there was not any repression in
 any constructs. We believe that the ratio of Sensor template:EsaR was too high.
@@ -406,6 +522,22 @@ Dual-operator \[EsaO\]2-mNG with 0, 1, 4 and 7 µL pre-expressed EsaR, minus and
 
 ## 2026-09-25 — Sensor DNA titration at fixed EsaR
 
+To test whether the EsaR was functional, we decided to titrate the DNA sensor
+construct concentration whilst maintaining the highest possible concentration
+of pre-expressed EsaR in each reaction. If the EsaR was functional, this would
+enable us to empirically determine the EsaR:DNA ratio at which there was an
+observable difference in "on"/"off" states. 1 nM DNA was shown to be the
+concentration at which the fold-change between "on"/"off" states decreased to
+~1. 0.1 nM DNA, and 0.5 nM DNA produced fold-changes of ~ 1.5 / 2. A separate
+observation was that samples containing ~10 fold less DNA relative to the
+constitutively expressed control, were reaching equivalent yields in final
+reporter protein. We hypothesized that adding pre-expressed EsaR protein to
+reactions was increasing reaction yield by virtue of adding unspent energy
+components. We were interested to determine whether this was having any effect
+on the performance of repression in the system.
+
+The log's own pre-analysis note, carried verbatim:
+
 \*Prior to data analysis: Appears that we have repression, and it is dependent
 on \[EsaR\]:\[Sensor DNA\]. The \[EsaO\]2 constructs appear to repress more
 strongly than the \[EsaO\]1 constructs.
@@ -437,23 +569,63 @@ strongly than the \[EsaO\]1 constructs.
 
 [`fig-20260925-1nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (1 nM sensor DNA, single operator against dual operator.)]
 
+:::{figure} ./figures/20260925-esao-all-concentrations.png
+:label: fig-20260925-all-conc
+:align: center
+:width: 100%
+Single-operator EsaO-mNG across all six sensor DNA concentrations, 0.1 to 9 nM, minus and plus AHSL. Added for review cycle v2, prompt 19.
+:::
+
+[`fig-20260925-all-conc`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (Single-operator EsaO-mNG across all six sensor DNA concentrations, minus and plus AHSL.)]
+
+:::{figure} ./figures/20260925-fold-induction.png
+:label: fig-20260925-fold
+:align: center
+:width: 55%
+Steady-state AHSL fold induction, plus AHSL over minus AHSL, for both constructs at 0.1, 0.5 and 1 nM sensor DNA. This is the plot the 2026-09-26 log asks for in its closing note.
+:::
+
+[`fig-20260925-fold`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (Steady-state AHSL fold induction for both constructs at 0.1, 0.5 and 1 nM sensor DNA.)]
+
 :::{admonition} Three of six DNA concentrations are unreported
 :class: warning
 :name: review-20260925-missing-panels
 
 {numref}`tbl-composition-20260925` and the platemap both carry 0.1, 0.5, 1, 3,
-6 and 9 nM for each construct. The log shows panels for 0.1, 0.5 and 1 nM only.
-The 3, 6 and 9 nM wells were run and are not reported here. The notebook also
-holds a steady-state AHSL fold-induction bar plot that the log does not show.
+6 and 9 nM for each construct. The log showed panels for 0.1, 0.5 and 1 nM
+only.
+
+**Answered and applied in part, review cycle v2, prompt 19.** These panels
+should become figures, and three were added: {numref}`fig-20260925-all-conc`,
+{numref}`fig-20260925-fold` and {numref}`fig-20260926-fold`.
+
+Two gaps remain. No notebook cell plots the dual-operator construct across all
+six concentrations, so {numref}`fig-20260925-all-conc` covers the single
+operator only. And the fold-induction plots cover 0.1, 0.5 and 1 nM only,
+because that is the range their own cell selects, so no fold change is reported
+at 3, 6 or 9 nM. All three new figures are `static-png`, extracted from saved
+cell outputs, because none of those cells carries a `#| label:` tag.
 :::
 
 ## 2026-09-26 — Sensor DNA titration with overnight EsaR
+
+To determine whether adding unspent EsaR reactions, incubated at 37 ˚C for 3
+hours, to fresh Nucleus cytosol reactions containing sensor DNA, we instead
+pre-expressed EsaR for 30 ˚C for 17 hours. EsaR volumes added to each reaction
+were kept consistent with previous experiments, and sensor DNA concentrations
+were limited to 0.1 nM, 0.5 nM and 1 nM. Relative to the previous experiment,
+the overall fold change between "on"/"off" remained consistent for each DNA
+concentration, whilst the overall yield decreased. We hypothesise that in this
+case the added byproducts of the pre-expressed EsaR reaction, e.g inorganic
+phosphate, poisoned the reactions, lowering the overall yield.
+
+The log's own pre-analysis note, carried verbatim:
 
 Results: \*Prior to analysis - The constructs are being repressed similarly to
 the previous experiment. Adding "spent" EsaR reactions doesn't appear to be
 improving the amount of repression noticeably.
 
-:::{figure} #cn-20250926-fig1
+:::{figure} #cn-20260926-fig1
 :label: fig-20260926-esar-spent
 :align: center
 :width: 100%
@@ -469,12 +641,32 @@ in which the EsaR was pre-expressed for 3 hrs @ 37 ˚C, rather than 17 hrs @
 change/steady state ratio of induced:uninduced to enable comparison between DNA
 titration**.
 
+:::{figure} ./figures/20260926-fold-induction.png
+:label: fig-20260926-fold
+:align: center
+:width: 55%
+Steady-state AHSL fold induction for \\[EsaO\\]2-mNG with EsaR pre-expressed overnight. Added for review cycle v2, prompt 19.
+:::
+
+[`fig-20260926-fold`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260924-esao2-dna-titration.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (Steady-state AHSL fold induction for [EsaO]2-mNG with EsaR pre-expressed overnight.)]
+
 ## 2026-10-01 — Magnesium sweep with EsaR and DNA pre-incubation
 
-[PLEASE FILL IN]
+In an attempt to increase the fold-change between "on/off" states, we held the
+pre-expressed EsaR concentration consistent with previous experiments, and
+maintained the DNA concentrations at 0.1 nM, 0.5 nM, and 1 nM. In this case,
+the pre-expressed EsaR reactions were incubated with sensor DNA constructs for
+1 hr, 37 ˚C prior to being added to each reaction. We then supplemented
+reactions with 0 mM, 5 mM, 10 mM and 20 mM magnesium to influence the DNA
+binding properties of EsaR. We found that the addition of magnesium had very
+little influence on the dynamic range between the "on"/"off" states, yet across
+all DNA concentrations tested, the fold change had increased to 5 fold, in
+comparison to ~ 2 in previous experiments at the lowest DNA concentrations
+tested. We attributed this to the increased EsaR:DNA pre-incubation time which
+may enable EsaR to occupy more EsaO operator sites on the sensor DNA.
 
-<!-- The 2026-10-01 log carries no results narrative. It ends on the magnesium
-stock concentrations. The figure below is the only reported outcome. -->
+<!-- Results narrative supplied by the reviewer in review cycle v2, prompt 22,
+and carried verbatim. The source log carries no results narrative. -->
 
 :::{figure} #mbcn-20261001-fig1
 :label: fig-20261001-mg-sweep
@@ -485,7 +677,10 @@ Added magnesium at 0, 5 and 10 mM, each minus and plus 5 µM AHSL, after pre-inc
 
 [`fig-20261001-mg-sweep`, notebook:`2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb`, platemap:`20261001-mg-sweep-platemap.csv`, data source:`20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`, caption: (Added magnesium at 0, 5 and 10 mM, minus and plus 5 µM AHSL.)]
 
-:::{admonition} The 20 mM magnesium arm is unreported
+The 20 mM magnesium arm was run and is not plotted. Adding that much magnesium
+to a Nucleus cytosol reaction poisons it.
+
+<!-- :::{admonition} The 20 mM magnesium arm is unreported
 :class: warning
 :name: review-20261001-missing-arm
 
@@ -493,7 +688,11 @@ The platemap carries four magnesium levels: 0, 5, 10 and 20, each minus and
 plus AHSL, in two wells apiece. The log names "5, 10, 20 locally" and gives a
 stock for each. Cell 8 plots 0, 5 and 10 only. The 20 mM wells were run and
 have no reported panel.
-:::
+
+**Answered, review cycle v2, prompt 20.** It is unreported because adding that
+much Mg in Nucleus cytosol poisons the reaction. Carried into the Results
+narrative above.
+::: -->
 
 # Notes
 

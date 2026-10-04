@@ -80,7 +80,7 @@
     {
       "filename": "figures/20260926-esao2-dna-titration-esar-spent.png",
       "pattern": "quarto-label",
-      "cell_label": "cn-20250926-fig1",
+      "cell_label": "cn-20260926-fig1",
       "source_notebook": "CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb",
       "platemap": "20260924-esao2-dna-titration.csv",
       "data_source": "20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt",
@@ -88,11 +88,11 @@
       "asset_chain_complete": true,
       "extraction_method": "pandoc --extract-media",
       "findings": [
-        "Labelled on cell 15 as 'cn-20250926-fig1' by the author on 2026-10-04.",
+        "Labelled on cell 15 as 'cn-20260926-fig1' by the author on 2026-10-04.",
         "Produced by cell 15 of platereader.ipynb, a three-axis figure titled 0.1 nM, 0.5 nM and 1 nM.",
         "Platemap filename carries 20260924 inside the CN-20260926 folder. The notebook loads this file deliberately.",
         "Cell 20 holds an unreported steady-state fold-induction bar plot.",
-        "cell_label reads 2025, not 2026. Carried verbatim per the provenance reference. Retag the cell to correct it."
+        "Retagged from cn-20250926-fig1 to cn-20260926-fig1 on the author's instruction, review cycle v2 prompt 14. The Drive original still carries the 2025 spelling."
       ]
     },
     {
