@@ -187,17 +187,11 @@ Results and the 2026-10-01 volume table. This is the one place where verbatim
 source wording was changed, and it was changed on the author's explicit
 instruction. -->
 
-**Reagents and construct purposes are deferred.** Review cycle v2, prompt 24:
-the reviewer will take the Reagents table and the Constructs purposes in a
-second pass.
-
-**No reagents data.** No source log or build sheet carries a vendor,
-catalog number, price or storage condition. `devstudio-build-to-materials` was
-not run against the Materials Reference, so {numref}`tbl-reagents` carries
-component names only.
-
-**Deferred, review cycle v2, prompt 13.** `devstudio-build-to-materials` will
-be run later.
+**The reagents table cannot be filled from the Materials Reference.**
+`devstudio-build-to-materials` has now run, and matched 0 of 14 components. The
+detail, the two near misses and what to do about them are in
+{ref}`review-materials-unmatched`. Construct purposes are still deferred to a
+second pass, per review cycle v2, prompt 24.
 
 **Two figures are still static PNGs.** The four 2026-09-25 and 2026-09-26
 figures now carry `#| label:` tags and resolve against their notebook cells.
@@ -273,26 +267,63 @@ replaced.
 
 # Reagents
 
-:::{table} Reagents and equipment. Component names come from the three CN build sheets, from the 2026-10-01 log's own volume table, and from the 2026-09-23 construct preparation. No source carries vendor, catalog, price or storage data.
+:::{table} Reagents and equipment. Every row is unmatched against the Materials Reference, so no column is filled. Component names come from the three CN build sheets, the 2026-10-01 log's own volume table, and the 2026-09-23 construct preparation.
 :label: tbl-reagents
 :align: center
 
 | Reagent | Product Name | Manufacturer | Catalog No. | Price | Storage Conditions | Link |
 | --- | --- | --- | --- | --- | --- | --- |
-| Small molecule mix | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| tRNA | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| Protein mix | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| Ribosomes | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| RNase inhibitor | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| Nuclease free water | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| AHSL | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| Fluorescein | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| Q5 polymerase | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| HF buffer | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| M15 Fwd primer | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| M15 Rev primer | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| Magnesium | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
-| E.coli pol | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
+| Small molecule mix | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| tRNA | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| Protein mix | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| Ribosomes | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| RNase inhibitor | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| Nuclease free water | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| AHSL | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| Fluorescein | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| Q5 polymerase | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| HF buffer | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| M15 Fwd primer | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| M15 Rev primer | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| Magnesium | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| E.coli pol | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+:::
+
+:::{admonition} No reagent is in the Materials Reference
+:class: warning
+:name: review-materials-unmatched
+
+`devstudio-build-to-materials` matched 0 of 14 components against the
+distribution-wide Materials Reference. The sidecar is
+[`experiments/build-materials.csv`](./experiments/build-materials.csv), which
+carries a `Provenance` column this table drops.
+
+The reference was read from the published page,
+<https://docs.nucleus.engineering/guides/materials-reference/>, because no
+`nucleus-docs` checkout was available. That costs two things. The page is one
+deploy behind `main`, and it carries no conflicts list, so disagreements
+between source pages are collapsed into whichever value won. It held 100
+entries at the time of this run. The matcher was checked against a known entry,
+`Glucose`, which resolved to `A16828-36`, so the zero is a measurement and not
+a failed lookup.
+
+Matching is exact equality on the normalized name and nothing looser, because a
+part number inferred from a near name reads as checked precisely when it is
+wrong. Two components came close and are recorded as suggestions only:
+
+`RNase inhibitor` against `RNase Inhibitor, Murine`, part `M0314S` from NEB.
+The names differ by ", Murine", so this is not a match. It is very likely the
+same item, and confirming it is one edit.
+
+`Magnesium` against `Magnesium acetate`, part `M0631-100G`, and `Magnesium
+chloride`, part `M2670-500G`. Two candidates, and the 2026-10-01 log records
+only "Mg" with its stock molarity, so the salt is not recoverable from the
+source.
+
+Several of these will never carry a catalog number. Small molecule mix, protein
+mix and ribosomes are made in-house. The rest are real gaps: add a row to the
+`bom-<slug>` table on the Process page each belongs to in `nucleus-docs`, which
+is a human edit in another repository and not something this pipeline does.
 :::
 
 # Constructs
