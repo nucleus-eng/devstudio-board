@@ -1,0 +1,47 @@
+version: 1
+project:
+  # Title supplied by Anton in chat on 2026-10-05. No Specification table and
+  # no source log exists. See the blocking title flag in main.md.
+  title: 'LuxR-GFP Sensor Demo'
+  # Description restates the three planned results from the same chat outline.
+  # It is not a quotation from any source.
+  description: >
+    GFP expression from a LuxR HSL sensor, read in bulk lysate across a range
+    of HSL concentrations, in lysate-encapsulated GUVs in solution, and in
+    GUVs embedded in hydrogels.
+  # Authors and emails supplied by Anton in chat on 2026-10-05. No Authors
+  # table exists in any source.
+  # REVIEW: the affiliation was stated by Anton, not by either author.
+  # REVIEW: no ORCID is recorded for either author.
+  authors:
+    - name: Julia Purrinos de Oliveira
+      email: j.purrinosdeoliveira@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-0
+    - name: Niall McIntyre
+      email: niall.mcintyre16@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-1
+  affiliations:
+    - id: imperial
+      name: Imperial College London
+      country: United Kingdom
+  # Date assigned by Anton on 2026-10-05. The DevNote slug reads 202609, which
+  # is a month and disagrees with this value. See the blocking date flag in
+  # main.md.
+  date: '2026-10-12'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+  resources:
+    - experiments/**
+  id: e3fbd024-9242-4ebd-95b2-7092117c8c7c
+site:
+  template: article-theme
