@@ -1,0 +1,44 @@
+version: 1
+project:
+  # Title supplied by the reviewer in review cycle v1, prompt 1.
+  # No Specification table exists in the source log.
+  title: 'Embedding Developer Cells in Gels'
+  description: >
+    CPRG and CPR absorbance of large unilamellar vesicles in five gel and
+    buffer conditions, read on day 1, on day 2 after overnight incubation,
+    and on day 2 after PLA addition.
+  # Author supplied by the reviewer in review cycle v1, prompt 2.
+  # No Authors table exists in the source log.
+  # REVIEW: the affiliation is read off the email domain, not stated by the
+  # author. Confirm Northwestern University.
+  # REVIEW: no ORCID is recorded.
+  authors:
+    - name: Ojaswita Pant
+      email: ojaswitapant2029@u.northwestern.edu
+      affiliations:
+        - northwestern
+      id: contributors-curvenote-generated-uid-0
+  affiliations:
+    - id: northwestern
+      name: Northwestern University
+      country: United States
+  # No date is stated in the log. Three source values disagree: the Log
+  # folder reads OP-20261001, the three data files read 20260930, and the
+  # platemap rows read 2/10/2026. See the blocking date flag in main.md.
+  # REVIEW: review cycle v1, prompt 3, answered "Dates do not matter", which
+  # is a deferral and not a date. The field stays unresolved.
+  date: '[PLEASE FILL IN]'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+    - file: experiments/20261001-luv-gel-pla/platereader.ipynb
+  resources:
+    - experiments/**
+  id: 185642fd-6c48-4e95-8a96-21c936a5eb37
+site:
+  template: article-theme

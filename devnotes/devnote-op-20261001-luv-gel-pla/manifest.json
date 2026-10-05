@@ -1,0 +1,21 @@
+{
+  "figures": [
+    {
+      "filename": "figures/op-20261001-cpr-cprg-ratio.png",
+      "pattern": "quarto-label",
+      "cell_label": "op-20261001-fig1",
+      "source_notebook": "OP-20261001/Copy of Copy of platereader.ipynb",
+      "platemap": "LUV-gelplatemap-platereader - platemap-platereader - LUV-gelplatemap-platereader - platemap-platereader.csv",
+      "data_source": "20260930-164151-synergy2-luv-gel-OJ.txt",
+      "section_context": "LUV-Gel",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "The figure draws on three data files, and data_source carries one. The other two are 20260930-164151-synergy2-luv-gel-OJ-Day2.txt and 20260930-164151-synergy2-luv-gel-OJ-Day2-afterPLA.txt. All three are served from https://data.nucleus.engineering/platereader/devstudio/.",
+        "The same figure is also pasted into the log Doc as an image. The notebook cell is the source of record, because it carries the label op-20261001-fig1.",
+        "BLOCKING: date mismatch. The Log folder is OP-20261001, the three data files carry 20260930, and the platemap rows carry 2/10/2026.",
+        "Cell 18 and cell 21 of the same notebook draw two further figures. Neither carries a #| label: tag, and the reviewer selected neither on 2026-10-05."
+      ]
+    }
+  ]
+}

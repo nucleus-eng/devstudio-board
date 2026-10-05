@@ -1,0 +1,66 @@
+
+
+Software Version	3.17.17
+
+
+
+Experiment File Path:	C:\Users\Admin\Documents\Biotek\experiments\20260930-164151-synergy2-luv-gel-OJ-Day2-afterPLA.xpt
+Protocol File Path:	
+
+
+
+Plate Number	Plate 1
+Date	10/1/2026
+Time	5:43:35 PM
+Reader Type:	Synergy 2
+Reader Serial Number:	206621
+Reading Type	Reader
+
+Procedure Details
+
+Plate Type	96 well UV-star half-area (Use plate lid)
+Eject plate on completion	
+Read	CPRG/CPR
+	Absorbance Endpoint
+	Full Plate
+	Wavelengths:  412, 570
+	Read Speed: Normal,  Delay: 100 msec,  Measurements/Data Point: 8
+
+Layout
+	1	2	3	4	5	6	7	8	9	10	11	12
+A													Well ID
+B													Well ID
+C													Well ID
+D			SPL1	SPL2	SPL3	SPL4	SPL5	SPL6	SPL7				Well ID
+E													Well ID
+F													Well ID
+G													Well ID
+H													Well ID
+
+
+
+Actual Temperature:	35.6
+
+
+
+Actual Temperature:	35.6
+
+Results
+	1	2	3	4	5	6	7	8	9	10	11	12
+A													CPRG/CPR:412
+													CPRG/CPR:570
+B													CPRG/CPR:412
+													CPRG/CPR:570
+C													CPRG/CPR:412
+													CPRG/CPR:570
+D			0.372	0.285	0.476	0.400	0.248	0.356	0.305				CPRG/CPR:412
+			0.266	0.249	0.400	0.365	0.257	0.267	0.238				CPRG/CPR:570
+E													CPRG/CPR:412
+													CPRG/CPR:570
+F													CPRG/CPR:412
+													CPRG/CPR:570
+G													CPRG/CPR:412
+													CPRG/CPR:570
+H													CPRG/CPR:412
+													CPRG/CPR:570
+
