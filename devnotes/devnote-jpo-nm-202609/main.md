@@ -8,9 +8,9 @@ by that label. An unlabeled admonition cannot be answered. A `flags-` or
 `gap-` label is a question for the reviewer. A `scope-` label is context, not
 a question.
 
-A bare `[PLEASE FILL IN]` is not a labeled gap. It renders as plain bracket
-text and no skill can match a reply to it. Each one below sits inside the
-section its labeled admonition asks about.
+This file uses no `[PLEASE FILL IN]`. Every gap is a labeled admonition, so
+every gap is answerable. A table cell cannot hold an admonition, so an unknown
+cell reads an em dash and the labeled admonition sits above its table.
 -->
 
 # Overview
@@ -75,13 +75,19 @@ Name it, because it sets the x axis of Result 1.
 
 # Reagents
 
+:::{admonition}
+:name: gap-reagents
+
+Please fill in {numref}`tbl-reagents`. Run `devstudio-build-to-materials` against the Materials Reference once a build file exists, and it populates the table from there.
+:::
+
 :::{table} Reagents and equipment. No source carries reagent data. Run `devstudio-build-to-materials` once a build file exists.
 :label: tbl-reagents
 :align: center
 
 | Reagent | Product Name | Manufacturer | Catalog No. | Price | Storage Conditions | Link |
 | --- | --- | --- | --- | --- | --- | --- |
-| [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
+| — | — | — | N/A | N/A | N/A | |
 :::
 
 # Constructs
@@ -98,7 +104,7 @@ Please identify the right sequences, include each one inline in the table below,
 
 | Name | Sequence | Purpose |
 | --- | --- | --- |
-| [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| — | — | — |
 :::
 
 <!-- A purchased purified protein belongs in tbl-reagents, not here. Only DNA
@@ -114,22 +120,38 @@ Each of the four sections below needs its protocol written out. If a protocol ma
 
 ## Lysate preparation
 
-[PLEASE FILL IN]
+:::{admonition}
+:name: gap-protocol-lysate-preparation
+
+Please write the protocol for lysate preparation.
+:::
 
 ## Making lysate-encapsulated GUVs
 
-[PLEASE FILL IN]
+:::{admonition}
+:name: gap-protocol-guv-encapsulation
+
+Please write the protocol for making lysate-encapsulated GUVs.
+:::
 
 <!-- GUV: giant unilamellar vesicle. Define it at its first use in the Overview
 once that section is written. -->
 
 ## Embedding GUVs in hydrogels
 
-[PLEASE FILL IN]
+:::{admonition}
+:name: gap-protocol-guv-hydrogel
+
+Please write the protocol for embedding GUVs in hydrogels.
+:::
 
 ## Preparing supernatant
 
-[PLEASE FILL IN]
+:::{admonition}
+:name: gap-protocol-supernatant
+
+Please write the protocol for preparing supernatant.
+:::
 
 # Methods
 
@@ -182,8 +204,6 @@ Carried verbatim from the outline Anton supplied on 2026-10-05:
 Please add a description of the results and motivation for this experiment
 :::
 
-[PLEASE FILL IN]
-
 <!-- Figures land here once the plate reader notebook exists. Each one carries a
 figure-provenance line beneath it, and the matching entry goes into
 manifest.json. See devstudio-log-to-devnote-m, Step 5.5. -->
@@ -204,8 +224,6 @@ Carried verbatim from the outline Anton supplied on 2026-10-05:
 
 Please add a description of the results and motivation for this experiment
 :::
-
-[PLEASE FILL IN]
 
 <!-- Microscopy is definite here and plate reader data is not yet decided. A
 microscopy result needs an OME-Zarr store on data.nucleus.engineering, the
@@ -229,8 +247,6 @@ Carried verbatim from the outline Anton supplied on 2026-10-05:
 Please add a description of the results and motivation for this experiment
 :::
 
-[PLEASE FILL IN]
-
 <!-- The hydrogel is not named. Name it, because it is the variable that
 separates this result from Result 2. -->
 
@@ -252,7 +268,11 @@ Based on what's described here, what comes next?
 
 # Resources
 
-[PLEASE FILL IN]
+:::{admonition}
+:name: gap-resources
+
+Please list the files this DevNote draws on. `devstudio-assemble-devnote-assets` writes one link per file in `experiments/` once the assets land.
+:::
 
 <!-- One link per file in experiments/, added by
 devstudio-assemble-devnote-assets once the assets land. Drive URLs never appear
