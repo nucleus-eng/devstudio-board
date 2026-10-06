@@ -1,11 +1,23 @@
 <!--
 Editing convention: a section marked `@claude please don't rewrite this section`,
 or commented out, is protected. Claude will not regenerate, reflow or reword it.
+
+Label convention. Every admonition carries a `:name:`, because
+devstudio-devnote-g-to-devnote-m matches a reviewer's reply to an admonition
+by that label. An unlabeled admonition cannot be answered. A `flags-` or
+`gap-` label is a question for the reviewer. A `scope-` label is context, not
+a question.
+
+A bare `[PLEASE FILL IN]` is not a labeled gap. It renders as plain bracket
+text and no skill can match a reply to it. Each one below sits inside the
+section its labeled admonition asks about.
 -->
 
 # Overview
 
 :::{admonition}
+:name: gap-overview
+
 Please fill in an overview section here describing what the system does. A nice overview image fits well here too.
 :::
 
@@ -75,6 +87,8 @@ Name it, because it sets the x axis of Result 1.
 # Constructs
 
 :::{admonition}
+:name: gap-constructs
+
 Please identify the right sequences, include each one inline in the table below, and add the matching file to `dna/` in `.gb` format.
 :::
 
@@ -93,6 +107,8 @@ built or ordered as a sequence goes in the table above. -->
 # Protocol
 
 :::{admonition}
+:name: gap-protocol
+
 Each of the four sections below needs its protocol written out. If a protocol matches a published Nucleus protocol, link to that protocol and state the differences. Otherwise describe it from scratch.
 :::
 
@@ -153,6 +169,7 @@ before this section is filled in.
 
 :::{admonition} Planned scope
 :class: note
+:name: scope-result-1
 
 Carried verbatim from the outline Anton supplied on 2026-10-05:
 
@@ -160,6 +177,8 @@ Carried verbatim from the outline Anton supplied on 2026-10-05:
 :::
 
 :::{admonition}
+:name: gap-result-1
+
 Please add a description of the results and motivation for this experiment
 :::
 
@@ -173,6 +192,7 @@ manifest.json. See devstudio-log-to-devnote-m, Step 5.5. -->
 
 :::{admonition} Planned scope
 :class: note
+:name: scope-result-2
 
 Carried verbatim from the outline Anton supplied on 2026-10-05:
 
@@ -180,6 +200,8 @@ Carried verbatim from the outline Anton supplied on 2026-10-05:
 :::
 
 :::{admonition}
+:name: gap-result-2
+
 Please add a description of the results and motivation for this experiment
 :::
 
@@ -194,6 +216,7 @@ viewers. Name the wells before the viewer blocks can be written. -->
 
 :::{admonition} Planned scope
 :class: note
+:name: scope-result-3
 
 Carried verbatim from the outline Anton supplied on 2026-10-05:
 
@@ -201,6 +224,8 @@ Carried verbatim from the outline Anton supplied on 2026-10-05:
 :::
 
 :::{admonition}
+:name: gap-result-3
+
 Please add a description of the results and motivation for this experiment
 :::
 
@@ -212,12 +237,16 @@ separates this result from Result 2. -->
 # Notes
 
 :::{admonition}
+:name: gap-notes
+
 Please note any caveats or gotchas
 :::
 
 # What's next
 
 :::{admonition}
+:name: gap-whats-next
+
 Based on what's described here, what comes next?
 :::
 
