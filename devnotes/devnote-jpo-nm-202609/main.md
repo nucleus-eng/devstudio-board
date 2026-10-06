@@ -113,7 +113,7 @@ built or ordered as a sequence goes in the table above. -->
 # Protocol
 
 :::{admonition}
-:name: gap-protocol
+:name: scope-protocol
 
 Each of the four sections below needs its protocol written out. If a protocol matches a published Nucleus protocol, link to that protocol and state the differences. Otherwise describe it from scratch.
 :::
