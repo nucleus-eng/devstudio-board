@@ -11,6 +11,11 @@ a question.
 This file uses no `[PLEASE FILL IN]`. Every gap is a labeled admonition, so
 every gap is answerable. A table cell cannot hold an admonition, so an unknown
 cell reads an em dash and the labeled admonition sits above its table.
+
+Structure. This file follows the "Draft devnote" outline, Drive id
+1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E, as restructured on 2026-10-08.
+Results come before Methods, there are four results, Methods holds the general
+protocols, and Discussion points is the authors' own section.
 -->
 
 # Overview
@@ -18,59 +23,82 @@ cell reads an em dash and the labeled admonition sits above its table.
 :::{admonition}
 :name: gap-overview
 
-Please fill in an overview section here describing what the system does. A nice overview image fits well here too.
+Please fill in an overview of the demo. What does the system do, and what does the set of four results demonstrate together. A nice overview image fits well here too.
 :::
 
 :::{danger} Unresolved before publication
 :name: flags-blocking
 
-**No source log exists yet.** This DevNote was drafted on 2026-10-05 from an
-outline Anton supplied in chat, not from a Log folder in the DevStudio Shared
-Drive. Every section below is a skeleton. No log, no build file, no platemap,
-no notebook and no raw instrument data has been read, because none was
-supplied.
+**No result is written and no data is in the tree.** One source log exists,
+`01-logs/NM_2026_10_6_LuxR_mNeonGreen_lysate_GUVs`, and it ends at a bare
+`# results` heading with two TODO lines under it, for the zarr URLs and for
+the analysis notebook. No platemap, no notebook, no build file and no raw data
+has been read.
 
-**Title and description are not sourced.** The title "LuxR-GFP Sensor Demo"
-came from the same chat outline. No Specification table exists. The
-description in `curvenote.yml` restates the three planned results and is not a
-quotation from any source.
+**Title and date are not sourced.** The title "LuxR-GFP Sensor Demo" and the
+date 2026-10-12 both came from Anton in chat on 2026-10-05. No Specification
+table exists. The DevNote slug reads `202609`, the source log folder reads
+2026-10-06, and the fourth result has not run yet. Three values, no source.
 
-**Date is assigned, not sourced.** Anton set `date: 2026-10-12` on 2026-10-05.
-The DevNote slug carries `202609`, which is a month and not a date. The two
-disagree. Settle which one is right before publication.
+**The reporter disagrees between sources.** The Draft devnote outline names
+"luxRGFP" in Result 1. Niall's log says the plasmid is LuxR-mNeonGreen, with a
+constitutive mNeonGreen control, and is explicit that LuxR-deGFP is an older
+and different construct that gave noisier data. The title still says GFP.
+Settle which reporter this DevNote is about.
 
-**No reagents data.** {numref}`tbl-reagents` carries placeholder rows only. Run
-`devstudio-build-to-materials` against the Materials Reference once a build
-file exists.
+**Two plasmids need confirming.** Anton asked on the log, 2026-10-08, whether
+these two Drive files are the right sequences. Neither has been checked, and
+neither is in `dna/`.
 
-**No DNA sequences.** The title names a LuxR sensor and a GFP reporter.
-{numref}`tbl-constructs` names neither, because no source states a construct
-name, and this draft does not guess one. A DevNote must be self-contained, so
-every sequence has to land inline and every `.gb` file has to land in `dna/`.
+- LuxR-mNeonGreen: `https://drive.google.com/file/d/1e5L7jQ__aO_MeMcwlx6gr9byjV8Ajacy/view`
+- constitutive mNeonGreen: `https://drive.google.com/file/d/13UvMR_uMa6FjVXUupdM4AvQvfDoaLTIz/view`
 
-**No composition tables.** Each Methods subsection below needs a
-`build-composition.csv`, written by `devstudio-build-to-composition` from that
-experiment's build file. None of the three exists.
+**The platemap is missing.** Anton asked on the log, 2026-10-08, for the
+platemap of the microscopy experiment to be put in that log directory. It is
+not there.
 
-**No figures and no data.** Each Results subsection below is a planned
-experiment, not a reported one.
+**No build file, so no composition table anywhere.** The log folder holds an
+untitled, empty spreadsheet. Each result needs its own
+`build-composition.csv`, written by `devstudio-build-to-composition` from a
+build file. See the flag in each result below.
+
+**Result 4 has not run.** The outline lists gels against bacterial
+supernatant. Nothing in any source describes it yet.
 :::
 
 :::{admonition} Open review items
 :class: warning dropdown
 :name: flags-review
 
-**Author affiliations.** Anton gave Imperial College London for both authors on
-2026-10-05. No source document states it.
+**Structure changed on 2026-10-08.** This file previously carried three
+results, a `# Protocol` section ahead of a `# Methods` section of composition
+tables, and no Discussion. It now follows the authors' own outline. Results
+moved ahead of Methods, a fourth result was added, Protocol and Methods merged
+under the name Methods, and Discussion points was added. Composition tables
+move into the result they belong to, because Methods now holds protocols.
 
-**Author ORCIDs.** Neither author supplied one.
+**Notes and What's next overlap Discussion points.** The outline has Discussion
+points and neither of the other two. `devstudio-log-to-devnote-m` requires
+Notes and What's next on every DevNote. All three are kept here. Say which
+survive and I will drop the others.
 
-**Author order.** `curvenote.yml` lists Julia Purrinos de Oliveira first,
-following the order Anton wrote. No source states an intended order.
+**Naming people in the text.** Anton asked on the log, 2026-10-08, how much
+the DevNote should call out specific people. The log credits Charlie with the
+transformations and describes Julia's parallel run in the first person. Decide
+whether that stays as narrative or moves to an acknowledgement.
 
-**HSL is named only by its abbreviation.** The outline writes "HSL". The
-specific acyl-homoserine lactone the LuxR sensor responds to is not stated.
-Name it, because it sets the x axis of Result 1.
+**AHL is named only by its class.** The outline writes AHL and gives 10 µM for
+Results 1 and 2 and 100 µM for Result 3. It does not say which acyl-homoserine
+lactone. Niall's log writes "HSL" at 10 µM. Name the molecule.
+
+**Where the general protocols live.** Anton asked on the log, 2026-10-08,
+where the GUV prep protocol lives. If a Methods subsection below matches a
+published Nucleus protocol, it links to that protocol and states only the
+differences. None is linked yet.
+
+**Author ORCIDs and order.** `curvenote.yml` lists Julia Purrinos de Oliveira
+first, then Niall McIntyre, both at Imperial College London. Anton supplied all
+of it on 2026-10-05. No source states it and neither author has an ORCID.
 :::
 
 # Reagents
@@ -78,10 +106,10 @@ Name it, because it sets the x axis of Result 1.
 :::{admonition}
 :name: gap-reagents
 
-Please fill in {numref}`tbl-reagents`. Run `devstudio-build-to-materials` against the Materials Reference once a build file exists, and it populates the table from there.
+Please fill in {numref}`tbl-reagents`. Niall's log already names POPC from Avanti Polar Lipids, mineral oil from Sigma Aldrich M5904, the S30 Extract System for circular DNA from Promega, RNase Inhibitor Murine from New England Biolabs, and 3 M sucrose from Sigma Aldrich. Run `devstudio-build-to-materials` against the Materials Reference once a build file exists and it fills in the rest.
 :::
 
-:::{table} Reagents and equipment. No source carries reagent data. Run `devstudio-build-to-materials` once a build file exists.
+:::{table} Reagents and equipment.
 :label: tbl-reagents
 :align: center
 
@@ -95,10 +123,10 @@ Please fill in {numref}`tbl-reagents`. Run `devstudio-build-to-materials` agains
 :::{admonition}
 :name: gap-constructs
 
-Please identify the right sequences, include each one inline in the table below, and add the matching file to `dna/` in `.gb` format.
+Please confirm the two plasmids named in {numref}`flags-blocking`, include each sequence inline in the table below, and add the matching file to `dna/` in `.gb` format. `devstudio-verify-dna-constructs` checks each one by length against its GenBank LOCUS line.
 :::
 
-:::{table} DNA. No source names a construct, so no row is populated.
+:::{table} DNA. No construct is confirmed yet.
 :label: tbl-constructs
 :align: center
 
@@ -110,152 +138,231 @@ Please identify the right sequences, include each one inline in the table below,
 <!-- A purchased purified protein belongs in tbl-reagents, not here. Only DNA
 built or ordered as a sequence goes in the table above. -->
 
-# Protocol
-
-:::{admonition}
-:name: scope-protocol
-
-Each of the four sections below needs its protocol written out. If a protocol matches a published Nucleus protocol, link to that protocol and state the differences. Otherwise describe it from scratch.
-:::
-
-## Lysate preparation
-
-:::{admonition}
-:name: gap-protocol-lysate-preparation
-
-Please write the protocol for lysate preparation.
-:::
-
-## Making lysate-encapsulated GUVs
-
-:::{admonition}
-:name: gap-protocol-guv-encapsulation
-
-Please write the protocol for making lysate-encapsulated GUVs.
-:::
-
-<!-- GUV: giant unilamellar vesicle. Define it at its first use in the Overview
-once that section is written. -->
-
-## Embedding GUVs in hydrogels
-
-:::{admonition}
-:name: gap-protocol-guv-hydrogel
-
-Please write the protocol for embedding GUVs in hydrogels.
-:::
-
-## Preparing supernatant
-
-:::{admonition}
-:name: gap-protocol-supernatant
-
-Please write the protocol for preparing supernatant.
-:::
-
-# Methods
-
-## Result 1 — bulk lysate, HSL titration
-
-:::{danger} Missing build file
-:name: flags-build-result-1
-
-No `build-composition.csv` was found for this experiment, so no composition
-table can be produced. Run `devstudio-build-to-composition` on the build file
-before this section is filled in.
-:::
-
-## Result 2 — GUVs in solution
-
-:::{danger} Missing build file
-:name: flags-build-result-2
-
-No `build-composition.csv` was found for this experiment, so no composition
-table can be produced. Run `devstudio-build-to-composition` on the build file
-before this section is filled in.
-:::
-
-## Result 3 — GUVs in hydrogel
-
-:::{danger} Missing build file
-:name: flags-build-result-3
-
-No `build-composition.csv` was found for this experiment, so no composition
-table can be produced. Run `devstudio-build-to-composition` on the build file
-before this section is filled in.
-:::
-
 # Results
 
-## Result 1 — bulk lysate, HSL titration
+## Result 1 — bulk lysate, luxRGFP with and without 10 µM AHL
 
 :::{admonition} Planned scope
 :class: note
 :name: scope-result-1
 
-Carried verbatim from the outline Anton supplied on 2026-10-05:
+Carried verbatim from the Draft devnote outline:
 
-> Result 1: Plate - Bulk lysate with different conc of HSL and GFP expression - constitutive expression
+> Bulk lysate luxRGFP +/- 10uM AHL — platereader
 :::
 
 :::{admonition}
 :name: gap-result-1
 
-Please add a description of the results and motivation for this experiment
+Please add the motivation and the result. Say what the no-AHL condition and the constitutive control each test.
 :::
 
-<!-- Figures land here once the plate reader notebook exists. Each one carries a
-figure-provenance line beneath it, and the matching entry goes into
-manifest.json. See devstudio-log-to-devnote-m, Step 5.5. -->
+:::{danger} Missing build file
+:name: flags-build-result-1
 
-## Result 2 — GUVs in solution
+No `build-composition.csv` exists for this experiment, so no composition table
+can go here. Run `devstudio-build-to-composition` on the build file.
+:::
+
+:::{admonition}
+:name: gap-deviation-result-1
+
+Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all.
+:::
+
+## Result 2 — GFP sensor GUVs in solution, with and without 10 µM AHL
 
 :::{admonition} Planned scope
 :class: note
 :name: scope-result-2
 
-Carried verbatim from the outline Anton supplied on 2026-10-05:
+Carried verbatim from the Draft devnote outline:
 
-> Result 2: GUV in solution (def microscopy data - time point microscope) + may plate data
+> GFP sensor GUVs in solution +/-10uM AHL — Platereader & microscopy
 :::
 
 :::{admonition}
 :name: gap-result-2
 
-Please add a description of the results and motivation for this experiment
+Please add the motivation and the result. Niall's log covers the microscopy half of this: time lapse to 6 hours plus endpoint bright field and 488 nm, at 50 µL in a clear bottom 384 well plate, N=3 per condition. Julia ran the plate reader half. Say what both showed.
 :::
 
-<!-- Microscopy is definite here and plate reader data is not yet decided. A
-microscopy result needs an OME-Zarr store on data.nucleus.engineering, the
-per-object parquet beside it, and the wells worth showing as interactive
-viewers. Name the wells before the viewer blocks can be written. -->
+:::{danger} Missing build file
+:name: flags-build-result-2
 
-## Result 3 — GUVs in hydrogel
+No `build-composition.csv` exists for this experiment, so no composition table
+can go here. Run `devstudio-build-to-composition` on the build file.
+:::
+
+:::{admonition}
+:name: gap-deviation-result-2
+
+Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all.
+:::
+
+<!-- A microscopy result needs an OME-Zarr store on data.nucleus.engineering,
+the per-object parquet beside it, and the wells worth showing as interactive
+viewers. Niall's log carries two open TODOs for exactly this: the zarr URLs
+and the analysis notebook. -->
+
+## Result 3 — GFP sensor gels, with and without 100 µM AHL
 
 :::{admonition} Planned scope
 :class: note
 :name: scope-result-3
 
-Carried verbatim from the outline Anton supplied on 2026-10-05:
+Carried verbatim from the Draft devnote outline:
 
-> Result 3: Third GUVs in hydrogel + may include plate data
+> GFP sensor Gels +/- 100uM AHL — Platereader & microscopy
 :::
 
 :::{admonition}
 :name: gap-result-3
 
-Please add a description of the results and motivation for this experiment
+Please add the motivation and the result. Say why this result uses 100 µM AHL where Results 1 and 2 use 10 µM.
 :::
 
-<!-- The hydrogel is not named. Name it, because it is the variable that
-separates this result from Result 2. -->
+:::{danger} Missing build file
+:name: flags-build-result-3
+
+No `build-composition.csv` exists for this experiment, so no composition table
+can go here. Run `devstudio-build-to-composition` on the build file.
+:::
+
+:::{admonition}
+:name: gap-deviation-result-3
+
+Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all. Name the gel.
+:::
+
+## Result 4 — GFP sensor gels, with and without bacterial supernatant
+
+:::{admonition} Planned scope
+:class: note
+:name: scope-result-4
+
+Carried verbatim from the Draft devnote outline:
+
+> GFP sensor gels +/- bacterial supernatant — Platereader & microscopy
+:::
+
+:::{admonition}
+:name: gap-result-4
+
+Please add the motivation and the result. Say which organism the supernatant comes from and what it is being compared against.
+:::
+
+:::{danger} Missing build file
+:name: flags-build-result-4
+
+No `build-composition.csv` exists for this experiment, so no composition table
+can go here. Run `devstudio-build-to-composition` on the build file.
+:::
+
+:::{admonition}
+:name: gap-deviation-result-4
+
+Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all.
+:::
+
+(sec-methods)=
+# Methods
+
+:::{admonition}
+:name: scope-methods
+
+Each subsection below is a general protocol. Where one matches a published Nucleus protocol, link to that protocol and state only the differences. Each result above carries its own deviations rather than restating a protocol.
+:::
+
+## Lysate preparation
+
+:::{admonition}
+:name: gap-method-lysate
+
+Please write the general lysate protocol. Niall's log gives a 25 µL reaction from the Promega S30 Extract System for circular DNA, with plasmid at a 40 ng/µL final stock, 2.50 µL amino acids, 10.00 µL S30 premix, 7.50 µL S30 extract, 1.25 µL RNase inhibitor, 2.50 µL 3 M sucrose and nuclease free water to volume, prepared on ice. Confirm it and say whether it is the general protocol or a deviation.
+:::
+
+## Thin film preparation
+
+:::{admonition}
+:name: gap-method-thin-film
+
+Please write the general thin film protocol. Niall's log gives 25 mg/mL POPC in chloroform, evaporated under nitrogen and dried overnight in a vacuum desiccator, then mineral oil to 4 mg/mL, vortexed 1 minute and sonicated at 40 kHz for 30 minutes.
+:::
+
+## GUV preparation
+
+:::{admonition}
+:name: gap-method-guv
+
+Please write the general GUV protocol. Niall's log gives the emulsion transfer: 200 µL lipid-in-oil into TUBE I, the lysate added and pipetted 20 times with a P1000, laid on the outer solution in TUBE O, left 2 minutes, then 9000 xg for 20 minutes, with the pellet resuspended in 50 µL.
+:::
+
+:::{danger} The source contradicts itself twice
+:name: flags-solution-naming
+
+Both of these are carried as the log writes them and neither is corrected
+here.
+
+The caption of the outer solution table reads "required for inner solution for
+lysate GUVs", while the paragraph above it and the table's own last column
+both call it the outer solution.
+
+The same paragraph reads "200 µL of lipid-in-oil solution is added to the inner
+solution (TUBE I) microcentrifuge tube. 300 µL of inner solution is added to
+the outer centrifuge tube (TUBE O)."
+
+Say which is right and I will write the table and the step accordingly.
+:::
+
+## Gel preparation
+
+:::{admonition}
+:name: gap-method-gel
+
+Please write the general gel protocol. No source describes it. Name the gel, because it is what separates Results 3 and 4 from Result 2.
+:::
+
+## Supernatant preparation
+
+:::{admonition}
+:name: gap-method-supernatant
+
+Please write the supernatant protocol. No source describes it. Say which organism it comes from and how it is prepared.
+:::
+
+# Discussion points
+
+## Plate reader against microscopy
+
+:::{admonition}
+:name: gap-discussion-readout
+
+Please write the pros and cons, including supernatant in the plate reader, which the outline raises as its own point.
+:::
+
+## Synthetic AHL against bacterial supernatant
+
+:::{admonition}
+:name: gap-discussion-ahl
+
+Please write this comparison.
+:::
+
+## Gel embedding and ULGA
+
+:::{admonition}
+:name: gap-discussion-gel
+
+Please write the potential issues with gel embedding, which the outline names as ULGA.
+:::
 
 # Notes
 
 :::{admonition}
 :name: gap-notes
 
-Please note any caveats or gotchas
+Please note any caveats or gotchas that do not belong in Discussion points.
 :::
 
 # What's next
@@ -263,7 +370,7 @@ Please note any caveats or gotchas
 :::{admonition}
 :name: gap-whats-next
 
-Based on what's described here, what comes next?
+Based on what is described here, what comes next?
 :::
 
 # Resources
@@ -273,8 +380,3 @@ Based on what's described here, what comes next?
 
 Please list the files this DevNote draws on. `devstudio-assemble-devnote-assets` writes one link per file in `experiments/` once the assets land.
 :::
-
-<!-- One link per file in experiments/, added by
-devstudio-assemble-devnote-assets once the assets land. Drive URLs never appear
-as hyperlink hrefs here: the Curvenote link checker reports them 401
-Unauthorized, and a reader without Drive access cannot open them. -->
