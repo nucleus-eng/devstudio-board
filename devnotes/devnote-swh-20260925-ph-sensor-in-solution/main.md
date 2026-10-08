@@ -115,6 +115,10 @@ Sequence map of `pT7-toehold9-PLA1`. The file declares 1203 bp and carries 1203 
 Section order follows the source log, which prepares the CPRG-LUVs first. The
 composition tables under Methods run in the other order.
 
+:::{admonition}
+I wonder if we want a kind of flow chart to describe how the different sub protocols fit together when building the demo? This would be similar to how mermaid diagram that we're planning to use in the documentation itself
+:::
+
 ## CPRG-LUV preparation
 
 1. Add the inner solution directly to the dried lipid film.
@@ -187,34 +191,35 @@ Procedure:
 
     Compositions:
 
-    ```
-    50v/v% energy solution (2x) (30 uL)
-    12v/v% pH buffer mix* (7.2 uL)
-    26v/v% 2.7% agarose dissolved in UPDI (15.6 uL)
-    12v/v% GUVs, SUVs or substrates (7.2 uL, in 46.67% of Tris1M-HEPES1.15M solution; osmolarity 1170-1180 mOsm)
-    -----------------------------
-    Total 60 uL
-    ```
+    | Component | Fraction | Volume | Notes |
+    | --- | --- | --- | --- |
+    | energy solution (2x) | 50 v/v% | 30 uL | |
+    | pH buffer mix* | 12 v/v% | 7.2 uL | |
+    | 2.7% agarose dissolved in UPDI | 26 v/v% | 15.6 uL | |
+    | GUVs, SUVs or substrates | 12 v/v% | 7.2 uL | in 46.67% of Tris1M-HEPES1.15M solution; osmolarity 1170-1180 mOsm |
+    | Total | 100 v/v% | 60 uL | |
 
-    - First, cool the 2.7% agarose stock to 65C.
-    - Mix the agarose with Energy solution and pH buffer mix* first, and cool to 45C.
-    - Add CFE-containing vesicles.
-    - For 0.35% final agarose concentration, half of gel volume can be replaced with UPDI water.
+    1. First, cool the 2.7% agarose stock to 65C.
+    2. Mix the agarose with Energy solution and pH buffer mix* first, and cool to 45C.
+    3. Add CFE-containing vesicles.
+
+    For 0.35% final agarose concentration, half of gel volume can be replaced with UPDI water.
 
 3. pH buffer mix* preparation
 
-    - pH buffer mix was prepared so that resulting pH to be 1) pH 7.4 or 2) pH 6.5 (also to match osmolarity)
-    - 1) For pH7.4: use Tris1M-HEPES1.15M buffer stock (~2520 mOsm)
-    - 2) For pH6.5:
+    pH buffer mix was prepared so that resulting pH to be 1) pH 7.4 or 2) pH 6.5 (also to match osmolarity)
 
-    ```
-    466.67 uL (38.89v/v%) Tris1M-HEPES1.15M buffer stock
-    + 576.19 uL (48.02v/v%) 2M HEPES stock
-    + 80 uL (6.67v/v%) 37% HCl
-    + 77.14 uL (6.43v/v%) Ultra-pure distilled water
-    ----------------------------------
-    Total 1200 uL
-    ```
+    1. For pH7.4: use Tris1M-HEPES1.15M buffer stock (~2520 mOsm)
+
+    2. For pH6.5:
+
+        | Component | Fraction | Volume |
+        | --- | --- | --- |
+        | Tris1M-HEPES1.15M buffer stock | 38.89 v/v% | 466.67 uL |
+        | 2M HEPES stock | 48.02 v/v% | 576.19 uL |
+        | 37% HCl | 6.67 v/v% | 80 uL |
+        | Ultra-pure distilled water | 6.43 v/v% | 77.14 uL |
+        | Total | 100 v/v% | 1200 uL |
 
 # Methods
 
@@ -318,6 +323,14 @@ The whole 60 µL well. The first three rows are the 52.8 µL the build sheet rec
 
 The energy solution is a 2× sub-mix of ten components per Sun et al. 2013, made up to 4000 µL. It is not reproduced here: [`experiments/energy-solution-composition.csv`](./experiments/energy-solution-composition.csv), and its vendor data is in {numref}`tbl-reagents`.
 
+## Gel
+
+:::{admonition}
+This is probably a queston for Jon as well as SH - should we include a table describing the composition of the gel
+:::
+
+
+
 ## Measurement
 
 Two channels were acquired. The channel labelled `Alexa Fluor 647` in the acquisition metadata reports the Cy5 signal, because the microscope names the wavelength by a representative fluorophore; the reagent in the composition is Cy5. The channel labelled `Rhodamine` reports Rhod-PE in the vesicle membranes. Data are OME-Zarr version 0.5, one well per store, with a z-stack at 1.5 µm spacing and 0.333 µm pixels.
@@ -399,17 +412,29 @@ CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 6.3
 
 An acid-responsive visible color change was observed. However, the control group (CPRG-loaded LUVs with β-galactosidase but without PLA1-expressing GUVs) also developed color, so the visible difference was not very clear. The only difference between Attempt 1 and Attempt 2 was the absence or presence of agarose gel. Therefore, gel embedment seems to cause CPRG leakage from the LUVs even without PLA1.
 
+:::{admonition}
+For attempt 2 we need to fill in the relevant data - this can be a photo, plot, or maybe just a description if the result is "marginal"
+:::
+
 ## Attempt 3 (gel)
 
 To decrease CPRG leakage from the LUVs, I extruded them (through 400 nm membranes) to break them down into smaller sizes, because smaller liposomes are known to be more stable than GUVs.
 
 Results: The background signal was slightly lower than in Attempt 2, but the difference was still not distinguishable by eye. In addition, the yields of SUVs and PLA1-expressing GUVs were lower than before, so the overall signal was low.
 
+:::{admonition}
+For attempt 3 we need to fill in the relevant data - this can be a photo, plot, or maybe just a description if the result is "marginal"
+:::
+
 ## Attempt 4 (gel + solution)
 
 To increase the SUV yield, I increased the starting volume. I also did more rounds of washing to reduce any further background signal. I also reduced the gel concentration from 0.7% to 0.35% to reduce any stress caused by gel embedment. In parallel, I ran a solution experiment to determine whether the issue really originated from the gel embedment.
 
 Results: It worked. A visible color difference was observed both in gel and in solution.
+
+:::{admonition}
+For attempt 4 we need to fill in the relevant data - this can be a photo, plot, or maybe just a description if the result is "marginal"
+:::
 
 # Notes
 
