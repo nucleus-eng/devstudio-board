@@ -172,9 +172,49 @@ same membrane at the 5 mL scale, which is 2.5 µmol. The mol% is identical.
 
 ## LGA Gel Preparation
 
-:::{admonition}
-Please add in a protocol for preparing LGA gels and embedding cells into them.
-:::
+Materials
+
+1. UltraPure™ DNase/RNase-Free Distilled Water, Invitrogen™ Cat number 10977015
+2. Low-gelling agarose, Sigma, A9414-5G
+
+Procedure:
+
+1. Make 2.7% agarose stock dissolved in UPDI water (UltraPure™ DNase/RNase-Free Distilled Water)
+
+    For 1500 uL stock preparation, weigh 40.5 mg directly in 2 mL epitube and add 1500 uL of UPDI water). Heat in 85-95 C heat block until fully dissolved. Vortex occasionally.
+
+2. Synthetic cell (vesicle) embedment in 0.7% agarose
+
+    Compositions:
+
+    ```
+    50v/v% energy solution (2x) (30 uL)
+    12v/v% pH buffer mix* (7.2 uL)
+    26v/v% 2.7% agarose dissolved in UPDI (15.6 uL)
+    12v/v% GUVs, SUVs or substrates (7.2 uL, in 46.67% of Tris1M-HEPES1.15M solution; osmolarity 1170-1180 mOsm)
+    -----------------------------
+    Total 60 uL
+    ```
+
+    - First, cool the 2.7% agarose stock to 65C.
+    - Mix the agarose with Energy solution and pH buffer mix* first, and cool to 45C.
+    - Add CFE-containing vesicles.
+    - For 0.35% final agarose concentration, half of gel volume can be replaced with UPDI water.
+
+3. pH buffer mix* preparation
+
+    - pH buffer mix was prepared so that resulting pH to be 1) pH 7.4 or 2) pH 6.5 (also to match osmolarity)
+    - 1) For pH7.4: use Tris1M-HEPES1.15M buffer stock (~2520 mOsm)
+    - 2) For pH6.5:
+
+    ```
+    466.67 uL (38.89v/v%) Tris1M-HEPES1.15M buffer stock
+    + 576.19 uL (48.02v/v%) 2M HEPES stock
+    + 80 uL (6.67v/v%) 37% HCl
+    + 77.14 uL (6.43v/v%) Ultra-pure distilled water
+    ----------------------------------
+    Total 1200 uL
+    ```
 
 # Methods
 
@@ -288,11 +328,9 @@ Two channels were acquired. The channel labelled `Alexa Fluor 647` in the acquis
 Please describe the overall results of the experiment. Here I've organized experiments by "Attempt", i.e. Attempt 1 - with LUVs and Attempt 2 - with SUVs
 :::
 
-## Attempt 1
+## Attempt 1 (solution)
 
-:::{admonition}
-Please describe details of Attempt 1
-:::
+Worked: An acid-responsive visible color change was observed in solution.
 
 :::{figure} ./figures/microscopy-summary.png
 :label: fig-microscopy-summary
@@ -357,19 +395,27 @@ CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 7.6
 
 CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 6.3 after 13 h at 37 °C. Cy5 signal is detected only in the PLA1-expressing synthetic cells. The fraction of vesicles retaining Cy5 is markedly reduced compared with E4, indicating PLA1-mediated Cy5 release.
 
-## Attempt 2
+## Attempt 2 (gel)
 
-:::{admonition}
-Please describe details of Attempt 2. Noting that we need to pull in data from relevant Log file for this experiment. Prompts might be why this debugging strategy was pursued and what was learned
-:::
+An acid-responsive visible color change was observed. However, the control group (CPRG-loaded LUVs with β-galactosidase but without PLA1-expressing GUVs) also developed color, so the visible difference was not very clear. The only difference between Attempt 1 and Attempt 2 was the absence or presence of agarose gel. Therefore, gel embedment seems to cause CPRG leakage from the LUVs even without PLA1.
+
+## Attempt 3 (gel)
+
+To decrease CPRG leakage from the LUVs, I extruded them (through 400 nm membranes) to break them down into smaller sizes, because smaller liposomes are known to be more stable than GUVs.
+
+Results: The background signal was slightly lower than in Attempt 2, but the difference was still not distinguishable by eye. In addition, the yields of SUVs and PLA1-expressing GUVs were lower than before, so the overall signal was low.
+
+## Attempt 4 (gel + solution)
+
+To increase the SUV yield, I increased the starting volume. I also did more rounds of washing to reduce any further background signal. I also reduced the gel concentration from 0.7% to 0.35% to reduce any stress caused by gel embedment. In parallel, I ran a solution experiment to determine whether the issue really originated from the gel embedment.
+
+Results: It worked. A visible color difference was observed both in gel and in solution.
 
 # Notes
 
-:::{admonition}
-{Please add in consolidated learnings}
-:::
-
 Here no gramicidin is used
+
+First experiment 7.4 then adjusted to 7.8 (mixture of Tris and Hepes 1M and 1.15M) for acidic condition add HEPES and HCL (wanted to minimize amount of HCl) (might consider using MES buffer for lower pH range)
 
 # What's next
 
