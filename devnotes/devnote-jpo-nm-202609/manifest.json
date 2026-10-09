@@ -10,7 +10,7 @@
       "zarr_url": null,
       "section_context": "Result 2 — GFP sensor GUVs in solution, with and without 10 µM AHL",
       "asset_chain_complete": false,
-      "extraction_method": "zarr-python direct read over HTTP, resolution level s2, timepoint 19, channel 1 (GFP), window 30000-60000 clipped and normalized to 8-bit, rendered to a single green channel with PIL",
+      "extraction_method": "zarr-python direct read over HTTP, resolution level s2, timepoint 19, channel 1 (GFP), window 30000-60000 clipped and normalized to 8-bit, rendered to a single green channel with PIL, 500 um scale bar drawn at 1.332 um/px per the store's own multiscales scale for s2",
       "findings": [
         "No notebook exists for this figure. It was generated directly against the zarr store in this session on 2026-10-09, confirmed by Anton: well C10, T = 19, GFP only.",
         "No platemap exists yet for this store, so platemap is null rather than a filename.",

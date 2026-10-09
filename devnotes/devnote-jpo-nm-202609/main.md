@@ -220,12 +220,12 @@ Alexa Fluor 647 both excluded.
 :label: fig-c10-gfp-t19
 :align: center
 :width: 75%
-Well C10 at T = 19, GFP channel only, contrast windowed 30000 to 60000.
-Brightfield and Alexa Fluor 647 are excluded. The same well is live as an
+Well C10 at T = 19, GFP channel only, contrast windowed 30000 to 60000,
+scale bar 500 µm. Brightfield and Alexa Fluor 647 are excluded. The same well is live as an
 interactive viewer on [2026-10-08 — Interactive viewer](./2026-10-08-interactive-viewer.md#c10).
 :::
 
-[`fig-c10-gfp-t19`, platemap: none, data source:`nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/10/0`, caption: (Well C10 at T = 19, GFP channel only, contrast windowed 30000 to 60000.)]
+[`fig-c10-gfp-t19`, platemap: none, data source:`nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/10/0`, caption: (Well C10 at T = 19, GFP channel only, contrast windowed 30000 to 60000, scale bar 500 µm.)]
 
 <!-- missing notebook -->
 
