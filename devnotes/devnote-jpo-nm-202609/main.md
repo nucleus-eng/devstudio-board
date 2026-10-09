@@ -200,10 +200,22 @@ can go here. Run `devstudio-build-to-composition` on the build file.
 Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all.
 :::
 
-<!-- A microscopy result needs an OME-Zarr store on data.nucleus.engineering,
-the per-object parquet beside it, and the wells worth showing as interactive
-viewers. Niall's log carries two open TODOs for exactly this: the zarr URLs
-and the analysis notebook. -->
+The C wells of the 2026-10-08 store are shown as interactive viewers on
+[2026-10-08 — Interactive viewer](./2026-10-08-interactive-viewer.md). That page
+carries the open questions on contrast, timepoint and well filtering. A static
+figure carrying the same result belongs here once one is chosen, as the archival
+record, because a viewer does not survive JATS conversion.
+
+:::{admonition}
+:name: gap-figure-result-2
+
+Please pick the well and the timepoint for the static archival figure, and say
+whether it is a single channel or a composite.
+:::
+
+<!-- A microscopy result also needs the per-object parquet beside the store, if
+one exists, and the analysis notebook. Niall's log carries two open TODOs for
+exactly this: the zarr URLs and the analysis notebook. -->
 
 ## Result 3 — GFP sensor gels, with and without 100 µM AHL
 

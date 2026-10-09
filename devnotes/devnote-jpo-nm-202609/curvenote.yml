@@ -40,6 +40,7 @@ project:
     - format: meca
   toc:
     - file: main.md
+    - file: 2026-10-08-interactive-viewer.md
   resources:
     - experiments/**
   id: e3fbd024-9242-4ebd-95b2-7092117c8c7c
