@@ -1,0 +1,26 @@
+{
+  "figures": [
+    {
+      "filename": "figures/20261008-c10-gfp-t19.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/10/0",
+      "zarr_url": null,
+      "section_context": "Result 2 — GFP sensor GUVs in solution, with and without 10 µM AHL",
+      "asset_chain_complete": false,
+      "extraction_method": "zarr-python direct read over HTTP, resolution level s2, timepoint 19, channel 1 (GFP), window 30000-60000 clipped and normalized to 8-bit, rendered to a single green channel with PIL, 500 um scale bar drawn at 1.332 um/px per the store's own multiscales scale for s2",
+      "findings": [
+        "No notebook exists for this figure. It was generated directly against the zarr store in this session on 2026-10-09, confirmed by Anton: well C10, T = 19, GFP only.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    }
+  ],
+  "notes": [
+    "Drafted 2026-10-05 from a chat outline, not from a DevStudio Log folder.",
+    "Figure fig-c10-gfp-t19 added 2026-10-09, rendered directly from the live zarr store rather than extracted from a notebook. Everything else here is still unsourced: no platemap, no notebook, no build file and no raw instrument data beyond the zarr store itself.",
+    "An untracked figures/2026-10-08-C10-t19-composite.png sits in this directory, not produced in this session. It is a composite of more than one channel, which the 2026-10-09 instruction excludes. It is not referenced by main.md and not recorded here."
+  ]
+}
