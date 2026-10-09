@@ -206,12 +206,35 @@ carries the open questions on contrast, timepoint and well filtering. A static
 figure carrying the same result belongs here once one is chosen, as the archival
 record, because a viewer does not survive JATS conversion.
 
-:::{admonition}
+<!--
 :name: gap-figure-result-2
 
 Please pick the well and the timepoint for the static archival figure, and say
 whether it is a single channel or a composite.
+
+Answer, Anton, 2026-10-09: C10, T = 19, GFP channel only, brightfield and
+Alexa Fluor 647 both excluded.
+-->
+
+:::{figure} ./figures/20261008-c10-gfp-t19.png
+:label: fig-c10-gfp-t19
+:align: center
+:width: 75%
+Well C10 at T = 19, GFP channel only, contrast windowed 30000 to 60000.
+Brightfield and Alexa Fluor 647 are excluded. The same well is live as an
+interactive viewer on [2026-10-08 — Interactive viewer](./2026-10-08-interactive-viewer.md#c10).
 :::
+
+[`fig-c10-gfp-t19`, platemap: none, data source:`nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/10/0`, caption: (Well C10 at T = 19, GFP channel only, contrast windowed 30000 to 60000.)]
+
+<!-- missing notebook -->
+
+<!-- Rendered directly from the zarr store, not from a notebook: read with
+zarr-python over HTTP at resolution level s2 (2775x2775), channel index 1
+(GFP, confirmed against the store's own omero.channels order), timepoint 19,
+window 30000-60000 clipped and normalized to 8-bit, written to a single green
+channel with PIL. No notebook or platemap exists yet for this store, so
+asset_chain_complete is false in manifest.json. -->
 
 <!-- A microscopy result also needs the per-object parquet beside the store, if
 one exists, and the analysis notebook. Niall's log carries two open TODOs for
