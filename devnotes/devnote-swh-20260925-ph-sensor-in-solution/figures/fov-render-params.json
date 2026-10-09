@@ -1,0 +1,34 @@
+{
+ "level": "s1",
+ "fov_px": 1080,
+ "origin_yx": [
+  2910,
+  2760
+ ],
+ "percentiles": [
+  1.0,
+  99.5
+ ],
+ "display_rgb": {
+  "Rhodamine": [
+   255,
+   220,
+   60
+  ],
+  "Alexa Fluor 647": [
+   255,
+   60,
+   40
+  ]
+ },
+ "stretch": {
+  "Rhodamine": [
+   2209.0,
+   49917.0
+  ],
+  "Alexa Fluor 647": [
+   1762.0,
+   18765.0
+  ]
+ }
+}

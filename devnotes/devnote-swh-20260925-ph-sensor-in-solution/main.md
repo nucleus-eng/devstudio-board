@@ -413,14 +413,20 @@ Please describe the overall results of the experiment. Here I've organized exper
 
 Worked: An acid-responsive visible color change was observed in solution.
 
-:::{figure} ./figures/microscopy-summary.png
+:::{figure}
 :label: fig-microscopy-summary
 :align: center
 :width: 100%
-The four reported wells at 13 h: D4 and D5 across the top, E4 and E5 across the bottom, Rhodamine and Alexa Fluor 647 merged. This static montage is the archival record of the four interactive viewers below, which do not survive JATS conversion.
+
+![D4, pH 7.6, PLA1-GUV only](./figures/fov-D4.png)
+![D5, pH 6.3, PLA1-GUV only](./figures/fov-D5.png)
+![E4, pH 7.6, PLA1-GUV + CPRG-LUV](./figures/fov-E4.png)
+![E5, pH 6.3, PLA1-GUV + CPRG-LUV](./figures/fov-E5.png)
+
+The four reported wells at 13 h, one field of view each, Rhodamine in yellow and Alexa Fluor 647 in red. D4 and D5 on the top row, E4 and E5 below. Each panel is a 719 µm square at 0.666 µm per pixel, cropped inside a single stitching tile. All four share one contrast stretch per channel, pooled across the wells, so brightness is comparable between panels: Rhodamine 2209 to 49917 and Alexa Fluor 647 1762 to 18765. Rendered from the OME-Zarr stores by [`general/render-microscopy-fovs.py`](./general/render-microscopy-fovs.py). This montage is the archival record of the interactive viewers on [Interactive viewers](./viewers.md), which do not survive JATS conversion.
 :::
 
-The viewer control panels are visible in the capture above. <!-- REVIEW: recapture without the overlay before publication -->
+The channel colors above follow the viewer rather than the stores, whose omero block records Rhodamine as `FF0000` and Alexa Fluor 647 as `0000FF`. <!-- REVIEW: exposure, gain and laser power are recorded nowhere in the stores. The common stretch assumes they were matched across the four acquisitions. Add the settings to Measurement. -->
 
 :::{figure} ./figures/color-change-with-lacz.png
 :label: fig-color-change
