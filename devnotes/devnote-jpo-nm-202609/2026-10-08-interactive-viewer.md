@@ -46,6 +46,35 @@ page mounts renders blank for good.
 
 Each viewer sets `"menuOpen": true`, so the contrast sliders are visible without a click.
 
+:::{admonition} Every slider below is served by a patched copy of the widget
+:class: warning
+:name: flags-viewer-patched-widget
+
+Vizarr's own sliders (opacity, timepoint, per-channel contrast) render collapsed
+to 0x0 pixels under the unpatched `vizarr-viewer.js` from
+`curvenote.github.io/widgets`. Confirmed directly in the browser rather than
+guessed: the sliders are styled by Material-UI's JSS runtime, which injects one
+`<style>` tag into the document and fills it afterward with CSSOM
+`insertRule()` calls, as each component first renders. The `myst-anywidget`
+wrapper mounts this widget inside an open shadow root, and a shadow root
+inherits none of the light DOM's stylesheets, so the slider markup has no
+layout CSS at all.
+
+`adoptedStyleSheets` does not fix this directly: it throws "Can't adopt
+non-constructed stylesheets" on a parsed `<style>` tag's own sheet, confirmed
+from the thrown error, even though it is same-origin. And `insertRule()` adds
+no DOM node, so a `MutationObserver` never sees JSS's later rule insertions.
+
+Every viewer below instead loads
+[`general/vizarr-viewer-patched.js`](./general/vizarr-viewer-patched.js), a
+copy of the same widget that mirrors each document stylesheet into one
+constructed `CSSStyleSheet` per source, adopts those, and keeps them in sync
+by polling rule count every 400 ms for the life of the widget, because no
+event fires when JSS inserts a rule. Diffed against the original at
+`https://curvenote.github.io/widgets/widgets/vizarr-viewer.js`; nothing else
+changed.
+:::
+
 These viewers do not survive JATS conversion. A static figure carrying the same result
 belongs on [the main page](./main.md), under Results, as the archival record.
 
@@ -55,7 +84,7 @@ platemap lands.
 
 ## C3
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ./general/vizarr-viewer-patched.js
 :class: w-full
 
 {
@@ -67,7 +96,7 @@ platemap lands.
 
 ## C4
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ./general/vizarr-viewer-patched.js
 :class: w-full
 
 {
@@ -79,7 +108,7 @@ platemap lands.
 
 ## C5
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ./general/vizarr-viewer-patched.js
 :class: w-full
 
 {
@@ -91,7 +120,7 @@ platemap lands.
 
 ## C6
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ./general/vizarr-viewer-patched.js
 :class: w-full
 
 {
@@ -103,7 +132,7 @@ platemap lands.
 
 ## C7
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ./general/vizarr-viewer-patched.js
 :class: w-full
 
 {
@@ -115,7 +144,7 @@ platemap lands.
 
 ## C8
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ./general/vizarr-viewer-patched.js
 :class: w-full
 
 {
@@ -127,7 +156,7 @@ platemap lands.
 
 ## C9
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ./general/vizarr-viewer-patched.js
 :class: w-full
 
 {
@@ -139,7 +168,7 @@ platemap lands.
 
 ## C10
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ./general/vizarr-viewer-patched.js
 :class: w-full
 
 {
@@ -151,7 +180,7 @@ platemap lands.
 
 ## C11
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ./general/vizarr-viewer-patched.js
 :class: w-full
 
 {
