@@ -20,9 +20,12 @@ Three things this script decides, because the data does not record them.
    well with less signal looks darker. Per-well stretching would hide exactly
    the differences the DevNote's Results claim.
 
-3. Crop. The stores are stitched tile mosaics about 3.7 mm across. Seams sit
-   near 1350, 2700, 2848 and 4048 px at s1. ORIGIN and FOV below pick a
-   square strictly inside one tile, so no seam crosses the figure.
+3. Crop. Each well's region comes from a Vizarr/Viv viewer state: `target`
+   is the centre in s0 pixels and `zoom` is log2 scale. One ZOOM is shared by
+   all four wells, and one target too, so every panel shows the same
+   coordinates at the same scale and no region was chosen per well.
+   Because zoom is defined against screen pixels, OUT_PX sets the field of
+   view as well as the file size.
 
 The scale bar is not hardcoded: it is read from each store's own
 coordinateTransformations.
@@ -45,9 +48,19 @@ WELLS = [
     ('E4', 'SH-0925-E4_2026-09-25_12-03-09.447054.zarr', 'E/4/0'),
     ('E5', 'SH-0925-E5-2_2026-09-25_12-04-22.672843.zarr', 'E/5/0'),
 ]
-LEVEL = 's1'          # 0.666 um/px
-FOV = 1080            # px, a 719 um square
-ORIGIN = (2910, 2760)  # (y, x), strictly inside one stitching tile
+# Viewer state, copied from the Vizarr/Viv viewer. `target` is the centre in
+# full-resolution (s0) pixel coordinates and `zoom` is log2 scale, so the
+# visible width in s0 pixels is OUT_PX / 2**zoom. One zoom for all four wells
+# keeps the panels at the same scale; only the target moves.
+# One zoom and one target for every well, on purpose. The same stage
+# coordinates in all four wells means no panel was positioned to favour a
+# result, and the panels stay directly comparable. Give a well its own
+# target only with a reason, and say so in the caption.
+ZOOM = -0.4816832866663847
+TARGET = [1232.6815872629336, 3844.742354848073]
+TARGETS = {'D4': TARGET, 'D5': TARGET, 'E4': TARGET, 'E5': TARGET}
+OUT_PX = 1080         # output size; zoom is defined against screen pixels, so
+                      # this changes the field of view, not just the file size
 LO_PCT, HI_PCT = 1.0, 99.5
 DISPLAY = {'Rhodamine': (255, 220, 60), 'Alexa Fluor 647': (255, 60, 40)}
 OUTDIR = 'figures'
@@ -57,16 +70,35 @@ SESSION = requests.Session()
 SESSION.headers['User-Agent'] = 'Mozilla/5.0'
 
 
-def load(store):
-    """Return (channel labels, um per pixel, cropped array) for one well."""
+def load(store, target):
+    """Return (labels, um per output pixel, array) for one well's viewer state.
+
+    Picks the coarsest pyramid level that still has at least OUT_PX samples
+    across the visible extent, so the figure is downsampled rather than
+    upscaled.
+    """
     ome = SESSION.get(f'{store}/zarr.json').json()['attributes']['ome']
     labels = [c['label'] for c in ome['omero']['channels']]
     scales = {d['path']: d['coordinateTransformations'][0]['scale'][-1]
               for d in ome['multiscales'][0]['datasets']}
-    y, x = ORIGIN
-    arr = zarr.open(f'{store}/{LEVEL}', mode='r')
-    return labels, scales[LEVEL], np.asarray(
-        arr[0, :, 0, y:y + FOV, x:x + FOV]).astype(np.float32)
+    base = scales['s0']
+
+    extent = OUT_PX / (2 ** ZOOM)          # visible width in s0 pixels
+    usable = [p for p in sorted(scales, key=lambda p: scales[p])
+              if extent / (scales[p] / base) >= OUT_PX]
+    level = usable[-1] if usable else 's0'
+    factor = scales[level] / base
+
+    half = extent / factor / 2
+    x = int(round(target[0] / factor - half))
+    y = int(round(target[1] / factor - half))
+    n = int(round(2 * half))
+    arr = zarr.open(f'{store}/{level}', mode='r')
+    crop = np.asarray(arr[0, :, 0, y:y + n, x:x + n]).astype(np.float32)
+    um_per_out_px = extent * base / OUT_PX
+    print(f'     level {level} ({scales[level]} um/px), crop {n}x{n} at '
+          f'({x},{y}), field {extent * base:.0f} um')
+    return labels, um_per_out_px, crop
 
 
 def common_stretch(crops, labels):
@@ -86,10 +118,12 @@ def draw(name, labels, um_per_px, arr, stretch):
         norm = np.clip((arr[ci] - lo) / max(hi - lo, 1), 0, 1)
         rgb += norm[..., None] * (np.array(DISPLAY[label], np.float32) / 255)
     img = Image.fromarray((np.clip(rgb, 0, 1) * 255).astype(np.uint8))
+    if img.size != (OUT_PX, OUT_PX):
+        img = img.resize((OUT_PX, OUT_PX), Image.LANCZOS)
 
     width, height = img.size
     draw_ctx = ImageDraw.Draw(img)
-    bar_um = min([50, 100, 200, 250, 500],
+    bar_um = min([25, 50, 100, 200, 250, 500],
                  key=lambda v: abs(v - width * um_per_px / 5))
     bar_px = int(round(bar_um / um_per_px))
     margin = int(width * 0.04)
@@ -118,8 +152,8 @@ def draw(name, labels, um_per_px, arr, stretch):
 def main():
     crops = {}
     for name, store, well in WELLS:
-        crops[name] = load(f'{BASE}/{store}/{well}')
-        print(f'  loaded {name}  {crops[name][2].shape}  {crops[name][1]} um/px')
+        print(f'  {name}  target {TARGETS[name]}')
+        crops[name] = load(f'{BASE}/{store}/{well}', TARGETS[name])
 
     labels = crops[WELLS[0][0]][0]
     stretch = common_stretch(crops, labels)
@@ -131,11 +165,11 @@ def main():
     for name, _, _ in WELLS:
         chan_labels, um_per_px, arr = crops[name]
         path, bar_um = draw(name, chan_labels, um_per_px, arr, stretch)
-        print(f'  {path}  {FOV}x{FOV} px  '
-              f'{FOV * um_per_px:.0f} um field  bar {bar_um} um')
+        print(f'  {path}  {OUT_PX}x{OUT_PX} px  '
+              f'{OUT_PX * um_per_px:.0f} um field  bar {bar_um} um')
 
     with open(f'{OUTDIR}/fov-render-params.json', 'w') as handle:
-        json.dump({'level': LEVEL, 'fov_px': FOV, 'origin_yx': list(ORIGIN),
+        json.dump({'zoom': ZOOM, 'targets': TARGETS, 'out_px': OUT_PX,
                    'percentiles': [LO_PCT, HI_PCT], 'display_rgb': DISPLAY,
                    'stretch': stretch}, handle, indent=1)
 
