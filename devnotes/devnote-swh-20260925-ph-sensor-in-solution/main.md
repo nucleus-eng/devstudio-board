@@ -109,76 +109,56 @@ Sequence map of `pT7-toehold9-PLA1`. The file declares 1203 bp and carries 1203 
 Section order follows the source log, which prepares the CPRG-LUVs first. The
 composition tables under Methods run in the other order.
 
-How the three preparations below fit together. Structure follows
-`render/20261005-demo-ph.mmd` in `nucleus-eng/devstudio-readiness`. The
-readiness overlay's status colors are left out, because that diagram tracks
-program progress and this page is a record of one set of runs.
+How the four packaging and processing steps below fit together. A simpler
+replacement for the previous version of this diagram, kept at
+[`general/overview.mmd`](./general/overview.mmd) in this DevNote.
 
-Shaded nodes are described in this DevNote, with a section, a table or a
-table row giving their composition. Unshaded nodes are named in the build
-but carry no description here: `(M13) Basic buffer` and its LacZ enzyme
-appear only in prose, with no reagent entry, no concentration and no buffer
-recipe, and `(M14) CPRG released gel` and `P6` have no write-up at all.
-Click P3, P4 or P5 to jump to its protocol.
+Click a step that has a protocol on this page to jump to it. P1 and P3 do.
+P2 and P4 do not, for two different reasons. P2, packing CPRG into a
+liposome, is implemented two ways on this page: CPRG-LUV preparation for
+Attempts 1 and 2, and CPRG-SUV preparation from Attempt 3 onward, so no
+single section is the one answer. P4, adding LacZ and raising the pH, has
+no protocol section at all. The LacZ enzyme and its basic buffer are named
+in the Overview and in Attempt 2's prose, but nowhere given a composition,
+a volume or a procedure.
 
 ```mermaid
-flowchart TD
-    PH_RES["(M1) pH-responsive strand"]
-    TRIGGER["(M2) Trigger"]
-    CYTOSOL["(M3) Cytosol"]
-    PH_DNA["(M4) pH-sensing DNA"]
-    TOEHOLD["(M5) Toehold switch [PLA]"]
-    CPRG["(M6) Substrate: CPRG"]
-    MEMBRANE_V["(M7) Membrane"]
-    PH_CYTOSOL["(M8) pH Sensor Cytosol"]
-    MEMBRANE_C["(M9) Chicago Base Membrane: POPC/Chol<br/>Membrane[POPC &#8862; Chol &#8862; Rhod], 9:1, 0.1% Rhod"]
-    CPRG_VESICLE["(M10) CPRG Vesicle"]
-    PH_CELL["(M11) pH Sensing Cell"]
-    HYDROGEL["(M12) Hydrogel: LGA"]
-    BASIC_BUFFER["(M13) Basic buffer &#8862; LacZ Enzyme"]
-    RELEASED_GEL["(M14) CPRG released gel"]
-    COLOR["Color"]
+flowchart LR
+    SENSE_IN["pH sensor parts<br/>Base Cytosol<br/>trigger duplex<br/>gated PLA1 DNA"]
+    CPRG_IN["CPRG<br/>(substrate)"]
+    GEL_IN["Agarose gel<br/>(in outer solution)"]
+    LACZ_IN["LacZ enzyme<br/>(in basic buffer)"]
 
-    P1(["P1 &middot; Anneal pH-Responsive Trigger Duplex<br/>3:1"])
-    P2(["P2 &middot; Assemble Aqueous Solution"])
-    P3(["P3 &middot; Encapsulation: SUV extrusion"])
-    P4(["P4 &middot; Encapsulation: Phase Transfer"])
-    P5(["P5 &middot; Gel embed &amp; incubation, 37 &deg;C"])
-    P6(["P6 &middot; Color Development<br/>incubation"])
+    P1(["Pack into<br/>liposome"])
+    P2(["Pack into<br/>liposome"])
+    P3(["Embed<br/>in gel"])
+    P4(["Add LacZ,<br/>raise pH"])
 
-    PH_RES --> P1
-    TRIGGER --> P1
-    P1 --> PH_DNA
+    SENSOR["Sensing liposome"]
+    CARRIER["Substrate liposome"]
+    CASCADE["pH Cascade"]
+    READOUT["Color change<br/>yellow to purple"]
 
-    CYTOSOL --> P2
-    PH_DNA --> P2
-    TOEHOLD --> P2
-    P2 --> PH_CYTOSOL
+    SENSE_IN --> P1 --> SENSOR
+    CPRG_IN --> P2 --> CARRIER
+    SENSOR --> P3
+    CARRIER --> P3
+    GEL_IN --> P3
+    P3 --> CASCADE
+    CASCADE --> P4
+    LACZ_IN --> P4
+    P4 --> READOUT
 
-    CPRG --> P3
-    MEMBRANE_V --> P3
-    P3 --> CPRG_VESICLE
 
-    PH_CYTOSOL --> P4
-    MEMBRANE_C --> P4
-    P4 --> PH_CELL
+    click P1 "#pla1-guv-preparation"
+    click P3 "#lga-gel-preparation"
 
-    CPRG_VESICLE --> P5
-    PH_CELL --> P5
-    HYDROGEL --> P5
-    P5 --> RELEASED_GEL
-
-    BASIC_BUFFER --> P6
-    RELEASED_GEL --> P6
-    P6 --> COLOR
-
-    click P3 "#cprg-luv-preparation"
-    click P4 "#pla1-guv-preparation"
-    click P5 "#lga-gel-preparation"
-
-    %% Shaded = described in this DevNote. Unshaded = named in the build, not described here.
-    classDef described fill:#DCE9F5,stroke:#3A6E9E,stroke-width:1.5px,color:#111827;
-    class PH_RES,TRIGGER,CYTOSOL,PH_DNA,TOEHOLD,CPRG,MEMBRANE_V,PH_CYTOSOL,MEMBRANE_C,CPRG_VESICLE,PH_CELL,HYDROGEL,COLOR,P1,P2,P3,P4,P5 described;
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class SENSE_IN,CPRG_IN,GEL_IN,LACZ_IN leaf;
+    class SENSOR,CARRIER,CASCADE,READOUT composed;
+    class P1,P2,P3,P4 process;
 ```
 
 :::{admonition}

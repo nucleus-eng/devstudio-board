@@ -1,0 +1,32 @@
+flowchart LR
+    SENSE_IN["pH sensor parts<br/>Base Cytosol<br/>trigger duplex<br/>gated PLA1 DNA"]
+    CPRG_IN["CPRG<br/>(substrate)"]
+    GEL_IN["Agarose gel<br/>(in outer solution)"]
+    LACZ_IN["LacZ enzyme<br/>(in basic buffer)"]
+
+    P1(["Pack into<br/>liposome"])
+    P2(["Pack into<br/>liposome"])
+    P3(["Embed<br/>in gel"])
+    P4(["Add LacZ,<br/>raise pH"])
+
+    SENSOR["Sensing liposome"]
+    CARRIER["Substrate liposome"]
+    CASCADE["pH Cascade"]
+    READOUT["Color change<br/>yellow to purple"]
+
+    SENSE_IN --> P1 --> SENSOR
+    CPRG_IN --> P2 --> CARRIER
+    SENSOR --> P3
+    CARRIER --> P3
+    GEL_IN --> P3
+    P3 --> CASCADE
+    CASCADE --> P4
+    LACZ_IN --> P4
+    P4 --> READOUT
+
+    classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
+    classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
+    classDef process  fill:#ffffff,stroke:#374151,color:#111827;
+    class SENSE_IN,CPRG_IN,GEL_IN,LACZ_IN leaf;
+    class SENSOR,CARRIER,CASCADE,READOUT composed;
+    class P1,P2,P3,P4 process;
