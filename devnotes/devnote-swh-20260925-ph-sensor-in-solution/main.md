@@ -67,7 +67,7 @@ This DevNote describes a two-vesicle system that changes visible color in respon
 | UTP | — | Millipore Sigma | U6750-1G or 500MG | — | — | |
 | Amino acid mix (RTS Amino Acid Sampler) | — | Biotechrabbit | BR1401801 | — | — | |
 | RNase Inhibitor | RNAse inhibitor murine | NEB | M0314S | $87.00 | -25 °C to -15 °C | [link](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
-| Mineral oil | Mineral oil | — | M5904 or M5310 | — | — | |
+| Mineral oil | Mineral oil | Millipore Sigma | M5904 | — | — | |
 | Cy5 | Sulfo-Cyanine5 carboxylic acid | — | — | — | — | |
 | CPRG | Chlorophenol Red-β-D-galactopyranoside | — | — | — | — | |
 | POPC | 16:0-18:1 PC (POPC) | Avanti Lipids | A80557 | $435.00 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc) |
@@ -85,7 +85,11 @@ This DevNote describes a two-vesicle system that changes visible color in respon
 | HCl | — | — | — | — | — | |
 :::
 
-Two entries are ambiguous rather than missing. The tracker stocks two mineral oils, `M5904` and `M5310`, with a note that `M5310` is the higher quality one, and does not say which went into the lipid-in-oil. It also stocks two Cy5 materials, `Sulfo-Cyanine5 carboxylic acid` and the lipid-conjugated `18:1 Cyanine 5 PC`; the 100 µM soluble stock used here points at the first.
+Two entries were ambiguous in `DevCell_Materials_Tracker.xlsx`, which stocks two mineral oils and two Cy5 materials and does not say which were used. Both are now resolved by the author.
+
+The mineral oil is `M5904`. `M5310` was never used, although the tracker notes it is the higher quality one.
+
+Cy5 means `Sulfo-Cyanine5 carboxylic acid` throughout, used as a soluble dye encapsulated inside the GUVs. The lipid-conjugated `18:1 Cyanine 5 PC` was not used in this system. Rhod-PE is the only lipid fluorescence label.
 
 # Constructs
 
