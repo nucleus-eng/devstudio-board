@@ -4,7 +4,7 @@ project:
   # No Specification table exists in the source log.
   # REVIEW: log-devnote-draft.docx states its own title, "Study of liposome
   # behaviour in gels", which disagrees. The answered title is kept until
-  # confirmed. See flags-blocking in main.md.
+  # confirmed. See flags-blocking in main-supplement.md.
   title: 'Embedding Developer Cells in Gels'
   description: >
     CPRG and CPR absorbance of large unilamellar vesicles in five gel and
@@ -38,7 +38,8 @@ project:
       country: United Kingdom
   # No date is stated in the log. Three source values disagree: the Log
   # folder reads OP-20261001, the three data files read 20260930, and the
-  # platemap rows read 2/10/2026. See the blocking date flag in main.md.
+  # platemap rows read 2/10/2026. See the blocking date flag in
+  # main-supplement.md.
   # REVIEW: review cycle v1, prompt 3, answered "Dates do not matter", which
   # is a deferral and not a date. The field stays unresolved.
   date: '[PLEASE FILL IN]'
@@ -50,6 +51,7 @@ project:
     - format: meca
   toc:
     - file: main.md
+    - file: main-supplement.md
     - file: experiments/20261001-luv-gel-pla/platereader.ipynb
   resources:
     - experiments/**

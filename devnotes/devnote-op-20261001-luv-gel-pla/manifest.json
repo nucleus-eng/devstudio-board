@@ -2,6 +2,7 @@
   "figures": [
     {
       "filename": "figures/op-20261001-cpr-cprg-ratio.png",
+      "page": "main-supplement.md",
       "pattern": "quarto-label",
       "cell_label": "op-20261001-fig1",
       "source_notebook": "OP-20261001/Copy of Copy of platereader.ipynb",
@@ -19,6 +20,7 @@
     },
     {
       "filename": "general/schematic-hydrogel-overview.png",
+      "page": "main.md",
       "pattern": "static-png",
       "cell_label": null,
       "source_notebook": null,
@@ -32,7 +34,23 @@
       ]
     },
     {
+      "filename": "general/schematic-luv-prep-inline.png",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Vesicle preparation, LUVs",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "A schematic, not a data figure. No asset chain applies. Uncaptioned in log-devnote-draft.docx; its own placeholder caption \"[Caption]\" is carried as-is."
+      ]
+    },
+    {
       "filename": "figures/log-devnote-draft-luv-only-read2.jpg",
+      "page": "main.md",
       "pattern": "static-png",
       "cell_label": null,
       "source_notebook": null,
