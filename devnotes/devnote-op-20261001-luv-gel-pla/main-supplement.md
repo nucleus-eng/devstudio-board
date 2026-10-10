@@ -5,12 +5,15 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 
 # Supplement: source record and open gaps
 
-This page is the full technical record `main.md` was drafted from. It
+This file is the full technical record `main.md` was drafted from. It
 carries the asset chain for `OP-20261001`, every disagreement found
 between sources, and the full history of review cycle v1. `main.md`
-carries the document-facing draft, close to `log-devnote-draft.docx`. Both
-pages build as one project. An ordinary `{ref}` or `{numref}` resolves a
-label defined on the other page.
+carries the document-facing draft, close to `log-devnote-draft.docx`.
+
+This file is not in `curvenote.yml`'s `toc`. It does not build or publish
+as a page of this DevNote, and `curvenote check` does not read it. It
+stays in the repository beside `main.md`, for a TA or a later reviewer to
+read directly.
 
 ## Overview
 
@@ -24,11 +27,11 @@ heading "# Results", one pasted figure, and the line
 
 The intro schematic from `log-devnote-draft.docx`, "Figure 1: Hydrogel
 containing unilamellar vesicles", is in `main.md`'s own Overview rather
-than copied here. A figure's `:label:` must be unique across this whole
-project, not only within one page. A second copy here would collide with
-that one rather than merely restate it. Measured directly on 2026-10-09:
-`curvenote check` reports a duplicate identifier when the same `:label:`
-is used on two pages of one project.
+than copied here. A figure's `:label:` must be unique across a built
+project, not only within one page. A second copy here would have
+collided with that one. Measured directly on 2026-10-09, while this file
+was still in `curvenote.yml`'s `toc`: `curvenote check` reported a
+duplicate identifier for the same `:label:` on two pages.
 
 :::{danger} Unresolved before publication
 :name: flags-blocking
@@ -528,8 +531,8 @@ after PLA addition minus day 2 before PLA addition. Neither cell carries a
 `log-devnote-draft.docx` carries a graph under its own Results heading,
 captioned "LUVs are most stable in PEG gels". The graph itself is titled
 "LUV behaviour in hydrogels Read 2 (3:09 PM, 16 U/mL LacZ)". It is in
-`main.md`'s own Results, not copied here. One `:label:` cannot serve two
-pages of the same project, the same reason given under Overview above.
+`main.md`'s own Results, not copied here, the same reason given under
+Overview above.
 
 :::{attention} This graph's run is not confirmed, and it carries a new number
 :name: gap-luv-only-read2

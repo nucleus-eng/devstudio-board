@@ -51,7 +51,6 @@ project:
     - format: meca
   toc:
     - file: main.md
-    - file: main-supplement.md
     - file: experiments/20261001-luv-gel-pla/platereader.ipynb
   resources:
     - experiments/**

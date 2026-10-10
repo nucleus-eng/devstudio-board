@@ -234,4 +234,6 @@ here. -->
 # Resources
 
 The full asset chain, the review cycle history, and every flagged
-disagreement between sources are in `main-supplement.md`.
+disagreement between sources are in `main-supplement.md`, in this same
+directory. It is not in `curvenote.yml`'s `toc`, so it does not publish
+as a page of this DevNote. It is a plain file in the repository.
