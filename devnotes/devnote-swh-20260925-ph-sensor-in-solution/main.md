@@ -74,21 +74,21 @@ The pH-sensing developer cells detect acidic conditions (pH 6.0–6.5) using a p
 | UTP | — | Millipore Sigma | U6750-1G or 500MG | — | — | |
 | Amino acid mix (RTS Amino Acid Sampler) | — | Biotechrabbit | BR1401801 | — | — | |
 | RNase Inhibitor | RNAse inhibitor murine | NEB | M0314S | $87.00 | -25 °C to -15 °C | [link](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
-| Mineral oil | Mineral oil | Millipore Sigma | M5904 | — | — | |
-| Cy5 | Sulfo-Cyanine5 carboxylic acid | — | — | — | — | |
-| CPRG | Chlorophenol Red-β-D-galactopyranoside | — | — | — | — | |
+| Mineral oil | Mineral oil, BioReagent, for molecular biology, light oil | Millipore Sigma | M5904-500mL | $78.70 | RT | [link](https://www.sigmaaldrich.com/US/en/product/sigma/m5904) |
+| Cy5 | Sulfo-Cyanine5 carboxylic acid | Lumiprobe | 13390 | $99.00 | -20 °C | [link](https://www.lumiprobe.com/p/sulfo-cy5-carboxylic-acid) |
+| CPRG | Chlorophenol Red-β-D-galactopyranoside | Roche | 10884308001 | $160.00 | -20 °C in water at 20 mg/mL | [link](https://www.sigmaaldrich.com/US/en/product/roche/10884308001) |
 | POPC | 16:0-18:1 PC (POPC) | Avanti Lipids | A80557 | $435.00 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc) |
 | Rhod PE | Liss Rhod PE | Avanti Lipids | A81179 | $273.47 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe) |
 | Cholesterol | Cholesterol | Avanti Research | A80100 | $261.00 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/700100-cholesterol-plant) |
-| IDT duplex buffer | Nuclease Free Duplex Buffer | — | — | — | — | |
-| UPDI (water) | — | — | — | — | — | |
+| IDT duplex buffer | Nuclease Free Duplex Buffer (10 x 2 mL) | IDT | 11-01-03-01 | $17.00 | -20 °C | [link](https://www.idtdna.com/site/order/stock/index/nfd) |
+| UPDI (water) | UltraPure™ DNase/RNase-Free Distilled Water | Invitrogen | 10977015 | $61.25 | RT | [link](https://www.thermofisher.com/order/catalog/product/10977015) |
 | Optiprep | OptiPrep™ | STEMCELL Technologies | 07820 | $289.00 | RT | [link](https://www.stemcell.com/products/optipreptm.html) |
-| Liposome extruder | Mini Extruder | Avanti Lipids | A81411 | — | RT | |
-| Membrane filter | Polycarbonate membrane, 400 nm pore | — | — | — | — | |
-| SMix | — | — | — | — | — | |
-| PMix | — | — | — | — | — | |
-| Ribosomes | — | — | — | — | — | |
-| tRNA | — | — | — | — | — | |
+| Liposome extruder | Mini Extruder Pro Kit with base | Avanti Lipids | A81411 | — | RT | [link](https://www.avantiresearch.com/en-gb/products/product/1000061-mini-extruder-pro-kit-with-base) |
+| Membrane filter | PC Membranes 0.4 µm, 19 mm | Avanti Lipids | A89040 (legacy 610007) | — | RT | [link](https://www.avantiresearch.com/en-gb/products/product/610007-pc-membranes-04m) |
+| SMix | — | b.next (in-house prep) | — | — | — | |
+| PMix | — | b.next (in-house prep) | — | — | — | |
+| Ribosomes | — | b.next (in-house prep) | — | — | — | |
+| tRNA | — | b.next (in-house prep) | — | — | — | |
 | Tris base | — | — | — | — | — | |
 | HEPES | — | — | — | — | — | |
 | HCl | — | — | — | — | — | |
@@ -99,6 +99,10 @@ Two entries were ambiguous in `DevCell_Materials_Tracker.xlsx`, which stocks two
 The mineral oil is `M5904`. `M5310` was never used, although the tracker notes it is the higher quality one.
 
 Cy5 means `Sulfo-Cyanine5 carboxylic acid` throughout, used as a soluble dye encapsulated inside the GUVs. The lipid-conjugated `18:1 Cyanine 5 PC` was not used in this system. Rhod-PE is the only lipid fluorescence label.
+
+Seven more entries are filled from sources outside `DevCell_Materials_Tracker.xlsx`: Mineral oil, Cy5, CPRG, the IDT duplex buffer and UPDI water from the "Chicago Module Integration Status" Doc's pH Sensor materials table and, for UPDI water, this DevNote's own LGA Gel Preparation materials list; the liposome extruder and its membrane filter from Avanti's own catalog, cross-checked against `DevCell_Materials_Tracker.xlsx`'s "Mini Extruder Pro Kit" and "PC Membranes 0.4μm" entries. SMix, PMix, Ribosomes and tRNA are marked `b.next (in-house prep)` rather than left blank, the same way the Chicago Doc records its own Cytosol row — these are made, not purchased.
+
+Three entries are still unresolved: Tris base, HEPES and HCl. The same "Chicago Module Integration Status" Doc raises this as an open question for this experiment's own outer solution, and does not supply a catalog number either. A candidate exists in the Nucleus materials reference for a related liposome process, `HEPES, Free Acid`, Fisher BioReagents, `NC1584172`, but it is unconfirmed for this buffer stock and not used here.
 
 # Constructs
 
