@@ -13,6 +13,19 @@ carried verbatim. The source log carries no overview. Its entire body is the
 heading "# Results", one pasted figure, and the line
 "Analysis: https://colab.research.google.com/drive/1ebR3gcpx0j-HCuA4N5lDdILkSQ6BneoJ#scrollTo=5a08dde5". -->
 
+:::{figure} ./general/schematic-hydrogel-overview.png
+:label: fig-schematic-hydrogel-overview
+:align: center
+:width: 75%
+Hydrogel containing unilamellar vesicles.
+:::
+
+[`fig-schematic-hydrogel-overview`, file:`general/schematic-hydrogel-overview.png`, caption: (Hydrogel containing unilamellar vesicles.)]
+
+<!-- This schematic is "Figure 1" in `log-devnote-draft.docx`, added to that
+document on 2026-10-09. It has no backing notebook, platemap or data file,
+so it is placed in `general/` rather than treated as a data figure. -->
+
 :::{danger} Unresolved before publication
 :name: flags-blocking
 
@@ -505,6 +518,44 @@ after PLA addition minus day 2 before PLA addition. Neither cell carries a
 `#| label:` tag. Add one to either cell to carry it into a later revision.
 :::
 -->
+
+## A second graph, from a run not yet identified
+
+`log-devnote-draft.docx` carries a graph under its own Results heading,
+captioned "LUVs are most stable in PEG gels". The graph itself is titled
+"LUV behaviour in hydrogels Read 2 (3:09 PM, 16 U/mL LacZ)".
+
+:::{figure} ./figures/log-devnote-draft-luv-only-read2.jpg
+:label: fig-luv-only-read2
+:align: center
+:width: 75%
+LUV behaviour in hydrogels, Read 2, 3:09 PM, 16 U/mL LacZ. Absorbance
+A570/A412, CPR/CPRG, for LUV only, across five conditions: pre-PEG
+solution, PEG gel, ULGA, LGA, and in solution.
+:::
+
+<!-- missing notebook -->
+
+[`fig-luv-only-read2`, notebook:`none`, platemap:`none`, data source:`none`, caption: (LUV behaviour in hydrogels, Read 2, 3:09 PM, 16 U/mL LacZ.)]
+
+:::{attention} This graph's run is not confirmed, and it carries a new number
+:name: gap-luv-only-read2
+
+`log-devnote-draft.docx` names no notebook, no platemap and no data file for
+this graph. Two placeholders sit near it in the source, `[Paste the graph
+here]` and `[link to dataset URL here; .txt of matlab code in directory;
+caption]`, both still unfilled. Neither this DevNote's data nor its
+platemap names a LacZ concentration anywhere. This graph states one: 16
+U/mL.
+
+Its condition set is pre-PEG solution, PEG gel, ULGA, LGA, and in
+solution. {numref}`tbl-platemap` is close but not the same. It also
+carries `Cytosol-PLA` and `buffer-PLA`, and it carries no `in solution`
+row. The two sets are possibly the same arm of work, read at two different
+stages on two different dates. Confirm which run this graph comes from before
+treating it as part of the data already in this DevNote's
+{numref}`tbl-absorbance` and {numref}`fig-op-20261001-cpr-cprg-ratio`.
+:::
 
 # Notes
 
