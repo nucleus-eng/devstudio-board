@@ -10,8 +10,9 @@ mounts renders blank permanently.
 Each viewer sets `"menuOpen": true`. The widget starts its sidebar closed by default, and
 that sidebar holds the per-channel contrast sliders a reader needs.
 
-These viewers do not survive JATS conversion. {numref}`fig-microscopy-summary` on the main
-page is the archival record.
+These viewers do not survive JATS conversion, and neither does the tab set of the same
+four wells on [the main page](./main.md). The archived record of this result is the prose
+description under each well, not an image.
 
 ## D4 — pH 7.6, PLA1-GUV only
 :::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
