@@ -2,26 +2,40 @@ version: 1
 project:
   # Title supplied by the reviewer in review cycle v1, prompt 1.
   # No Specification table exists in the source log.
+  # REVIEW: log-devnote-draft.docx states its own title, "Study of liposome
+  # behaviour in gels", which disagrees. The answered title is kept until
+  # confirmed. See flags-blocking in main.md.
   title: 'Embedding Developer Cells in Gels'
   description: >
     CPRG and CPR absorbance of large unilamellar vesicles in five gel and
     buffer conditions, read on day 1, on day 2 after overnight incubation,
     and on day 2 after PLA addition.
-  # Author supplied by the reviewer in review cycle v1, prompt 2.
+  # Ojaswita Pant supplied by the reviewer in review cycle v1, prompt 2.
   # No Authors table exists in the source log.
   # REVIEW: the affiliation is read off the email domain, not stated by the
   # author. Confirm Northwestern University.
-  # REVIEW: no ORCID is recorded.
+  # REVIEW: no ORCID is recorded for either author.
+  # Manuel Bibrowski added from log-devnote-draft.docx, which names both
+  # authors and states this affiliation directly.
   authors:
     - name: Ojaswita Pant
       email: ojaswitapant2029@u.northwestern.edu
       affiliations:
         - northwestern
       id: contributors-curvenote-generated-uid-0
+    - name: Manuel Bibrowski
+      email: manuel.bibrowski25@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-1
   affiliations:
     - id: northwestern
       name: Northwestern University
       country: United States
+    - id: imperial
+      name: Imperial College London
+      city: London
+      country: United Kingdom
   # No date is stated in the log. Three source values disagree: the Log
   # folder reads OP-20261001, the three data files read 20260930, and the
   # platemap rows read 2/10/2026. See the blocking date flag in main.md.

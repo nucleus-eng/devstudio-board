@@ -56,6 +56,28 @@ email `ojaswitapant2029@u.northwestern.edu`. Both are now in
 Two things the answer did not settle. The affiliation is read off the email
 domain as Northwestern University, which is evidence and not a statement by
 the author. No ORCID is recorded.
+
+**A second source document names a second author and a different title.**
+`log-devnote-draft.docx` was uploaded to the review folder on 2026-10-08.
+It names Ojaswita Pant at Northwestern University and Manuel Bibrowski at
+Imperial College London as its two authors. Manuel Bibrowski was not in
+`curvenote.yml`. He is now added, with the affiliation the document itself
+states. The document's own title is "Study of liposome behaviour in gels",
+which disagrees with the title review cycle v1 already answered. The
+answered title stays. Confirm which title is correct.
+
+**The document names a build file that does not match this DevNote's
+platemap.** It links a sheet named `build`, at
+`1BI0gXBY33WXuJZO19aqzrlLL2ofd9EROV2j-iSKzwsE`. That sheet lays out wells
+I4 to M13. Its rows cover five sample types: `GFP-GUVs+LUVs`,
+`PLA-GUVs+LUVs`, `GFP GUVs`, `LUV only`, and a control row. Its columns
+cover five gel conditions: PEG gel, pre-PEG, ULGA, LGA, and outer solution
+only. Each condition sits in duplicate columns.
+
+This DevNote's platemap, in {numref}`tbl-platemap`, covers wells D3 to D9
+only, names no GUV condition, and carries no duplicate columns. Confirm
+whether this `build` sheet describes the same run as this DevNote's data,
+before using it as a composition table. See {ref}`gap-build-plate-mismatch`.
 :::
 
 # Reagents
@@ -65,10 +87,21 @@ the author. No ORCID is recorded.
 
 | Reagent | Product Name | Manufacturer | Catalog No. | Price | Storage Conditions | Link |
 | --- | --- | --- | --- | --- | --- | --- |
+| PEG4Nb | 4-Arm-PEG-Norbornene | Creative Pegworks | N/A | N/A | freezer at -20°C in the dark | |
+| PEG-4SH crosslinker | 4-Arm PEG-Thiol | Creative Pegworks | N/A | N/A | freezer at -20°C in the dark | |
+| LAP photoinitiator | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | N/A | N/A | 2-8°C, in the dark, photosensitive | |
+| Glucose and 50 mM HEPES buffer | N/A | N/A | N/A | N/A | 4°C | |
+| DLP projector | N/A | Zwants Supplies Engineering | PRO4500-92-405 | N/A | N/A | |
 | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
 :::
 
-:::{attention} Reagents not recorded
+The five rows above come from `log-devnote-draft.docx`. That document also gives a concentration and a molecular weight for the
+first three. PEG4Nb is 80 mM and 5000 Da. PEG-4SH is 20 mM and 2000 Da.
+LAP is 16.9 mM and 294.21 g/mol. Neither column fits this table's schema, so both values are kept
+here rather than dropped. These three concentrations agree with
+{numref}`tbl-stock-peg4nb`.
+
+:::{attention} Reagents still incomplete
 :name: gap-reagents
 
 The source log has no reagents section and the folder holds no materials
@@ -78,17 +111,77 @@ and `buffer-PLA`. Expand each abbreviation and supply the vendor, catalog
 number, price and storage conditions for every reagent used.
 
 **Deferred, review cycle v1, prompt 8.** The reviewer answered "skip for
-now". The table stays blank and this flag stays live. The gel stocks in
-{numref}`tbl-stock-peg4nb`, {numref}`tbl-stock-ulga` and
-{numref}`tbl-stock-lga` name chemicals and amounts, and they are not a
-reagents table.
+now".
+
+**Answered in part, from `log-devnote-draft.docx`.** The document supplies
+vendor and storage information for the five reagents used to make the
+PEG4Nb gel, and for the one piece of equipment. It also supplies a catalog
+number for the equipment. It names no vendor, catalog number, price or storage
+condition for the lipid, the dye, the Optiprep, the ULGA, or the LGA. The ULGA and LGA chemicals are
+named in {numref}`tbl-stock-ulga` and {numref}`tbl-stock-lga`, and carry no
+vendor information there either.
 :::
 
 # Protocol
 
 ## Vesicles
 
-[PLEASE FILL IN]
+The following is reproduced from `log-devnote-draft.docx`.
+
+### LUVs
+
+**Hydration**
+
+1. Hydrate a dry POPC lipid film (~2 mg) in buffer containing glucose, 50 mM
+   HEPES and 15 v/v% Optiprep, at a final osmolarity of 1200 mOsm. The
+   buffer contains 15 mg/mL CPRG.
+2. Vortex, then sonicate for 15 min.
+3. Apply 5 freeze-thaw cycles, liquid nitrogen, then thaw in a
+   room-temperature water bath.
+
+**Clean-up by centrifugation**
+
+1. Split the mixture into 5 tubes, each with 200 µL vesicles and 1 mL outer
+   solution, glucose and 50 mM HEPES, 1200 mOsm.
+2. Spin at 15,000 g for 15 min.
+3. Resuspend the pellet in outer solution and wash again by pelleting at the
+   same settings.
+4. Repeat until the outer solution of the pellet looks clear, 2 to 4 washes.
+
+### GUVs
+
+**Lipid-in-oil mixture**
+
+1. Resuspend a dried POPC film (~2 mg) in 500 µL mineral oil.
+2. Sonicate for ~30 min.
+
+**Inner solution**
+
+Nucleus cytosol with 5 v/v% Optiprep and DNA at either T7-mNG or T7-PLA1.
+
+**Outer solution**
+
+Glucose and 50 mM HEPES, 1200 mOsm.
+
+**Emulsion and transfer**
+
+1. Pipette 20 µL cytosol reaction into 200 µL lipid-in-oil mixture.
+2. Pipette up and down 9 times to form a water-in-oil emulsion.
+3. Layer the emulsion onto ~250 µL outer solution, glucose and 50 mM HEPES,
+   1200 mOsm.
+4. Centrifuge for 20 min at 9,000 g.
+5. Gently remove the oil and most of the outer solution.
+6. Resuspend the GUV pellet in outer solution or in a solution of
+   dye-loaded LUVs.
+
+:::{attention} Substrate confirmed
+:name: gap-substrate-confirmed
+
+The LUV hydration buffer carries 15 mg/mL CPRG, the substrate the plate
+reader reads at 412 nm and 570 nm in {numref}`tbl-absorbance`. The source
+log and the notebook name the readout and never name the substrate. This
+step is the only place in any source that states it.
+:::
 
 ## Gels
 
@@ -116,6 +209,13 @@ Molar Mass (g/mol)` beside this table, and two notes. The first reads
 "buffer used was PBS and Tris:HEPES. Component Tris1M-HEPES1.15M buffer
 stock (~2520 mOsm)". The second reads "did not work with PBS in SWH's GUVs".
 
+`log-devnote-draft.docx` names the same three concentrations and gives the
+buffer as glucose and 50 mM HEPES rather than PBS or Tris:HEPES. The two
+sources agree on PEG4Nb, PEG4SH and LAP, and disagree on the buffer.
+
+Mix 15 µL vesicle solution with 15 µL PEG4Nb gel stock, then plate 30 µL per
+well. This halves the stock concentration to a final 40 mM PEG4Nb.
+
 ::::
 
 ::::{tab-item} ULGA
@@ -128,6 +228,25 @@ stock (~2520 mOsm)". The second reads "did not work with PBS in SWH's GUVs".
 | --- | --- | --- |
 | ULGA | 1 w/v% | 0.02 g |
 | OS (glucose) | 1057 Osm | 2 mL |
+:::
+
+From `log-devnote-draft.docx`:
+
+1. Prepare ULGA at 1 w/v% in 1.2 M glucose solution.
+2. Microwave in 10 s bursts, 5 to 7 times, until fully dissolved.
+3. Keep on the 55 °C bead bath until use.
+
+Mix 15 µL vesicle solution with 15 µL ULGA gel stock, then plate 30 µL per
+well. This halves the stock concentration to a final 0.5 w/v% ULGA.
+
+:::{attention} Solvent and osmolarity disagree between two sources
+:name: gap-ulga-solvent
+
+{numref}`tbl-stock-ulga` gives the outer solution as 1057 Osm glucose.
+`log-devnote-draft.docx` gives the ULGA solvent as 1.2 M glucose, and states
+elsewhere that the buffer osmolarity for the whole experiment is 1200 mOsm.
+Neither value is changed here. Confirm which value, or whether both apply
+at different steps, before this goes further.
 :::
 
 ::::
@@ -145,6 +264,27 @@ stock (~2520 mOsm)". The second reads "did not work with PBS in SWH's GUVs".
 :::
 
 The sheet carries one note beside this table: "dilute it down to 0.7%".
+
+From `log-devnote-draft.docx`:
+
+1. Prepare LGA at 2.8 w/v% in 1.2 M glucose solution.
+2. Heat in the 95 °C heat block until fully dissolved, vortexing
+   occasionally.
+3. Keep an aliquot in an Eppendorf tube at 45 °C.
+4. Prepare vesicles in the sonicator bath and do the transfer there.
+
+The document gives a final concentration of 0.7 w/v% LGA, from 7.5 µL
+stock plus 7.5 µL outer solution. This agrees with the sheet's own note.
+
+:::{attention} Stock concentration and solvent disagree between two sources
+:name: gap-lga-solvent
+
+{numref}`tbl-stock-lga` gives the stock as 2.70% in UPDI water.
+`log-devnote-draft.docx` gives 2.8 w/v% in 1.2 M glucose solution. The two
+concentrations round to the same figure, but the solvent disagrees, UPDI
+water against glucose solution. Neither value is changed here. Confirm
+which solvent was used.
+:::
 
 ::::
 
@@ -166,9 +306,16 @@ subsections, vesicles and gels. The reviewer also pointed at the
 above come from that sheet. Their tabs are `PEG4Nb`, `ULGA-London` and
 `LGA-SWH`.
 
-Three things the answer did not supply. The vesicle preparation is still
-blank. The gel stocks above are stocks, and not the embedding steps. The PLA
-addition step and the plate reader settings are still missing.
+**Answered in full, `log-devnote-draft.docx`.** The vesicle preparation for
+LUVs and GUVs is now in `## Vesicles`. The gel preparation steps and the
+stock-to-final-concentration figures are now in each tab of `## Gels`,
+alongside the stock tables already there. Two gels carry a flagged
+disagreement between the document and the `Gel formulations` sheet, in
+{ref}`gap-ulga-solvent` and {ref}`gap-lga-solvent`.
+
+One thing the document does not supply. It describes gel preparation and
+vesicle embedding, not the PLA addition step itself or the plate reader
+settings. Both are still missing.
 :::
 
 # Methods
@@ -199,6 +346,50 @@ and the platemap disagree. See the blocking date flag above. -->
 This experiment has no composition table. The Log folder holds no build
 spreadsheet, and the reviewer closed the question in review cycle v1, prompt
 4, with "Leave as is".
+
+:::{attention} A build file exists, for a plate that does not match this DevNote
+:name: gap-build-plate-mismatch
+
+`log-devnote-draft.docx` links a sheet named `build`, at
+`1BI0gXBY33WXuJZO19aqzrlLL2ofd9EROV2j-iSKzwsE`. It lays out wells I4 to M13.
+Its five sample rows are `GFP-GUVs+LUVs`, `PLA-GUVs+LUVs`, `GFP GUVs`,
+`LUV only` and a control row. Its five gel conditions are PEG gel, pre-PEG
+gel, ULGA, LGA and outer solution only. Each condition sits in two
+adjacent columns.
+
+{numref}`tbl-platemap` covers wells D3 to D9 only, names no GUV condition,
+and carries no duplicate columns. The two plates do not match on well
+range, on row letter, or on condition set. Do not treat the `build` sheet as this DevNote's composition table. First
+confirm it describes the same plate read on `OP-20261001`.
+:::
+
+The wider experimental design that `log-devnote-draft.docx` describes, which
+the `build` sheet above belongs to, is reproduced here for reference.
+Whether it describes a larger run than the one this DevNote's platemap and
+data cover is not yet confirmed.
+
+Conditions tested: GFP GUVs and LUVs, across four gel conditions, pre-PEG4Nb
+gel solution, PEG4Nb gel, ULGA gel and LGA gel. One gel-only control per gel
+condition, plus vesicles in outer solution as the reference control.
+
+:::{table} Experimental design, from `log-devnote-draft.docx`
+:label: tbl-experimental-design-doc
+
+| | Outer solution | PEG4Nb pre-gel | PEG4Nb gel | ULGA | LGA |
+| --- | --- | --- | --- | --- | --- |
+| GFP-GUVs | | | | | |
+| GFP-GUVs + LUVs | | | | | |
+| PLA-GUVs + LUVs | | | | | |
+| LUVs only | | | | | |
+| Control | Outer solution only | Pre-gel only | Gel only | Gel only | Gel only |
+:::
+
+Vesicles in outer solution only, with no gel, serve as the reference
+control. Each sample is 15 µL vesicle solution mixed with 15 µL gel stock,
+plated at 30 µL per well, in duplicate.
+
+Open questions, as the document states them: are LUVs leaky, can PLA lyse,
+and do only the gels lyse.
 
 <!-- Resolved, review cycle v1, prompt 4. Answer: "Leave as is".
 
@@ -241,6 +432,19 @@ of their own.
 1. LUVs show PLA expression in hydrogels.
 2. The best expression is in ULGA.
 3. LUVs are leaky overnight, which is bad.
+
+:::{attention} A second source gives a Discussion, not yet reconciled
+:name: gap-discussion-reconcile
+
+`log-devnote-draft.docx` carries its own Discussion, two statements: "GFP
+expression in all 3 gels" and "PLA lyses the vesicles in all gels". Neither
+is changed here, and neither replaces the three numbered statements above,
+which are the reviewer's own answer to review cycle v1, prompt 7. The
+document's "GFP expression" does not obviously match this DevNote's figure,
+which reads a CPR/CPRG colorimetric ratio rather than a fluorescence signal.
+Confirm whether the two describe the same result, or two different results
+from the same experiment.
+:::
 
 <!-- Results supplied by the reviewer in review cycle v1, prompt 7, and
 carried verbatim as the three numbered statements they wrote. The source log
@@ -333,6 +537,14 @@ Please add in any additional comments about what can be done next
 The three data files are served from
 `https://data.nucleus.engineering/platereader/devstudio/`. The notebook
 downloads them from there, and downloads the platemap from Drive.
+
+`log-devnote-draft.docx`, in the review folder, supplied three things. The
+vesicle and gel preparation protocol is folded into `# Protocol` above. The
+reagents are folded into {numref}`tbl-reagents`. A build sheet, at
+`1BI0gXBY33WXuJZO19aqzrlLL2ofd9EROV2j-iSKzwsE`, is flagged in
+{ref}`gap-build-plate-mismatch` as describing a plate that does not match
+this DevNote's own data. Drive URLs are not written as links here, per the
+rule above.
 
 Review cycle v1 is the Doc "Review: LUV gel and PLA, CPR/CPRG absorbance
 (op-20261001) v1", in the Drive folder
