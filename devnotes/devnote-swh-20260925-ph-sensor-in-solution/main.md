@@ -76,6 +76,8 @@ This DevNote describes a two-vesicle system that changes visible color in respon
 | IDT duplex buffer | Nuclease Free Duplex Buffer | — | — | — | — | |
 | UPDI (water) | — | — | — | — | — | |
 | Optiprep | OptiPrep™ | STEMCELL Technologies | 07820 | $289.00 | RT | [link](https://www.stemcell.com/products/optipreptm.html) |
+| Liposome extruder | Mini Extruder | Avanti Lipids | A81411 | — | RT | |
+| Membrane filter | Polycarbonate membrane, 400 nm pore | — | — | — | — | |
 | SMix | — | — | — | — | — | |
 | PMix | — | — | — | — | — | |
 | Ribosomes | — | — | — | — | — | |
@@ -213,6 +215,32 @@ flowchart TD
 
     Alternate the tube orientation with each wash, so the pellet moves to the
     opposite side. This releases unencapsulated or trapped solution held
+    between vesicles.
+10. After the final wash, leave the tubes on ice for at least 30 min.
+11. Tap the tubes gently to resuspend the pellet. Do not pipette.
+
+## CPRG-SUV preparation
+
+Used from Attempt 3 onward. The LUV route above was used for Attempts 1 and 2.
+
+1. Add the inner solution (1 mL) directly to the dried lipid film.
+2. Vortex until the film is no longer visible.
+3. Sonicate the suspension for 10 min.
+4. Run 5 freeze-thaw cycles. One cycle is three operations:
+    - Freeze in liquid nitrogen.
+    - Thaw in a 35 °C water bath.
+    - Vortex for 30 s.
+5. Assemble a liposome extruder (Avanti `A81411`) with a 400 nm pore size membrane filter, and pass the lipid suspension through it 13 times to make SUVs.
+6. Centrifuge at 15,000 g for 10–20 min to pellet the vesicles.
+7. Pool the pellets into two tubes. Take 15 µL from each of six tubes, 75 µL in total. <!-- REVIEW: 15 µL from six tubes is 90 µL, not 75. Step 8 adds 175 µL to reach 250 µL, which is consistent with 75, so the tube count is the likely error and five tubes would give 75. Carried as written. -->
+8. Add 175 µL outer solution to each tube, for a final volume of 250 µL.
+9. Wash 10 times. One wash is three operations:
+    - Centrifuge at 10,000 g for 10 min.
+    - Remove 200 µL supernatant without disturbing the pellet.
+    - Add 200 µL fresh outer solution.
+
+    Alternate the tube orientation with each wash, so the pellet moves to the
+    opposite side. This releases an unencapsulated or trapped solution held
     between vesicles.
 10. After the final wash, leave the tubes on ice for at least 30 min.
 11. Tap the tubes gently to resuspend the pellet. Do not pipette.
