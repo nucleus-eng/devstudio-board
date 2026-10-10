@@ -85,13 +85,14 @@ The pH-sensing developer cells detect acidic conditions (pH 6.0–6.5) using a p
 | Optiprep | OptiPrep™ | STEMCELL Technologies | 07820 | $289.00 | RT | [link](https://www.stemcell.com/products/optipreptm.html) |
 | Liposome extruder | Mini Extruder Pro Kit with base | Avanti Lipids | A81411 | — | RT | [link](https://www.avantiresearch.com/en-gb/products/product/1000061-mini-extruder-pro-kit-with-base) |
 | Membrane filter | PC Membranes 0.4 µm, 19 mm | Avanti Lipids | A89040 (legacy 610007) | — | RT | [link](https://www.avantiresearch.com/en-gb/products/product/610007-pc-membranes-04m) |
-| SMix | — | b.next (in-house prep) | — | — | — | |
-| PMix | — | b.next (in-house prep) | — | — | — | |
-| Ribosomes | — | b.next (in-house prep) | — | — | — | |
-| tRNA | — | b.next (in-house prep) | — | — | — | |
+| SMix | — | b.next | — | — | — | |
+| PMix | — | b.next | — | — | — | |
+| Ribosomes | — | b.next | — | — | — | |
+| tRNA | — | b.next | — | — | — | |
 | Tris base | — | — | — | — | — | |
-| HEPES | — | — | — | — | — | |
-| HCl | — | — | — | — | — | |
+| HEPES | HEPES, Crystalline Powder, ≥99.5% (titration), Poly bottle | Sigma-Aldrich | H3375-500G | $431.00 | 4 °C to 30 °C | [link](https://www.sigmaaldrich.com/US/en/product/sigma/h3375) |
+| HCl | Hydrochloric acid 1 N, Reagent Grade, 500 mL | VWR | E447-500L | $72.46 | 4 °C to 30 °C | [link](https://us.vwr.com/store/catalog/static_catalog.jsp?catalog_number=97064-756) |
+| Low-gelling agarose | Agarose, low gelling temperature, BioReagent, for molecular biology | Sigma-Aldrich | A9414-5G | — | RT | [link](https://www.sigmaaldrich.com/US/en/product/sigma/a9414) |
 :::
 
 Two entries were ambiguous in `DevCell_Materials_Tracker.xlsx`, which stocks two mineral oils and two Cy5 materials and does not say which were used. Both are now resolved by the author.
@@ -100,9 +101,11 @@ The mineral oil is `M5904`. `M5310` was never used, although the tracker notes i
 
 Cy5 means `Sulfo-Cyanine5 carboxylic acid` throughout, used as a soluble dye encapsulated inside the GUVs. The lipid-conjugated `18:1 Cyanine 5 PC` was not used in this system. Rhod-PE is the only lipid fluorescence label.
 
-Seven more entries are filled from sources outside `DevCell_Materials_Tracker.xlsx`: Mineral oil, Cy5, CPRG, the IDT duplex buffer and UPDI water from the "Chicago Module Integration Status" Doc's pH Sensor materials table and, for UPDI water, this DevNote's own LGA Gel Preparation materials list; the liposome extruder and its membrane filter from Avanti's own catalog, cross-checked against `DevCell_Materials_Tracker.xlsx`'s "Mini Extruder Pro Kit" and "PC Membranes 0.4μm" entries. SMix, PMix, Ribosomes and tRNA are marked `b.next (in-house prep)` rather than left blank, the same way the Chicago Doc records its own Cytosol row — these are made, not purchased.
+Nine more entries are filled from sources outside `DevCell_Materials_Tracker.xlsx`: Mineral oil, Cy5, CPRG, the IDT duplex buffer and UPDI water from the "Chicago Module Integration Status" Doc's pH Sensor materials table and, for UPDI water, this DevNote's own LGA Gel Preparation materials list; the liposome extruder, its membrane filter and the low-gelling agarose from Avanti's and Sigma's own catalogs, cross-checked against `DevCell_Materials_Tracker.xlsx`'s "Mini Extruder Pro Kit" and "PC Membranes 0.4μm" entries and against this DevNote's own LGA materials list. SMix, PMix, Ribosomes and tRNA are marked `b.next` rather than left blank — these are made in-house, not purchased, the same way the Chicago Doc records its own Cytosol row.
 
-Three entries are still unresolved: Tris base, HEPES and HCl. The same "Chicago Module Integration Status" Doc raises this as an open question for this experiment's own outer solution, and does not supply a catalog number either. A candidate exists in the Nucleus materials reference for a related liposome process, `HEPES, Free Acid`, Fisher BioReagents, `NC1584172`, but it is unconfirmed for this buffer stock and not used here.
+HEPES and HCl are filled from the Nucleus materials reference: `HEPES, Crystalline Powder`, Sigma-Aldrich `H3375-500G`, and `Hydrochloric acid 1 N`, VWR `E447-500L`. Neither is confirmed against this experiment's own outer solution recipe. The HCl entry is a real mismatch worth flagging: the recipe calls for 37% HCl (concentrated), and `E447-500L` is 1 N (about 3.6%), a different product at a different concentration. The "Chicago Module Integration Status" Doc raises the outer solution's Tris base and HEPES sourcing as an open question for this same experiment and supplies no catalog number for either.
+
+Tris base stays blank. No Tris base entry of any kind exists in the Nucleus materials reference, searched directly and by every related term (Trizma, Tris-HCl); the reference's only Tris-named row is an unrelated electrophoresis gel product.
 
 # Constructs
 
