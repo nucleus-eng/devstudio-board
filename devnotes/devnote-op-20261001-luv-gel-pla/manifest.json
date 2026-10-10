@@ -1,0 +1,68 @@
+{
+  "figures": [
+    {
+      "filename": "figures/op-20261001-cpr-cprg-ratio.png",
+      "page": "main-supplement.md",
+      "pattern": "quarto-label",
+      "cell_label": "op-20261001-fig1",
+      "source_notebook": "OP-20261001/Copy of Copy of platereader.ipynb",
+      "platemap": "LUV-gelplatemap-platereader - platemap-platereader - LUV-gelplatemap-platereader - platemap-platereader.csv",
+      "data_source": "20260930-164151-synergy2-luv-gel-OJ.txt",
+      "section_context": "LUV-Gel",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "The figure draws on three data files, and data_source carries one. The other two are 20260930-164151-synergy2-luv-gel-OJ-Day2.txt and 20260930-164151-synergy2-luv-gel-OJ-Day2-afterPLA.txt. All three are served from https://data.nucleus.engineering/platereader/devstudio/.",
+        "The same figure is also pasted into the log Doc as an image. The notebook cell is the source of record, because it carries the label op-20261001-fig1.",
+        "BLOCKING: date mismatch. The Log folder is OP-20261001, the three data files carry 20260930, and the platemap rows carry 2/10/2026.",
+        "Cell 18 and cell 21 of the same notebook draw two further figures. Neither carries a #| label: tag, and the reviewer selected neither on 2026-10-05."
+      ]
+    },
+    {
+      "filename": "general/schematic-hydrogel-overview.png",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Overview",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "A schematic, not a data figure. No asset chain applies. \"Figure 1: Hydrogel containing unilamellar vesicles\" in log-devnote-draft.docx, added to that document on 2026-10-09."
+      ]
+    },
+    {
+      "filename": "general/schematic-luv-prep-inline.png",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Vesicle preparation, LUVs",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "A schematic, not a data figure. No asset chain applies. Uncaptioned in log-devnote-draft.docx; its own placeholder caption \"[Caption]\" is carried as-is."
+      ]
+    },
+    {
+      "filename": "figures/log-devnote-draft-luv-only-read2.jpg",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "A second graph, from a run not yet identified",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "No notebook, platemap or data file is named anywhere in log-devnote-draft.docx for this graph. Two placeholders beside it in the source are unfilled: \"[Paste the graph here]\" and \"[link to dataset URL here; .txt of matlab code in directory; caption]\".",
+        "BLOCKING: the graph's own title gives a LacZ concentration of 16 U/mL, stated nowhere else in this DevNote. Its condition set (pre-PEG solution, PEG gel, ULGA, LGA, in solution) is close to but not identical to tbl-platemap (which also carries Cytosol-PLA and buffer-PLA, and carries no in-solution row). The run this graph comes from is not confirmed."
+      ]
+    }
+  ]
+}
