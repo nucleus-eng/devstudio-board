@@ -195,6 +195,14 @@ flowchart TD
     class PH_RES,TRIGGER,CYTOSOL,PH_DNA,TOEHOLD,CPRG,MEMBRANE_V,PH_CYTOSOL,MEMBRANE_C,CPRG_VESICLE,PH_CELL,HYDROGEL,COLOR,P1,P2,P3,P4,P5 described;
 ```
 
+:::{admonition}
+Two protocol questions are open.
+
+In CPRG-SUV preparation step 7, 15 µL from each of six tubes is 90 µL, not the 75 µL stated. Step 8 then adds 175 µL to reach 250 µL, which agrees with 75, so the tube count looks like the slip and five tubes would give 75. The LUV protocol says six tubes for 90 µL and adds 160 µL, which is self-consistent. Which is right for the SUV route?
+
+Attempt 4 is the one that worked, and the three changes that made it work carry no numbers: the starting volume was increased, more rounds of washing were done, and the gel went from 0.7% to 0.35%. Only the gel concentration is quantified. What was the new starting volume, and how many washes?
+:::
+
 ## CPRG-LUV preparation
 
 1. Add the inner solution directly to the dried lipid film.
@@ -552,8 +560,15 @@ First experiment 7.4 then adjusted to 7.8 (mixture of Tris and Hepes 1M and 1.15
 
 # What's next
 
-:::{admonition}
-Please add in next steps, this can come in after final attempt is done.
+## QR-code patterned color change in hydrogel
+
+To explore a smartphone-readable output format, we tested the two-vesicle colorimetric system in a patterned hydrogel shaped like a QR code rather than in a bulk gel. The goal was to determine whether a mobile app could read the pattern and identify whether the sensor was in the ON or OFF state, indicating detection of the target condition. A visible color change was successfully observed under acidic conditions (pH 6.3), but the color developed outside the patterned region, likely due to diffusion of CPRG and/or CPR over time, preventing successful detection by Samuel Chen's *Hydrogel Sensor* app. In contrast, the yellow CPRG substrate remained relatively confined within the pattern, possibly because CPRG encapsulated in SUVs diffused less readily. These results suggest that future improvements could include detecting color changes in the outer gel region or using a less diffusive substrate such as X-gal.
+
+:::{figure} ./figures/qr-code-attempt.png
+:label: fig-qr-hydrogel
+:align: center
+:width: 100%
+**QR-code patterned hydrogel test of the two-vesicle colorimetric system.** **(A)** Representative images of the patterned hydrogel at 0, 15, and 19 h under three conditions: no PLA1 vesicles, pH 7.6, and pH 6.3. A visible purple/pink color change was observed only at pH 6.3 after β-galactosidase addition, indicating activation of the pH-responsive two-vesicle system under acidic conditions. **(B)** Schematic illustration of the patterned hydrogel design and the colorimetric mechanism based on PLA1-mediated release of CPRG followed by its conversion to CPR.
 :::
 
 # Resources
