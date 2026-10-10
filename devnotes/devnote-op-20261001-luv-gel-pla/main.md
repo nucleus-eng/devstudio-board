@@ -12,14 +12,12 @@ here. -->
 
 # Module overview
 
+:::{admonition}
+
 1. T7 GFP yield in different gels
 2. Dyed-loaded vesicles in different gels
 
-# Open questions
-
-1. Are LUVs leaky?
-2. Can PLA lyse?
-3. Do only the gels lyse?
+:::
 
 :::{figure} ./general/schematic-hydrogel-overview.png
 :label: fig-schematic-hydrogel-overview
@@ -34,7 +32,7 @@ Hydrogel containing unilamellar vesicles.
 
 ## Vesicle preparation
 
-### LUVs
+::::{dropdown} LUVs
 
 **Hydration**
 
@@ -67,7 +65,9 @@ Hydrogel containing unilamellar vesicles.
 <!-- The caption above is "[Caption]" because the source leaves it
 unfilled. Carried as-is, not invented. -->
 
-### GUVs
+::::
+
+::::{dropdown} GUVs
 
 **Lipid-in-oil mixture**
 
@@ -95,6 +95,11 @@ unfilled. Carried as-is, not invented. -->
 6. Resuspend the GUV pellet in outer solution or in a solution of
    dye-loaded LUVs.
 
+::::
+
+<!-- Both dropdowns above are per an @claude comment left in this file:
+"let's place the two different vesicle preps into drop down menus?" -->
+
 ## Hydrogel preparation
 
 Three hydrogels were prepared and plated using inputs shared across the
@@ -110,14 +115,18 @@ London and Chicago nodes.
 | PEG4Nb, 4-arm PEG-norbornene | Photocrosslinked | Crosslinks on light exposure |
 :::
 
-### ULGA (1 w/v%)
+:::::{tab-set}
+
+::::{tab-item} ULGA (1 w/v%)
 
 1. Prepare ULGA at 1 w/v% in 1.2 M glucose solution. Formulation
    reference: [insert link].
 2. Microwave in 10 s bursts, 5 to 7 times, until fully dissolved.
 3. Keep on the 55 °C bead bath until use.
 
-### LGA (2.8 w/v%)
+::::
+
+::::{tab-item} LGA (2.8 w/v%)
 
 1. Prepare LGA at 2.8 w/v% in 1.2 M glucose solution.
 2. Heat in the 95 °C heat block until fully dissolved, vortexing
@@ -125,7 +134,9 @@ London and Chicago nodes.
 3. Keep an aliquot in an Eppendorf tube at 45 °C.
 4. Prepare vesicles in the sonicator bath and do the transfer there.
 
-### PEG4Nb (80 mM)
+::::
+
+::::{tab-item} PEG4Nb (80 mM)
 
 :::{table} PEG4Nb gel reagents
 :label: tbl-peg4nb-reagents-doc
@@ -144,6 +155,13 @@ Reagent, Product Name, Conc., Molecular weight, Storage Conditions,
 Supplier. It is not the DevNote's standard seven-column reagents schema.
 The standard-schema version is in main-supplement.md, under
 tbl-reagents. -->
+
+::::
+
+:::::
+
+<!-- Tab-set per an @claude comment left in this file: "let's take ULGA,
+LGA, and PEG4Nb as three tab sets". -->
 
 # Experimental design
 
@@ -230,6 +248,19 @@ here. -->
 [PLEASE FILL IN]
 
 <!-- The source Conclusion heading carries no text. -->
+
+# Open questions
+
+:::{admonition}
+
+1. Are LUVs leaky?
+2. Can PLA lyse?
+3. Do only the gels lyse?
+
+:::
+
+<!-- Moved to the end of the page per an @claude comment left in this
+file: "maybe open questions come at the end?" -->
 
 # Resources
 
