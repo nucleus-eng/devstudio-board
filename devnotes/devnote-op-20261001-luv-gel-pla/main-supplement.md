@@ -25,9 +25,9 @@ carried verbatim. The source log carries no overview. Its entire body is the
 heading "# Results", one pasted figure, and the line
 "Analysis: https://colab.research.google.com/drive/1ebR3gcpx0j-HCuA4N5lDdILkSQ6BneoJ#scrollTo=5a08dde5". -->
 
-The intro schematic from `log-devnote-draft.docx`, "Figure 1: Hydrogel
-containing unilamellar vesicles", is in `main.md`'s own Overview rather
-than copied here. A figure's `:label:` must be unique across a built
+The intro schematic from `log-devnote-draft.docx`, "Figure 1: Schematic
+representation of unilamellar vesicles contained in a hydrogel matrix", is in
+`main.md`'s own Overview rather than copied here. A figure's `:label:` must be unique across a built
 project, not only within one page. A second copy here would have
 collided with that one. Measured directly on 2026-10-09, while this file
 was still in `curvenote.yml`'s `toc`: `curvenote check` reported a
@@ -36,7 +36,7 @@ duplicate identifier for the same `:label:` on two pages.
 :::{danger} Unresolved before publication
 :name: flags-blocking
 
-**Date mismatch across three sources.** The Log folder is named
+**Date mismatch across four sources.** The Log folder is named
 `OP-20261001`. The three plate reader data files the notebook loads are named
 `20260930-164151-synergy2-luv-gel-OJ.txt`,
 `20260930-164151-synergy2-luv-gel-OJ-Day2.txt` and
@@ -45,6 +45,13 @@ duplicate identifier for the same `:label:` on two pages.
 belongs to this experiment before proceeding. A wrong date links the wrong
 data to the wrong experiment. This DevNote adopts none of the three, and
 `curvenote.yml` holds `[PLEASE FILL IN]` for `date`.
+
+**A fourth date arrived on 2026-10-11.** The revised `log-devnote-draft.docx`
+names the data file behind its results figure as
+`20261009-113443-synergy2-OJMB-gfp-pla-guv-luv-gels-16UmL-LacZ.txt`, which
+carries `20261009`. That is nine days after the folder date. This DevNote now
+spans more than one run, so a single date may not be the right answer. If the
+work spans a range, say the range and say which figure belongs to which run.
 
 **Still open, review cycle v1, prompt 3.** The reviewer answered "Dates do
 not matter". That is a deferral and not a date. The venue needs one date in
@@ -68,23 +75,26 @@ This DevNote carries no composition table.
 Authors table. The Log folder is prefixed `OP` and the data filenames are
 suffixed `OJ`. Neither is a stated name.
 
-**Answered, review cycle v1, prompts 1 and 2.** The title is
-"Embedding Developer Cells in Gels". The author is Ojaswita Pant, with the
-email `ojaswitapant2029@u.northwestern.edu`. Both are now in
-`curvenote.yml`.
+**Authors settled, 2026-10-11.** The revised `log-devnote-draft.docx` states
+both authors, both emails and both affiliations on its own first page:
+Ojaswita Pant, PhD student, Northwestern University; Manuel Bibrowski, PhD
+student, Imperial College London. The affiliations are no longer read off an
+email domain, so that earlier flag is cleared. No ORCID is recorded for either
+author, and that is still open.
 
-Two things the answer did not settle. The affiliation is read off the email
-domain as Northwestern University, which is evidence and not a statement by
-the author. No ORCID is recorded.
+**Three titles exist across the record.** In date order:
 
-**A second source document names a second author and a different title.**
-`log-devnote-draft.docx` was uploaded to the review folder on 2026-10-08.
-It names Ojaswita Pant at Northwestern University and Manuel Bibrowski at
-Imperial College London as its two authors. Manuel Bibrowski was not in
-`curvenote.yml`. He is now added, with the affiliation the document itself
-states. The document's own title is "Study of liposome behaviour in gels",
-which disagrees with the title review cycle v1 already answered. The
-answered title stays. Confirm which title is correct.
+| Title | Source | Date |
+| --- | --- | --- |
+| Embedding Developer Cells in Gels | Review cycle v1, prompt 1 | 2026-10-05 |
+| Study of liposome behaviour in gels | `log-devnote-draft.docx` | 2026-10-09 |
+| Understanding Liposome Behaviour in Hydrogel Matrices | `log-devnote-draft.docx`, revised | 2026-10-11 |
+
+`curvenote.yml` now carries the third. It is adopted because the document
+states it as a title on its own line, which is a stated title in the source,
+and because it is the most recent authored statement. The review Doc that
+produced the first has since been renamed `[ignore]` in Drive. Confirm the
+adopted title.
 
 **The document names a build file that does not match this DevNote's
 platemap.** It links a sheet named `build`, at
@@ -110,7 +120,7 @@ before using it as a composition table. See {ref}`gap-build-plate-mismatch`.
 | PEG4Nb | 4-Arm-PEG-Norbornene | Creative Pegworks | N/A | N/A | freezer at -20°C in the dark | |
 | PEG-4SH crosslinker | 4-Arm PEG-Thiol | Creative Pegworks | N/A | N/A | freezer at -20°C in the dark | |
 | LAP photoinitiator | Lithium phenyl-2,4,6-trimethylbenzoylphosphinate | Sigma-Aldrich | N/A | N/A | 2-8°C, in the dark, photosensitive | |
-| Glucose and 50 mM HEPES buffer | N/A | N/A | N/A | N/A | 4°C | |
+| Glucose and 50 mM HEPES buffer | N/A | Sigma-Aldrich | N/A | N/A | 4 °C | |
 | DLP projector | N/A | Zwants Supplies Engineering | PRO4500-92-405 | N/A | N/A | |
 | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | N/A | N/A | N/A | |
 :::
@@ -250,11 +260,8 @@ well. This halves the stock concentration to a final 40 mM PEG4Nb.
 | OS (glucose) | 1057 Osm | 2 mL |
 :::
 
-From `log-devnote-draft.docx`:
-
-1. Prepare ULGA at 1 w/v% in 1.2 M glucose solution.
-2. Microwave in 10 s bursts, 5 to 7 times, until fully dissolved.
-3. Keep on the 55 °C bead bath until use.
+The preparation steps from `log-devnote-draft.docx` are in `main.md`, in the
+ULGA tab of `## Hydrogel preparation`, and are not repeated here.
 
 Mix 15 µL vesicle solution with 15 µL ULGA gel stock, then plate 30 µL per
 well. This halves the stock concentration to a final 0.5 w/v% ULGA.
@@ -263,10 +270,17 @@ well. This halves the stock concentration to a final 0.5 w/v% ULGA.
 :name: gap-ulga-solvent
 
 {numref}`tbl-stock-ulga` gives the outer solution as 1057 Osm glucose.
-`log-devnote-draft.docx` gives the ULGA solvent as 1.2 M glucose, and states
-elsewhere that the buffer osmolarity for the whole experiment is 1200 mOsm.
-Neither value is changed here. Confirm which value, or whether both apply
-at different steps, before this goes further.
+
+`log-devnote-draft.docx` changed its own answer here on 2026-10-11. The
+2026-10-09 version gave the ULGA solvent as 1.2 M glucose solution. The
+current version gives it as the outer solution used during vesicle
+preparation, that is, glucose and 50 mM HEPES at a final osmolarity of
+~1200 mOsm. The revision brings the document in line with itself, because
+1200 mOsm is what it states for the rest of the experiment.
+
+It does not settle the disagreement with the sheet. 1057 Osm against
+~1200 mOsm is still two numbers for one solution. Confirm which applies, or
+whether each applies at a different step.
 :::
 
 ::::
@@ -285,13 +299,8 @@ at different steps, before this goes further.
 
 The sheet carries one note beside this table: "dilute it down to 0.7%".
 
-From `log-devnote-draft.docx`:
-
-1. Prepare LGA at 2.8 w/v% in 1.2 M glucose solution.
-2. Heat in the 95 °C heat block until fully dissolved, vortexing
-   occasionally.
-3. Keep an aliquot in an Eppendorf tube at 45 °C.
-4. Prepare vesicles in the sonicator bath and do the transfer there.
+The preparation steps from `log-devnote-draft.docx` are in `main.md`, in the
+LGA tab of `## Hydrogel preparation`, and are not repeated here.
 
 The document gives a final concentration of 0.7 w/v% LGA, from 7.5 µL
 stock plus 7.5 µL outer solution. This agrees with the sheet's own note.
@@ -300,10 +309,19 @@ stock plus 7.5 µL outer solution. This agrees with the sheet's own note.
 :name: gap-lga-solvent
 
 {numref}`tbl-stock-lga` gives the stock as 2.70% in UPDI water.
-`log-devnote-draft.docx` gives 2.8 w/v% in 1.2 M glucose solution. The two
-concentrations round to the same figure, but the solvent disagrees, UPDI
-water against glucose solution. Neither value is changed here. Confirm
-which solvent was used.
+`log-devnote-draft.docx` gives 2.8 w/v%. The two concentrations round to the
+same figure.
+
+The solvent still disagrees, and the document changed its own answer on
+2026-10-11. The 2026-10-09 version said 1.2 M glucose solution. The current
+version says the outer solution used for vesicle preparation, glucose and
+50 mM HEPES at ~1200 mOsm. Either way it is not UPDI water. Confirm which
+solvent was used.
+
+One step was answered by the same revision. The 2026-10-09 version said only
+"Prepare vesicles in the sonicator bath and do the transfer there", which a
+reviewer had asked about. The current version states it: mix the LGA solution
+with the vesicles at 45 °C, then dispense into a well plate for gel formation.
 :::
 
 ::::
@@ -333,9 +351,13 @@ alongside the stock tables already there. Two gels carry a flagged
 disagreement between the document and the `Gel formulations` sheet, in
 {ref}`gap-ulga-solvent` and {ref}`gap-lga-solvent`.
 
-One thing the document does not supply. It describes gel preparation and
-vesicle embedding, not the PLA addition step itself or the plate reader
-settings. Both are still missing.
+**Answered further, 2026-10-11.** The revision adds numbered preparation steps
+for PEG4Nb, which the earlier version did not have, and with them the
+photopatterning settings: 60 s at 405 nm using DLP projectors. It also states
+the LGA transfer step a reviewer had asked about.
+
+Two things the document still does not supply: the PLA addition step itself,
+and the plate reader settings. Both are still missing.
 :::
 
 ## Methods
@@ -526,31 +548,43 @@ after PLA addition minus day 2 before PLA addition. Neither cell carries a
 :::
 -->
 
-## A second graph, from a run not yet identified
+## A second graph, from a second run
 
-`log-devnote-draft.docx` carries a graph under its own Results heading,
-captioned "LUVs are most stable in PEG gels". The graph itself is titled
-"LUV behaviour in hydrogels Read 2 (3:09 PM, 16 U/mL LacZ)". It is in
-`main.md`'s own Results, not copied here, the same reason given under
-Overview above.
+`log-devnote-draft.docx` carries a graph under its own Results heading. It is
+in `main.md`'s own Results as {numref}`fig-luv-stability-hydrogels`, not copied
+here, for the same reason given under Overview above.
 
-:::{attention} This graph's run is not confirmed, and it carries a new number
+The 2026-10-11 revision answered most of what was open about it. The two
+placeholders beside it, `[Paste the graph here]` and `[link to dataset URL
+here; .txt of matlab code in directory; caption]`, are both filled. The
+document now names the data file, and the MATLAB analysis script is in the
+DevNote Drive folder as `luv_stability_hydrogels_matlabcode.txt`.
+
+The revision also replaced the graph itself. The version folded on 2026-10-09
+carried five bars and a MATLAB data-tip box drawn over the plot. The current
+version carries four and no artifact. The removed bar is "Pre-PEG solution",
+at about 0.69. The earlier image is in git history at commit `4c1295b`, under
+its old name `figures/log-devnote-draft-luv-only-read2.jpg`.
+
+:::{attention} This graph is a second run, and two things about it are still open
 :name: gap-luv-only-read2
 
-`log-devnote-draft.docx` names no notebook, no platemap and no data file for
-this graph. Two placeholders sit near it in the source, `[Paste the graph
-here]` and `[link to dataset URL here; .txt of matlab code in directory;
-caption]`, both still unfilled. Neither this DevNote's data nor its
-platemap names a LacZ concentration anywhere. This graph states one: 16
-U/mL.
+**It is a different run from the rest of this DevNote.** The data file is
+`20261009-113443-synergy2-OJMB-gfp-pla-guv-luv-gels-16UmL-LacZ.txt`, read on a
+Synergy2. {numref}`tbl-absorbance` and {numref}`fig-op-20261001-cpr-cprg-ratio`
+come from the three `20260930` files. The graph also states a LacZ
+concentration, 16 U/mL, that appears nowhere in this DevNote's own platemap or
+data. Its condition set, pre-PEG solution, PEG gel, ULGA, LGA and in solution,
+is close to {numref}`tbl-platemap` but not the same: the platemap also carries
+`Cytosol-PLA` and `buffer-PLA`, and carries no in-solution row.
 
-Its condition set is pre-PEG solution, PEG gel, ULGA, LGA, and in
-solution. {numref}`tbl-platemap` is close but not the same. It also
-carries `Cytosol-PLA` and `buffer-PLA`, and it carries no `in solution`
-row. The two sets are possibly the same arm of work, read at two different
-stages on two different dates. Confirm which run this graph comes from before
-treating it as part of the data already in this DevNote's
-{numref}`tbl-absorbance` and {numref}`fig-op-20261001-cpr-cprg-ratio`.
+Treat this graph as a later run reported in the same DevNote, not as a
+restatement of the earlier data. Say in the text which run each figure belongs
+to.
+
+**The script does not read the file.** `luv_stability_hydrogels_matlabcode.txt`
+carries its absorbance values written into its own source rather than loading
+the named data file. See `gap-figure4-analysis` in `main.md`.
 :::
 
 ## Notes
@@ -592,6 +626,31 @@ reagents are folded into {numref}`tbl-reagents`. A build sheet, at
 {ref}`gap-build-plate-mismatch` as describing a plate that does not match
 this DevNote's own data. Drive URLs are not written as links here, per the
 rule above.
+
+The DevNote Drive folder is `devnote-OPxMB-20261001-luv-gel-pla`. Note that it
+carries both authors' initials while this DevNote's directory is named
+`devnote-op-20261001-luv-gel-pla`. The directory name is not changed here,
+because it is the path the open pull request already uses.
+
+These files in that folder were read on 2026-10-11 and are not yet copied into
+this DevNote. `devstudio-assemble-devnote-assets` owns that copy, and runs
+after a human reviews the links above.
+
+| File | What it holds |
+| --- | --- |
+| `log-devnote-draft.docx` | The source this page and `main.md` are folded from. Revised 2026-10-11. Carries 17 open reviewer comments. |
+| `rough_devnote` | A rough draft by the same authors, edited at the same time. Its four-item condition list is quoted in `gap-design-list-truncated` in `main.md`. Its prose is duplicated and unedited. |
+| `build.xlsx` | Two sheets of well assignments for the 2026-10-08 plate, plus absorbance values at 412 nm and 570 nm. The two sheets disagree about rows I and J. See `gap-rows-ij-conflict` in `main.md`. |
+| `luv_stability_hydrogels_matlabcode.txt` | The MATLAB analysis behind {numref}`fig-luv-stability-hydrogels`. See `gap-figure4-analysis` in `main.md`. |
+| `luv_stability_hydrogels_code` | A second copy of the same script, without a file extension. Same byte count as the `.txt`. |
+| `t7pro-esao-ls1-mneongreen.gbk`, `t7pro-esao-ls1-pla1.gbk` | The two construct files, linked from reviewer comments on 2026-10-10. Neither could be verified. See `dna/README.md`. |
+| `CONTEXT.md` | A frozen briefing written 2026-10-08. It predates the authors being named in the source, and it is out of date on that point. Do not read it as current. |
+
+The review Doc "Review: LUV gel and PLA, CPR/CPRG absorbance (op-20261001) v1"
+has been renamed with an `[ignore]` prefix in Drive since review cycle v1 ran.
+Its answers are still recorded above, marked by prompt number, because they are
+the only record of several decisions. Where it disagrees with the revised
+source document, the source document is taken as current.
 
 Review cycle v1 is the Doc "Review: LUV gel and PLA, CPR/CPRG absorbance
 (op-20261001) v1", in the Drive folder

@@ -26,15 +26,16 @@
       "source_notebook": null,
       "platemap": null,
       "data_source": null,
-      "section_context": "Overview",
+      "section_context": "Module overview",
       "asset_chain_complete": true,
       "extraction_method": "pandoc --extract-media",
       "findings": [
-        "A schematic, not a data figure. No asset chain applies. \"Figure 1: Hydrogel containing unilamellar vesicles\" in log-devnote-draft.docx, added to that document on 2026-10-09."
+        "A schematic, not a data figure. No asset chain applies. \"Figure 1: Schematic representation of unilamellar vesicles contained in a hydrogel matrix\" in log-devnote-draft.docx.",
+        "Byte-identical to the copy extracted from the 2026-10-09 version of the same document. The 2026-10-11 revision did not change it."
       ]
     },
     {
-      "filename": "general/schematic-luv-prep-inline.png",
+      "filename": "general/photo-luv-pellet.png",
       "page": "main.md",
       "pattern": "static-png",
       "cell_label": null,
@@ -45,23 +46,61 @@
       "asset_chain_complete": true,
       "extraction_method": "pandoc --extract-media",
       "findings": [
-        "A schematic, not a data figure. No asset chain applies. Uncaptioned in log-devnote-draft.docx; its own placeholder caption \"[Caption]\" is carried as-is."
+        "A photograph, not a data figure. No asset chain applies. \"Figure 2: Snapshot of the LUV pellet after 4 washes\" in log-devnote-draft.docx.",
+        "Renamed from general/schematic-luv-prep-inline.png on 2026-10-11. The old name called a photograph a schematic. The image bytes are unchanged.",
+        "The 2026-10-09 version of the document left this figure uncaptioned, and the caption was carried as the placeholder \"[Caption]\". The 2026-10-11 revision supplies a real caption."
       ]
     },
     {
-      "filename": "figures/log-devnote-draft-luv-only-read2.jpg",
+      "filename": "general/photo-photopatterning-peg4nb.jpg",
       "page": "main.md",
       "pattern": "static-png",
       "cell_label": null,
       "source_notebook": null,
       "platemap": null,
       "data_source": null,
-      "section_context": "A second graph, from a run not yet identified",
+      "section_context": "Hydrogel preparation, PEG4Nb tab",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "A photograph of equipment, not a data figure. No asset chain applies. \"Figure 3: Photopatterning PEG4Nb hydrogels in a 96-well plate\" in log-devnote-draft.docx.",
+        "New in the 2026-10-11 revision. It arrived with the PEG4Nb preparation steps, which the previous version did not have."
+      ]
+    },
+    {
+      "filename": "general/diagram-cprg-cpr-reaction.png",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Experimental design",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "A reaction diagram, not a data figure. No asset chain applies. It is uncaptioned in log-devnote-draft.docx, and a reviewer comment beside it reads \"TODO: add caption\". The caption in main.md is transcribed from the text inside the image itself, which names the substrate, the enzyme and the product.",
+        "New in the 2026-10-11 revision.",
+        "The image is a bitmap of text and a reaction arrow. It carries no information that could not be set as text, and it will not scale or reflow. Retained as an image per the author's instruction to keep every figure."
+      ]
+    },
+    {
+      "filename": "figures/luv-stability-hydrogels-read2.jpg",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "luv_stability_hydrogels_matlabcode.txt",
+      "platemap": null,
+      "data_source": "20261009-113443-synergy2-OJMB-gfp-pla-guv-luv-gels-16UmL-LacZ.txt",
+      "section_context": "Results",
       "asset_chain_complete": false,
       "extraction_method": "pandoc --extract-media",
       "findings": [
-        "No notebook, platemap or data file is named anywhere in log-devnote-draft.docx for this graph. Two placeholders beside it in the source are unfilled: \"[Paste the graph here]\" and \"[link to dataset URL here; .txt of matlab code in directory; caption]\".",
-        "BLOCKING: the graph's own title gives a LacZ concentration of 16 U/mL, stated nowhere else in this DevNote. Its condition set (pre-PEG solution, PEG gel, ULGA, LGA, in solution) is close to but not identical to tbl-platemap (which also carries Cytosol-PLA and buffer-PLA, and carries no in-solution row). The run this graph comes from is not confirmed."
+        "Renamed from figures/log-devnote-draft-luv-only-read2.jpg on 2026-10-11, and the image itself replaced. The 2026-10-11 revision of the document carries a different version of this figure.",
+        "The replaced version had five bars and a MATLAB data-tip artifact drawn on it. The fifth bar was 'Pre-PEG solution' at about 0.69. The current version has four bars and no artifact. The MATLAB script states the reason in a comment: 'pre-PEG left out of this graph'. The earlier image is in git history at commit 4c1295b.",
+        "BLOCKING: the analysis is luv_stability_hydrogels_matlabcode.txt, a MATLAB script rather than a notebook, so the quarto-label pattern cannot apply. The script does not read the data file named in data_source. It carries its absorbance values written into its own source under the header 'Synergy 2, 384-well, read 2 (3:09 PM, 16 U/mL LacZ), LUV only (row L)'. The link between those numbers and the named data file is that header and nothing else.",
+        "No platemap is named for this figure anywhere in the source.",
+        "The data file name carries the date 20261009, which is none of the three dates already disagreeing in this DevNote."
       ]
     }
   ]
