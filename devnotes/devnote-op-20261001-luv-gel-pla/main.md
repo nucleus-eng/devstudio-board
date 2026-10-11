@@ -13,6 +13,7 @@ here. -->
 # Module overview
 
 :::{admonition}
+Overview
 
 1. T7 GFP yield in different gels
 2. Dyed-loaded vesicles in different gels
@@ -240,14 +241,58 @@ here. -->
 
 # Discussion
 
+:::{admonition}
+
+What are the main take aways
+
 1. GFP expression in all 3 gels.
 2. PLA lyses the vesicles in all gels.
 
-# Conclusion
+:::
 
-[PLEASE FILL IN]
+# What's next
+
+:::{admonition}
+
+What is the next step, what can someone do with this?
+
+:::
 
 <!-- The source Conclusion heading carries no text. -->
+
+# Review questions
+
+<!-- Added to `log-devnote-draft.docx` on 2026-10-11, right after
+Conclusion, as its own "Review questions" heading. Carried here in the
+same place and the same three groups, verbatim. -->
+
+- No image exists for "Microscopy data," which currently only reads
+  "Pics of PLA-lysed vesicles."
+- "[Paste the graph here]" is still a placeholder in Experimental design.
+- "[link to dataset URL here; .txt of matlab code in directory;
+  caption]" is still a placeholder, right next to it.
+- The Conclusion heading has no text.
+- Discussion has two blank numbered lines after its two filled ones.
+- The plasmid question is still open in words: is T7-EsaO-mNG linear or
+  a plasmid, is T7-EsaO-PLA1 the same, and does either carry a tetO
+  operator. The two sequence files answer identity, not this.
+
+Secondary:
+
+- PEG4Nb has no prep steps, unlike ULGA and LGA, which each get a
+  numbered list.
+- Surendra's question on what the LGA "transfer" step actually looks
+  like is unanswered.
+- ULGA's formulation reference line still reads "[insert link]."
+- The dataset and analysis-notebook links are still missing; only the
+  plate map link landed.
+
+Separate, a live disagreement rather than a gap in the doc itself:
+
+- The doc gives ULGA and LGA's solvent as "1.2 M glucose solution." The
+  `Gel formulations` sheet already in this DevNote gives ULGA's outer
+  solution as 1057 Osm glucose, and LGA's solvent as UPDI water, not
+  glucose. Worth asking which is current.
 
 # Open questions
 
@@ -262,9 +307,9 @@ here. -->
 <!-- Moved to the end of the page per an @claude comment left in this
 file: "maybe open questions come at the end?" -->
 
-# Resources
+<!-- # Resources
 
 The full asset chain, the review cycle history, and every flagged
 disagreement between sources are in `main-supplement.md`, in this same
 directory. It is not in `curvenote.yml`'s `toc`, so it does not publish
-as a page of this DevNote. It is a plain file in the repository.
+as a page of this DevNote. It is a plain file in the repository. -->
