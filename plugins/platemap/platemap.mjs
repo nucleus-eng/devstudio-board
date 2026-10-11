@@ -1,9 +1,10 @@
-// `{platemap}` embeds a Nucleus platemap CSV/TSV as an interactive 96-well
-// plate map, the same way `{seqviz}` embeds a sequence file:
+// `{platemap}` embeds a Nucleus platemap CSV/TSV as an interactive 96- or
+// 384-well plate map, the same way `{seqviz}` embeds a sequence file:
 //
 //   :::{platemap} ./experiments/build-platemap.csv
 //   :height: 560px
 //   :fields: [ATC] (uM), [TetR] (nM), [plamGFP] (nM)
+//   :wells: 384
 //   :::
 //
 // `fields` is optional: a comma-separated list of exact column names to show
@@ -12,6 +13,18 @@
 // default when those happen to be the composition columns, but a platemap
 // with non-composition metadata before them (e.g. a `Group` or `Condition`
 // column) needs `fields` to name the ones that actually vary by well.
+//
+// `wells` is optional: 96 (default, inferred from the widest well actually
+// used if omitted) or 384. A 384-well plate renders as one dense 16x24 grid.
+// At that cell size the per-well text code used on a 96-well plate (the
+// colorblind-safety measure -- see `platemap-widget.mjs`) stops being
+// legible, so 384 layouts fall back to a line-pattern fill per `Type`
+// instead, with identity still exact on hover. Two options were prototyped
+// against a synthetic 384-well plate (test/platemap-384-options/, not
+// committed): texture, chosen here, and faceting into four 96-well quadrants
+// (reuses the 96-well rendering untouched, at the cost of four panels
+// instead of one). Revisit faceting if the texture reads too weakly in
+// practice -- it was the untested tradeoff at decision time.
 //
 // The directive stores the raw path/URL at parse time; the transform below
 // reads and parses the file at build time and rewrites the node into a
@@ -105,13 +118,27 @@ function rowsToObjects(rows) {
 const REQUIRED_COLUMNS = ['Date', 'Experiment', 'Well', 'Name', 'Type'];
 const SHARED_COLUMNS = [...REQUIRED_COLUMNS, 'Rxn Volume (uL)'];
 
-const WELL_RE = /^([A-Ha-h])0?(\d{1,2})$/;
+// 96 and 384 only for now -- 1536 (`platemap_common.PLATES`'s third size)
+// would also need double-letter rows (AA..AF), not handled here yet.
+const PLATES = {
+  96: { lastRow: 'H', cols: 12 },
+  384: { lastRow: 'P', cols: 24 },
+};
+
+const WELL_RE = /^([A-Pa-p])0?(\d{1,2})$/;
 function parseWell(well) {
   const m = String(well ?? '').trim().match(WELL_RE);
   if (!m) return null;
   const col = parseInt(m[2], 10);
-  if (col < 1 || col > 12) return null;
+  if (col < 1 || col > 24) return null;
   return { row: m[1].toUpperCase(), col };
+}
+
+// Without an explicit `:wells:`, infer the plate size from the widest well
+// actually used: anything past H or 12 means this is (at least) a 384.
+function inferPlateSize(positions) {
+  const overflows96 = positions.some((p) => p.row > PLATES[96].lastRow || p.col > PLATES[96].cols);
+  return overflows96 ? 384 : 96;
 }
 
 // A minimal inline stand-in for myst-common's `normalizeLabel`: a plugin
@@ -133,7 +160,7 @@ function normalizeLabel(label) {
 
 const platemapDirective = {
   name: 'platemap',
-  doc: 'Render a Nucleus platemap CSV/TSV as an interactive 96-well plate map.',
+  doc: 'Render a Nucleus platemap CSV/TSV as an interactive 96- or 384-well plate map.',
   arg: {
     type: String,
     doc: 'Path or URL (e.g. a GitHub file link) to the platemap CSV/TSV, parsed at build time.',
@@ -149,6 +176,10 @@ const platemapDirective = {
       alias: ['name'],
       doc: 'Label the plate map to be cross-referenced or linked to, e.g. {ref}`my-label`.',
     },
+    wells: {
+      type: String,
+      doc: '96 or 384. Default: inferred from the widest well actually used in the file.',
+    },
   },
   run(data) {
     const node = {
@@ -159,6 +190,7 @@ const platemapDirective = {
         file: data.arg,
         height: data.options?.height ?? '560px',
         fields: data.options?.fields,
+        wells: data.options?.wells,
       },
       children: [],
     };
@@ -179,7 +211,7 @@ const platemapTransform = {
     const nodes = collectNodes(tree, (n) => n.type === 'block' && n.kind === 'platemap');
     await Promise.all(
       nodes.map(async (node) => {
-        const { file, import: widgetImport, height, fields } = node.data;
+        const { file, import: widgetImport, height, fields, wells: wellsOption } = node.data;
         try {
           const text = await readSource(file);
           const delimiter = detectDelimiter(file, text);
@@ -201,11 +233,27 @@ const platemapTransform = {
             compositionColumns = header.filter((c) => !SHARED_COLUMNS.includes(c)).slice(0, 3);
           }
           const experiment = rows[0].Experiment ?? '';
+
+          const parsed = rows.map((r) => ({ row: r, pos: parseWell(r.Well) }));
+          const unreadable = parsed.filter((p) => !p.pos);
+          for (const { row: r } of unreadable) {
+            console.error(`[platemap] skipping row with unreadable Well "${r.Well}" in ${file}`);
+          }
+
+          let plateSize = parseInt(wellsOption, 10);
+          if (plateSize !== 96 && plateSize !== 384) {
+            if (wellsOption) {
+              console.error(`[platemap] :wells: must be 96 or 384, got "${wellsOption}" in ${file} -- inferring instead`);
+            }
+            plateSize = inferPlateSize(parsed.filter((p) => p.pos).map((p) => p.pos));
+          }
+          const bounds = PLATES[plateSize];
+
           const wells = [];
-          for (const r of rows) {
-            const pos = parseWell(r.Well);
-            if (!pos) {
-              console.error(`[platemap] skipping row with unreadable Well "${r.Well}" in ${file}`);
+          for (const { row: r, pos } of parsed) {
+            if (!pos) continue;
+            if (pos.row > bounds.lastRow || pos.col > bounds.cols) {
+              console.error(`[platemap] skipping Well "${r.Well}" in ${file}: outside the ${plateSize}-well plate`);
               continue;
             }
             wells.push({
@@ -222,7 +270,7 @@ const platemapTransform = {
           // in standard mystmd/myst-theme.
           node.type = 'anywidget';
           node.esm = widgetImport;
-          node.model = { experiment, wells, height };
+          node.model = { experiment, wells, height, plateSize };
           node.id = Math.random().toString(36).slice(2, 10);
           delete node.kind;
           delete node.data;
