@@ -1,6 +1,6 @@
 # Interactive viewers
 
-Per-well microscopy for Attempt 1, as interactive viewers. Each well is one OME-Zarr store.
+Per-well microscopy for pH Sensor Validation in Solution, as interactive viewers. Each well is one OME-Zarr store.
 The well descriptions are on [the main page](./main.md), under Results.
 
 The viewers are stacked rather than tabbed. The Vizarr widget creates its viewer on a
