@@ -76,7 +76,25 @@ export default {
     const viewer = await vizarr.createViewer(div, {
       menuOpen: model.get('menuOpen') ?? false,
     });
-    viewer.addImage({ source: model.get('source') });
+
+    // `colors` and `contrast_limits` are vizarr's own ImageLayerConfig keys,
+    // one entry per channel in the store's channel order. The upstream widget
+    // forwards neither.
+    //
+    // They only take effect on a store with no `omero` metadata. Vizarr reads
+    // a channel's color and window from `omero` whenever that block exists and
+    // ignores what it was handed. Measured on 2026-10-11 against
+    // SH-0925-D4, outside any shadow root: passing both keys, with and without
+    // `channel_axis`, left every contrast slider at 0 to 65535. Matching a
+    // viewer to a figure therefore means fixing the store's own `omero` block,
+    // not the viewer. These two are forwarded for the stores that carry no
+    // such block.
+    const image = { source: model.get('source') };
+    const colors = model.get('colors');
+    const limits = model.get('contrast_limits');
+    if (colors) image.colors = colors;
+    if (limits) image.contrast_limits = limits;
+    viewer.addImage(image);
 
     const stopMirroring = mirrorWidgetStyles(el.getRootNode());
 
