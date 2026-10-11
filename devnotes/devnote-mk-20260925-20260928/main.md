@@ -564,7 +564,7 @@ behavior — no-DNA vesicles stayed dark throughout, unrepressed vesicles became
 strongly fluorescent, the 0 µM aTc condition remained repressed, and lumen
 deGFP increased with aTc concentration.
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
