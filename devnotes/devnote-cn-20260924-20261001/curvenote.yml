@@ -54,6 +54,9 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+    - ../../plugins/platemap/platemap.mjs
   toc:
     - file: main.md
     - file: experiments/20260925-dna-titration/platereader.ipynb
