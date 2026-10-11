@@ -55,6 +55,7 @@ The pH-sensing developer cells detect acidic conditions (pH 6.0–6.5) using a p
 | Mineral oil | Mineral oil, BioReagent, for molecular biology, light oil | Millipore Sigma | M5904-500mL | $78.70 | RT | [link](https://www.sigmaaldrich.com/US/en/product/sigma/m5904) |
 | Cy5 | Sulfo-Cyanine5 carboxylic acid | Lumiprobe | 13390 | $99.00 | -20 °C | [link](https://www.lumiprobe.com/p/sulfo-cy5-carboxylic-acid) |
 | CPRG | Chlorophenol Red-β-D-galactopyranoside | Roche | 10884308001 | $160.00 | -20 °C in water at 20 mg/mL | [link](https://www.sigmaaldrich.com/US/en/product/roche/10884308001) |
+| β-galactosidase | — | — | — | — | — | |
 | POPC | 16:0-18:1 PC (POPC) | Avanti Lipids | A80557 | $435.00 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/850457-160-181-pc-popc) |
 | Rhod PE | Liss Rhod PE | Avanti Lipids | A81179 | $273.47 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/810179-180-liss-rhod-pe) |
 | Cholesterol | Cholesterol | Avanti Research | A80100 | $261.00 | -20 °C | [link](https://www.avantiresearch.com/en-gb/products/product/700100-cholesterol-plant) |
@@ -168,6 +169,7 @@ flowchart LR
     click P1 "#constructs"
     click P2 "#cprg-suv-preparation"
     click P3 "#lga-gel-preparation"
+    click P4 "#color-development"
 
     classDef leaf     fill:#e5e7eb,stroke:#6b7280,color:#111827;
     classDef composed fill:#6b7280,stroke:#374151,color:#ffffff;
@@ -186,6 +188,8 @@ Attempt 4 is the one that worked, and the three changes that made it work carry 
 ::: -->
 
 ## CPRG-LUV preparation
+
+Lipids for SUVs and LUVs were added from chloroform stocks to the bottom of a 1 mL glass vial and dried under argon/N₂ gas. They were then dried under vacuum for 20 min, and the inner solution was added directly to the lipid film. The process is the same as for GUVs up to the film-drying step. After that, it differs: for GUVs, mineral oil is added, whereas for SUVs and LUVs the inner solution is added directly to the film.
 
 1. Add the inner solution directly to the dried lipid film.
 2. Vortex until the film is no longer visible.
@@ -211,7 +215,7 @@ Attempt 4 is the one that worked, and the three changes that made it work carry 
 
 ## CPRG-SUV preparation
 
-Used from Full Demo Attempt 2 onward. The LUV route above was used for pH Sensor Validation in Solution and Full Demo Attempt 1.
+Used from Full Demo Attempt 2 onward. The LUV route above was used for pH Sensor Validation in Solution and Full Demo Attempt 1. The lipid film is prepared the same way as for CPRG-LUV preparation above.
 
 1. Add the inner solution (1 mL) directly to the dried lipid film.
 2. Vortex until the film is no longer visible.
@@ -319,6 +323,13 @@ Procedure:
         | Ultra-pure distilled water | 6.43 v/v% | 77.14 uL |
         | Total | 100 v/v% | 1200 uL |
 
+(color-development)=
+## Color development
+
+The neutralization/basic buffer was prepared by mixing 1 mL of 1 M Tris base with 2.5 µL of 37% HCl. The resulting solution has a pH of 9.9 and a measured osmolarity of 1,165 mOsm/kg.
+
+To reach a final β-galactosidase concentration of 1.2 U/mL, a 3x concentrated solution (3.6 U/mL β-galactosidase in pH 9.9 basic buffer) was prepared from a 1000 U/mL β-galactosidase stock. 30 µL of this solution was added to 60 µL of gel/solution, giving a total volume of 90 µL and a final concentration of 1.2 U/mL β-galactosidase.
+
 # Compositions
 
 ## PLA1-expressing GUVs
@@ -421,9 +432,13 @@ Source note, carried verbatim: "dried and taken up in 3 mL mineral oil to 0.5 mM
 
 The energy solution is a 2× sub-mix of ten components per Sun et al. 2013, made up to 4000 µL. It is not reproduced here: [`experiments/energy-solution-composition.csv`](./experiments/energy-solution-composition.csv), and its vendor data is in {numref}`tbl-reagents`.
 
+The osmolarity of the Tris1M-HEPES1.15M stock (1 M Tris, 1.15 M HEPES, pH 8), approximately 2,520 mOsm/kg, was measured, not calculated, using a Vapro® Vapor Pressure Osmometer (Model 5600). The stock was diluted (e.g., 1/4, 1/3) at least five times so that the readings fell within the calibrated range (100-1000 mOsm/kg). Each reading was multiplied by its dilution factor, and the reported value is the average of these measurements.
+
 ## Gel
 
 The gel composition is already given: [LGA Gel Preparation](#lga-gel-preparation)'s step 2 table, under Protocol.
+
+The demo used a total volume of 7.2 µL, composed of: 3 µL of PLA1-expressing vesicles (prepared in 1175 mOsm/kg solution, pH 8), 3 µL of CPRG-loaded SUVs/LUVs (prepared in 1175 mOsm/kg solution, pH 8), and 1.2 µL of 1175 mOsm/kg solution, pH 8. <!-- REVIEW: this reads as the gel-based Full Demo's target ratio, not a match for any single row in tbl-conditions (e.g. E4 is 3 + 2.1 + 2.1 µL), and pH Sensor Validation in Solution (D4/D5: 1 + 0 + 6.2 µL) looks different again. Confirm with SH whether this 3:3:1.2 ratio is specific to the gel-based Full Demo attempts, and whether the solution-only validation used a different ratio on purpose. -->
 
 <!-- ## Measurement
 
