@@ -596,8 +596,8 @@ not inhibiting the reaction. All conditions plateaued by ~3 h.
 *Figure 1.* Kinetics of deGFP expression from pOpen-TetO-deGFP in bulk PURE reactions. Fluorescence (485/20 ex, 528/20 em, gain 50) read every 5 min for 6 h at 37 °C. Conditions: no-DNA control, unrepressed (1 nM plasmid), and 1 nM plasmid + 1000 nM TetR across 0–1 µM aTc. n = 2 wells per condition.
 :::
 
-[@claude, how crazy would it be to try and pull these files from the drive and recreate the figure above?]
-[`fig-1-bulk-kinetics`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb`, platemap:`MK-20260928-platemap-nucleus-bulk.csv`, data source:`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`, caption: (Kinetics of deGFP expression from pOpen-TetO-deGFP in bulk PURE reactions.)]
+<!-- 
+[`fig-1-bulk-kinetics`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb`, platemap:`MK-20260928-platemap-nucleus-bulk.csv`, data source:`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`, caption: (Kinetics of deGFP expression from pOpen-TetO-deGFP in bulk PURE reactions.)] -->
 
 :::{figure} ./figures/fig2-bulk-endpoint.png
 :label: fig-2-bulk-endpoint
@@ -606,8 +606,8 @@ not inhibiting the reaction. All conditions plateaued by ~3 h.
 *Figure 2.* Endpoint deGFP fluorescence at 6 h, from the kinetic run in Figure 1. Individual replicates shown; n = 2 wells per condition.
 :::
 
-[@claude, how crazy would it be to try and pull these files from the drive and recreate the figure above?]
-[`fig-2-bulk-endpoint`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb`, platemap:`MK-20260928-platemap-nucleus-bulk.csv`, data source:`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`, caption: (Endpoint deGFP fluorescence at 6 h, from the kinetic run in Figure 1.)]
+<!-- 
+[`fig-2-bulk-endpoint`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb`, platemap:`MK-20260928-platemap-nucleus-bulk.csv`, data source:`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`, caption: (Endpoint deGFP fluorescence at 6 h, from the kinetic run in Figure 1.)] -->
 
 <!-- Figures 1 and 2 are pasted images in the source Doc, extracted with pandoc
 --extract-media. Neither carries a #| label: in the plate reader notebook. The
@@ -665,7 +665,7 @@ still needed for this panel. -->
 *Figure 4.* Lumen deGFP fluorescence in solution-phase GUVs over 4 h. Each point is mean per-vesicle intensity. 2 technical replicates per condition.
 :::
 
-[`fig-4-lumen-degfp`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy`, platemap:`20260928-MK-full-sensor-microscopy.csv`, data source:`deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet`, caption: (Lumen deGFP fluorescence in solution-phase GUVs over 4 h.)]
+<!-- [`fig-4-lumen-degfp`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy`, platemap:`20260928-MK-full-sensor-microscopy.csv`, data source:`deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet`, caption: (Lumen deGFP fluorescence in solution-phase GUVs over 4 h.)] -->
 
 :::{figure} #mk-20260928-uscope-subtract-bkg
 :label: fig-5-background-subtracted
@@ -674,7 +674,7 @@ still needed for this panel. -->
 *Figure 5.* Background-subtracted quantification of Figure 4. aTc is autofluorescent in the GFP channel and raises background in proportion to dose, so the matched no-DNA control at each aTc concentration was subtracted from every condition.
 :::
 
-[`fig-5-background-subtracted`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy`, platemap:`20260928-MK-full-sensor-microscopy.csv`, data source:`deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet`, caption: (Background-subtracted quantification of Figure 4.)]
+<!-- [`fig-5-background-subtracted`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy`, platemap:`20260928-MK-full-sensor-microscopy.csv`, data source:`deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet`, caption: (Background-subtracted quantification of Figure 4.)] -->
 
 # Conclusion
 
