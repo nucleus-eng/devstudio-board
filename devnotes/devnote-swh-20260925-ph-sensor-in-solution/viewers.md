@@ -1,7 +1,7 @@
 # Interactive viewers
 
 Per-well microscopy for pH Sensor Validation in Solution, as interactive viewers. Each well is one OME-Zarr store.
-The well descriptions are on [the main page](./main.md), under Results.
+The well descriptions are in the tab-set captions on [the main page](./main.md), under Results.
 
 The viewers are stacked rather than tabbed. The Vizarr widget creates its viewer on a
 detached element with no width and never re-measures, so any instance hidden when the page

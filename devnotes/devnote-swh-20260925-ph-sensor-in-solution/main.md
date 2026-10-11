@@ -336,7 +336,7 @@ Procedure:
 | PMix | 15 | mg/mL | 1.80 | mg/mL | 2.4 | |
 | Ribosomes | 10 | µM | 1.8 | µM | 3.6 | |
 | tRNA | 35 | mg/mL | 3.5 | mg/mL | 2 | |
-| pT7-toehold9-PLA1 DNA template | 80 | nM | 2 | nM | 0.5 | sequence file not verified |
+| pT7-toehold9-PLA1 DNA template | 80 | nM | 2 | nM | 0.5 | |
 | pH-responsive:Trigger ssDNA (3:1) annealed construct | 25 | µM | 4.625 | µM | 3.7 | stock conc. is of the trigger ssDNA; annealed in IDT duplex buffer |
 | Optiprep | 100 | % | 4.5 | v/v% | 0.9 | |
 | RNase Inhibitor | 40000 | U/mL | 1000 | U/mL | 0.5 | |
@@ -425,12 +425,11 @@ The energy solution is a 2× sub-mix of ten components per Sun et al. 2013, made
 
 The gel composition is already given: [LGA Gel Preparation](#lga-gel-preparation)'s step 2 table, under Protocol.
 
+<!-- ## Measurement
 
-## Measurement
+Two channels were acquired. The channel labelled `Alexa Fluor 647` in the acquisition metadata reports the Cy5 signal, because the microscope names the wavelength by a representative fluorophore; the reagent in the composition is Cy5. The channel labelled `Rhodamine` reports Rhod-PE in the vesicle membranes. Data are OME-Zarr version 0.5, one well per store, with a z-stack at 1.5 µm spacing and 0.333 µm pixels.
 
-<!-- Two channels were acquired. The channel labelled `Alexa Fluor 647` in the acquisition metadata reports the Cy5 signal, because the microscope names the wavelength by a representative fluorophore; the reagent in the composition is Cy5. The channel labelled `Rhodamine` reports Rhod-PE in the vesicle membranes. Data are OME-Zarr version 0.5, one well per store, with a z-stack at 1.5 µm spacing and 0.333 µm pixels. -->
-
-<!-- The `Alexa Fluor 647` channel reports Cy5, and `Rhodamine` reports Rhod-PE. Each well is a single OME-Zarr store, one plane, not a z-stack. -->
+The `Alexa Fluor 647` channel reports Cy5, and `Rhodamine` reports Rhod-PE. Each well is a single OME-Zarr store, one plane, not a z-stack. -->
 
 # Results
 
@@ -527,7 +526,7 @@ pH-responsive synthetic cell-mediated visible color change via a two-vesicle sys
 **`H4` receives no pH buffer.** It takes 0 µL of the energy solution mix, which carries the pH-setting buffer. Its recorded pH of 7.6 comes from the build sheet's column header, not from anything added to the well.
 :::: -->
 
-The four wells below are also shown as interactive viewers on [Interactive viewers](./viewers.md). {numref}`fig-microscopy-summary` above presents the same four wells as a tab set.
+These four wells are also shown as interactive viewers on [Interactive viewers](./viewers.md).
 
 ## Full Demo Attempt 1
 
