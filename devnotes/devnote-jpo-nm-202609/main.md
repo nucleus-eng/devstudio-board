@@ -40,11 +40,29 @@ gelling agarose (0.5% final concentration) on a 384 well plate. These gels are
 incubated at 37 °C on either a plate reader or microscope stage overnight for
 16 hours.
 
-:::{admonition}
+<!--
 :name: gap-overview-image
 
 Please choose the overview image. The source Doc marks the spot with a bare `[image]` placeholder and names no file.
+
+Answer, Anton, 2026-10-11: adopted below.
+-->
+
+:::{figure} ./general/overview.png
+:label: fig-overview-schematic
+:align: center
+:width: 90%
+Bacterial supernatant carrying 3-oxo-C6-HSL diffuses into the LuxR-mNeonGreen
+GUV hydrogel. Inside one GUV, constitutively expressed LuxR binds 3-oxo-C6-HSL
+and activates pLux, driving mNeonGreen expression.
 :::
+
+[`fig-overview-schematic`, file:`general/overview.png`, caption: (Bacterial supernatant carrying 3-oxo-C6-HSL diffuses into the LuxR-mNeonGreen GUV hydrogel. Inside one GUV, LuxR binds 3-oxo-C6-HSL and activates pLux-driven mNeonGreen expression.)]
+
+<!-- A schematic, not a data figure: no notebook, no platemap, no data
+chain. Placed in general/ before the G stage, per
+devstudio-author-myst-content's schematic convention, and referenced by
+path rather than extracted from a Doc. Added 2026-10-11. -->
 
 :::{danger} Unresolved before publication
 :name: flags-blocking
