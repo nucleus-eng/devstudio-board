@@ -1,7 +1,9 @@
 // Vizarr anywidget for DevNotes.
 //
 // A local copy of https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
-// with one real change. The upstream file is kept beside this one as
+// with two changes, each explained where it is made: styles are mirrored into
+// the shadow root, and a viewer can set its own channel colors and contrast
+// limits. The upstream file is kept beside this one as
 // vizarr-viewer.upstream.js so the diff stays visible.
 //
 // THE BUG. Vizarr's control panel is built with Material-UI, which injects its
@@ -63,6 +65,83 @@ function mirrorWidgetStyles(root) {
   return () => observer.disconnect();
 }
 
+// Per-viewer channel colors and contrast limits.
+//
+// Vizarr will not take these from `addImage`. It reads a channel's color and
+// window from the store's `omero` metadata whenever that block exists, and
+// ignores the `colors` and `contrast_limits` it is handed. Measured on
+// 2026-10-11 against SH-0925-D4, outside any shadow root: passing both keys,
+// with and without `channel_axis`, left every contrast slider at 0 to 65535.
+//
+// So the values are applied to the metadata instead, on its way in. One fetch
+// wrapper watches for a store's own metadata document and rewrites the `omero`
+// channels before vizarr parses them. Nothing else is touched: a request that
+// matches no registered source is passed straight through, and so is a
+// metadata document with no `omero` block.
+//
+// Measured with the wrapper in place, same store: the two contrast sliders
+// read 2410 to 50690 and 1904 to 30863, and the channel swatches are
+// rgb(255, 220, 60) and rgb(255, 60, 40), which are the values
+// figures/fov-render-params.json records for the static figures.
+//
+// These keys are an authoring choice, not a correction. A store's own `omero`
+// block records what the acquisition wrote, typically the detector's full
+// range, which says nothing about where in that range the result sits. The
+// values a DevNote passes here are the ones its author picked to show the
+// phenomenon, usually the same ones its static figures were rendered at, so a
+// figure and its viewer open the same way. Expect the next experiment on the
+// same stores to want different ones.
+//
+// One property to hold onto: this changes what a reader sees without changing
+// what is stored, so a viewer and its store will disagree by design.
+const overrides = new Map();
+let fetchPatched = false;
+
+const METADATA = /\/(zarr\.json|\.zattrs)$/;
+
+function patchFetchOnce() {
+  if (fetchPatched) return;
+  fetchPatched = true;
+  const realFetch = globalThis.fetch.bind(globalThis);
+  globalThis.fetch = async (input, init) => {
+    const url = typeof input === 'string' ? input : input?.url ?? '';
+    const response = await realFetch(input, init);
+    if (!METADATA.test(url)) return response;
+    let entry;
+    for (const [prefix, value] of overrides) {
+      if (url.startsWith(prefix)) { entry = value; break; }
+    }
+    if (!entry) return response;
+    try {
+      const meta = JSON.parse(await response.clone().text());
+      const omero = meta?.attributes?.ome?.omero ?? meta?.omero;
+      if (!Array.isArray(omero?.channels)) return response;
+      omero.channels.forEach((channel, i) => {
+        const color = entry.colors?.[i];
+        const limits = entry.contrast_limits?.[i];
+        if (color) channel.color = String(color).replace(/^#/, '');
+        if (limits) {
+          channel.window = { ...channel.window, start: limits[0], end: limits[1] };
+        }
+      });
+      return new Response(JSON.stringify(meta), {
+        status: response.status,
+        headers: response.headers,
+      });
+    } catch {
+      // A metadata document we cannot read is one we leave alone.
+      return response;
+    }
+  };
+}
+
+function overrideChannels(source, { colors, contrast_limits: limits }) {
+  if (!colors && !limits) return () => {};
+  patchFetchOnce();
+  overrides.set(source, { colors, contrast_limits: limits });
+  return () => overrides.delete(source);
+}
+
 export default {
   async render({ model, el }) {
     const div = document.createElement('div');
@@ -76,11 +155,18 @@ export default {
     const viewer = await vizarr.createViewer(div, {
       menuOpen: model.get('menuOpen') ?? false,
     });
-    viewer.addImage({ source: model.get('source') });
+
+    const source = model.get('source');
+    const unregister = overrideChannels(source, {
+      colors: model.get('colors'),
+      contrast_limits: model.get('contrast_limits'),
+    });
+    viewer.addImage({ source });
 
     const stopMirroring = mirrorWidgetStyles(el.getRootNode());
 
     return () => {
+      unregister();
       stopMirroring();
       viewer.destroy?.();
     };

@@ -29,24 +29,18 @@ HEPES, far above a normal buffer concentration. The Doc raises the problem
 itself and does not resolve it. Both the table and the warning are carried
 verbatim. Resolve this before anyone runs the protocol.
 
-**Figure 3 has no viewer wells chosen.** The Doc carries a Vizarr link to the
-whole plate store. Beside it is the instruction "Import microscope data for a
-figure here". The store is an OME-NGFF 0.5 plate of 48 wells. Its rows are C to
-N and its columns are 3 to 6. A viewer deep-links one well, so `C/5/0` is well
-C5. Name the wells worth showing.
-
 **Figure 3's caption and the Materials section disagree about the membrane
 dye.** The caption reads "Membrane labeled with Cy5.5-PE". Every other mention
 in the Doc, including the abstract, the overview and the lipid tables, reads
 18:1 Liss Rhod PE at 0.1 mol%. Both are carried as written.
 
 **The plasmid file was built here, not taken from a source of record.**
-`dna/pOpen-TetO-deGFP.gb` carries this Doc's sequence byte for byte, with the
-five features its own landmark column supports. It drives
-{ref}`seqviz-popen-teto-degfp`. It is not an authoritative file, and
-`devstudio-verify-dna-constructs` was not run, so no construct-to-file identity
-claim is made. Two candidate files in `nucleus-eng/DNA` were compared against
-the sequence on 2026-10-11.
+`dna/pOpen-TetO-deGFP.gb` carries this Doc's sequence byte for byte. It has the
+five features the Doc's own landmark column supports, and it drives
+{ref}`seqviz-popen-teto-degfp`. It is not an authoritative file.
+`devstudio-verify-dna-constructs` was not run against it, so no
+construct-to-file identity claim is made. Two candidate files in
+`nucleus-eng/DNA` were compared against the sequence on 2026-10-11.
 
 `detectors/pOpen-pT7-tetO.gb` is not this construct. It is 2954 bp against the
 Doc's 2855, and its coding sequence is plamGFP: 693 nt, 230 amino acids,
@@ -64,10 +58,10 @@ carries the T7 promoter and the deGFP coding sequence but no `tetO` operator.
 The Doc's plasmid reads as that file with the 43 bp operator region inserted
 between the promoter and the ribosome binding site.
 
-Replace `dna/pOpen-TetO-deGFP.gb` with a file of record when one exists.
-Building it from `reporters/pOpen-deGFP.gbk` plus that 43 bp insertion would
-also carry its AmpR and origin annotations, which the Doc's table cannot
-supply. Do not use `detectors/pOpen-pT7-tetO.gb`.
+When a file of record exists, replace `dna/pOpen-TetO-deGFP.gb`. One built from
+`reporters/pOpen-deGFP.gbk` plus that 43 bp insertion also carries its AmpR and
+origin annotations, which the Doc's table cannot supply. Do not use
+`detectors/pOpen-pT7-tetO.gb`.
 
 **`figures/mk-20261005.jpeg` is not referenced.** It is a photograph of a
 384-well plate with purple wells, dated 2026-10-05, after both experiments in
@@ -635,9 +629,20 @@ duplicate samples in solution.
 https://bnext-bio.github.io/vizarr/?source=<this store>&viewState={...} with the
 instruction "Import microscope data for a figure here". The viewer above takes
 the store URL from that link. The viewState is not carried, because the widget
-forwards only source, height and menuOpen. The viewer points at the plate root
-rather than at one well; see flags-review. A viewer does not survive JATS
-conversion, so an archival static figure is still needed for this panel. -->
+does not forward it.
+
+The viewer points at the plate root rather than deep-linking one well, by
+decision on 2026-10-11. Figure 3's caption describes the whole montage, left
+two columns in gel and right two in solution, so the full plate is what the
+caption is written against.
+
+The widget can also set channel colors and contrast limits per viewer, which
+this one does not use. This store carries GFP 00FF00 and Alexa Fluor 647
+0000FF, both windowed across the full 16-bit range. Values chosen to show the
+result would go in the block above as colors and contrast_limits.
+
+A viewer does not survive JATS conversion, so an archival static figure is
+still needed for this panel. -->
 
 :::{figure} #mk-20260928-uscope
 :label: fig-4-lumen-degfp
