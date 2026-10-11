@@ -1,0 +1,44 @@
+version: 1
+project:
+  # Title carried from the source Doc's own heading, 2026-10-11. The previous
+  # value, "aTc Sensor", was set by hand on 2026-10-04 before the Doc existed.
+  title: 'GUV Encapsulation of a TetR/aTc-Inducible deGFP Cell-Free Sensor'
+  description: >
+    A TetR-repressed, anhydrotetracycline-inducible deGFP cell-free reaction is
+    encapsulated in giant unilamellar vesicles by inverted emulsion transfer,
+    and its dose-response is read by fluorescence microscopy against a matched
+    unencapsulated plate reader control.
+  # Name, email and affiliation supplied by Anton Molina on 2026-10-04.
+  # No ORCID was supplied.
+  authors:
+    - name: Mary Kelly
+      email: marykelly2026@u.northwestern.edu
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-0
+  affiliations:
+    - id: affiliations-curvenote-generated-uid-0
+      name: Northwestern University
+  # The source Doc is dated 2026-10-11, which is when it was written. Both
+  # experiments it reports ran on 2026-09-28.
+  date: '2026-09-28'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+    - file: experiments/MK-20260928-platereader.ipynb
+    - file: experiments/MK-20260928-microscopy.ipynb
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+  resources:
+    - experiments/**
+    - figures/**
+    - dna/**
+    - general/**
+  id: 8b962ef4-5d57-4b32-a95b-ca7238901b37
+site:
+  template: article-theme

@@ -1,0 +1,11 @@
+Component,Final Conc.,Unit,No DNA (uL),Unrepressed (uL),1000 nM TetR (uL)
+Small molecule mix,N/A,N/A,6.0,6.0,6.0
+tRNA,N/A,N/A,2.0,2.0,2.0
+Protein mix,N/A,N/A,2.4,2.4,2.4
+Ribosomes,N/A,N/A,3.6,3.6,3.6
+RNase inhibitor,N/A,N/A,1.04,1.04,1.04
+Sucrose,N/A,N/A,1.76,1.76,1.76
+DNA,0 / 1 / 1,nM,0.0,0.2,0.2
+TetR-His (MedChem),0 / 0 / 1000,nM,0.0,2.0,2.0
+Nuclease free water,N/A,N/A,3.2,1.0,1.0
+Total (uL),,,20.0,20.0,20.0
