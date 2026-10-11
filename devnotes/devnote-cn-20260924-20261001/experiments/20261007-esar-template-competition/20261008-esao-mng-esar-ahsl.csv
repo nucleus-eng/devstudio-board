@@ -1,0 +1,13 @@
+Well,Date,Experiment,Name,Type,[EsaO-mNG] (nM),[EsaR] (nM),[AHSL] (uM)
+A1,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) + AHSL,Sample,0.1,0,0
+B1,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) + AHSL,Sample,0.1,0,0
+C1,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) + AHSL,Sample,0.1,0,0
+A3,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) - AHSL,Sample,0.1,0,5
+B3,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) - AHSL,Sample,0.1,0,5
+C3,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) - AHSL,Sample,0.1,0,5
+A5,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) + EsaR (8 nM) + AHSL,Sample,0.1,8,0
+B5,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) + EsaR (8 nM) + AHSL,Sample,0.1,8,0
+C5,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) + EsaR (8 nM) + AHSL,Sample,0.1,8,0
+A7,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) + EsaR (8 nM) - AHSL,Sample,0.1,8,5
+B7,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) + EsaR (8 nM) - AHSL,Sample,0.1,8,5
+C7,2026-10-08,EsaO-mNG (0.1 nM) +/- EsaR (8 nM) +/- AHSL,EsaO-mNG (0.1 nM) + EsaR (8 nM) - AHSL,Sample,0.1,8,5

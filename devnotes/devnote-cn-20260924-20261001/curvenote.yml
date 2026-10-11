@@ -1,0 +1,66 @@
+version: 1
+project:
+  # Candidate title from the platemap Experiment column:
+  # "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL" and
+  # "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL" — QC to confirm.
+  # No Specification table exists in any of the five source logs.
+  title: 'EsaO/R-deGFP AHL Detector'
+  description: >
+    EsaR(D91G) repression of single- and dual-operator EsaO-mNG sensor
+    constructs in Nucleus Cytosol, across five days: an EsaR titration at
+    fixed sensor DNA, a sensor DNA titration at fixed EsaR, a repeat of that
+    titration with EsaR pre-expressed overnight, a magnesium sweep with EsaR
+    and DNA pre-incubated before the reaction, and an EsaR DNA template
+    competition assay.
+  # Names and emails from review cycle v2, prompt 1, in the order given.
+  # The spelling "Charlie" follows the email the author supplied, which
+  # corrected the "Chalie" first written in the Doc.
+  # REVIEW: each affiliation is inferred from the author's email domain, not
+  # stated by the author. Confirm all three, and confirm the author order.
+  # REVIEW: no ORCID is recorded for any author.
+  authors:
+    - name: Charlie Newell
+      email: charlie.newell.21@ucl.ac.uk
+      affiliations:
+        - ucl
+      id: contributors-curvenote-generated-uid-0
+    - name: Jonah McDonald
+      email: jonah.mcdonald@kcl.ac.uk
+      affiliations:
+        - kcl
+      id: contributors-curvenote-generated-uid-1
+    - name: Manuel Bibrowski
+      email: manuel.bibrowski25@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-2
+  affiliations:
+    - id: ucl
+      name: University College London
+      city: London
+      country: United Kingdom
+    - id: kcl
+      name: King's College London
+      city: London
+      country: United Kingdom
+    - id: imperial
+      name: Imperial College London
+      city: London
+      country: United Kingdom
+  date: '2026-09-24'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+    - file: experiments/20260925-dna-titration/platereader.ipynb
+    - file: experiments/20260926-dna-titration-esar-spent/platereader.ipynb
+    - file: experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb
+  resources:
+    - experiments/**
+  id: 99d20115-67f3-42c1-bf8f-90b7af4a0d80
+site:
+  template: article-theme

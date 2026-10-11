@@ -1,0 +1,164 @@
+{
+  "figures": [
+    {
+      "filename": "figures/20260924-esao-mng-esar-titration.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "CN-20260924_repressor_test/platereader.ipynb",
+      "platemap": "build - 20260924_Platemap.csv",
+      "data_source": "20260924-151252-cytation5-pure-timecourse-gfp-repressor_test.txt",
+      "section_context": "2026-09-24 — EsaR titration at fixed sensor DNA",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "No cell in platereader.ipynb produces this two-panel EsaR/EsaO figure. The notebook loads the right data file and the right platemap, and its cell 15 plots the same 0/1/4/7 uL EsaR series, but the producing cell did not survive the 2026-09-26 save.",
+        "REVIEW: restore the producing cell and add #| label: to enable the quarto-label pattern"
+      ]
+    },
+    {
+      "filename": "figures/20260924-esao2-mng-esar-titration.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "CN-20260924_repressor_test/platereader.ipynb",
+      "platemap": "build - 20260924_Platemap.csv",
+      "data_source": "20260924-151252-cytation5-pure-timecourse-gfp-repressor_test.txt",
+      "section_context": "2026-09-24 — EsaR titration at fixed sensor DNA",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "No cell in platereader.ipynb produces this two-panel EsaR/EsaO figure. Same cause as the single-operator panel above.",
+        "REVIEW: restore the producing cell and add #| label: to enable the quarto-label pattern"
+      ]
+    },
+    {
+      "filename": "figures/20260925-dna-titration-0p1nm.png",
+      "pattern": "quarto-label",
+      "cell_label": "cn-20260925-fig1",
+      "source_notebook": "CN-20260925-DNA_titration/platereader.ipynb",
+      "platemap": "20260924-dna-titration-esar-fixed.csv",
+      "data_source": "20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt",
+      "section_context": "2026-09-25 — Sensor DNA titration at fixed EsaR",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Labelled on cell 18 as 'cn-20260925-fig1' by the author on 2026-10-04.",
+        "Produced by cell 18 of platereader.ipynb, matched on the suptitle '~ 576 nM EsaR / 0.1 nM DNA / 5 uM AHSL'.",
+        "Platemap filename carries 20260924 inside the CN-20260925 folder. The notebook loads this file deliberately."
+      ]
+    },
+    {
+      "filename": "figures/20260925-dna-titration-0p5nm.png",
+      "pattern": "quarto-label",
+      "cell_label": "cn-20260925-fig2",
+      "source_notebook": "CN-20260925-DNA_titration/platereader.ipynb",
+      "platemap": "20260924-dna-titration-esar-fixed.csv",
+      "data_source": "20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt",
+      "section_context": "2026-09-25 — Sensor DNA titration at fixed EsaR",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Labelled on cell 19 as 'cn-20260925-fig2' by the author on 2026-10-04.",
+        "Produced by cell 19 of platereader.ipynb, matched on the suptitle '~ 576 nM EsaR / 0.5 nM DNA / 5 uM AHSL'. That cell passes units='Well', estimator=None, so replicates are drawn individually."
+      ]
+    },
+    {
+      "filename": "figures/20260925-dna-titration-1nm.png",
+      "pattern": "quarto-label",
+      "cell_label": "cn-20260925-fig3",
+      "source_notebook": "CN-20260925-DNA_titration/platereader.ipynb",
+      "platemap": "20260924-dna-titration-esar-fixed.csv",
+      "data_source": "20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt",
+      "section_context": "2026-09-25 — Sensor DNA titration at fixed EsaR",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Labelled on cell 20 as 'cn-20260925-fig3' by the author on 2026-10-04.",
+        "Produced by cell 20 of platereader.ipynb, matched on the suptitle '~ 576 nM EsaR / 1 nM DNA / 5 uM AHSL'.",
+        "The 3, 6 and 9 nM conditions were run and have no reported panel. Cell 22 holds an unreported steady-state fold-induction bar plot."
+      ]
+    },
+    {
+      "filename": "figures/20260926-esao2-dna-titration-esar-spent.png",
+      "pattern": "quarto-label",
+      "cell_label": "cn-20260926-fig1",
+      "source_notebook": "CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb",
+      "platemap": "20260924-esao2-dna-titration.csv",
+      "data_source": "20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt",
+      "section_context": "2026-09-26 — Sensor DNA titration with overnight EsaR",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Labelled on cell 15 as 'cn-20260926-fig1' by the author on 2026-10-04.",
+        "Produced by cell 15 of platereader.ipynb, a three-axis figure titled 0.1 nM, 0.5 nM and 1 nM.",
+        "Platemap filename carries 20260924 inside the CN-20260926 folder. The notebook loads this file deliberately.",
+        "Cell 20 holds an unreported steady-state fold-induction bar plot.",
+        "Retagged from cn-20250926-fig1 to cn-20260926-fig1 on the author's instruction, review cycle v2 prompt 14. The Drive original still carries the 2025 spelling."
+      ]
+    },
+    {
+      "filename": "figures/20261001-mg-sweep.png",
+      "pattern": "quarto-label",
+      "cell_label": "mbcn-20261001-fig1",
+      "source_notebook": "2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb",
+      "platemap": "20261001-mg-sweep-platemap.csv",
+      "data_source": "20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt",
+      "section_context": "2026-10-01 — Magnesium sweep with EsaR and DNA pre-incubation",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "Labelled on cell 8 as 'mbcn-20261001-fig1' by the author on 2026-10-04.",
+        "Raw data was fetched from https://data.nucleus.engineering/platereader/devstudio/ and vendored into experiments/20261001-mg-osmo-sweep/. The platemap was exported from the build Sheet's first tab, which is what the notebook reads.",
+        "No build file exists for this day, so no composition sidecar was produced. The log's own volume table is carried instead and has no concentrations.",
+        "The 20 mM magnesium arm is in the platemap and not in this figure."
+      ]
+    },
+    {
+      "filename": "figures/20261007-normalized-curves.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
+      "platemap": "20261008-esao-mng-esar-ahsl.csv",
+      "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
+      "section_context": "2026-10-07 — EsaR DNA template competition",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "No cell in platereader.ipynb produces this four-condition overlay. Cells 18 and 19 each plot one condition pair (no-EsaR and plus-8nM-EsaR) separately.",
+        "Platemap dated 2026-10-08, raw data and folder dated 2026-10-07 — date mismatch, same pattern as 2026-09-25 and 2026-09-26.",
+        "REVIEW: add a cell plotting all four conditions together and label it to enable quarto-label"
+      ]
+    },
+    {
+      "filename": "figures/20261007-fold-change.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
+      "platemap": "20261008-esao-mng-esar-ahsl.csv",
+      "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
+      "section_context": "2026-10-07 — EsaR DNA template competition",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "No cell in platereader.ipynb computes or plots this ratio-over-time. Cell 21 computes a single steady-state fold change number, not the time series shown here.",
+        "Platemap dated 2026-10-08, raw data and folder dated 2026-10-07 — date mismatch.",
+        "REVIEW: add the producing cell and label it to enable quarto-label"
+      ]
+    },
+    {
+      "filename": "figures/20261007-overnight-endpoint-25c.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
+      "platemap": "20261008-esao-mng-esar-ahsl.csv",
+      "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
+      "section_context": "2026-10-07 — EsaR DNA template competition",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "No cell in platereader.ipynb loads a thermocycler or endpoint read. The notebook only ever loads the continuous plate-reader timecourse, so this figure's actual data source is unconfirmed beyond the one raw data file in the folder.",
+        "5.8-fold change in the log's own text checks out: 19800 / 3400 = 5.82, consistent with the figure's two bars.",
+        "REVIEW: identify and vendor the actual source data for this endpoint read, which may not be the timecourse .txt already in the tree"
+      ]
+    }
+  ]
+}
