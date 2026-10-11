@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jupyter",
+      "runtimeExecutable": "/Users/charlie/Documents/Projects/20251124-DevCells/microscopy/.venv/bin/jupyter",
+      "runtimeArgs": [
+        "notebook",
+        "--no-browser",
+        "--port=8888",
+        "--notebook-dir=/Users/charlie/Documents/Projects/20251124-DevCells/microscopy"
+      ],
+      "port": 8888
+    }
+  ]
+}

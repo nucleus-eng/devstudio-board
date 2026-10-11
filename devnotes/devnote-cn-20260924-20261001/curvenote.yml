@@ -4,7 +4,7 @@ project:
   # "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL" and
   # "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL" — QC to confirm.
   # No Specification table exists in any of the five source logs.
-  title: 'EsaO/R-deGFP AHL Detector'
+  title: 'Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation'
   description: >
     EsaR(D91G) repression of single- and dual-operator EsaO-mNG sensor
     constructs in Nucleus Cytosol, across five days: an EsaR titration at
@@ -59,6 +59,7 @@ project:
     - ../../plugins/platemap/platemap.mjs
   toc:
     - file: main.md
+    - file: experiments/20260924-repressor-test/platereader.ipynb
     - file: experiments/20260925-dna-titration/platereader.ipynb
     - file: experiments/20260926-dna-titration-esar-spent/platereader.ipynb
     - file: experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb
