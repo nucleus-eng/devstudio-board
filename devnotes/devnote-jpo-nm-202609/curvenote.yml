@@ -1,14 +1,14 @@
 version: 1
 project:
-  # Title supplied by Anton in chat on 2026-10-05. No Specification table and
-  # no source log exists. See the blocking title flag in main.md.
-  title: 'LuxR-GFP Sensor Demo'
-  # Description restates the three planned results from the same chat outline.
-  # It is not a quotation from any source.
+  # Title taken from the "Draft devnote" Doc (1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E)
+  # on 2026-10-11, confirmed by Anton. Replaces the chat-supplied working
+  # title "LuxR-GFP Sensor Demo".
+  title: 'Fluorescent Biofilm-Sensing GUV Hydrogel'
+  # Description restates the same Doc's own overview paragraph.
   description: >
-    GFP expression from a LuxR HSL sensor, read in bulk lysate across a range
-    of HSL concentrations, in lysate-encapsulated GUVs in solution, and in
-    GUVs embedded in hydrogels.
+    POPC giant unilamellar vesicles carrying cell-free E. coli lysate and the
+    LuxR-mNeonGreen sensor plasmid, embedded in an agarose hydrogel, producing
+    a fluorescent readout in response to 3-oxo-C6-HSL.
   # Authors and emails supplied by Anton in chat on 2026-10-05. No Authors
   # table exists in any source.
   # REVIEW: the affiliation was stated by Anton, not by either author.

@@ -20,31 +20,70 @@ protocols, and Discussion points is the authors' own section.
 
 # Overview
 
-:::{admonition}
+<!--
 :name: gap-overview
 
 Please fill in an overview of the demo. What does the system do, and what does the set of four results demonstrate together. A nice overview image fits well here too.
+
+Answer, from the "Draft devnote" Doc (1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E), 2026-10-11: adopted verbatim below.
+-->
+
+We present a GUV hydrogel device that can produce a fluorescent output in
+response to 3-oxo-C6-HSL, the quorum sensing molecule found in bacterial
+biofilms. The fluorescent biofilm-sensing hydrogel is made up of POPC giant
+unilamellar vesicles (GUVs) embedded in an agarose hydrogel. The GUVs contain
+cell-free *E. coli* lysate and the LuxR-mNeonGreen plasmid, which expresses the
+fluorescent protein mNeonGreen in response to 3-oxo-C6-HSL. mNeonGreen can
+then be detected using fluorescent microscopy or on a plate reader. The GUVs
+are made using inverted emulsion phase transfer and mixed into ultra-low
+gelling agarose (0.5% final concentration) on a 384 well plate. These gels are
+incubated at 37 °C on either a plate reader or microscope stage overnight for
+16 hours.
+
+:::{admonition}
+:name: gap-overview-image
+
+Please choose the overview image. The source Doc marks the spot with a bare `[image]` placeholder and names no file.
 :::
 
 :::{danger} Unresolved before publication
 :name: flags-blocking
 
-**No result is written and no data is in the tree.** One source log exists,
-`01-logs/NM_2026_10_6_LuxR_mNeonGreen_lysate_GUVs`, and it ends at a bare
-`# results` heading with two TODO lines under it, for the zarr URLs and for
-the analysis notebook. No platemap, no notebook, no build file and no raw data
-has been read.
+<!-- No result was written and no data was in the tree. One source log
+existed, 01-logs/NM_2026_10_6_LuxR_mNeonGreen_lysate_GUVs, ending at a bare
+"# results" heading with two TODO lines, for the zarr URLs and the analysis
+notebook.
 
-**Title and date are not sourced.** The title "LuxR-GFP Sensor Demo" and the
-date 2026-10-12 both came from Anton in chat on 2026-10-05. No Specification
-table exists. The DevNote slug reads `202609`, the source log folder reads
-2026-10-06, and the fourth result has not run yet. Three values, no source.
+Resolved, 2026-10-11, by the "Draft devnote" Doc
+(1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E): all three results now carry
+real narrative, and Result 3 carries real microscopy data from the zarr store
+named in that log. Still missing: a platemap, a notebook, and any build file,
+so no composition table exists yet for any result. -->
 
-**The reporter disagrees between sources.** The Draft devnote outline names
-"luxRGFP" in Result 1. Niall's log says the plasmid is LuxR-mNeonGreen, with a
-constitutive mNeonGreen control, and is explicit that LuxR-deGFP is an older
-and different construct that gave noisier data. The title still says GFP.
-Settle which reporter this DevNote is about.
+<!-- Title and date were not sourced. The working title "LuxR-GFP Sensor
+Demo" and the date 2026-10-12 both came from Anton in chat on 2026-10-05, with
+no Specification table.
+
+Title resolved, 2026-10-11: "Fluorescent Biofilm-Sensing GUV Hydrogel", from
+the Draft Doc, confirmed by Anton. Date still open: the DevNote slug reads
+202609, the source log folder reads 2026-10-06, and the Draft Doc names no
+date of its own. -->
+
+<!-- The reporter disagreed between sources. The outline named "luxRGFP" in
+Result 1; Niall's log said LuxR-mNeonGreen, with LuxR-deGFP named as an older,
+different, noisier construct. The title said GFP.
+
+Resolved, 2026-10-11: the new title names neither GFP nor mNeonGreen
+specifically, and every Result now names LuxR-mNeonGreen or constitutive
+mNeonGreen directly, confirmed against the sequence files in dna/. -->
+
+:::{admonition}
+:name: gap-date
+
+The DevNote slug reads `202609`, the source log folder reads 2026-10-06, the
+chat-supplied date was 2026-10-12, and the Draft Doc names no date of its own.
+Please say which date belongs to this DevNote.
+:::
 
 <!-- Two plasmids needed confirming. Anton asked on the log, 2026-10-08,
 whether two Drive files were the right sequences:
@@ -82,8 +121,11 @@ untitled, empty spreadsheet. Each result needs its own
 `build-composition.csv`, written by `devstudio-build-to-composition` from a
 build file. See the flag in each result below.
 
-**Result 4 has not run.** The outline lists gels against bacterial
-supernatant. Nothing in any source describes it yet.
+<!-- Result 4 has not run. The outline listed gels against bacterial
+supernatant, and nothing in any source described it. Resolved, 2026-10-11, by
+the "Draft devnote" Doc: the real experiment is GUVs resuspended in
+supernatant and read in solution, not gels, and it has run. It is now Result
+3, with real narrative, a condition table, a well map and three figures. -->
 :::
 
 :::{admonition} Open review items
@@ -107,15 +149,18 @@ the DevNote should call out specific people. The log credits Charlie with the
 transformations and describes Julia's parallel run in the first person. Decide
 whether that stays as narrative or moves to an acknowledgement.
 
-**AHL is named only by its class.** The outline writes AHL and gives 10 µM for
-Results 1 and 2 and 100 µM for Result 3. It does not say which acyl-homoserine
-lactone. Niall's log writes "HSL" at 10 µM.
+<!-- AHL was named only by its class. The outline wrote AHL and gave 10 µM for
+Results 1 and 2 and 100 µM for Result 3, under the old four-result numbering.
+It did not say which acyl-homoserine lactone. Niall's log wrote "HSL" at 10
+µM.
 
 Proposed, 2026-10-11, rather than asked: every LuxR-tagged construct on
 nucleus-eng/DNA's devcells/devstudio-constructs branch is tagged
 `detector-3oc6-hsl`, the canonical LuxR ligand 3OC6-HSL
-(N-(3-oxohexanoyl)-L-homoserine lactone). This is a proposal from the
-construct's own module tag, not a confirmed answer; confirm or correct it.
+(N-(3-oxohexanoyl)-L-homoserine lactone).
+
+Confirmed, 2026-10-11, by the "Draft devnote" Doc's own Overview paragraph,
+which names 3-oxo-C6-HSL directly. Resolved. -->
 
 **Where the general protocols live.** Anton asked on the log, 2026-10-08,
 where the GUV prep protocol lives. If a Methods subsection below matches a
@@ -201,7 +246,7 @@ built or ordered as a sequence goes in the table above. -->
 
 # Results
 
-## Result 1 — bulk lysate, luxRGFP with and without 10 µM AHL
+## Result 1 — LuxR-mNeonGreen sensor plasmid in bulk lysate
 
 :::{admonition} Planned scope
 :class: note
@@ -212,10 +257,24 @@ Carried verbatim from the Draft devnote outline:
 > Bulk lysate luxRGFP +/- 10uM AHL — platereader
 :::
 
-:::{admonition}
+<!--
 :name: gap-result-1
 
 Please add the motivation and the result. Say what the no-AHL condition and the constitutive control each test.
+
+Answer, from the "Draft devnote" Doc, 2026-10-11: adopted verbatim below.
+-->
+
+To test the output of the LuxR-mNeonGreen plasmid construct in the presence of
+HSL, a plate reader assay was performed to quantify fluorescence in response
+to 10 µM AHL.
+
+:::{admonition}
+:name: gap-result-1-controls
+
+The Draft names no explicit no-AHL or constitutive control for this specific
+run, though both exist for the other results. Please confirm whether this
+plate reader run included them, and what each tests.
 :::
 
 :::{danger} Missing build file
@@ -231,22 +290,57 @@ can go here. Run `devstudio-build-to-composition` on the build file.
 Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all.
 :::
 
-## Result 2 — GFP sensor GUVs in solution, with and without 10 µM AHL
+:::{admonition}
+:name: gap-figure-result-1
+
+Please choose the plate reader figure for this result. The Draft marks the spot with a bare `[image]` placeholder.
+:::
+
+The log directory for this result:
+<https://drive.google.com/drive/folders/1lK_ylF47jmR3pFxp-3bD9PqyszQyiTUX>.
+
+## Result 2 — detecting purified HSL in solution and in gels
 
 :::{admonition} Planned scope
 :class: note
 :name: scope-result-2
 
-Carried verbatim from the Draft devnote outline:
+Carried verbatim from the Draft devnote outline, originally two bullets. The
+"Draft devnote" Doc writes solution and gel as one combined narrative, so this
+DevNote now follows that merge rather than the outline's split:
 
 > GFP sensor GUVs in solution +/-10uM AHL — Platereader & microscopy
+>
+> GFP sensor Gels +/- 100uM AHL — Platereader & microscopy
 :::
 
-:::{admonition}
+<!--
 :name: gap-result-2
 
 Please add the motivation and the result. Niall's log covers the microscopy half of this: time lapse to 6 hours plus endpoint bright field and 488 nm, at 50 µL in a clear bottom 384 well plate, N=3 per condition. Julia ran the plate reader half. Say what both showed.
-:::
+
+Answer, from the "Draft devnote" Doc, 2026-10-11: adopted verbatim below.
+-->
+
+To demonstrate the ability of a synthetic cell to detect HSL, lysate-based
+GUVs encapsulating the LuxR-mNeonGreen plasmid were resuspended in outer
+solution containing 10 µM HSL and visualized by brightfield and fluorescent
+microscopy over time. To improve vesicle stability and robustness, the
+synthetic cells were also embedded in 1% w/v ultra-low gelling temperature
+agarose (ULGA), with purified HSL added to the top of the gel to induce
+mNeonGreen expression. End point and time lapse fluorescence microscopy,
+Z-stack fluorescence microscopy, and fluorescent plate reader experiments were
+run to check whether purified HSL induces protein expression inside synthetic
+cells.
+
+3-oxo-C6-HSL has been shown elsewhere to passively diffuse across artificial
+lipid bilayer membranes and induce protein expression in *E. coli*
+lysate-based systems
+([Garenne et al.](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/syst.202300029)).
+HSL would therefore be expected to permeate the GUV lipid membrane into the
+synthetic cell. HSL is non-fluorescent and carries no reactive group, so this
+could not be verified directly; LuxR-induced expression of mNeonGreen is the
+indirect verification.
 
 :::{danger} Missing build file
 :name: flags-build-result-2
@@ -261,61 +355,168 @@ can go here. Run `devstudio-build-to-composition` on the build file.
 Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all.
 :::
 
-The C wells of the 2026-10-08 store are shown as interactive viewers on
-[2026-10-08 — Interactive viewer](./2026-10-08-interactive-viewer.md). That page
-carries the open questions on contrast, timepoint and well filtering. A static
-figure carrying the same result belongs here once one is chosen, as the archival
-record, because a viewer does not survive JATS conversion.
-
-<!--
+:::{admonition}
 :name: gap-figure-result-2
 
-Please pick the well and the timepoint for the static archival figure, and say
-whether it is a single channel or a composite.
-
-Answer, Anton, 2026-10-09: C10, T = 19, GFP channel only, brightfield and
-Alexa Fluor 647 both excluded.
--->
-
-:::{figure} ./figures/20261008-c10-gfp-t19.png
-:label: fig-c10-gfp-t19
-:align: center
-:width: 75%
-Well C10 at T = 19, GFP channel only, contrast windowed 30000 to 60000,
-scale bar 500 µm. Brightfield and Alexa Fluor 647 are excluded. The same well is live as an
-interactive viewer on [2026-10-08 — Interactive viewer](./2026-10-08-interactive-viewer.md#c10).
+Please choose the figure for this result. The Draft marks the spot with a bare `[image]` placeholder.
 :::
 
-[`fig-c10-gfp-t19`, platemap: none, data source:`nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/10/0`, caption: (Well C10 at T = 19, GFP channel only, contrast windowed 30000 to 60000, scale bar 500 µm.)]
+Log directories: the GUVs-in-solution run (2nd/3rd October) is at
+<https://drive.google.com/drive/folders/15EQ5kkf6LlnIJqQShonYNE3fKh8O3PgD>, and
+the gel run is at
+<https://drive.google.com/drive/folders/1j4vF36gjF_jpaGyI8fI-_uyUs-M6mC2d>. The
+gel run's raw plate reader data:
+<https://data.nucleus.engineering/platereader/devstudio/20261006-164718-cytation5-pure-timecourse-gfp-julia-lysategels100uM.txt>.
 
-<!-- missing notebook -->
-
-<!-- Rendered directly from the zarr store, not from a notebook: read with
-zarr-python over HTTP at resolution level s2 (2775x2775), channel index 1
-(GFP, confirmed against the store's own omero.channels order), timepoint 19,
-window 30000-60000 clipped and normalized to 8-bit, written to a single green
-channel with PIL. No notebook or platemap exists yet for this store, so
-asset_chain_complete is false in manifest.json. -->
-
-<!-- A microscopy result also needs the per-object parquet beside the store, if
-one exists, and the analysis notebook. Niall's log carries two open TODOs for
-exactly this: the zarr URLs and the analysis notebook. -->
-
-## Result 3 — GFP sensor gels, with and without 100 µM AHL
+## Result 3 — detecting bacterially produced HSL in solution
 
 :::{admonition} Planned scope
 :class: note
 :name: scope-result-3
 
-Carried verbatim from the Draft devnote outline:
+Carried verbatim from the Draft devnote outline, as its third and fourth
+bullets. The outline bullet below reads "gels"; the Draft's own narrative and
+well map describe GUVs resuspended in bacterial supernatant and read in
+solution, not embedded in a gel, so this DevNote follows the narrative:
 
-> GFP sensor Gels +/- 100uM AHL — Platereader & microscopy
+> GFP sensor gels +/- bacterial supernatant — Platereader
 :::
 
-:::{admonition}
+<!--
 :name: gap-result-3
 
-Please add the motivation and the result. Say why this result uses 100 µM AHL where Results 1 and 2 use 10 µM.
+Please add the motivation and the result. Say which organism the supernatant comes from and what it is being compared against.
+
+Answer, from the "Draft devnote" Doc, 2026-10-11: adopted verbatim below.
+-->
+
+To model bacterial sensing using GUVs, the LuxI plasmid was transformed into
+DH5α *E. coli* (DH5α w/ LuxI) to encode production of 3-oxo-C6-HSL, the
+small-molecule quorum sensor detected in Result 2. The same LuxR-mNeonGreen
+plasmid was used to check whether lysate-based synthetic cells can detect
+bacterially produced HSL, by resuspending the GUV pellet in bacterial
+supernatant. Control experiments used the DH5α strain without the LuxI
+plasmid (DH5α ΔLuxI), which removes HSL from the supernatant.
+
+:::{table} Three experimental conditions for HSL-induced mNeonGreen expression using bacterial supernatant in solution.
+:label: tbl-supernatant-conditions
+:align: center
+
+| Condition | Plasmid | Supernatant used |
+| --- | --- | --- |
+| HSL sensing GUVs | LuxR-mNeonGreen | DH5α w/ LuxI |
+| Negative control | LuxR-mNeonGreen | DH5α ΔLuxI |
+| Positive control | Constitutive mNeonGreen | DH5α ΔLuxI |
+:::
+
+Lysate GUVs were prepared following the standard protocol in {numref}`sec-methods`
+up to the resuspension step. The GUV pellets were resuspended in 100 µL of
+1:10 supernatant to outer solution, and 30 µL was added to a 384 well plate
+for visualization. One GUV preparation was run per condition, split into
+three wells for microscopy. Brightfield and 488 nm fluorescence microscopy
+were both run on each sample over time, images acquired every 20 minutes for
+about 7 hours.
+
+:::{table} Well plate mapping for the three conditions in {numref}`tbl-supernatant-conditions`.
+:label: tbl-supernatant-wells
+:align: center
+
+| Condition | Wells |
+| --- | --- |
+| HSL sensing GUVs | C3, C4, C5 |
+| Negative control | C6, C7, C8 |
+| Positive control | C9, C10, C11 |
+:::
+
+Supernatant from DH5α carrying the LuxI plasmid induced mNeonGreen expression
+within lysate GUVs carrying the LuxR-mNeonGreen plasmid, visible by
+fluorescence microscopy at 488 nm (wells C3 to C5). After about 80 minutes,
+mNeonGreen expression becomes visible within some GUVs, with more GUVs
+expressing over time. Expression is clearly visible throughout the well, but
+overlapping brightfield and 488 nm fluorescence shows that many GUVs had no
+expression, likely because they did not encapsulate all the machinery
+lysate-based TXTL needs.
+
+Lysate GUVs carrying the same plasmid, resuspended in supernatant from
+bacteria without the LuxI plasmid, had minimal expression over the 7 hour
+experiment (wells C6 to C8). This shows that HSL is required to induce
+expression within lysate GUVs, and that HSL made by *E. coli* can be detected
+by synthetic cells. Synthetic cells carrying the constitutive mNeonGreen
+plasmid in DH5α ΔLuxI supernatant expressed after about 40 minutes, with
+expression increasing over the experiment (wells C9 to C11). The faster
+expression compared to LuxR-mNeonGreen follows from synthesizing one protein
+only, with no dependency on HSL entering the cell and activating mNeonGreen
+expression.
+
+The three conditions are shown as interactive viewers, one well per
+condition, on
+[2026-10-08 — Interactive viewer](./2026-10-08-interactive-viewer.md). That
+page carries the open questions on contrast and timepoint.
+
+:::::{tab-set}
+
+::::{tab-item} HSL sensing GUVs
+:::{figure} ./figures/fov-c4.png
+:label: fig-fov-c4
+:align: center
+:width: 75%
+Well C4, HSL sensing GUVs (LuxR-mNeonGreen, DH5α w/ LuxI supernatant), T = 19,
+GFP channel only, contrast windowed 30000 to 60000. 659 µm field of view,
+cropped and zoomed to Anton's own Vizarr view state.
+:::
+::::
+
+::::{tab-item} Negative control
+:::{figure} ./figures/fov-c7.png
+:label: fig-fov-c7
+:align: center
+:width: 75%
+Well C7, negative control (LuxR-mNeonGreen, DH5α ΔLuxI supernatant), T = 19,
+GFP channel only, contrast windowed 30000 to 60000. Same crop and zoom as the
+other two panels; carried as imaged, near-empty as expected for this control.
+:::
+::::
+
+::::{tab-item} Positive control
+:::{figure} ./figures/fov-c10.png
+:label: fig-fov-c10
+:align: center
+:width: 75%
+Well C10, positive control (constitutive mNeonGreen, DH5α ΔLuxI supernatant),
+T = 19, GFP channel only, contrast windowed 30000 to 60000. Same crop and zoom
+as the other two panels.
+:::
+::::
+
+:::::
+
+[`fig-fov-c4`, platemap: none, data source:`nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/4/0`, caption: (Well C4, HSL sensing GUVs, T = 19, GFP channel only, cropped and zoomed.)]
+
+[`fig-fov-c7`, platemap: none, data source:`nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/7/0`, caption: (Well C7, negative control, T = 19, GFP channel only, cropped and zoomed.)]
+
+[`fig-fov-c10`, platemap: none, data source:`nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/10/0`, caption: (Well C10, positive control, T = 19, GFP channel only, cropped and zoomed.)]
+
+<!-- missing notebook -->
+
+<!-- All three rendered by general/render-microscopy-fovs.py, adapted from
+devnote-swh-20260925-ph-sensor-in-solution's own script of the same name
+rather than written fresh: same crop math, same scale-bar convention. One
+well per condition, the triplicate's middle well (C4, C7, C10), chosen
+because Anton's own Vizarr link named C4. One target and one zoom for all
+three, copied verbatim from that link
+(https://bnext-bio.github.io/vizarr/?source=.../C/4&viewState=...), so every
+panel sits at the same pixel offset and scale and no panel was positioned to
+favour a result. GFP channel only (channel index 1, confirmed against the
+store's own omero.channels order), T = 19, window 30000-60000 fixed rather
+than computed, per Anton's instruction. Field of view and scale bar are
+computed from the store's own per-level pixel scale, not hardcoded. No
+notebook or platemap exists yet for this store, so asset_chain_complete is
+false in manifest.json. -->
+
+:::{admonition}
+:name: gap-fov-rendering
+
+Confirm the representative well choice (the middle well of each triplicate) and the fixed output size, 1080x1080 px, both chosen without a stated reason beyond consistency with the existing SWH script.
 :::
 
 :::{danger} Missing build file
@@ -328,38 +529,12 @@ can go here. Run `devstudio-build-to-composition` on the build file.
 :::{admonition}
 :name: gap-deviation-result-3
 
-Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all. Name the gel.
-:::
-
-## Result 4 — GFP sensor gels, with and without bacterial supernatant
-
-:::{admonition} Planned scope
-:class: note
-:name: scope-result-4
-
-Carried verbatim from the Draft devnote outline:
-
-> GFP sensor gels +/- bacterial supernatant — Platereader & microscopy
-:::
-
-:::{admonition}
-:name: gap-result-4
-
-Please add the motivation and the result. Say which organism the supernatant comes from and what it is being compared against.
-:::
-
-:::{danger} Missing build file
-:name: flags-build-result-4
-
-No `build-composition.csv` exists for this experiment, so no composition table
-can go here. Run `devstudio-build-to-composition` on the build file.
-:::
-
-:::{admonition}
-:name: gap-deviation-result-4
-
 Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all.
 :::
+
+<!-- A microscopy result also needs the per-object parquet beside the store, if
+one exists, and the analysis notebook. Niall's log carries two open TODOs for
+exactly this: the zarr URLs and the analysis notebook. -->
 
 (sec-methods)=
 # Methods
@@ -372,60 +547,155 @@ Each subsection below is a general protocol. Where one matches a published Nucle
 
 ## Lysate preparation
 
-:::{admonition}
+<!--
 :name: gap-method-lysate
 
 Please write the general lysate protocol. Niall's log gives a 25 µL reaction from the Promega S30 Extract System for circular DNA, with plasmid at a 40 ng/µL final stock, 2.50 µL amino acids, 10.00 µL S30 premix, 7.50 µL S30 extract, 1.25 µL RNase inhibitor, 2.50 µL 3 M sucrose and nuclease free water to volume, prepared on ice. Confirm it and say whether it is the general protocol or a deviation.
+
+Answer, Anton, 2026-10-11: the 12.5 µL reaction below, from the "Draft devnote"
+Doc, is the bulk lysate reaction. The 25 µL figure in Niall's log is believed
+to be the volume of GUV suspension added to a gel, not a lysate reaction; see
+the flag on Gel preparation below.
+-->
+
+Mix amino acids using equal volumes from each provided tube (−Met, −Cys,
+−Lys). Assemble the following from the Promega circular lysate kit on ice:
+
+:::{table} Bulk lysate reaction, 12.5 µL.
+:label: tbl-bulk-lysate
+:align: center
+
+| Component | Volume (µL) |
+| --- | --- |
+| DNA | X (40 ng/µL final concentration) |
+| Amino acids | 2.5 |
+| S30 Premix | 10 |
+| S30 Extract | 7.5 |
+| Murine RNase Inhibitor | 1.25 |
+| Nuclease free water | 3.75 − X |
+| Total | 12.5 |
 :::
+
+Place 10 µL of the reaction in a 384 low volume plate and incubate in a plate
+reader at 37 °C for 4 hours.
 
 ## Thin film preparation
 
-:::{admonition}
+<!--
 :name: gap-method-thin-film
 
 Please write the general thin film protocol. Niall's log gives 25 mg/mL POPC in chloroform, evaporated under nitrogen and dried overnight in a vacuum desiccator, then mineral oil to 4 mg/mL, vortexed 1 minute and sonicated at 40 kHz for 30 minutes.
+
+Answer, from the "Draft devnote" Doc, 2026-10-11: adopted verbatim below.
+-->
+
+Create lipid thin films in a glass vial using 160 µL of 25 mg/mL POPC
+chloroform stock and dry under nitrogen gas. Place the films in a vacuum
+desiccator overnight. Add 1 mL of mineral oil to each film.
+
+:::{admonition}
+:name: gap-method-thin-film-concentration
+
+Niall's log gives the mineral oil concentration as 4 mg/mL. The Draft gives a
+1 mL volume added to each film rather than a concentration. Confirm whether
+these describe the same step.
 :::
 
 ## GUV preparation
 
-:::{admonition}
+<!--
 :name: gap-method-guv
 
 Please write the general GUV protocol. Niall's log gives the emulsion transfer: 200 µL lipid-in-oil into TUBE I, the lysate added and pipetted 20 times with a P1000, laid on the outer solution in TUBE O, left 2 minutes, then 9000 xg for 20 minutes, with the pellet resuspended in 50 µL.
+
+Answer, from the "Draft devnote" Doc, 2026-10-11: adopted verbatim below.
+-->
+
+Prepare the inner solution using the table below.
+
+:::{table} Inner solution (lysate), 12.5 µL.
+:label: tbl-inner-solution
+:align: center
+
+| Component | Volume (µL) |
+| --- | --- |
+| DNA | X (40 ng/µL final concentration) |
+| Amino acids | 2.5 |
+| S30 Premix | 10 |
+| S30 Extract | 7.5 |
+| Murine RNase Inhibitor | 1.25 |
+| Sucrose (3 M) | 1.25 |
+| Nuclease free water | 2.50 − X |
+| Total | 12.5 |
 :::
 
-:::{danger} The source contradicts itself twice
+Prepare the outer solution with the concentrations in the table below.
+
+:::{table} Outer solution, 5 mL.
+:label: tbl-outer-solution
+:align: center
+
+| Sample | Stock concentration (M) | Volume added (mL) | Final concentration in outer solution (mM) |
+| --- | --- | --- | --- |
+| Potassium Glutamate | 1 | 2.89 | 578 |
+| HEPES | 0.5 | 0.72 | 72 |
+| Glucose | 1.8 | 0.83 | 299 |
+| MQ water | N/A | 0.56 | N/A |
+:::
+
+Label two microcentrifuge tubes "inner" and "outer". Pipette 300 µL outer
+solution into the outer tube and 200 µL lipid-in-oil into the inner tube. Add
+20 µL of lysate solution to the lipid-in-oil and emulsify 20 to 25 times using
+a P1000 pipette. Immediately layer the emulsion onto the outer solution and
+let it sit at room temperature for 5 minutes, to let the monolayer form at the
+aqueous-oil interface. Centrifuge at 9000 ×g for 15 minutes. Clear the oil
+layer and the old outer solution. Resuspend the pellet with 100 µL outer
+solution. Incubate overnight at 37 °C in a plate reader or microscope.
+
+<!--
 :name: flags-solution-naming
 
-Both of these are carried as the log writes them and neither is corrected
-here.
-
-The caption of the outer solution table reads "required for inner solution for
-lysate GUVs", while the paragraph above it and the table's own last column
-both call it the outer solution.
-
-The same paragraph reads "200 µL of lipid-in-oil solution is added to the inner
-solution (TUBE I) microcentrifuge tube. 300 µL of inner solution is added to
-the outer centrifuge tube (TUBE O)."
-
-Say which is right and I will write the table and the step accordingly.
-:::
+Resolved, 2026-10-11, by the "Draft devnote" Doc's own clearer wording. Inner
+tube holds the lipid-in-oil, into which the lysate is added; outer tube holds
+the outer solution recipe above. This matches the outer solution table's own
+caption and last column, and corrects the contradiction in Niall's log, which
+named the tubes the opposite way in one paragraph.
+-->
 
 ## Gel preparation
 
-:::{admonition}
+<!--
 :name: gap-method-gel
 
 Please write the general gel protocol. No source describes it. Name the gel, because it is what separates Results 3 and 4 from Result 2.
-:::
+
+Answer, from the "Draft devnote" Doc, 2026-10-11: adopted verbatim below. This
+is the step Anton believes Niall's log's "25 µL" figure describes, not a
+lysate reaction; see the flag on Lysate preparation above.
+-->
+
+Make a 1% ULGA stock, with ULGA dissolved in the outer solution from
+{numref}`tbl-outer-solution`. Heat in a microwave or on a hot plate until the
+solution is bubbling. Allow it to cool to a temperature that can be held by
+hand, and before it gels, pipette 25 µL of GUVs and 25 µL of ULGA into a 384
+well plate and mix. Place on ice or in a fridge for 10 minutes. Add 10 µL of
+600 µM AHL, giving a final gel concentration of 100 µM, and incubate at 37 °C
+in a plate reader or microscope overnight.
 
 ## Supernatant preparation
 
-:::{admonition}
+<!--
 :name: gap-method-supernatant
 
 Please write the supernatant protocol. No source describes it. Say which organism it comes from and how it is prepared.
-:::
+
+Answer, from the "Draft devnote" Doc, 2026-10-11: adopted verbatim below.
+-->
+
+Inoculate 5 mL LB (ampicillin) with the DH5α strain carrying the LuxI
+producing plasmid. Incubate overnight at 37 °C. Centrifuge for 15 minutes.
+Pipette the supernatant into a separate tube. Sterile filter the supernatant
+with a 0.22 µm filter. Store at −20 °C until use.
 
 # Discussion points
 
@@ -453,6 +723,14 @@ Please write this comparison.
 Please write the potential issues with gel embedding, which the outline names as ULGA.
 :::
 
+## Dynamic range in bulk vs GUVs
+
+:::{admonition}
+:name: gap-discussion-dynamic-range
+
+Please write this comparison. Added to the outline on 2026-10-11; no source describes it yet.
+:::
+
 # Notes
 
 :::{admonition}
@@ -474,5 +752,17 @@ Based on what is described here, what comes next?
 :::{admonition}
 :name: gap-resources
 
-Please list the files this DevNote draws on. `devstudio-assemble-devnote-assets` writes one link per file in `experiments/` once the assets land.
+Please list the files this DevNote draws on beyond the Log folders below. `devstudio-assemble-devnote-assets` writes one link per file in `experiments/` once the assets land.
 :::
+
+Log folders, one per result, from the "Draft devnote" Doc:
+
+- Result 1, bulk lysate: <https://drive.google.com/drive/folders/1lK_ylF47jmR3pFxp-3bD9PqyszQyiTUX>
+- Result 2, GUVs in solution (2nd/3rd October): <https://drive.google.com/drive/folders/15EQ5kkf6LlnIJqQShonYNE3fKh8O3PgD>
+- Result 2, gels: <https://drive.google.com/drive/folders/1j4vF36gjF_jpaGyI8fI-_uyUs-M6mC2d>
+- Result 3, bacterial supernatant: the microscopy store itself, `nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr`; no separate Log folder link was given.
+
+Raw data:
+
+- Result 2 gel run, plate reader: <https://data.nucleus.engineering/platereader/devstudio/20261006-164718-cytation5-pure-timecourse-gfp-julia-lysategels100uM.txt>
+- Result 3, microscopy store: <https://data.nucleus.engineering/microscopy/nucleus-bnext-01/nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr>
