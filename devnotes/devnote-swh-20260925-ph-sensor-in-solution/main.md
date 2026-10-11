@@ -102,7 +102,7 @@ Tris base stays blank. No Tris base entry of any kind exists in the Nucleus mate
 | [Trigger_ssDNA#3](./dna/trigger-ssdna3.gb) | TATGCAAACAAGACAATACCACACAATTTTTTTTTT | Trigger strand, 36 bp. |
 :::
 
-The last two anneal 3:1 in IDT duplex buffer to form the construct listed as `pH-responsive:Trigger ssDNA (3:1) annealed construct` in {numref}`tbl-pla1-guv-is`, where the 25 µM stock concentration is that of the trigger strand. Both files verified: `pH-responsive_ssDNA#2` declares 49 bp and carries 49 bases, `Trigger_ssDNA#3` declares 36 bp and carries 36 bases.
+<!-- The last two anneal 3:1 in IDT duplex buffer to form the construct listed as `pH-responsive:Trigger ssDNA (3:1) annealed construct` in {numref}`tbl-pla1-guv-is`, where the 25 µM stock concentration is that of the trigger strand. Both files verified: `pH-responsive_ssDNA#2` declares 49 bp and carries 49 bases, `Trigger_ssDNA#3` declares 36 bp and carries 36 bases. -->
 
 Annealing was performed in a thermocycler using the following protocol: 5 min at 95 °C, followed by stepwise cooling at 2 min per degree to the melting temperature of the construct (Tm = 52 °C), 30 min per degree from 52 °C to Tm − 10 °C (42 °C), and finally 2 min per degree until reaching 25 °C. The annealed construct was stored at −20 °C.
 
@@ -117,7 +117,7 @@ Annealing was performed in a thermocycler using the following protocol: 5 min at
 
 <!-- Sequence map of `pT7-toehold9-PLA1`. The file declares 1203 bp and carries 1203 bases, and its sequence matches `pT7-toehold9-PLA1-linear.gb` on `nucleus-eng/DNA` branch `devcells/devstudio-constructs`. -->
 
-# Protocol
+# Protocols
 
 <!-- Section order follows the source log, which prepares the CPRG-LUVs first. The
 composition tables under Methods run in the other order. -->
@@ -436,9 +436,9 @@ The osmolarity of the Tris1M-HEPES1.15M stock (1 M Tris, 1.15 M HEPES, pH 8), ap
 
 ## Gel
 
-The gel composition is already given: [LGA Gel Preparation](#lga-gel-preparation)'s step 2 table, under Protocol.
+The gel composition is already given: [LGA Gel Preparation](#lga-gel-preparation)'s step 2 table, under Protocols. The demo used a total volume of 7.2 µL, composed of: 3 µL of PLA1-expressing vesicles (prepared in 1175 mOsm/kg solution, pH 8), 3 µL of CPRG-loaded SUVs/LUVs (prepared in 1175 mOsm/kg solution, pH 8), and 1.2 µL of 1175 mOsm/kg solution, pH 8. 
 
-The demo used a total volume of 7.2 µL, composed of: 3 µL of PLA1-expressing vesicles (prepared in 1175 mOsm/kg solution, pH 8), 3 µL of CPRG-loaded SUVs/LUVs (prepared in 1175 mOsm/kg solution, pH 8), and 1.2 µL of 1175 mOsm/kg solution, pH 8. <!-- REVIEW: this reads as the gel-based Full Demo's target ratio, not a match for any single row in tbl-conditions (e.g. E4 is 3 + 2.1 + 2.1 µL), and pH Sensor Validation in Solution (D4/D5: 1 + 0 + 6.2 µL) looks different again. Confirm with SH whether this 3:3:1.2 ratio is specific to the gel-based Full Demo attempts, and whether the solution-only validation used a different ratio on purpose. -->
+<!-- REVIEW: this reads as the gel-based Full Demo's target ratio, not a match for any single row in tbl-conditions (e.g. E4 is 3 + 2.1 + 2.1 µL), and pH Sensor Validation in Solution (D4/D5: 1 + 0 + 6.2 µL) looks different again. Confirm with SH whether this 3:3:1.2 ratio is specific to the gel-based Full Demo attempts, and whether the solution-only validation used a different ratio on purpose. -->
 
 <!-- ## Measurement
 
@@ -577,7 +577,7 @@ Color development after 5.5 h of incubation at 37 °C with 1.2 U/mL β-galactosi
 
 # Notes
 
-In contrast to previous [descriptions](https://doi.org/10.1101/2025.11.16.688650), no gramicidin is used.
+In contrast to previous [descriptions](https://doi.org/10.1101/2025.11.16.688650), no gramicidin is used. Gramicidin A was not included in the colorimetric demonstration because it caused a portion of the CPRG-loaded vesicles to rupture prematurely, leading to nonspecific color development. Although the absence of gramicidin A may reduce pH-sensing efficiency, PLA1 expression driven by proton diffusion into a subset of vesicles with relatively permeable membranes appeared to be sufficient to initiate the vesicle-lysis cascade.
 
 # What's next
 
