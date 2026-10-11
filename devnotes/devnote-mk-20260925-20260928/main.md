@@ -11,7 +11,7 @@ template order. The Doc is a written protocol, and its steps refer to each
 other by Part number. Reordering it breaks those references.
 STYLE: non-standard section headings preserved per participant intent. -->
 
-:::{admonition} Open items from the redraft
+<!-- :::{admonition} Open items from the redraft
 :class: warning dropdown
 :name: flags-review
 
@@ -72,7 +72,7 @@ it belongs or remove it.
 `composition-20260925.csv`, `composition-20260928.csv` and
 `composition-20260928-microscopy.csv`, written before this redraft. The Doc
 carries its own composition tables, so nothing points at them any more.
-:::
+::: -->
 
 # Abstract
 
@@ -129,10 +129,11 @@ sitting flat at either extreme.
 
 # Materials
 
-Vendor and catalog columns are left for you to fill from what is actually on
-the shelf; the concentrations below are the ones this run used.
+<!-- Vendor and catalog columns are left for you to fill from what is actually on
+the shelf; the concentrations below are the ones this run used. -->
 
-## Lipids (in chloroform)
+::::{admonition} Lipids (in chloroform)
+:class: dropdown
 
 :::{table} Lipids, as supplied in chloroform.
 :label: tbl-lipids
@@ -144,8 +145,10 @@ the shelf; the concentrations below are the ones this run used.
 | Cholesterol (ovine) | 386.7 | 19.3 | 50 | Membrane stability | Avanti |
 | 18:1 Liss Rhod PE | 1301.7 | 1 | 0.77 | Membrane fluorophore | Avanti |
 :::
+::::
 
-## Cell-free expression system
+::::{admonition} Cell-free expression system
+:class: dropdown
 
 Components are the OnePot PURE-style sub-mixes; each is dispensed as a fixed
 fraction of the reaction volume.
@@ -164,8 +167,10 @@ fraction of the reaction volume.
 | RNase inhibitor, murine (RIM) | 5.2% |   |
 | **Total master mix** | **84%** | Remainder is DNA, TetR, and water |
 :::
+::::
 
-## Nucleic acids and proteins
+::::{admonition} Nucleic acids and proteins
+:class: dropdown
 
 :::{table} Nucleic acids and proteins.
 :label: tbl-constructs
@@ -176,8 +181,10 @@ fraction of the reaction volume.
 | pOpen-TetO-deGFP plasmid | 100 nM | 1 nM |
 | TetR, His-tagged (MedChemExpress) | ~10 µM | 1000 nM |
 :::
+::::
 
-## Small molecules and buffers
+:::{admonition} Small molecules and buffers
+:class: dropdown
 
 - Anhydrotetracycline (aTc) — inducer, added at four levels (0, 0.25, 0.5, 1)
 - Sucrose — inner solution osmolyte and density agent
@@ -187,8 +194,10 @@ fraction of the reaction volume.
 - Nuclease-free water
 - Mineral oil, BioUltra grade
 - Chloroform — lipid handling only, glass syringes and glass vials
+:::
 
-## Consumables
+:::{admonition} Consumables
+:class: dropdown
 
 - Glass vials with PTFE-lined caps, one per lipid film condition
 - Hamilton glass syringes for chloroform transfers
@@ -197,8 +206,10 @@ fraction of the reaction volume.
 - 384-well black plate (bulk plate-reader control)
 - Glass slides and coverslips
 - Low-retention pipette tips
+:::
 
-## Equipment
+:::{admonition} Equipment
+:class: dropdown
 
 - Nitrogen gas line for film drying
 - Vacuum oven or desiccator (overnight lipid film drying)
@@ -208,6 +219,7 @@ fraction of the reaction volume.
 - Ice bucket
 - Confocal or widefield fluorescence microscope with GFP and rhodamine channels
 - Plate reader with GFP excitation/emission
+:::
 
 # Stocks to prepare in advance
 
@@ -491,11 +503,11 @@ the protocol.
 :::{seqviz} ./dna/pOpen-TetO-deGFP.gb
 :::
 
-The map above is built from this Doc's own sequence and its own landmark
+<!-- The map above is built from this Doc's own sequence and its own landmark
 column. Each feature is placed by searching the sequence for the landmark
 string the table gives, so no coordinate is asserted by hand. The table also
 names AmpR and the pUC origin, with a dash in place of a landmark, so neither
-is annotated.
+is annotated. -->
 
 <!-- Positions measured against the sequence below on 2026-10-11: total
 2855 bp; T7 promoter at base 5; tetO operator at base 26; g10 leader and RBS at
@@ -558,10 +570,10 @@ aataggggttccgcgcacctgcaccagtcagtaaaacgacggccagtagtcaaaagccta
 cgaccggaggcttttgacttggttcaggtggagtg
 ```
 
-Sequence as supplied, 5′→3′. Lowercase marks coding and backbone regions;
+<!-- Sequence as supplied, 5′→3′. Lowercase marks coding and backbone regions;
 uppercase marks the promoter/operator/RBS region at the 5′ end. The Doc
 gives it as one unbroken string. It is wrapped at 60 characters per line
-here so it fits the page; no character is changed.
+here so it fits the page; no character is changed. -->
 :::
 
 # Results
@@ -584,6 +596,7 @@ not inhibiting the reaction. All conditions plateaued by ~3 h.
 *Figure 1.* Kinetics of deGFP expression from pOpen-TetO-deGFP in bulk PURE reactions. Fluorescence (485/20 ex, 528/20 em, gain 50) read every 5 min for 6 h at 37 °C. Conditions: no-DNA control, unrepressed (1 nM plasmid), and 1 nM plasmid + 1000 nM TetR across 0–1 µM aTc. n = 2 wells per condition.
 :::
 
+[@claude, how crazy would it be to try and pull these files from the drive and recreate the figure above?]
 [`fig-1-bulk-kinetics`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb`, platemap:`MK-20260928-platemap-nucleus-bulk.csv`, data source:`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`, caption: (Kinetics of deGFP expression from pOpen-TetO-deGFP in bulk PURE reactions.)]
 
 :::{figure} ./figures/fig2-bulk-endpoint.png
@@ -593,6 +606,7 @@ not inhibiting the reaction. All conditions plateaued by ~3 h.
 *Figure 2.* Endpoint deGFP fluorescence at 6 h, from the kinetic run in Figure 1. Individual replicates shown; n = 2 wells per condition.
 :::
 
+[@claude, how crazy would it be to try and pull these files from the drive and recreate the figure above?]
 [`fig-2-bulk-endpoint`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb`, platemap:`MK-20260928-platemap-nucleus-bulk.csv`, data source:`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`, caption: (Endpoint deGFP fluorescence at 6 h, from the kinetic run in Figure 1.)]
 
 <!-- Figures 1 and 2 are pasted images in the source Doc, extracted with pandoc
@@ -619,7 +633,7 @@ deGFP increased with aTc concentration.
 }
 :::
 
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.zarr`, caption: (Images of GUVs over 4 h. Membrane labeled with Cy5.5-PE; deGFP in the GFP channel. Left two columns, GUVs in PEG-NB hydrogel; right two columns, duplicate samples in solution.)]
+<!-- [zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.zarr`, caption: (Images of GUVs over 4 h. Membrane labeled with Cy5.5-PE; deGFP in the GFP channel. Left two columns, GUVs in PEG-NB hydrogel; right two columns, duplicate samples in solution.)] -->
 
 *Figure 3.* Images of GUVs over 4 h. Membrane labeled with Cy5.5-PE; deGFP in
 the GFP channel. Left two columns, GUVs in PEG-NB hydrogel; right two columns,
@@ -669,12 +683,12 @@ repressed the sensor effectively in both formats — 9.8-fold in bulk — and aT
 relieved repression in both. In GUVs, induction increased with aTc up to 1 µM,
 the highest dose tested.
 
-# Resources
+<!-- # Resources -->
 
 <!-- Not a section of the source Doc. Added so the assets the figures resolve
 through are linked from the DevNote. -->
 
-- Plate map, bulk: [`experiments/MK-20260928-platemap-nucleus-bulk.csv`](./experiments/MK-20260928-platemap-nucleus-bulk.csv)
+<!-- - Plate map, bulk: [`experiments/MK-20260928-platemap-nucleus-bulk.csv`](./experiments/MK-20260928-platemap-nucleus-bulk.csv)
 - Plate map, microscopy: [`experiments/20260928-MK-full-sensor-microscopy.csv`](./experiments/20260928-MK-full-sensor-microscopy.csv)
 - Analysis notebook, plate reader: [`experiments/MK-20260928-platereader.ipynb`](./experiments/MK-20260928-platereader.ipynb)
 - Analysis notebook, microscopy: [`experiments/MK-20260928-microscopy.ipynb`](./experiments/MK-20260928-microscopy.ipynb)
@@ -682,7 +696,7 @@ through are linked from the DevNote. -->
 - Microscopy per-object measurements: [the parquet beside that plate](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet)
 
 The raw plate reader file lands in `experiments/` during asset assembly, as
-`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`.
+`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`. -->
 
 <!-- The microscopy notebook lands in experiments/ as
 MK-20260928-microscopy.ipynb. Its Drive title is "MK-20260928- microscopy",
