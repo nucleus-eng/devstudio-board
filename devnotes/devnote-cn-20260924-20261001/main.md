@@ -353,10 +353,11 @@ is a human edit in another repository and not something this pipeline does.
 | [T7-EsaR(D91G)-T7term](./dna/t7pro-ls1-esard91g.gbk) | {ref}`seq-esar-d91g` | [PLEASE FILL IN] |
 :::
 
-::::{admonition} T7-\[EsaO\]2-mNG-t7term, full sequence
-:class: dropdown
-:name: seq-esao2-mng
+:::::{tab-set}
 
+::::{tab-item} [EsaO]2-mNG (dual operator)
+
+(seq-esao2-mng)=
 Source file:
 [`dna/t7pro-esao2-ls1-mneongreen.gbk`](./dna/t7pro-esao2-ls1-mneongreen.gbk),
 1118 bp. Verified against its own header and against the single-operator file.
@@ -381,10 +382,9 @@ mNeonGreen, T7 terminator, M13_Rev, 3' spacer.
 :::
 ::::
 
-::::{admonition} T7-\[EsaO\]-mNG-T7term, full sequence
-:class: dropdown
-:name: seq-esao-mng
+::::{tab-item} EsaO-mNG (single operator)
 
+(seq-esao-mng)=
 Source file:
 [`dna/t7pro-esao-ls1-mneongreen.gbk`](./dna/t7pro-esao-ls1-mneongreen.gbk),
 1098 bp. Verified three ways. The `LOCUS` line declares 1098 bp and the
@@ -407,10 +407,9 @@ swapped.
 :::
 ::::
 
-::::{admonition} T7-EsaR(D91G)-T7term, full sequence
-:class: dropdown
-:name: seq-esar-d91g
+::::{tab-item} EsaR(D91G)
 
+(seq-esar-d91g)=
 Source file: [`dna/t7pro-ls1-esard91g.gbk`](./dna/t7pro-ls1-esard91g.gbk),
 1118 bp. Verified three ways. The `LOCUS` line declares 1118 bp and the
 `ORIGIN` block holds exactly 1118 bases. The CDS at 132..881 translates to 249
@@ -424,6 +423,8 @@ M13_Rev, 3' spacer.
 :viewer: linear
 :::
 ::::
+
+:::::
 
 <!-- Four of these seven templates (T7-mNG, T7-PLA1, T7-[EsaO]-PLA1,
 T7-[EsaO]2-PLA1) were prepared on 2026-09-23 but do not appear in any
@@ -501,20 +502,15 @@ the sheet states. That factor is "Distribute into 1x 23.72 µL (mNG), and 8x
 :::
 ::::
 
-Pilot of the `{platemap}` viewer, newly added to `nucleus-eng/devnote-template`
-on 2026-10-11, on this DevNote's first experiment. It reads the platemap CSV
-directly, with no transcription into this page.
-
 ::::{platemap} ./experiments/20260924-repressor-test/build - 20260924_Platemap.csv
 :height: 480px
 :fields: EsaR Vol (uL), [AHSL] (uM), [Fluorescein] (uM)
 :label: platemap-20260924
 ::::
 
-<!-- Pilot, not yet applied to the other four days. If it holds up, the plain
-build-composition tables above stay. They carry per-component concentrations
-the platemap itself does not record. The viewer replaces reading the raw
-platemap CSV. It does not replace the composition table. -->
+<!-- The platemap viewer reads the CSV directly. It does not replace the
+build-composition table above, which carries per-component concentrations the
+platemap itself does not record. -->
 
 ## 2026-09-25 — Sensor DNA titration at fixed EsaR
 
@@ -552,6 +548,13 @@ final concentration of 5 µM. Reactions were distributed in triplicate into a
 | Nuclease free water | — | — | — | — | 7.23 | 3.12 | 1.44 | 3.27 | 2.71 | 1.86 | 1.09 | 3.13 | 1.40 | 3.27 | 2.69 | 1.83 | 0.97 |
 | Total [µL] |   |   |   |   | 32.5 | 65 | 65 | 65 | 65 | 65 | 65 | 65 | 65 | 65 | 65 | 65 | 65 |
 :::
+::::
+
+::::{platemap} ./experiments/20260925-dna-titration/20260924-dna-titration-esar-fixed.csv
+:height: 480px
+:fields: EsaR Vol (uL), DNA Template (nM), [AHSL] (uM)
+:wells: 384
+:label: platemap-20260925
 ::::
 
 ## 2026-09-26 — Sensor DNA titration with overnight EsaR
@@ -594,6 +597,13 @@ compared to previous experiment". -->
 | Nuclease free water | — | — | — | — | 7.79 | 4.44 | 4.44 | 4.44 |
 | Total [µL] |   |   |   |   | 35 | 70 | 70 | 70 |
 :::
+::::
+
+::::{platemap} ./experiments/20260926-dna-titration-esar-spent/20260924-esao2-dna-titration.csv
+:height: 480px
+:fields: EsaR Vol (uL), DNA Template (nM), [AHSL] (uM)
+:wells: 384
+:label: platemap-20260926
 ::::
 
 ## 2026-10-01 — Magnesium sweep with EsaR and DNA pre-incubation
@@ -641,6 +651,11 @@ X20 = 346.7mM
 X10 = 173.3mM
 X5 = 86.6mM
 
+::::{platemap} ./experiments/20261001-mg-osmo-sweep/20261001-mg-sweep-platemap.csv
+:height: 480px
+:label: platemap-20261001
+::::
+
 ## 2026-10-07 — EsaR DNA template competition
 
 We ran our EsaR repression reactions at the same conditions as before with
@@ -670,6 +685,12 @@ shape as the 2026-10-01 gap. 2.27 + 0.33 = 2.6, which matches the "2.6µL"
 the log states, so that part of the arithmetic checks out. Whether the 0.15µL
 AHSL/water volume sits inside the stated 7.4µL or on top of it is not stated,
 and is not inferred here. -->
+
+::::{platemap} ./experiments/20261007-esar-template-competition/20261008-esao-mng-esar-ahsl.csv
+:height: 480px
+:fields: [EsaO-mNG] (nM), [EsaR] (nM), [AHSL] (uM)
+:label: platemap-20261007
+::::
 
 # Results
 
