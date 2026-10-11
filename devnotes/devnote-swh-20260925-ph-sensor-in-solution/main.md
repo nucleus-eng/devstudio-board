@@ -547,10 +547,6 @@ Results: The background signal was slightly lower than in Full Demo Attempt 1, b
 
 First experiment 7.4 then adjusted to 7.8 (mixture of Tris and Hepes 1M and 1.15M) for acidic condition add HEPES and HCL (wanted to minimize amount of HCl) (might consider using MES buffer for lower pH range).
 
-:::{admonition}
-For Full Demo Attempt 2 we need to fill in the relevant data - this can be a photo, plot, or maybe just a description if the result is "marginal"
-:::
-
 ## Full Demo Attempt 3
 
 To increase the SUV yield, I increased the starting volume. I also did more rounds of washing to reduce any further background signal. I also reduced the gel concentration from 0.7% to 0.35% to reduce any stress caused by gel embedment. In parallel, I ran a solution experiment to determine whether the issue really originated from the gel embedment.
