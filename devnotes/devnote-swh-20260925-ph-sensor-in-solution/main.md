@@ -485,11 +485,11 @@ CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 6.3
 
 <!-- The channel colors above follow the viewer rather than the stores, whose omero block records Rhodamine as `FF0000` and Alexa Fluor 647 as `0000FF`. REVIEW: exposure, gain and laser power are recorded nowhere in the stores. The common stretch assumes they were matched across the four acquisitions. Add the settings to Measurement. -->
 
-:::{figure} ./figures/color-change-with-lacz.png
+:::{figure} ./figures/color-change-ph-7.6-vs-6.3.png
 :label: fig-color-change
 :align: center
-:width: 40%
-[PLEASE FILL IN]
+:width: 60%
+pH-responsive synthetic cell-mediated visible color change via a two-vesicle system in solution at pH 7.6 (left) and pH 6.3 (right).
 :::
 
 ### Conditions
