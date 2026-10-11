@@ -3,7 +3,15 @@
 //
 //   :::{platemap} ./experiments/build-platemap.csv
 //   :height: 560px
+//   :fields: [ATC] (uM), [TetR] (nM), [plamGFP] (nM)
 //   :::
+//
+// `fields` is optional: a comma-separated list of exact column names to show
+// on hover, in that order. Without it, the default is the first three columns
+// outside the required/recommended schema below, in header order -- a fine
+// default when those happen to be the composition columns, but a platemap
+// with non-composition metadata before them (e.g. a `Group` or `Condition`
+// column) needs `fields` to name the ones that actually vary by well.
 //
 // The directive stores the raw path/URL at parse time; the transform below
 // reads and parses the file at build time and rewrites the node into a
@@ -12,6 +20,14 @@
 // `nucleus-devnote-archive-1/devnotes/2026-bhasin-platemaps/main.md`, ported
 // into `nucleus-skills`' `build-platemap` skill as `platemap_common.py` --
 // keep the two lists below in sync with that source if it changes.
+//
+// mystmd resolves an anywidget's `esm` path against the *document's* folder,
+// not the plugin's (myst-cli's `getSourceFolder`, in `transforms/anywidgets.js`
+// upstream) -- so `./platemap-widget.mjs` only resolves if each devnote that
+// embeds `{platemap}` keeps its own copy of `platemap-widget.mjs` beside its
+// `main.md`, the same way `{seqviz}` devnotes each carry their own copy of
+// `seqviz-widget.mjs`. Confirmed in `test/platemap-viewer/` by building
+// without the copy (fails: "Cannot find asset for 'esm'") and then with it.
 import { readFileSync } from 'node:fs';
 
 function collectNodes(tree, predicate, results = []) {
@@ -107,6 +123,10 @@ const platemapDirective = {
   },
   options: {
     height: { type: String, doc: 'Height of the viewer (default 560px).' },
+    fields: {
+      type: String,
+      doc: 'Comma-separated exact column names to show on hover, in order. Default: the first three columns outside the required/recommended schema.',
+    },
   },
   run(data) {
     return [
@@ -117,6 +137,7 @@ const platemapDirective = {
           import: './platemap-widget.mjs',
           file: data.arg,
           height: data.options?.height ?? '560px',
+          fields: data.options?.fields,
         },
         children: [],
       },
@@ -132,7 +153,7 @@ const platemapTransform = {
     const nodes = collectNodes(tree, (n) => n.type === 'block' && n.kind === 'platemap');
     await Promise.all(
       nodes.map(async (node) => {
-        const { file, import: widgetImport, height } = node.data;
+        const { file, import: widgetImport, height, fields } = node.data;
         try {
           const text = await readSource(file);
           const delimiter = detectDelimiter(file, text);
@@ -142,7 +163,17 @@ const platemapTransform = {
           const missing = REQUIRED_COLUMNS.filter((c) => !header.includes(c));
           if (missing.length) throw new Error(`missing required column(s): ${missing.join(', ')}`);
 
-          const compositionColumns = header.filter((c) => !SHARED_COLUMNS.includes(c)).slice(0, 3);
+          let compositionColumns;
+          if (fields) {
+            const requested = fields.split(',').map((f) => f.trim()).filter(Boolean);
+            const unknown = requested.filter((f) => !header.includes(f));
+            if (unknown.length) {
+              console.error(`[platemap] :fields: names not in ${file}'s header, skipping: ${unknown.join(', ')}`);
+            }
+            compositionColumns = requested.filter((f) => header.includes(f));
+          } else {
+            compositionColumns = header.filter((c) => !SHARED_COLUMNS.includes(c)).slice(0, 3);
+          }
           const experiment = rows[0].Experiment ?? '';
           const wells = [];
           for (const r of rows) {
