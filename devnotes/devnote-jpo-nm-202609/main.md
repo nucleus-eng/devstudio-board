@@ -308,11 +308,31 @@ can go here. Run `devstudio-build-to-composition` on the build file.
 Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all.
 :::
 
-:::{admonition}
+<!--
 :name: gap-figure-result-1
 
 Please choose the plate reader figure for this result. The Draft marks the spot with a bare `[image]` placeholder.
+
+Answer, 2026-10-11: the Draft Doc embeds this figure inline, extracted from its own .docx export rather than a notebook. Adopted below.
+-->
+
+:::{figure} ./figures/result1-bulk-lysate-platereader.png
+:label: fig-result1-platereader
+:align: center
+:width: 85%
+LuxR-mNeonGreen sensor in bulk lysate (10 µL), fluorescence fold change over
+4 hours, control against 10 µM AHL.
 :::
+
+[`fig-result1-platereader`, platemap: none, data source: none, caption: (LuxR-mNeonGreen sensor in bulk lysate, fluorescence fold change over 4 hours, control against 10 µM AHL.)]
+
+<!-- missing notebook -->
+
+<!-- Extracted from the "Draft devnote" Doc's own .docx export
+(word/media/image3.png, confirmed against word/document.xml's relationship
+order to be the second of three embedded images, after the Overview
+schematic), not from a notebook or a Log folder. No raw data file is named
+for it. -->
 
 The log directory for this result:
 <https://drive.google.com/drive/folders/1lK_ylF47jmR3pFxp-3bD9PqyszQyiTUX>.
@@ -373,10 +393,39 @@ can go here. Run `devstudio-build-to-composition` on the build file.
 Please state how this run differed from the general protocol in {numref}`sec-methods`, if at all.
 :::
 
-:::{admonition}
+<!--
 :name: gap-figure-result-2
 
 Please choose the figure for this result. The Draft marks the spot with a bare `[image]` placeholder.
+
+Answer, 2026-10-11: the Draft Doc embeds this figure inline, extracted from its own .docx export rather than a notebook. Adopted below.
+-->
+
+:::{figure} ./figures/result2-gels-platereader.png
+:label: fig-result2-platereader
+:align: center
+:width: 85%
+LuxR-mNeonGreen sensor gels, fluorescence fold change over 16 hours, control
+against purified AHL.
+:::
+
+[`fig-result2-platereader`, platemap: none, data source: none, caption: (LuxR-mNeonGreen sensor gels, fluorescence fold change over 16 hours, control against purified AHL.)]
+
+<!-- missing notebook -->
+
+<!-- Extracted from the "Draft devnote" Doc's own .docx export
+(word/media/image2.png, confirmed against word/document.xml's relationship
+order to be the third of three embedded images), not from a notebook or a Log
+folder. No raw data file is named for it. -->
+
+:::{danger} The figure's own title disagrees with the text on AHL concentration
+:name: flags-gel-ahl-concentration
+
+This figure is titled "LuxR-mNeonGreen Sensor Gels with 10uM Purified AHL" in
+the source Doc. Every other mention of the gel experiment in this DevNote,
+the outline, the Methods gel protocol (10 µL of 600 µM AHL into the gel, a
+100 µM final concentration), says 100 µM. Carried as the figure names it;
+not corrected here. Say which concentration this plot actually shows.
 :::
 
 Log directories: the GUVs-in-solution run (2nd/3rd October) is at
