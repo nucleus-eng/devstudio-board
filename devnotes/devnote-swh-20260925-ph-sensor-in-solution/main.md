@@ -359,7 +359,7 @@ Procedure:
 | Total | — | — | 100 | mol% | — | 2.5 | — |
 :::
 
-Source note, carried verbatim: "dried and taken up in 3 mL mineral oil to 0.5 mM lipid-in-oil". See [PLA1-GUV preparation](#pla1-guv-preparation) under Protocol: 3 mL is the protocol's own working scale, 1.5 µmol; this table states the same membrane at 5 mL, 2.5 µmol. Same mol%, not a contradiction.
+Source note, carried verbatim: "dried and taken up in 3 mL mineral oil to 0.5 mM lipid-in-oil". 3 mL is the protocol's own working scale, 1.5 µmol; this table states the same membrane at 5 mL, 2.5 µmol. Same mol%, not a contradiction.
 ::::
 :::::
 
