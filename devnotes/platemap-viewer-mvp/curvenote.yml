@@ -1,13 +1,18 @@
 version: 1
 project:
-  title: "Platemap Viewer MVP"
+  title: Platemap Viewer MVP
   description: >
     Not a DevNote -- a minimal fixture for testing the {platemap} plugin
-    (plugins/platemap/) end to end, including a real draft submission.
-    Content is a real platemap CSV (resources/20261008-esao-mng-esar-ahsl.csv)
-    but no new science; delete this directory once the plugin ships.
+    (plugins/platemap/) end to end, including a real draft submission. Content
+    is a real platemap CSV (resources/20261008-esao-mng-esar-ahsl.csv) but no
+    new science; delete this directory once the plugin ships.
   authors:
-    - name: Anton Molina
+    - nameParsed:
+        literal: Anton Molina
+        given: Anton
+        family: Molina
+      name: Anton Molina
+      corresponding: true
       email: antonmolina@bnext.bio
       affiliations:
         - affiliations-curvenote-generated-uid-0
@@ -22,11 +27,13 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
-  plugins:
-    - ../../plugins/platemap/platemap.mjs
   toc:
     - file: main.md
   resources:
     - experiments/**
+  plugins:
+    - type: javascript
+      path: ../../plugins/platemap/platemap.mjs
+  id: 01a1294c-f735-705b-a39c-266997185232
 site:
   template: article-theme
