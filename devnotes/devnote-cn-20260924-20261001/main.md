@@ -277,7 +277,7 @@ replaced.
 
 # Reagents
 
-:::{table} Reagents and equipment. Every row is unmatched against the Materials Reference, so no column is filled. Component names come from the three CN build sheets, the 2026-10-01 log's own volume table, and the 2026-09-23 construct preparation.
+:::{table} Reagents and equipment. Three of fourteen rows are matched, from `DevCell_Materials_Tracker.xlsx`, which takes precedence over the Materials Reference. Component names come from the three CN build sheets, the 2026-10-01 log's own volume table, and the 2026-09-23 construct preparation.
 :label: tbl-reagents
 :align: center
 
@@ -287,53 +287,64 @@ replaced.
 | tRNA | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | Protein mix | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | Ribosomes | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
-| RNase inhibitor | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| RNase inhibitor | RNase Inhibitor, Murine | NEB | M0314S | $87.00 | -25 °C to -15 °C | [link](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
 | Nuclease free water | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
-| AHSL | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| AHSL | N-(3-Oxohexanoyl)-L-homoserine lactone | Sigma-Aldrich (Aldrich) | K3007 | N/A | N/A | [link](https://www.sigmaaldrich.com/US/en/product/aldrich/k3007) |
 | Fluorescein | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | Q5 polymerase | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | HF buffer | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | M15 Fwd primer | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | M15 Rev primer | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
 | Magnesium | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
-| E.coli pol | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] | [PLEASE FILL IN] |
+| E.coli pol | E. coli RNA Polymerase Holoenzyme | NEB | M0551 | N/A | N/A | [link](https://www.neb.com/en-us/products/m0551-e-coli-rna-polymerase-holoenzyme) |
 :::
 
-:::{admonition} No reagent is in the Materials Reference
+:::{admonition} Three of fourteen reagents are sourced, eleven are still open
 :class: warning
 :name: review-materials-unmatched
 
-`devstudio-build-to-materials` matched 0 of 14 components against the
-distribution-wide Materials Reference. The sidecar is
+`devstudio-build-to-materials` first matched 0 of 14 components against the
+distribution-wide Materials Reference, read from the published page because no
+`nucleus-docs` checkout was available. That reference held 100 entries. The
+matcher was checked against a known entry, `Glucose`, which resolved to
+`A16828-36`, so the zero was a measurement, not a failed lookup.
+
+`DevCell_Materials_Tracker.xlsx` was then read directly, and takes precedence
+over the Materials Reference where the two disagree or where the reference has
+no entry at all. It resolved three components, all status "Arrived" on its
+London Node sheet:
+
+`RNase inhibitor` is `RNase Inhibitor, Murine`, NEB `M0314S`. The Materials
+Reference had already offered this as a near match, "RNase Inhibitor, Murine"
+against the build file's plain "RNase inhibitor". The tracker confirms it, and
+that same reference entry supplied the price and storage condition above.
+
+`AHSL` is listed in the tracker as "homoserine lactone (AHL)", Sigma-Aldrich
+(Aldrich brand) `K3007`, N-(3-Oxohexanoyl)-L-homoserine lactone. Not in the
+Materials Reference, so price and storage are `N/A`.
+
+`E.coli pol` is listed as "E. coli RNA polymerase", NEB `M0551`, E. coli RNA
+Polymerase Holoenzyme. Also not in the Materials Reference, so `N/A` there too.
+
+Eleven remain unmatched against both sources. The sidecar is
 [`experiments/build-materials.csv`](./experiments/build-materials.csv), which
-carries a `Provenance` column this table drops.
+carries a `Provenance` column this table drops and records which source was
+checked for each row.
 
-The reference was read from the published page,
-<https://docs.nucleus.engineering/guides/materials-reference/>, because no
-`nucleus-docs` checkout was available. That costs two things. The page is one
-deploy behind `main`, and it carries no conflicts list, so disagreements
-between source pages are collapsed into whichever value won. It held 100
-entries at the time of this run. The matcher was checked against a known entry,
-`Glucose`, which resolved to `A16828-36`, so the zero is a measurement and not
-a failed lookup.
+`Magnesium` is still open. The tracker lists Magnesium glutamate on both nodes
+and Magnesium sulfate on the Chicago node. The Materials Reference's nearest
+entries are Magnesium acetate (`M0631-100G`) and Magnesium chloride
+(`M2670-500G`). None of these four agrees with any other. The 2026-10-01 log
+records only "Mg" with a stock molarity, so the salt actually used is not
+recoverable from any source checked here.
 
-Matching is exact equality on the normalized name and nothing looser, because a
-part number inferred from a near name reads as checked precisely when it is
-wrong. Two components came close and are recorded as suggestions only:
-
-`RNase inhibitor` against `RNase Inhibitor, Murine`, part `M0314S` from NEB.
-The names differ by ", Murine", so this is not a match. It is very likely the
-same item, and confirming it is one edit.
-
-`Magnesium` against `Magnesium acetate`, part `M0631-100G`, and `Magnesium
-chloride`, part `M2670-500G`. Two candidates, and the 2026-10-01 log records
-only "Mg" with its stock molarity, so the salt is not recoverable from the
-source.
-
-Several of these will never carry a catalog number. Small molecule mix, protein
-mix and ribosomes are made in-house. The rest are real gaps: add a row to the
-`bom-<slug>` table on the Process page each belongs to in `nucleus-docs`, which
-is a human edit in another repository and not something this pipeline does.
+Several of the rest will never carry a catalog number. Small molecule mix,
+protein mix and ribosomes are made in-house. The true gaps are tRNA,
+Ribosomes, Nuclease free water, Fluorescein, Q5 polymerase, HF buffer and the
+two M15 primers: none appears in the tracker or the reference. Add a row to
+the `bom-<slug>` table on the Process page each belongs to in `nucleus-docs`,
+which is a human edit in another repository and not something this pipeline
+does.
 :::
 
 # Constructs
