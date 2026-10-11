@@ -3,14 +3,15 @@ project:
   # Candidate title from the platemap Experiment column:
   # "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL" and
   # "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL" — QC to confirm.
-  # No Specification table exists in any of the four source logs.
+  # No Specification table exists in any of the five source logs.
   title: 'EsaO/R-deGFP AHL Detector'
   description: >
     EsaR(D91G) repression of single- and dual-operator EsaO-mNG sensor
-    constructs in Nucleus Cytosol, across four days: an EsaR titration at
+    constructs in Nucleus Cytosol, across five days: an EsaR titration at
     fixed sensor DNA, a sensor DNA titration at fixed EsaR, a repeat of that
-    titration with EsaR pre-expressed overnight, and a magnesium sweep with
-    EsaR and DNA pre-incubated before the reaction.
+    titration with EsaR pre-expressed overnight, a magnesium sweep with EsaR
+    and DNA pre-incubated before the reaction, and an EsaR DNA template
+    competition assay.
   # Names and emails from review cycle v2, prompt 1, in the order given.
   # The spelling "Charlie" follows the email the author supplied, which
   # corrected the "Chalie" first written in the Doc.

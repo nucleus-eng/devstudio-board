@@ -111,6 +111,54 @@
         "No build file exists for this day, so no composition sidecar was produced. The log's own volume table is carried instead and has no concentrations.",
         "The 20 mM magnesium arm is in the platemap and not in this figure."
       ]
+    },
+    {
+      "filename": "figures/20261007-normalized-curves.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
+      "platemap": "20261008-esao-mng-esar-ahsl.csv",
+      "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
+      "section_context": "2026-10-07 — EsaR DNA template competition",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "No cell in platereader.ipynb produces this four-condition overlay. Cells 18 and 19 each plot one condition pair (no-EsaR and plus-8nM-EsaR) separately.",
+        "Platemap dated 2026-10-08, raw data and folder dated 2026-10-07 — date mismatch, same pattern as 2026-09-25 and 2026-09-26.",
+        "REVIEW: add a cell plotting all four conditions together and label it to enable quarto-label"
+      ]
+    },
+    {
+      "filename": "figures/20261007-fold-change.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
+      "platemap": "20261008-esao-mng-esar-ahsl.csv",
+      "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
+      "section_context": "2026-10-07 — EsaR DNA template competition",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "No cell in platereader.ipynb computes or plots this ratio-over-time. Cell 21 computes a single steady-state fold change number, not the time series shown here.",
+        "Platemap dated 2026-10-08, raw data and folder dated 2026-10-07 — date mismatch.",
+        "REVIEW: add the producing cell and label it to enable quarto-label"
+      ]
+    },
+    {
+      "filename": "figures/20261007-overnight-endpoint-25c.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
+      "platemap": "20261008-esao-mng-esar-ahsl.csv",
+      "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
+      "section_context": "2026-10-07 — EsaR DNA template competition",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "No cell in platereader.ipynb loads a thermocycler or endpoint read. The notebook only ever loads the continuous plate-reader timecourse, so this figure's actual data source is unconfirmed beyond the one raw data file in the folder.",
+        "5.8-fold change in the log's own text checks out: 19800 / 3400 = 5.82, consistent with the figure's two bars.",
+        "REVIEW: identify and vendor the actual source data for this endpoint read, which may not be the timecourse .txt already in the tree"
+      ]
     }
   ]
 }

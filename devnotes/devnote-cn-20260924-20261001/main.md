@@ -18,8 +18,11 @@ the ratio of pre-expressed EsaR protein to reporter DNA construct, and
 concentration of magnesium ions.
 
 <!-- Overview supplied by the reviewer in review cycle v2, prompt 21, and
-carried verbatim. No source log carries an overview section. The four logs
-open directly on Notes, on "Day #1", or on their own first sentence.
+carried verbatim. No source log carries an overview section. The five logs
+open directly on Notes, on "Day #1", or on their own first sentence. The
+2026-10-07 addition is not reflected here, because the overview text predates
+it and was supplied verbatim by the reviewer; it is not rewritten here per
+the review-cycle convention.
 Candidate framing, from the platemap
 Experiment column, not adopted: "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL"
 and "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at
@@ -30,8 +33,9 @@ highest prior dose)". -->
 
 **Title and authors.** No source log carries a Specification table or an
 Authors table. `curvenote.yml` holds `[PLEASE FILL IN]` for both, with
-candidate text in comments. Three Log folders are prefixed `CN`. The fourth
-is prefixed `MB`, and its notebook names `JM-MB`.
+candidate text in comments. Three Log folders are prefixed `CN`, one is
+prefixed `MB` whose notebook names `JM-MB`, and the fifth,
+`CN-MB-20261007-EsaR_template_competition`, is prefixed jointly.
 
 **Answered in part, review cycle v2, prompt 1.** Three authors named, with
 emails: Charlie Newell, Jonah McDonald and Manuel Bibrowski. The Doc first
@@ -670,6 +674,36 @@ X20 = 346.7mM
 X10 = 173.3mM
 X5 = 86.6mM
 
+## 2026-10-07 — EsaR DNA template competition
+
+We ran our EsaR repression reactions at the same conditions as before with
+0.1nM DNA template and preincubating the DNA for 1h at 37C with a cell free
+pre expressed EsaR (15nM DNA, 3h at37C).
+
+EsaR DNA was 15nM. Final EsaR concentration is 3.4nM in the cell free reaction
+where 2.27µL of EsaR were added and around 0.33 of the DNA stock -\> 2.6µL of
+EsaR-DNA mixture added on 7.4µL mix of Nucleus cytosol+RNase inhibitor and
+AHSL(5µM)/ DI water (0.15µL)
+
+To improve the amounts of EsaR in the final reaction and introduce a higher
+off switch:
+
+we added more EsaR DNA template:
+
+We diluted the mNG DNA template not in DI water but in the DNA template of
+EsaR:
+
+Of mixing a 2x DNA stock with the raw PCR template that was at 320nM in a
+50:50 manner so we have 5.3nM extra added enhancing the 34x excess of DNA
+template up to 77x
+
+<!-- No build file exists for this day either. `build` in
+`CN-MB-20261007-EsaR_template_competition` is an empty default Sheet, same
+shape as the 2026-10-01 gap. 2.27 + 0.33 = 2.6, which matches the "2.6µL"
+the log states, so that part of the arithmetic checks out. Whether the 0.15µL
+AHSL/water volume sits inside the stated 7.4µL or on top of it is not stated,
+and is not inferred here. -->
+
 # Results
 
 ## 2026-09-24 — EsaR titration at fixed sensor DNA
@@ -891,6 +925,107 @@ much Mg in Nucleus cytosol poisons the reaction. Carried into the Results
 narrative above.
 ::: -->
 
+## 2026-10-07 — EsaR DNA template competition
+
+We ran our EsaR repression reactions at the same conditions as before with
+0.1nM DNA template and preincubating the DNA for 1h at 37C with a cell free
+pre expressed EsaR (15nM DNA, 3h at37C).
+
+EsaR DNA was 15nM. Final EsaR concentration is 3.4nM in the cell free reaction
+where 2.27µL of EsaR were added and around 0.33 of the DNA stock -\> 2.6µL of
+EsaR-DNA mixture added on 7.4µL mix of Nucleus cytosol+RNase inhibitor and
+AHSL(5µM)/ DI water (0.15µL)
+
+To improve the amounts of EsaR in the final reaction and introduce a higher
+off switch:
+
+we added more EsaR DNA template:
+
+We diluted the mNG DNA template not in DI water but in the DNA template of
+EsaR:
+
+Of mixing a 2x DNA stock with the raw PCR template that was at 320nM in a
+50:50 manner so we have 5.3nM extra added enhancing the 34x excess of DNA
+template up to 77x
+
+:::::{tab-set}
+
+::::{tab-item} Normalized curves
+:::{figure} ./figures/20261007-normalized-curves.png
+:label: fig-20261007-normalized
+:align: center
+:width: 100%
+Normalized signal for EsaO-mNG at 0.1 nM, minus and plus 8 nM pre-expressed EsaR, each minus and plus AHSL.
+:::
+::::
+
+::::{tab-item} Fold change
+:::{figure} ./figures/20261007-fold-change.png
+:label: fig-20261007-fold
+:align: center
+:width: 100%
+Fold change over time, ratio of the plus-AHSL mean to the minus-AHSL mean, with and without the added EsaR DNA template.
+:::
+::::
+
+::::{tab-item} Overnight endpoint, 25 ˚C
+:::{figure} ./figures/20261007-overnight-endpoint-25c.png
+:label: fig-20261007-overnight
+:align: center
+:width: 65%
+t0-subtracted GFP fluorescence after overnight incubation at 25 ˚C, minus and plus 5 µM AHSL.
+:::
+::::
+
+:::::
+
+[`fig-20261007-normalized`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Normalized signal for EsaO-mNG at 0.1 nM, minus and plus 8 nM pre-expressed EsaR, each minus and plus AHSL.)]
+
+[`fig-20261007-fold`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Fold change over time, with and without the added EsaR DNA template.)]
+
+[`fig-20261007-overnight`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (t0-subtracted GFP fluorescence after overnight incubation at 25 ˚C.)]
+
+25C reactions were incubated in a thermocycler giving a 5.8 fold change as the
+strongest sensor after over night incubation ({numref}`fig-20261007-overnight`:
+19 800 / 3 400 ≈ 5.8, checked against the figure's own bars).
+
+:::{admonition} Open items on 2026-10-07
+:class: warning
+:name: review-20261007-open
+
+**No cell in `platereader.ipynb` produces these three figures.** The notebook
+loads the correct raw data file and the correct platemap, through cell 6's
+Drive download block. Its own plotting cells, 18 and 19, each chart one
+condition pair rather than the four-condition overlay or the fold-change ratio
+shown here. The overnight 25 ˚C endpoint figure has no matching cell at all.
+The notebook never loads a thermocycler or endpoint read. This is the same
+shape as the two unresolved 2026-09-24 figures. A notebook exists, loads the
+right files, and still does not produce the figure the log shows.
+
+**The platemap date and the raw data date disagree.** The platemap,
+`20261008-esao-mng-esar-ahsl.csv`, is dated 2026-10-08. The raw data file and
+the folder name both read 2026-10-07. This is the same pattern already flagged
+for the 2026-09-25 and 2026-09-26 platemaps.
+
+**The raw data filename does not name this experiment.** It reads
+`20261007-170653-YH Cytosol comparison_CH.txt`, which names neither EsaR nor
+EsaO nor the folder's own authors, CN and MB. Confirm it is the right file.
+
+**The stated EsaR concentration disagrees with the platemap and the figure
+legends.** The log's own arithmetic gives "Final EsaR concentration is 3.4nM".
+The platemap and both figure legends read `EsaR (8 nM)`. The two numbers could
+describe different stages of the reaction, the pre-incubation mix against the
+final reaction, which is the same distinction review cycle v2 settled for the
+magnesium basis on 2026-10-01. Or one of the two numbers is wrong. Not
+resolved here.
+
+**One plot title in the notebook names the wrong construct.** Cell 18's title
+reads "0.1 nM [Esao]2-mNG DNA titration", but the cell selects data named
+`EsaO-mNG (0.1 nM)`, the single-operator construct, not `[EsaO]2-mNG`. The
+plotted data and the platemap agree with each other; only the title text is
+wrong.
+:::
+
 # Notes
 
 [PLEASE FILL IN]
@@ -923,8 +1058,8 @@ From the 2026-09-26 log:
 
 # Resources
 
-Reaction composition, one sidecar per day. No sidecar exists for 2026-10-01,
-because that folder has no build file.
+Reaction composition, one sidecar per day. No sidecar exists for 2026-10-01
+or 2026-10-07, because neither folder has a build file.
 
 - [`experiments/build-composition-20260924.csv`](./experiments/build-composition-20260924.csv)
 - [`experiments/build-composition-20260925.csv`](./experiments/build-composition-20260925.csv)
@@ -936,6 +1071,7 @@ Analysis notebooks.
 - [`experiments/20260925-dna-titration/platereader.ipynb`](./experiments/20260925-dna-titration/platereader.ipynb)
 - [`experiments/20260926-dna-titration-esar-spent/platereader.ipynb`](./experiments/20260926-dna-titration-esar-spent/platereader.ipynb)
 - [`experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb`](./experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb)
+- [`experiments/20261007-esar-template-competition/platereader.ipynb`](./experiments/20261007-esar-template-competition/platereader.ipynb)
 
 Platemaps.
 
@@ -943,6 +1079,7 @@ Platemaps.
 - [`experiments/20260925-dna-titration/20260924-dna-titration-esar-fixed.csv`](./experiments/20260925-dna-titration/20260924-dna-titration-esar-fixed.csv)
 - [`experiments/20260926-dna-titration-esar-spent/20260924-esao2-dna-titration.csv`](./experiments/20260926-dna-titration-esar-spent/20260924-esao2-dna-titration.csv)
 - [`experiments/20261001-mg-osmo-sweep/20261001-mg-sweep-platemap.csv`](./experiments/20261001-mg-osmo-sweep/20261001-mg-sweep-platemap.csv)
+- [`experiments/20261007-esar-template-competition/20261008-esao-mng-esar-ahsl.csv`](./experiments/20261007-esar-template-competition/20261008-esao-mng-esar-ahsl.csv)
 
 Raw instrument data.
 
@@ -950,3 +1087,4 @@ Raw instrument data.
 - [`experiments/20260925-dna-titration/20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`](./experiments/20260925-dna-titration/20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt)
 - [`experiments/20260926-dna-titration-esar-spent/20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`](./experiments/20260926-dna-titration-esar-spent/20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt)
 - [`experiments/20261001-mg-osmo-sweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`](./experiments/20261001-mg-osmo-sweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt)
+- [`experiments/20261007-esar-template-competition/20261007-170653-YH Cytosol comparison_CH.txt`](<./experiments/20261007-esar-template-competition/20261007-170653-YH%20Cytosol%20comparison_CH.txt>)
