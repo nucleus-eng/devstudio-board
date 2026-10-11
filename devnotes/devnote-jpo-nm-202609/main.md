@@ -46,12 +46,32 @@ constitutive mNeonGreen control, and is explicit that LuxR-deGFP is an older
 and different construct that gave noisier data. The title still says GFP.
 Settle which reporter this DevNote is about.
 
-**Two plasmids need confirming.** Anton asked on the log, 2026-10-08, whether
-these two Drive files are the right sequences. Neither has been checked, and
-neither is in `dna/`.
+<!-- Two plasmids needed confirming. Anton asked on the log, 2026-10-08,
+whether two Drive files were the right sequences:
+LuxR-mNeonGreen (https://drive.google.com/file/d/1e5L7jQ__aO_MeMcwlx6gr9byjV8Ajacy/view)
+and constitutive mNeonGreen
+(https://drive.google.com/file/d/13UvMR_uMa6FjVXUupdM4AvQvfDoaLTIz/view).
 
-- LuxR-mNeonGreen: `https://drive.google.com/file/d/1e5L7jQ__aO_MeMcwlx6gr9byjV8Ajacy/view`
-- constitutive mNeonGreen: `https://drive.google.com/file/d/13UvMR_uMa6FjVXUupdM4AvQvfDoaLTIz/view`
+Resolved, 2026-10-11: Anton added pUC-IDT-LuxR-mNG.gbk (4671 bp) and
+pUC-IDT-constitutive_mNG.gbk (3689 bp) to dna/. Both declared LOCUS lengths
+match their actual base counts exactly. Feature labels confirm identity:
+pUC-IDT-LuxR-mNG carries BBa_J23101 (constitutive) driving LuxR, LuxR driving
+pLux, and pLux driving mNeonGreen. pUC-IDT-constitutive_mNG carries
+BBa_J23101 driving mNeonGreen directly, with no LuxR and no pLux, matching its
+role as the constitutive control. Both sit on a pUC-IDT-AMP GoldenGate
+backbone (AmpR). Not verified: byte-identity against the two Drive files
+originally linked, since this check compares length and feature labels, not
+file contents.
+
+Swept nucleus-eng/DNA, branch devcells/devstudio-constructs, before asking:
+neither construct is there. That branch carries J23101-luxR-linear.gb (the
+sensor alone), LuxR-deGFP and pOpen-LuxR-deGFP (the older deGFP reporter
+Niall's log says this work replaces), and two PLA1 effectors, all tagged
+detector-3oc6-hsl. No mNeonGreen reporter variant exists upstream yet. Per
+devstudio-verify-dna-constructs Step 2, this is the benign case: present in
+this DevNote's own folder, not yet in the canonical repo. Flag for
+submission to nucleus-eng/DNA before or alongside this DevNote's own
+publication. -->
 
 **The platemap is missing.** Anton asked on the log, 2026-10-08, for the
 platemap of the microscopy experiment to be put in that log directory. It is
@@ -89,7 +109,13 @@ whether that stays as narrative or moves to an acknowledgement.
 
 **AHL is named only by its class.** The outline writes AHL and gives 10 µM for
 Results 1 and 2 and 100 µM for Result 3. It does not say which acyl-homoserine
-lactone. Niall's log writes "HSL" at 10 µM. Name the molecule.
+lactone. Niall's log writes "HSL" at 10 µM.
+
+Proposed, 2026-10-11, rather than asked: every LuxR-tagged construct on
+nucleus-eng/DNA's devcells/devstudio-constructs branch is tagged
+`detector-3oc6-hsl`, the canonical LuxR ligand 3OC6-HSL
+(N-(3-oxohexanoyl)-L-homoserine lactone). This is a proposal from the
+construct's own module tag, not a confirmed answer; confirm or correct it.
 
 **Where the general protocols live.** Anton asked on the log, 2026-10-08,
 where the GUV prep protocol lives. If a Methods subsection below matches a
@@ -124,16 +150,51 @@ Please fill in {numref}`tbl-reagents`. Niall's log already names POPC from Avant
 :name: gap-constructs
 
 Please confirm the two plasmids named in {numref}`flags-blocking`, include each sequence inline in the table below, and add the matching file to `dna/` in `.gb` format. `devstudio-verify-dna-constructs` checks each one by length against its GenBank LOCUS line.
+
+Resolved, 2026-10-11: both files are in `dna/` and rendered as sequence maps
+below, with both lengths verified. Still open: neither construct exists yet
+on `nucleus-eng/DNA`, so submission there is a separate, unresolved step.
 :::
 
-:::{table} DNA. No construct is confirmed yet.
+:::{table} DNA constructs. Both sequences are reproduced in full as sequence maps below; both lengths were verified against their GenBank `LOCUS` line.
 :label: tbl-constructs
 :align: center
 
 | Name | Sequence | Purpose |
 | --- | --- | --- |
-| — | — | — |
+| [pUC-IDT-LuxR-mNG](./dna/pUC-IDT-LuxR-mNG.gbk) | [Sequence map below](#seqviz-constructs) | BBa_J23101 (constitutive) drives LuxR; LuxR drives pLux; pLux drives mNeonGreen. The sensor construct for Results 1 through 4. pUC-IDT-AMP GoldenGate backbone, 4671 bp. |
+| [pUC-IDT-constitutive_mNG](./dna/pUC-IDT-constitutive_mNG.gbk) | [Sequence map below](#seqviz-constructs) | BBa_J23101 drives mNeonGreen directly, no LuxR and no pLux. Constitutive expression control. pUC-IDT-AMP GoldenGate backbone, 3689 bp. |
 :::
+
+<!-- Neither construct exists yet on nucleus-eng/DNA, branch
+devcells/devstudio-constructs, swept 2026-10-11 before asking. Flag for
+submission there, per devstudio-verify-dna-constructs Step 2's benign case:
+present in this DevNote's own folder, not yet upstream. -->
+
+(seqviz-constructs)=
+:::::{tab-set}
+
+::::{tab-item} pUC-IDT-LuxR-mNG
+:::{seqviz} ./dna/pUC-IDT-LuxR-mNG.gbk
+:height: 600px
+:::
+::::
+
+::::{tab-item} pUC-IDT-constitutive_mNG
+:::{seqviz} ./dna/pUC-IDT-constitutive_mNG.gbk
+:height: 600px
+:::
+::::
+
+:::::
+
+<!-- Sequence maps, one tab per construct, per devstudio-author-myst-content's
+rule to group >= 2 related sequential items into a tab-set rather than stack
+them. Plain tab-set, no extra wrapper directive, so the fence depth is
+:::::/::::/::: per that skill. Both files verified: pUC-IDT-LuxR-mNG declares
+4671 bp and carries 4671 bases, pUC-IDT-constitutive_mNG declares 3689 bp and
+carries 3689 bases. Neither is yet on nucleus-eng/DNA; both are the files
+Anton added to this DevNote's own dna/ directory on 2026-10-11. -->
 
 <!-- A purchased purified protein belongs in tbl-reagents, not here. Only DNA
 built or ordered as a sequence goes in the table above. -->

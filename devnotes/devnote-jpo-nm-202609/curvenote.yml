@@ -38,6 +38,8 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
   toc:
     - file: main.md
     - file: 2026-10-08-interactive-viewer.md
