@@ -76,11 +76,11 @@ The pH-sensing developer cells detect acidic conditions (pH 6.0–6.5) using a p
 
 <!-- Two entries were ambiguous in `DevCell_Materials_Tracker.xlsx`, which stocks two mineral oils and two Cy5 materials and does not say which were used. Both are now resolved by the author. -->
 
-The mineral oil is `M5904`. `M5310` was never used, although the tracker notes it is the higher quality one.
+<!-- The mineral oil is `M5904`. `M5310` was never used, although the tracker notes it is the higher quality one. -->
 
-The energy solution's magnesium salt is also worth a note: it calls for magnesium acetate tetrahydrate, Millipore Sigma `M5661`, and `DevCell_Materials_Tracker.xlsx` stocks magnesium glutamate at both nodes and no magnesium acetate at either one.
+<!-- The energy solution's magnesium salt is also worth a note: it calls for magnesium acetate tetrahydrate, Millipore Sigma `M5661`, and `DevCell_Materials_Tracker.xlsx` stocks magnesium glutamate at both nodes and no magnesium acetate at either one. -->
 
-Cy5 means `Sulfo-Cyanine5 carboxylic acid` throughout, used as a soluble dye encapsulated inside the GUVs. The lipid-conjugated `18:1 Cyanine 5 PC` was not used in this system. Rhod-PE is the only lipid fluorescence label.
+<!-- Cy5 means `Sulfo-Cyanine5 carboxylic acid` throughout, used as a soluble dye encapsulated inside the GUVs. The lipid-conjugated `18:1 Cyanine 5 PC` was not used in this system. Rhod-PE is the only lipid fluorescence label. -->
 <!-- 
 Nine more entries are filled from sources outside `DevCell_Materials_Tracker.xlsx`: Mineral oil, Cy5, CPRG, the IDT duplex buffer and UPDI water from the "Chicago Module Integration Status" Doc's pH Sensor materials table and, for UPDI water, this DevNote's own LGA Gel Preparation materials list; the liposome extruder, its membrane filter and the low-gelling agarose from Avanti's and Sigma's own catalogs, cross-checked against `DevCell_Materials_Tracker.xlsx`'s "Mini Extruder Pro Kit" and "PC Membranes 0.4μm" entries and against this DevNote's own LGA materials list. SMix, PMix, Ribosomes and tRNA are marked `b.next` rather than left blank — these are made in-house, not purchased, the same way the Chicago Doc records its own Cytosol row. -->
 
@@ -96,7 +96,7 @@ Tris base stays blank. No Tris base entry of any kind exists in the Nucleus mate
 
 | Name | Sequence | Purpose |
 | --- | --- | --- |
-| [pT7-toehold9-PLA1](./dna/Linear-T7-toehold9-PLA1-t7hyb6-extra-BbsI-site.gbk) | Sequence map below | DNA template for PLA1 expression in the GUV inner solution. 80 nM stock, 2 nM final. Linear construct, 1203 bp. |
+| [pT7-toehold9-PLA1](./dna/Linear-T7-toehold9-PLA1-t7hyb6-extra-BbsI-site.gbk) | [Sequence map below](#seqviz-pt7-toehold9-pla1) | DNA template for PLA1 expression in the GUV inner solution. 80 nM stock, 2 nM final. Linear construct, 1203 bp. |
 | [pH-responsive_ssDNA#2](./dna/ph-responsive-ssdna2.gb) | TTCTCTTCTCGTTTGCTCTTCTCTTGTGTGGTATTGTCCAAGAGAAGAG | pH-responsive strand of the gate, 49 bp. |
 | [Trigger_ssDNA#3](./dna/trigger-ssdna3.gb) | TATGCAAACAAGACAATACCACACAATTTTTTTTTT | Trigger strand, 36 bp. |
 :::
@@ -105,15 +105,16 @@ The last two anneal 3:1 in IDT duplex buffer to form the construct listed as `pH
 
 Annealing was performed in a thermocycler using the following protocol: 5 min at 95 °C, followed by stepwise cooling at 2 min per degree to the melting temperature of the construct (Tm = 52 °C), 30 min per degree from 52 °C to Tm − 10 °C (42 °C), and finally 2 min per degree until reaching 25 °C. The annealed construct was stored at −20 °C.
 
-`DevCell_Materials_Tracker.xlsx` records the function test for `T7-toehol9-PLA1` as "Done/Leaky". The pH 7.6 arm is the condition leakiness would contaminate, since it is meant to show no PLA1 activity.
+<!-- `DevCell_Materials_Tracker.xlsx` records the function test for `T7-toehol9-PLA1` as "Done/Leaky". The pH 7.6 arm is the condition leakiness would contaminate, since it is meant to show no PLA1 activity. -->
 
-`pT7-toehold9-PLA1` is 1203 bp, too long to read as inline text, so it is shown as a sequence map. The two gate oligos stay inline above, because each is under 50 bases.
+<!-- `pT7-toehold9-PLA1` is 1203 bp, too long to read as inline text, so it is shown as a sequence map. The two gate oligos stay inline above, because each is under 50 bases. -->
 
+(seqviz-pt7-toehold9-pla1)=
 :::{seqviz} https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb
 :height: 600px
 :::
 
-Sequence map of `pT7-toehold9-PLA1`. The file declares 1203 bp and carries 1203 bases, and its sequence matches `pT7-toehold9-PLA1-linear.gb` on `nucleus-eng/DNA` branch `devcells/devstudio-constructs`.
+<!-- Sequence map of `pT7-toehold9-PLA1`. The file declares 1203 bp and carries 1203 bases, and its sequence matches `pT7-toehold9-PLA1-linear.gb` on `nucleus-eng/DNA` branch `devcells/devstudio-constructs`. -->
 
 # Protocol
 
@@ -243,7 +244,7 @@ The inverted emulsion method.
 total lipid. {numref}`tbl-pla1-guv-mb` states the same membrane at the 5 mL
 scale, which is 2.5 µmol. The mol% is identical. -->
 
-Step 1's volumes are a 3 mL scale, 1.5 µmol total lipid. {numref}`tbl-pla1-guv-mb` states the same membrane at a 5 mL scale, 2.5 µmol, same mol%.
+<!-- Step 1's volumes are a 3 mL scale, 1.5 µmol total lipid. {numref}`tbl-pla1-guv-mb` states the same membrane at a 5 mL scale, 2.5 µmol, same mol%. -->
 
 1. Combine three lipid stocks in a 20 mL glass vial. All three stocks are in chloroform.
     - 41.0 µL of 25 mg/mL POPC.
@@ -398,11 +399,11 @@ Source note, carried verbatim: "dried and taken up in 3 mL mineral oil to 0.5 mM
 ::::
 :::::
 
-Both populations carry the same membrane, 89.9 / 10 / 0.1 mol% POPC, cholesterol and Rhod-PE, so the Rhodamine channel does not distinguish them. Cy5 is in the PLA1-GUV inner solution only.
+<!-- Both populations carry the same membrane, 89.9 / 10 / 0.1 mol% POPC, cholesterol and Rhod-PE, so the Rhodamine channel does not distinguish them. Cy5 is in the PLA1-GUV inner solution only. -->
 
 ## Outer solution
 
-The whole 60 µL well. The first three rows are the 52.8 µL the build sheet records as one number under "Energy Solution". The fourth row is the 7.2 µL vesicle slot, which {numref}`tbl-conditions` splits into outer solution, PLA1-GUV and CPRG-LUV. The pH 7.6 arm takes the Tris-HEPES buffer stock directly; the pH 6.3 arm takes a separate buffer mix.
+<!-- The whole 60 µL well. The first three rows are the 52.8 µL the build sheet records as one number under "Energy Solution". The fourth row is the 7.2 µL vesicle slot, which {numref}`tbl-conditions` splits into outer solution, PLA1-GUV and CPRG-LUV. The pH 7.6 arm takes the Tris-HEPES buffer stock directly; the pH 6.3 arm takes a separate buffer mix. -->
 
 :::{table} Outer solution, both pH arms. Full recipe including the pH 6.3 buffer mix: [`experiments/outer-solution-composition.csv`](./experiments/outer-solution-composition.csv).
 :label: tbl-outer-solution
@@ -429,7 +430,7 @@ The gel composition is already given: [LGA Gel Preparation](#lga-gel-preparation
 
 <!-- Two channels were acquired. The channel labelled `Alexa Fluor 647` in the acquisition metadata reports the Cy5 signal, because the microscope names the wavelength by a representative fluorophore; the reagent in the composition is Cy5. The channel labelled `Rhodamine` reports Rhod-PE in the vesicle membranes. Data are OME-Zarr version 0.5, one well per store, with a z-stack at 1.5 µm spacing and 0.333 µm pixels. -->
 
-The `Alexa Fluor 647` channel reports Cy5, and `Rhodamine` reports Rhod-PE. Each well is a single OME-Zarr store, one plane, not a z-stack.
+<!-- The `Alexa Fluor 647` channel reports Cy5, and `Rhodamine` reports Rhod-PE. Each well is a single OME-Zarr store, one plane, not a z-stack. -->
 
 # Results
 
@@ -482,7 +483,7 @@ CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 6.3
 
 <!-- This tab set has no JATS conversion, the same as the interactive viewers it stands in for, so it is not an archived record. The archive's only record of these four wells is the prose description under each one below. -->
 
-The channel colors above follow the viewer rather than the stores, whose omero block records Rhodamine as `FF0000` and Alexa Fluor 647 as `0000FF`. <!-- REVIEW: exposure, gain and laser power are recorded nowhere in the stores. The common stretch assumes they were matched across the four acquisitions. Add the settings to Measurement. -->
+<!-- The channel colors above follow the viewer rather than the stores, whose omero block records Rhodamine as `FF0000` and Alexa Fluor 647 as `0000FF`. REVIEW: exposure, gain and laser power are recorded nowhere in the stores. The common stretch assumes they were matched across the four acquisitions. Add the settings to Measurement. -->
 
 :::{figure} ./figures/color-change-with-lacz.png
 :label: fig-color-change
@@ -516,7 +517,7 @@ The channel colors above follow the viewer rather than the stores, whose omero b
 :::
 ::::
 
-::::{admonition} Known limitations in this plate layout
+<!-- ::::{admonition} Known limitations in this plate layout
 :class: dropdown
 
 **Five of nine wells have no recorded outcome.** `F4`, `F5`, `G4`, `G5` and `H4` are retained above marked "no", so the entire CPRG-LUV-only control arm is unreported.
@@ -524,7 +525,7 @@ The channel colors above follow the viewer rather than the stores, whose omero b
 **The GUV dose is not matched between sample and control.** Rows `E` and `F` take 3 µL of PLA1-GUVs; row `D`, the GUV-only control, takes 1 µL, so row `D` does not isolate the effect of the CPRG-LUVs. The CPRG-LUV dose is matched at 2.1 µL throughout.
 
 **`H4` receives no pH buffer.** It takes 0 µL of the energy solution mix, which carries the pH-setting buffer. Its recorded pH of 7.6 comes from the build sheet's column header, not from anything added to the well.
-::::
+:::: -->
 
 The four wells below are also shown as interactive viewers on [Interactive viewers](./viewers.md). {numref}`fig-microscopy-summary` above presents the same four wells as a tab set.
 
@@ -560,7 +561,7 @@ For Full Demo Attempt 3 we need to fill in the relevant data - this can be a pho
 
 # Notes
 
-Here no gramicidin is used
+In contrast to previous [descriptions](https://doi.org/10.1101/2025.11.16.688650), no gramicidin is used.
 
 # What's next
 
