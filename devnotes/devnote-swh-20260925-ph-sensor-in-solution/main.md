@@ -533,8 +533,11 @@ The four wells below are also shown as interactive viewers on [Interactive viewe
 
 An acid-responsive visible color change was observed. However, the control group (CPRG-loaded LUVs with β-galactosidase but without PLA1-expressing GUVs) also developed color, so the visible difference was not very clear. The only difference between this attempt and pH Sensor Validation in Solution was the absence or presence of agarose gel. Therefore, gel embedment seems to cause CPRG leakage from the LUVs even without PLA1.
 
-:::{admonition}
-For Full Demo Attempt 1 we need to fill in the relevant data - this can be a photo, plot, or maybe just a description if the result is "marginal"
+:::{figure} ./figures/full-demo-attempt-1.png
+:label: fig-full-demo-attempt-1
+:align: center
+:width: 80%
+Color development after 2 h of incubation at 37 °C with 2 U/mL β-galactosidase. Two gel replicates (Gel-1, Gel-2), each showing the GUV-only control (-PLA1 ves.) and both pH arms. All six wells develop a similar pink color, matching the "not very clear" difference described above.
 :::
 
 ## Full Demo Attempt 2
@@ -555,8 +558,11 @@ To increase the SUV yield, I increased the starting volume. I also did more roun
 
 Results: It worked. A visible color difference was observed both in gel and in solution.
 
-:::{admonition}
-For Full Demo Attempt 3 we need to fill in the relevant data - this can be a photo, plot, or maybe just a description if the result is "marginal"
+:::{figure} ./figures/full-demo-attempt-3.png
+:label: fig-full-demo-attempt-3
+:align: center
+:width: 80%
+Color development after 5.5 h of incubation at 37 °C with 1.2 U/mL β-galactosidase, in solution and in gel. The GUV-only control and the pH 7.6 arm stay yellow in both rows; the pH 6.3 arm turns pink in both, matching the visible color difference described above.
 :::
 
 # Notes
