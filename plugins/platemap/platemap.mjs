@@ -114,6 +114,23 @@ function parseWell(well) {
   return { row: m[1].toUpperCase(), col };
 }
 
+// A minimal inline stand-in for myst-common's `normalizeLabel`: a plugin
+// loaded by path (not an npm dependency of the host project) can't `import`
+// from mystmd's own packages, so a directive that wants `:label:` support
+// has to do this normalization itself. Matches upstream closely enough for
+// cross-reference resolution to work: see `myst-directives`'
+// `labelDirectiveOption`/`addLabelOptions`, which do this for directives
+// that ARE mystmd-internal.
+function normalizeLabel(label) {
+  if (!label) return undefined;
+  const identifier = label
+    .replace(/[\t\n\r ]+/g, ' ')
+    .replace(/['‘’"“”]+/g, '')
+    .trim()
+    .toLowerCase();
+  return { identifier, label };
+}
+
 const platemapDirective = {
   name: 'platemap',
   doc: 'Render a Nucleus platemap CSV/TSV as an interactive 96-well plate map.',
@@ -127,21 +144,30 @@ const platemapDirective = {
       type: String,
       doc: 'Comma-separated exact column names to show on hover, in order. Default: the first three columns outside the required/recommended schema.',
     },
+    label: {
+      type: String,
+      alias: ['name'],
+      doc: 'Label the plate map to be cross-referenced or linked to, e.g. {ref}`my-label`.',
+    },
   },
   run(data) {
-    return [
-      {
-        type: 'block',
-        kind: 'platemap',
-        data: {
-          import: './platemap-widget.mjs',
-          file: data.arg,
-          height: data.options?.height ?? '560px',
-          fields: data.options?.fields,
-        },
-        children: [],
+    const node = {
+      type: 'block',
+      kind: 'platemap',
+      data: {
+        import: './platemap-widget.mjs',
+        file: data.arg,
+        height: data.options?.height ?? '560px',
+        fields: data.options?.fields,
       },
-    ];
+      children: [],
+    };
+    const normalized = normalizeLabel(data.options?.label);
+    if (normalized) {
+      node.identifier = normalized.identifier;
+      node.label = normalized.label;
+    }
+    return [node];
   },
 };
 
