@@ -7,15 +7,21 @@ The viewers are stacked rather than tabbed. The Vizarr widget creates its viewer
 detached element with no width and never re-measures, so any instance hidden when the page
 mounts renders blank permanently.
 
-Each viewer sets `"menuOpen": true`. The widget starts its sidebar closed by default, and
-that sidebar holds the per-channel contrast sliders a reader needs.
+Each viewer sets `"menuOpen": true`, because the widget starts its sidebar closed by
+default and that sidebar holds the per-channel contrast sliders a reader needs.
+
+The viewers point at `../../plugins/vizarr/vizarr-viewer.mjs` rather than at the widget on
+curvenote.github.io. myst-theme mounts an anywidget inside a shadow root, which the style
+tags Material-UI and vizarr inject into `document.head` do not cross, so with the upstream
+widget the panel renders with labels, zero-sized sliders and no stacking of its own. The
+local copy mirrors those styles into the shadow root.
 
 These viewers do not survive JATS conversion, and neither does the tab set of the same
 four wells on [the main page](./main.md). The archived record of this result is the prose
 description under each well, not an image.
 
 ## D4 — pH 7.6, PLA1-GUV only
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
@@ -26,7 +32,7 @@ description under each well, not an image.
 :::
 
 ## D5 — pH 6.3, PLA1-GUV only
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
@@ -37,7 +43,7 @@ description under each well, not an image.
 :::
 
 ## E4 — pH 7.6, PLA1-GUV + CPRG-LUV
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
@@ -48,7 +54,7 @@ description under each well, not an image.
 :::
 
 ## E5 — pH 6.3, PLA1-GUV + CPRG-LUV
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
