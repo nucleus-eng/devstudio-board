@@ -84,10 +84,16 @@ function mirrorWidgetStyles(root) {
 // rgb(255, 220, 60) and rgb(255, 60, 40), which are the values
 // figures/fov-render-params.json records for the static figures.
 //
-// Overriding the store's own metadata is worth doing knowingly. It changes
-// what a reader sees without changing what is stored, so a viewer and the
-// store can disagree. Where the store can be rewritten, write the values into
-// its `omero` block and leave these keys out.
+// These keys are an authoring choice, not a correction. A store's own `omero`
+// block records what the acquisition wrote, typically the detector's full
+// range, which says nothing about where in that range the result sits. The
+// values a DevNote passes here are the ones its author picked to show the
+// phenomenon, usually the same ones its static figures were rendered at, so a
+// figure and its viewer open the same way. Expect the next experiment on the
+// same stores to want different ones.
+//
+// One property to hold onto: this changes what a reader sees without changing
+// what is stored, so a viewer and its store will disagree by design.
 const overrides = new Map();
 let fetchPatched = false;
 
