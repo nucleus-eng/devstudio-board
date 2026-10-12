@@ -1,0 +1,6 @@
+LOCUS       Trigger_ssDNA#3           36 bp ds-DNA     linear       01-JUN-2026
+DEFINITION  .
+FEATURES             Location/Qualifiers
+ORIGIN
+        1 TATGCAAACA AGACAATACC ACACAATTTT TTTTTT
+//

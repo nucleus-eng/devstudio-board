@@ -1,0 +1,16 @@
+Compartment,Component,Stock Conc.,Unit,Final Conc.,Unit,Volume [uL]
+OS-pH 7.6,Energy solution,100,v/v%,50,v/v%,30
+OS-pH 7.6,Ultra-pure distilled water,100,v/v%,26,v/v%,15.6
+OS-pH 7.6,Tris1M-HEPES1.15M buffer stock (~2520 mOsm),100,v/v%,12,v/v%,7.2
+OS-pH 7.6,vesicles in 46.67% of Tris1M-HEPES1.15M solution (osmolarity 1170-1180 mOsm),100,v/v%,12,v/v%,7.2
+OS-pH 7.6,Total,,,100,%,60
+OS-pH 6.3,Energy solution,100,v/v%,50,v/v%,30
+OS-pH 6.3,Ultra-pure distilled water,100,v/v%,26,v/v%,15.6
+OS-pH 6.3,Buffer mix for pH 6.3,100,v/v%,12,v/v%,7.2
+OS-pH 6.3,vesicles in 46.67% of Tris1M-HEPES1.15M solution (osmolarity 1170-1180 mOsm),100,v/v%,12,v/v%,7.2
+OS-pH 6.3,Total,,,100,%,60
+Buffer mix for pH 6.3,Tris1M-HEPES1.15M buffer stock (~2520 mOsm),100,%,38.88916667,%,466.67
+Buffer mix for pH 6.3,2M HEPES stock,2000,mM,960.3166667,mM,576.19
+Buffer mix for pH 6.3,HCl,37,%,2.466666667,%,80
+Buffer mix for pH 6.3,Ultra-pure distilled water,100,%,6.428333333,%,77.14
+Buffer mix for pH 6.3,Total,,,,,1200
