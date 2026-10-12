@@ -53,6 +53,14 @@ carries `20261009`. That is nine days after the folder date. This DevNote now
 spans more than one run, so a single date may not be the right answer. If the
 work spans a range, say the range and say which figure belongs to which run.
 
+**A fifth date arrived on 2026-10-12.** The second revision adds microscopy
+served from paths carrying `2026-10-06`. The five values now in play are
+`20261001` from the Log folder, `20260930` from the three plate reader files,
+`2/10/2026` from the platemap, `20261009` from the results data file, and
+`2026-10-06` from the microscopy. This DevNote plainly covers more than one
+session, and the right answer is probably a range with each figure attributed
+to its own run, not a single date.
+
 **Still open, review cycle v1, prompt 3.** The reviewer answered "Dates do
 not matter". That is a deferral and not a date. The venue needs one date in
 `curvenote.yml`, so the field stays `[PLEASE FILL IN]`. Name one of the

@@ -98,30 +98,59 @@
       "findings": [
         "Renamed from figures/log-devnote-draft-luv-only-read2.jpg on 2026-10-11, and the image itself replaced. The 2026-10-11 revision of the document carries a different version of this figure.",
         "The replaced version had five bars and a MATLAB data-tip artifact drawn on it. The fifth bar was 'Pre-PEG solution' at about 0.69. The current version has four bars and no artifact. The MATLAB script states the reason in a comment: 'pre-PEG left out of this graph'. The earlier image is in git history at commit 4c1295b.",
+        "BLOCKING: the pre-gel bar cannot be restored. Both pre-gel wells fail the script's own minSignal = 0.01 gate on blank-corrected A412, at -0.013 and -0.014. Among the ten matrix-only control wells the two pre-gel controls are the highest at BOTH wavelengths: 0.361 and 0.319 at 412 nm, 0.285 and 0.242 at 570 nm. The excess over the other eight controls is +0.146 at 412 nm and +0.091 at 570 nm, a ratio of 1.6, which is broadband scattering from a turbid medium and not absorbance near the 405 nm photopatterning wavelength. A reference read around 700 nm subtracted from both channels is the correction that would make this condition measurable.",
+        "The two versions of this figure rest on different numbers, and the numbers behind the five-bar version are not preserved in the current script.",
         "BLOCKING: the analysis is luv_stability_hydrogels_matlabcode.txt, a MATLAB script rather than a notebook, so the quarto-label pattern cannot apply. The script does not read the data file named in data_source. It carries its absorbance values written into its own source under the header 'Synergy 2, 384-well, read 2 (3:09 PM, 16 U/mL LacZ), LUV only (row L)'. The link between those numbers and the named data file is that header and nothing else.",
         "No platemap is named for this figure anywhere in the source.",
         "The data file name carries the date 20261009, which is none of the three dates already disagreeing in this DevNote."
       ]
-    }
-  ],
-  "microscopy_stores": [
+    },
     {
-      "url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr",
-      "wells_used": ["E/12/0", "G/12/0"],
-      "section_context": "Results, GFP expression in hydrogels",
-      "caption_pair": "GFP-GUVs+LUVs in solution (E12) and its outer-solution-only control (G12)",
+      "filename": null,
+      "page": "main.md",
+      "pattern": "zarr-viewer",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": "15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug",
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr",
+      "section_context": "Results, GFP-expressing GUVs",
+      "asset_chain_complete": false,
+      "extraction_method": "URL named in log-devnote-draft.docx",
       "findings": [
-        "Added to log-devnote-draft.docx between 2026-10-11 23:28 and 2026-10-12 00:12, after this DevNote's prior fold-in pass, which is why gap-figure5-missing originally found no GFP figure at all. Confirmed reachable by URL; content not fetched, per convention."
+        "New in the 2026-10-12 revision. Wells E12 and G12, GFP-GUVs with LUVs in solution and its control.",
+        "Rendered as two viewers deep-linked to E/12/0 and G/12/0 rather than one viewer on the plate root, carried from commit bacde77 where curvenote check passed against them.",
+        "The store is NOT committed and must not be. A viewer pointed at the served URL is the supported pattern; the store is far too large for the repository.",
+        "BLOCKING: no static archival figure exists for this result. An interactive viewer does not survive JATS conversion, which is this DevNote's export path, so the GFP result would publish as prose with no visible evidence.",
+        "A .parquet companion is named in the source at the same stem. Nothing on the page reads it, so it is not referenced.",
+        "The served path contains 'vescile', a misspelling of 'vesicle', copied exactly because a URL is not text to correct.",
+        "The date in the path is 2026-10-06, a fifth date in this DevNote's record."
+      ],
+      "wells_used": [
+        "E/12/0",
+        "G/12/0"
       ]
     },
     {
-      "url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr",
-      "wells_used": ["root, not yet confirmed well-addressed"],
-      "section_context": "Results, GFP expression in hydrogels",
-      "caption_pair": "GFP-GUVs+LUVs in ULGA (E15), z-stack",
+      "filename": null,
+      "page": "main.md",
+      "pattern": "zarr-viewer",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": "15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug",
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr",
+      "section_context": "Results, GFP-expressing GUVs",
+      "asset_chain_complete": false,
+      "extraction_method": "URL named in log-devnote-draft.docx",
       "findings": [
-        "Filename names E15 specifically, unlike the paired solution store above, so it is used at its root rather than addressed to a well path. Not independently confirmed as single-well.",
-        "No store is yet linked for E14/E21 (PEG4Nb pre-gel and gel) or E16 (LGA), named in the Results well list with no data behind them."
+        "New in the 2026-10-12 revision. A z-stack of well E15, GFP-GUVs with LUVs in ULGA.",
+        "The store is NOT committed and must not be, as above.",
+        "BLOCKING: no static archival figure, as above.",
+        "The source reports GFP in all three gels, but names a store only for solution (E12) and ULGA (E15). LGA (E16) and both PEG4Nb wells (E14, E21) have no linked data."
+      ],
+      "wells_used": [
+        "E15"
       ]
     }
   ]
