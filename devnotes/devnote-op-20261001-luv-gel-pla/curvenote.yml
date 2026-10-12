@@ -55,6 +55,7 @@ project:
     - ../../plugins/seqviz/seqviz.mjs
   toc:
     - file: main.md
+    - file: viewers.md
     - file: experiments/20261001-luv-gel-pla/platereader.ipynb
   resources:
     - experiments/**

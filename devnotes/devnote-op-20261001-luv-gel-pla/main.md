@@ -484,47 +484,9 @@ Wells, as the source lists them:
   G21 as controls
 - E16 GFP-GUVs+LUVs in LGA and G16 as control
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
-:class: w-full
-
-{
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/E/12/0",
-    "height": "600px",
-    "menuOpen": true
-}
-:::
-
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/E/12/0`, caption: (GFP-GUVs+LUVs in solution, well E12.)]
-
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
-:class: w-full
-
-{
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/G/12/0",
-    "height": "600px",
-    "menuOpen": true
-}
-:::
-
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/G/12/0`, caption: (Outer-solution-only control, well G12.)]
-
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
-:class: w-full
-
-{
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr",
-    "height": "600px",
-    "menuOpen": true
-}
-:::
-
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr`, caption: (GFP-GUVs+LUVs in ULGA, well E15, z-stack.)]
-
-<!-- Viewer form, deep links and captions in this block are carried from
-commit bacde77 by the parallel fold, where `curvenote check bnext-devnotes`
-was run against them and passed. The widget is referenced by its published
-URL rather than a local plugin file; `myst build` cannot resolve the
-`anywidget` directive either way, and the venue can. -->
+E12, G12 and E15 are shown as interactive viewers, deep-linked by well,
+on [Interactive viewers](./viewers.md). That page also carries E14 and
+E16, named there as not yet backed by any store.
 
 
 GFP expression was detected in GUVs encapsulated in all three hydrogel formats:
@@ -542,10 +504,11 @@ thermogels.
 :::{danger} The microscopy has no archival figure, and the viewers will not survive export
 :name: gap-microscopy-no-static
 
-The three viewers above read the microscopy live from
-`data.nucleus.engineering`. No image file exists for this result anywhere: the
-source document carries the stores as links and embeds no picture, and the
-DevNote folder holds no microscopy image.
+The three viewers on [Interactive viewers](./viewers.md) read the
+microscopy live from `data.nucleus.engineering`. No image file exists
+for this result anywhere: the source document carries the stores as
+links and embeds no picture, and the DevNote folder holds no microscopy
+image.
 
 **Two of five conditions have a store.** `log-devnote-draft.docx` was edited
 again between 2026-10-11 23:28 and 2026-10-12 00:12, which is why an earlier
@@ -568,6 +531,15 @@ Two further items. The parquet companion of each store is named in the source
 and is not referenced here, because nothing on this page reads it; say if it
 should be. And the served paths contain `vescile`, a misspelling of `vesicle`,
 copied exactly because a URL is not text to correct.
+
+Checked directly on 2026-10-11: neither Zarr URL resolves. The solution
+store and the E15 store both return 404, at every sub-path tried
+(`/`, `/.zattrs`, `/.zgroup`, `/0/.zattrs`, `/E/12/0/.zarray`). Their
+`.parquet` companions, at the same base filename, both return 200. The
+two viewers on [Interactive viewers](./viewers.md) are wired to these
+URLs and will likely render blank until the stores are uploaded. Ask
+whoever ran this microscopy session whether the Zarr export is still
+pending.
 :::
 
 :::{attention} Three claims in this section need their evidence named
