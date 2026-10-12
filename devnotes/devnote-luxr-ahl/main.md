@@ -269,18 +269,6 @@ After less than 1h changes in color could be observed between the induced and th
 (fig-colorchange)=
 :::::{tab-set}
 
-::::{tab-item} 1 h
-:sync: 1h
-
-:::{figure} ./figures/colorchange-1h.png
-:label: fig-colorchange-1h
-:align: center
-:width: 90%
-Bulk color change, 1 h incubation. Top row: DevCells induced with 5µM AHSL. Middle row: DevCells not induced. Bottom row: LUVs alone induced with 5µM AHSL.
-:::
-
-::::
-
 ::::{tab-item} Overnight incubation
 :sync: overnight
 
@@ -289,6 +277,18 @@ Bulk color change, 1 h incubation. Top row: DevCells induced with 5µM AHSL. Mid
 :align: center
 :width: 90%
 Bulk color change, overnight incubation. Top row: DevCells induced with 5µM AHSL. Middle row: DevCells not induced. Bottom row: LUVs alone induced with 5µM AHSL.
+:::
+
+::::
+
+::::{tab-item} 1 h
+:sync: 1h
+
+:::{figure} ./figures/colorchange-1h.png
+:label: fig-colorchange-1h
+:align: center
+:width: 90%
+Bulk color change, 1 h incubation. Top row: DevCells induced with 5µM AHSL. Middle row: DevCells not induced. Bottom row: LUVs alone induced with 5µM AHSL.
 :::
 
 ::::
