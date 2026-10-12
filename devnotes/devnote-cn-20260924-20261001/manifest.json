@@ -89,7 +89,8 @@
       "extraction_method": "notebook cell output",
       "findings": [
         "Replaces the former static-png figures/20260925-fold-induction.png. Labelled by the author on 2026-10-11, and the underlying cell now computes fold change through 3 nM (previously 1 nM was the cutoff).",
-        "6 nM and 9 nM still have no producing cell for the fold calculation."
+        "6 nM and 9 nM still have no producing cell for the fold calculation.",
+        "Producing cell moved and the plot itself changed on 2026-10-11: now two side-by-side panels (EsaO-mNG, [EsaO]2-mNG) instead of one grouped bar chart. Same label (cn-20260925-fig5), so main.md needed no reference change."
       ]
     },
     {
@@ -104,11 +105,12 @@
       "extraction_method": "pandoc --extract-media",
       "findings": [
         "Label moved to a new producing cell by the author on 2026-10-11: now a fluorescein-normalized two-panel comparison (17 hrs/30C vs 3 hrs/37C) rather than the earlier 0.1/0.5/1 nM DNA titration plot.",
-        "Retagged from cn-20250926-fig1 (2025 typo) to cn-20260926-fig1 in Drive by the author, per the standing ruling in review cycle v2, prompt 14."
+        "Retagged from cn-20250926-fig1 (2025 typo) to cn-20260926-fig1 in Drive by the author, per the standing ruling in review cycle v2, prompt 14.",
+        "Plot updated by the author on 2026-10-11: now batch-corrected to the mNG (-EsaR) control signal to cancel batch-to-batch offset, the mNG trace itself is no longer plotted, and panel order swapped (37C/3hr shown first)."
       ]
     },
     {
-      "filename": "figures/20261001-mg-sweep.png",
+      "filename": "fig-20261001-mg-sweep",
       "pattern": "quarto-label",
       "cell_label": "mbcn-20261001-fig1",
       "source_notebook": "2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb",
@@ -121,39 +123,36 @@
         "Labelled on cell 8 as 'mbcn-20261001-fig1' by the author on 2026-10-04.",
         "Raw data was fetched from https://data.nucleus.engineering/platereader/devstudio/ and vendored into experiments/20261001-mg-osmo-sweep/. The platemap was exported from the build Sheet's first tab, which is what the notebook reads.",
         "No build file exists for this day, so no composition sidecar was produced. The log's own volume table is carried instead and has no concentrations.",
-        "The 20 mM magnesium arm is in the platemap and not in this figure."
+        "The 20 mM magnesium arm is in the platemap and not in this figure.",
+        "Folded into a Timecourse/Fold change tab-set on 2026-10-12 alongside a new mbcn-20261001-fig2."
       ]
     },
     {
-      "filename": "figures/20261007-normalized-curves.png",
-      "pattern": "static-png",
-      "cell_label": null,
+      "filename": "fig-20261007-normalized",
+      "pattern": "quarto-label",
+      "cell_label": "mbcn-20261007-fig1",
       "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
       "platemap": "20261008-esao-mng-esar-ahsl.csv",
       "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
       "section_context": "2026-10-07 \u2014 EsaR DNA template competition",
-      "asset_chain_complete": false,
-      "extraction_method": "pandoc --extract-media",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
       "findings": [
-        "No cell in platereader.ipynb produces this four-condition overlay. Cells 18 and 19 each plot one condition pair (no-EsaR and plus-8nM-EsaR) separately.",
-        "Platemap dated 2026-10-08, raw data and folder dated 2026-10-07 \u2014 date mismatch, same pattern as 2026-09-25 and 2026-09-26.",
-        "REVIEW: add a cell plotting all four conditions together and label it to enable quarto-label"
+        "Labelled by the author on 2026-10-12. Timecourse RFU, EsaO-mNG 0.1 nM +/- 8 nM EsaR, each +/- AHSL. Replaces the former static-png figures/20261007-normalized-curves.png."
       ]
     },
     {
-      "filename": "figures/20261007-fold-change.png",
-      "pattern": "static-png",
-      "cell_label": null,
+      "filename": "fig-20261007-fold",
+      "pattern": "quarto-label",
+      "cell_label": "mbcn-20261007-fig2",
       "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
       "platemap": "20261008-esao-mng-esar-ahsl.csv",
       "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
       "section_context": "2026-10-07 \u2014 EsaR DNA template competition",
-      "asset_chain_complete": false,
-      "extraction_method": "pandoc --extract-media",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
       "findings": [
-        "No cell in platereader.ipynb computes or plots this ratio-over-time. Cell 21 computes a single steady-state fold change number, not the time series shown here.",
-        "Platemap dated 2026-10-08, raw data and folder dated 2026-10-07 \u2014 date mismatch.",
-        "REVIEW: add the producing cell and label it to enable quarto-label"
+        "Labelled by the author on 2026-10-12. Steady-state per-well fold change, with/without added EsaR DNA template. Replaces the former static-png figures/20261007-fold-change.png."
       ]
     },
     {
@@ -184,6 +183,34 @@
       "extraction_method": "notebook cell output",
       "findings": [
         "Replaces the former static-png figures/20260926-fold-induction.png. New label added by the author on 2026-10-11, answering the flagged ask for a fold-change/steady-state comparison plot."
+      ]
+    },
+    {
+      "filename": "fig-20260926-endpoint",
+      "pattern": "quarto-label",
+      "cell_label": "cn-20260926-fig3",
+      "source_notebook": "CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb",
+      "platemap": "20260924-esao2-dna-titration.csv",
+      "data_source": "20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt",
+      "section_context": "Cytosol reactions are poisoned by spent EsaR reactions",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "New label added by the author on 2026-10-11, a third panel (end-point fluorescence, batch-corrected) added to the existing Timecourse/Fold change tab-set."
+      ]
+    },
+    {
+      "filename": "fig-20261001-mg-sweep-fold",
+      "pattern": "quarto-label",
+      "cell_label": "mbcn-20261001-fig2",
+      "source_notebook": "2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb",
+      "platemap": "20261001-mg-sweep-platemap.csv",
+      "data_source": "20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt",
+      "section_context": "2026-10-01 \u2014 Magnesium sweep with EsaR and DNA pre-incubation",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "New label added by the author on 2026-10-12: steady-state fold change per well across 0, 5 and 10 mM magnesium."
       ]
     }
   ]

@@ -63,6 +63,7 @@ project:
     - file: experiments/20260925-dna-titration/platereader.ipynb
     - file: experiments/20260926-dna-titration-esar-spent/platereader.ipynb
     - file: experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb
+    - file: experiments/20261007-esar-template-competition/platereader.ipynb
   resources:
     - experiments/**
   id: 99d20115-67f3-42c1-bf8f-90b7af4a0d80

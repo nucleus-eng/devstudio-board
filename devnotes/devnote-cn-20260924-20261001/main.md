@@ -789,11 +789,11 @@ A separate observation was that samples containing ~10 fold less DNA relative to
 :::{figure} #cn-20260925-fig5
 :label: fig-20260925-fold
 :align: center
-:width: 55%
-Steady-state AHSL fold induction, plus AHSL over minus AHSL, for both constructs at 0.1, 0.5, 1 and 3 nM sensor DNA.
+:width: 75%
+Steady-state AHSL fold induction, plus AHSL over minus AHSL, shown as separate panels for EsaO-mNG and [EsaO]2-mNG across 0.1, 0.5, 1 and 3 nM sensor DNA.
 :::
 
-[`fig-20260925-fold`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (Steady-state AHSL fold induction for both constructs at 0.1, 0.5, 1 and 3 nM sensor DNA.)]
+[`fig-20260925-fold`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (Steady-state AHSL fold induction, separate panels for EsaO-mNG and [EsaO]2-mNG, at 0.1, 0.5, 1 and 3 nM sensor DNA.)]
 ::::
 
 :::::
@@ -861,18 +861,18 @@ titration**. -->
 
 :::::{tab-set}
 
-::::{tab-item} Normalized fluorescence
+::::{tab-item} Timecourse
 :::{figure} #cn-20260926-fig1
 :label: fig-20260926-normalized
 :align: center
 :width: 100%
-Normalized fluorescence (fluorescein-calibrated) for dual-operator [EsaO]2-mNG across the spent EsaR reaction, comparing EsaR pre-expressed for 17 hrs at 30 ˚C against 3 hrs at 37 ˚C. The mNG constitutive control is reasonably consistent between conditions, while overall yield drops under the EsaR conditions. Reaction composition is in {numref}`tbl-composition-20260926`.
+Normalized fluorescence (fluorescein-calibrated, batch-corrected to the mNG constitutive control) for dual-operator [EsaO]2-mNG across the spent EsaR reaction, comparing EsaR pre-expressed for 3 hrs at 37 ˚C against 17 hrs at 30 ˚C. The mNG control is used only for the batch correction and is not plotted. Reaction composition is in {numref}`tbl-composition-20260926`.
 :::
 
-[`fig-20260926-normalized`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260924-esao2-dna-titration.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (Normalized fluorescence for dual-operator [EsaO]2-mNG, EsaR pre-expressed 17 hrs at 30C versus 3 hrs at 37C.)]
+[`fig-20260926-normalized`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260924-esao2-dna-titration.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (Normalized, batch-corrected fluorescence for dual-operator [EsaO]2-mNG, EsaR pre-expressed 3 hrs at 37C versus 17 hrs at 30C.)]
 ::::
 
-::::{tab-item} Fold change
+::::{tab-item} Fold change (- AHSL / + AHSL)
 :::{figure} #cn-20260926-fig2
 :label: fig-20260926-fold
 :align: center
@@ -881,6 +881,17 @@ Steady-state AHSL fold induction for [EsaO]2-mNG, comparing EsaR pre-expressed f
 :::
 
 [`fig-20260926-fold`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260924-esao2-dna-titration.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (Steady-state AHSL fold induction for [EsaO]2-mNG, 17 hrs at 30C versus 3 hrs at 37C.)]
+::::
+
+::::{tab-item} End-point
+:::{figure} #cn-20260926-fig3
+:label: fig-20260926-endpoint
+:align: center
+:width: 55%
+End-point fluorescence (batch-corrected to the mNG control) for [EsaO]2-mNG, comparing EsaR pre-expressed for 17 hrs at 30 ˚C against 3 hrs at 37 ˚C, across 0.1, 0.5 and 1 nM sensor DNA.
+:::
+
+[`fig-20260926-endpoint`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260924-esao2-dna-titration.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (End-point fluorescence, batch-corrected to mNG control, for [EsaO]2-mNG, 17 hrs at 30C versus 3 hrs at 37C.)]
 ::::
 
 :::::
@@ -903,6 +914,9 @@ may enable EsaR to occupy more EsaO operator sites on the sensor DNA.
 <!-- Results narrative supplied by the reviewer in review cycle v2, prompt 22,
 and carried verbatim. The source log carries no results narrative. -->
 
+:::::{tab-set}
+
+::::{tab-item} Timecourse
 :::{figure} #mbcn-20261001-fig1
 :label: fig-20261001-mg-sweep
 :align: center
@@ -911,6 +925,20 @@ Added magnesium at 0, 5 and 10 mM, each minus and plus 5 µM AHSL, after pre-inc
 :::
 
 [`fig-20261001-mg-sweep`, notebook:`2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb`, platemap:`20261001-mg-sweep-platemap.csv`, data source:`20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`, caption: (Added magnesium at 0, 5 and 10 mM, minus and plus 5 µM AHSL.)]
+::::
+
+::::{tab-item} Fold change
+:::{figure} #mbcn-20261001-fig2
+:label: fig-20261001-mg-sweep-fold
+:align: center
+:width: 55%
+Steady-state AHSL fold induction (+AHSL / −AHSL) at 0, 5 and 10 mM magnesium, per-well, after pre-incubating EsaR with the DNA.
+:::
+
+[`fig-20261001-mg-sweep-fold`, notebook:`2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb`, platemap:`20261001-mg-sweep-platemap.csv`, data source:`20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`, caption: (Steady-state AHSL fold induction at 0, 5 and 10 mM magnesium.)]
+::::
+
+:::::
 
 The 20 mM magnesium arm was run and is not plotted. Adding that much magnesium
 to a Nucleus cytosol reaction poisons it.
@@ -955,20 +983,20 @@ template up to 77x
 :::::{tab-set}
 
 ::::{tab-item} Normalized curves
-:::{figure} ./figures/20261007-normalized-curves.png
+:::{figure} #mbcn-20261007-fig1
 :label: fig-20261007-normalized
 :align: center
 :width: 100%
-Normalized signal for EsaO-mNG at 0.1 nM, minus and plus 8 nM pre-expressed EsaR, each minus and plus AHSL.
+Time-course RFU for EsaO-mNG at 0.1 nM, minus and plus 8 nM pre-expressed EsaR, each minus and plus AHSL.
 :::
 ::::
 
 ::::{tab-item} Fold change
-:::{figure} ./figures/20261007-fold-change.png
+:::{figure} #mbcn-20261007-fig2
 :label: fig-20261007-fold
 :align: center
-:width: 100%
-Fold change over time, ratio of the plus-AHSL mean to the minus-AHSL mean, with and without the added EsaR DNA template.
+:width: 65%
+Steady-state AHSL fold induction (+AHSL / −AHSL) per well, with and without the added EsaR DNA template (8 nM).
 :::
 ::::
 
@@ -983,9 +1011,9 @@ t0-subtracted GFP fluorescence after overnight incubation at 25 ˚C, minus and p
 
 :::::
 
-[`fig-20261007-normalized`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Normalized signal for EsaO-mNG at 0.1 nM, minus and plus 8 nM pre-expressed EsaR, each minus and plus AHSL.)]
+[`fig-20261007-normalized`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Time-course RFU for EsaO-mNG at 0.1 nM, minus and plus 8 nM pre-expressed EsaR, each minus and plus AHSL.)]
 
-[`fig-20261007-fold`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Fold change over time, with and without the added EsaR DNA template.)]
+[`fig-20261007-fold`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Steady-state AHSL fold induction per well, with and without the added EsaR DNA template.)]
 
 [`fig-20261007-overnight`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (t0-subtracted GFP fluorescence after overnight incubation at 25 ˚C.)]
 
@@ -997,14 +1025,20 @@ strongest sensor after over night incubation ({numref}`fig-20261007-overnight`:
 :class: warning
 :name: review-20261007-open
 
-**No cell in `platereader.ipynb` produces these three figures.** The notebook
-loads the correct raw data file and the correct platemap, through cell 6's
-Drive download block. Its own plotting cells, 18 and 19, each chart one
-condition pair rather than the four-condition overlay or the fold-change ratio
-shown here. The overnight 25 ˚C endpoint figure has no matching cell at all.
-The notebook never loads a thermocycler or endpoint read. This is the same
-shape as the two unresolved 2026-09-24 figures. A notebook exists, loads the
-right files, and still does not produce the figure the log shows.
+**Resolved in part, 2026-10-12.** The author added `#| label:` tags
+(`mbcn-20261007-fig1`, `mbcn-20261007-fig2`) to producing cells for
+{numref}`fig-20261007-normalized` and {numref}`fig-20261007-fold`, which now
+source directly from the notebook via the `quarto-label` pattern.
+{numref}`fig-20261007-overnight` still has no matching cell — the notebook
+never loads a thermocycler or endpoint read, so that one stays `static-png`.
+This is the same unresolved shape as the two 2026-09-24 figures were before
+their own fix.
+
+Original flagged text, kept for provenance: no cell in `platereader.ipynb`
+produced any of the three figures. The notebook loaded the correct raw data
+file and the correct platemap, through cell 6's Drive download block. Its own
+plotting cells, 18 and 19, each charted one condition pair rather than the
+four-condition overlay or the fold-change ratio shown here.
 
 **The platemap date and the raw data date disagree.** The platemap,
 `20261008-esao-mng-esar-ahsl.csv`, is dated 2026-10-08. The raw data file and
