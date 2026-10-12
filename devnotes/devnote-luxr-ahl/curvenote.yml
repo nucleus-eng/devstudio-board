@@ -1,0 +1,68 @@
+version: 1
+project:
+  # REVIEW: no Specification table in the source Doc. Title unresolved.
+  # Candidate title from the Doc's own first line, 2026-10-12: "Implementing
+  # of a bulk color change module into bacterial quorum sensing" — QC to
+  # confirm, including the phrasing.
+  title: ''
+  description: >
+    A LuxR/lux-box circuit expresses PLA1 in response to AHL, lysing
+    dye-loaded storage vesicles inside GUVs and releasing CPRG for cleavage
+    by beta-galactosidase, giving a visible color change that distinguishes
+    AHL-induced from non-induced conditions within about an hour.
+  # Authors and emails are given directly in the source Doc, 2026-10-12.
+  # Affiliation for Niall McIntyre and Julia Purrinos de Oliveira is
+  # confirmed Imperial College London, per their matching entries in
+  # devstudio/devnote-jpo-nm-202609. Affiliation for the other three authors
+  # is inferred from their email domain only (imperial.ac.uk, ucl.ac.uk) and
+  # is not otherwise confirmed in this source.
+  authors:
+    - name: Manuel Bibrowski
+      email: manuel.bibrowski25@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-0
+    - name: Charlie Newell
+      email: charlie.newell.21@ucl.ac.uk
+      affiliations:
+        - ucl
+      id: contributors-curvenote-generated-uid-1
+    - name: Jonah McDonald
+      email: jonah.mcdonald.24@ucl.ac.uk
+      affiliations:
+        - ucl
+      id: contributors-curvenote-generated-uid-2
+    - name: Niall McIntyre
+      email: niall.mcintyre16@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-3
+    - name: Julia Purrinos de Oliveira
+      email: j.purrinosdeoliveira@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-4
+  affiliations:
+    - id: imperial
+      name: Imperial College London
+      country: United Kingdom
+    - id: ucl
+      name: University College London
+      country: United Kingdom
+  # The source Doc gives no date anywhere in its text. 2026-10-12 is the
+  # Drive file's own creation date, checked 2026-10-12, not a date stated in
+  # the document.
+  date: '2026-10-12'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+  resources:
+    - figures/**
+  id: 0157c077-839f-4132-90bc-61f57798c91e
+site:
+  template: article-theme
