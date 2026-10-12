@@ -1,3 +1,8 @@
+---
+title: 'Expressing Cell-Free TetO-GFP in Solution with aTc Titration'
+thumbnail: ./figures/fig2-endpoint-gfp-atc-titration.png
+---
+
 <!--
 Editing convention: a section marked `@claude please don't rewrite this section`,
 or commented out, is protected. Claude will not regenerate, reflow or reword it.
@@ -6,7 +11,10 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 <!-- Drafted 2026-10-11 from the Google Doc "TetO-plamGFP in Solution".
 Source: https://docs.google.com/document/d/1F3oW_PK6oKyVTA1JaVtpX5BvqwYHdBwEvA59MDBIMes
 Prose, tables, step lists, captions and both figures are carried verbatim
-from that Doc, including its own section order. -->
+from that Doc, including its own section order. The Doc's own title/authors
+block ("Title: ..." / "Authors:" / each name and email) is not repeated in
+the body: title, authors and their emails live in this file's frontmatter
+and in curvenote.yml instead, and render as the page byline. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
@@ -45,14 +53,6 @@ and used as-is, unmodified, and drives {ref}`seqviz-pt7-teto-plamgfp`.
 reference material** — neither applies here; TetR is a purchased protein
 (MedChemExpress HY-P71520A), same as in the sibling DevNotes on this board.
 ::: -->
-
-# Title: Expressing cell-free TetO-GFP in solution with aTc titration
-
-Authors:
-
-Mary D. Kelly, PhD <marykelly2026@u.northwestern.edu>
-
-Madison Briggs <madisonbriggs2028@u.northwestern.edu>
 
 # Abstract
 

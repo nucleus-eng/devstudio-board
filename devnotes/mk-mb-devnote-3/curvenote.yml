@@ -17,11 +17,13 @@ project:
   authors:
     - name: Mary D. Kelly, PhD
       email: marykelly2026@u.northwestern.edu
+      corresponding: true
       affiliations:
         - affiliations-curvenote-generated-uid-0
       id: contributors-curvenote-generated-uid-0
     - name: Madison Briggs
       email: madisonbriggs2028@u.northwestern.edu
+      corresponding: true
       affiliations:
         - affiliations-curvenote-generated-uid-0
       id: contributors-curvenote-generated-uid-1
@@ -35,6 +37,7 @@ project:
   license:
     content: CC-BY-4.0
     code: CERN-OHL-P-2.0
+  thumbnail: figures/fig2-endpoint-gfp-atc-titration.png
   exports:
     - format: meca
   toc:
