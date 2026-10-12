@@ -3,19 +3,9 @@ Editing convention: a section marked `@claude please don't rewrite this section`
 or commented out, is protected. Claude will not regenerate, reflow or reword it.
 -->
 
-# Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation
+# Bacterial Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation
 
-We are attempting to detect a bacterial-derived signal, alpha
-homoserine-lactone, in Nucleus cytosol reactions using a DNA sensing construct.
-The EsaR/EsaO system has previously been tested in the literature using PURE,
-with a weak on/off state. In this case, the EsaR repressor protein was
-co-expressed alongside reporter DNA controlled by the EsaO operator. Our work
-builds on this by attempting to supplement Nucleus cytosol reactions expressing
-EsaO controlled protein, with pre-expressed EsaR repressor protein to improve
-the dynamic range between the 'on' and 'off' states. We use a fluorescent
-reporter to quantify the performance of the system, varying parameters such as
-the ratio of pre-expressed EsaR protein to reporter DNA construct, concentration of magnesium ions, reaction temperature, and resource competition.
-
+Quorum sensing allows bacteria to regulate gene expression in response to population density by secreting diffusible acyl-homoserine lactones (AHLs). Responding to these signals offers a route to developer cells that detect and act on the presence of bacteria. Here we reconstitute AHL sensing in a nucleus–cytosol cell-free system using the EsaR repressor. EsaR binds the esa box operator placed downstream of a T7 promoter, where it sterically blocks T7 RNA polymerase and silences transcription of a downstream fluorescent reporter (mNeonGreen, mNG). Addition of the cognate ligand 3-oxo-C6-HSL relieves EsaR–DNA binding and derepresses reporter production. Previous reconstitutions of EsaR/esa box in PURExpress co-expressed the repressor at the same time as the operator-controlled reporter DNA and achieved only a weak on/off response. We decouple these two steps: EsaR is first expressed cell-free, then pre-incubated with the reporter construct so that operator sites are occupied before the template enters the reaction, deepening the ‘off’ state. We further expanded the dynamic range by systematically varying the molar ratio of pre-expressed EsaR to reporter DNA, the reaction temperature, and the molar competition between the two DNA constructs. Together these results establish a tunable, ligand-inducible transcriptional switch that equips developer cells to respond to bacterial quorum signalling.
 <!-- Overview supplied by the reviewer in review cycle v2, prompt 21, and
 carried verbatim. No source log carries an overview section. The five logs
 open directly on Notes, on "Day #1", or on their own first sentence. The
@@ -711,17 +701,12 @@ and is not inferred here. -->
 
 # Results
 
-## Repression not observed at conventional DNA concentrations when titrating pre-expressed EsaR into cytsol reactions
 
-We first sought to determine the ratio of pre-expressed EsaR repressor protein to DNA sensor construct at which there was a defined "on"/"off" state. We titrated varying amounts of pre-expressed EsaR protein
-into Nucleus cytosol reactions containing two different EsaO-mNeonGreen
-reporter constructs each with either one, or two EsaO operator regions. The
-reporter construct concentration was held at 12.2 nM (10 ng / µL) in each reaction.
+## At concentrations of 12nM, T7-EsaO-mNG DNA  is in exess and cannot be sufficiently repressed  
 
-There was no difference in the "on"/"off" states with any number of EsaO
-operators. This suggested either that the EsaR protein was non-functional, or
-that the DNA sensor construct was in excess even at the highest ratio of EsaR
-protein to DNA sensor.
+To determine the ratio of pre-expressed EsaR repressor to sensor construct that gives a well-defined ‘on’/’off’ state, we titrated increasing amounts of pre-expressed EsaR protein into nucleus–cytosol reactions containing one of two esa-mNeonGreen reporter constructs, carrying either one or two esa box operators. The reporter construct was held at 12.2 nM (10 ng/µL) in all reactions.
+
+No difference between the ‘on’ and ‘off’ states was observed under those conditions. This suggests either that the pre-expressed EsaR was non-functional, or that the reporter construct remained in excess even at the highest EsaR-to-DNA ratio tested.
 
 :::{figure} #fig-20260924-esao
 :label: fig-20260924-esao-titration
@@ -734,9 +719,9 @@ Single-operator EsaO-mNG and dual-operator [EsaO]2-mNG with 0, 1, 4 and 7 µL pr
 
 ## Lower Sensor DNA concentration Activates Repression
 
-To test whether the EsaR was functional, we titrated the DNA sensor construct whilst maintaining the highest possible concentration of pre-expressed EsaR in each reaction. This was done by supplementing EsaR into the "dead volume" of the reaction to ensure that the correct stoichiometry of cytosol was maintained. If the EsaR was functional, this would enable us to empirically determine the EsaR:DNA ratio at which there was an observable difference in "on"/"off" states. 1 nM DNA was shown to be the concentration at which the fold-change between "on"/"off" states decreased to ~1 with 3 nM showing no repression of mNeonGreen expression. 0.1 nM DNA, and 0.5 nM DNA produced fold-changes of ~ 1.5/2. 
+To test whether the EsaO-mNG DNA templates had previously been in excess, we titrated the reporter construct concentration while holding pre-expressed EsaR at the highest achievable concentration in each reaction. Repression was lost above 1 nM DNA, whereas 0.5 nM and 0.1 nM gave fold-changes in reporter fluorescence of approximately 2 and 1.5 respectively.
 
-A separate observation was that samples containing ~10 fold less DNA relative to the constitutively expressed control were reaching equivalent yields in final reporter protein. We hypothesized that adding pre-expressed EsaR protein to reactions was increasing reaction yield by virtue of adding unspent energy components. We were also interested to determine whether this was having any effect on the performance of repression in the system.
+Even at roughly ten-fold lower DNA concentrations, these reactions achieved fluorescence yields comparable to the constitutively expressed control. We hypothesise this is because the pre-expressed EsaR preparation carries over unspent energy components as well as transcription and translation factors, so each addition of repressor also supplies additional capacity to the reaction.
 
 
 :::::{tab-set}
@@ -831,22 +816,9 @@ cell outputs, because none of those cells carries a `#| label:` tag. -->
 6 nM and 9 nM still have no producing cell for the fold calculation.
 :::
 
-## Cytosol reactions are poisoned by spent EsaR reactions
+## Overnight pre-expression of EsaR does not change the dynamic range but vastly reduces fluorescent reporter yield
 
-To determine whether adding unspent EsaR reactions, incubated at 37 ˚C for 3
-hours, to fresh Nucleus cytosol reactions containing sensor DNA, we instead
-pre-expressed EsaR for 30 ˚C for 17 hours. EsaR volumes added to each reaction
-were kept consistent with previous experiments, and sensor DNA concentrations
-were limited to 0.1 nM, 0.5 nM and 1 nM. Relative to the previous experiment,
-the overall fold change between "on"/"off" remained consistent for each DNA
-concentration, whilst the overall yield decreased. We hypothesise that in this
-case the added byproducts of the pre-expressed EsaR reaction, e.g inorganic
-phosphate, poisoned the reactions, lowering the overall yield.
-
-Repression is still observed in all cases when AHSL is not present; however, it
-appears the total induced signal is lower than that of the previous experiment
-in which the EsaR was pre-expressed for 3 hrs @ 37 ˚C, rather than 17 hrs @
-30˚C.
+To test whether the yield increase depends on unspent energy components carried over from the EsaR pre-expression reaction, we pre-expressed EsaR at 30 °C for 17 h rather than 37 °C for 3 h before adding it to fresh nucleus–cytosol reactions containing sensor DNA. EsaR volumes added to each reaction were kept consistent with previous experiments, and sensor DNA was limited to 0.1 nM, 0.5 nM and 1 nM. Relative to the previous experiment, the fold-change between ‘on’ and ‘off’ states remained consistent at each DNA concentration, while overall fluorescent yield across all conditions decreased.  We hypothesise that byproducts accumulating during the extended pre-expression such as inorganic phosphate affect the subsequent reactions and lowered overall yield.
 
 <!-- RESOLVED 2026-10-11: the author added fluorescein-normalized panels and a
 fold-change plot, answering both asks below. {numref}`fig-20260926-normalized`
@@ -898,19 +870,7 @@ End-point fluorescence (batch-corrected to the mNG control) for [EsaO]2-mNG, com
 
 ## 2026-10-01 — Magnesium sweep with EsaR and DNA pre-incubation
 
-In an attempt to increase the fold-change between "on/off" states, we held the
-pre-expressed EsaR concentration consistent with previous experiments, and
-maintained the DNA concentrations at 0.1 nM, 0.5 nM, and 1 nM. In this case,
-the pre-expressed EsaR reactions were incubated with sensor DNA constructs for
-1 hr, 37 ˚C prior to being added to each reaction. We then supplemented
-reactions with 0 mM, 5 mM, 10 mM and 20 mM magnesium to influence the DNA
-binding properties of EsaR. We found that the addition of magnesium had very
-little influence on the dynamic range between the "on"/"off" states, yet across
-all DNA concentrations tested, the fold change had increased to 5 fold, in
-comparison to ~ 2 in previous experiments at the lowest DNA concentrations
-tested. We attributed this to the increased EsaR:DNA pre-incubation time which
-may enable EsaR to occupy more EsaO operator sites on the sensor DNA.
-
+The incubation of sensor DNA and EsaR  was supplemented with 0 mM, 5 mM, 10 mM or 20 mM magnesium before addition to the cell-free reaction, on the expectation that magnesium would improve EsaR–DNA binding and strengthen repression. Sensor DNA was incubated with EsaR for 1 h at 37 °C before addition to each reaction, rather than the 15 min used previously. Magnesium did not alter the dynamic range at any concentration tested, and 20 mM markedly reduced overall yield. The extended pre-incubation did improve the switch: the fluorescent fold-change rose to approximately five across all DNA concentrations, compared with around two previously.
 <!-- Results narrative supplied by the reviewer in review cycle v2, prompt 22,
 and carried verbatim. The source log carries no results narrative. -->
 
@@ -940,8 +900,7 @@ Steady-state AHSL fold induction (+AHSL / −AHSL) at 0, 5 and 10 mM magnesium, 
 
 :::::
 
-The 20 mM magnesium arm was run and is not plotted. Adding that much magnesium
-to a Nucleus cytosol reaction poisons it.
+
 
 <!-- :::{admonition} The 20 mM magnesium arm is unreported
 :class: warning
@@ -959,26 +918,11 @@ narrative above.
 
 ## 2026-10-07 — EsaR DNA template competition
 
-We ran our EsaR repression reactions at the same conditions as before with
-0.1nM DNA template and preincubating the DNA for 1h at 37C with a cell free
-pre expressed EsaR (15nM DNA, 3h at37C).
+To raise the final EsaR concentration, additional EsaR template was added to the sensor reaction, so that EsaR continued to be expressed alongside the reporter. Previously, EsaR was present only as carryover from the pre-expression step; here, pre-expressed repressor provides immediate operator occupancy while the added template sustains EsaR production during the reaction.
 
-EsaR DNA was 15nM. Final EsaR concentration is 3.4nM in the cell free reaction
-where 2.27µL of EsaR were added and around 0.33 of the DNA stock -\> 2.6µL of
-EsaR-DNA mixture added on 7.4µL mix of Nucleus cytosol+RNase inhibitor and
-AHSL(5µM)/ DI water (0.15µL)
+Adding pre-expressed EsaR also carries over EsaR template, giving a nominal final concentration of 3.4 nM, a 34-fold excess over the 0.1 nM reporter template. To deepen the ‘off’ state further, 5.3 nM EsaR template was added by diluting the reporter DNA stock in EsaR PCR template rather than water, bringing the total EsaR template in the reaction to 8.7 nM, an 87-fold excess over reporter.
 
-To improve the amounts of EsaR in the final reaction and introduce a higher
-off switch:
-
-we added more EsaR DNA template:
-
-We diluted the mNG DNA template not in DI water but in the DNA template of
-EsaR:
-
-Of mixing a 2x DNA stock with the raw PCR template that was at 320nM in a
-50:50 manner so we have 5.3nM extra added enhancing the 34x excess of DNA
-template up to 77x
+Expressing additional EsaR limited overall fluorescence yield, as resources were diverted away from reporter production. This came with an improved dynamic range: the fold-change between ‘on’ and ‘off’ states almost doubled, reflecting a deeper ‘off’ state.
 
 :::::{tab-set}
 
