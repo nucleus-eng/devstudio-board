@@ -1,10 +1,8 @@
 version: 1
 project:
-  # REVIEW: no Specification table in the source Doc. Title unresolved.
-  # Candidate title from the Doc's own first line, 2026-10-12: "Implementing
-  # of a bulk color change module into bacterial quorum sensing" — QC to
-  # confirm, including the phrasing.
-  title: ''
+  # Title confirmed by Anton in chat, 2026-10-12. Matches the Doc's own
+  # first line; no Specification table exists in the source.
+  title: 'Implementing of a bulk color change module into bacterial quorum sensing'
   description: >
     A LuxR/lux-box circuit expresses PLA1 in response to AHL, lysing
     dye-loaded storage vesicles inside GUVs and releasing CPRG for cleavage
@@ -57,6 +55,7 @@ project:
   license:
     content: CC-BY-4.0
     code: CERN-OHL-P-2.0
+  thumbnail: figures/colorchange-overnight.png
   exports:
     - format: meca
   toc:

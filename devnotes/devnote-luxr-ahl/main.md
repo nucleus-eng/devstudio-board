@@ -21,10 +21,10 @@ colorchange-overnight.png. -->
 :class: warning dropdown
 :name: flags-review
 
-**No Specification table and no date exist anywhere in the source Doc.**
-Title and date are both left blank in `curvenote.yml`. Each carries its own
-REVIEW comment there. See {ref}`gap-title-date` below for the title
-candidate.
+**The title is confirmed. The date is not.** Anton confirmed the title in
+chat, 2026-10-12, matching the Doc's own first line. No Specification
+table exists in the source Doc, and no date appears anywhere in it. See
+{ref}`gap-date` below.
 
 **The Reagents table names a plasmid that does not match the circuit in
 Protocol.** The table's reporter-plasmid row names "pT7-tetO-plamGFP
@@ -68,14 +68,17 @@ reagents, and results. Each instance is carried exactly as written in its
 own location. No spelling is normalized to match the other.
 :::
 
-(gap-title-date)=
-<!-- :::{admonition}
-:name: gap-title-date
+<!-- Title resolved, 2026-10-12: Anton confirmed "Implementing of a bulk
+color change module into bacterial quorum sensing" in chat, matching the
+Doc's own first line verbatim, including its phrasing. Thumbnail set to
+figures/colorchange-overnight.png (the last figure), per the same request.
+-->
 
-Please confirm the title and date. The candidate title comes from the
-Doc's own first line: "Implementing of a bulk color change module into
-bacterial quorum sensing." That line is carried verbatim, including its
-phrasing, as a candidate only. No date appears anywhere in the Doc.
+(gap-date)=
+<!-- :::{admonition}
+:name: gap-date
+
+Please confirm the date. No date appears anywhere in the Doc.
 `curvenote.yml` currently carries the Drive file's own creation date,
 2026-10-12, as a placeholder.
 ::: -->
