@@ -1,6 +1,25 @@
 {
   "figures": [
     {
+      "filename": "figures/gel-d6.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "J_N_+100uM_AHL_D6_gels_2026-10-07_14-36-46.345035.zarr/D/6/0",
+      "zarr_url": null,
+      "section_context": "Result 2, gels subsection, condition per corrected tbl-gel-conditions: HSL sensing gels",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-gel-fovs.py. zarr-python direct read over HTTP, resolution level s0 (3000x3000 native, 0.333 um/px), channel 1 (GFP), z = 50 of 101, t = 0 (single end-point Z-stack), fixed window 4526-12204, gamma 1, per Anton, center-cropped to about one field of view (1000x1000 px, 1/9 of the full-frame area), 100 um scale bar",
+      "findings": [
+        "The condition table originally named D3-D5 'HSL sensing gels' and D6-D8 'negative control gels', disagreeing with this well's own filename. Anton corrected the table 2026-10-12 to match the filenames; D6 is now labeled HSL sensing gels.",
+        "A maximum-intensity z-projection was tried first at this same window and rendered fully saturated (projected max 57623, far past 12204); reverted to a single z = 50 slice (raw max 23460), which renders correctly.",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
       "filename": "figures/gel-d5.png",
       "pattern": "static-png",
       "cell_label": null,
@@ -8,50 +27,31 @@
       "platemap": null,
       "data_source": "J_N_-100uM_AHL_D5_gels_2026-10-07_14-44-55.273559.zarr/D/5/0",
       "zarr_url": null,
-      "section_context": "Result 2, gels subsection, condition per tbl-gel-conditions: HSL sensing gels",
+      "section_context": "Result 2, gels subsection, condition per corrected tbl-gel-conditions: negative control gels",
       "asset_chain_complete": false,
-      "extraction_method": "general/render-gel-fovs.py. zarr-python direct read over HTTP, resolution level s0 (3000x3000 native, 0.333 um/px), channel 1 (GFP), z = 50 of 101, t = 0 (single end-point Z-stack), fixed window 3615-9372 per Anton, center-cropped to about one field of view (1000x1000 px, 1/9 of the full-frame area), 100 um scale bar",
+      "extraction_method": "general/render-gel-fovs.py. Same resolution level, channel, z-slice, timepoint, window, gamma and crop as gel-d6.png.",
       "findings": [
-        "Labeled 'HSL sensing gels' per tbl-gel-conditions, but this store's own filename, J_N_-100uM_AHL_D5_gels, says no AHL was added. Flagged in main.md as flags-gel-well-hsl-mismatch, not resolved.",
-        "Renders almost entirely black at this z and crop: a handful of pixels above the 9372 ceiling, consistent with minimal or no expression, which does not distinguish it from gel-d7.png by eye.",
+        "The condition table originally named this cluster (D3-D5) 'HSL sensing gels', disagreeing with this well's own filename. Anton corrected the table 2026-10-12 to match the filenames; D5 is now labeled negative control gels.",
+        "Renders almost entirely black at this z, crop and window, consistent with minimal or no expression.",
         "No notebook exists for this figure. Generated 2026-10-12.",
         "No platemap exists yet for this store, so platemap is null rather than a filename.",
         "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
       ]
     },
     {
-      "filename": "figures/gel-d7.png",
+      "filename": "figures/gel-d11.png",
       "pattern": "static-png",
       "cell_label": null,
       "source_notebook": null,
       "platemap": null,
-      "data_source": "J_N_+100uM_AHL_D7_gels_2026-10-07_14-42-23.412204.zarr/D/7/0",
-      "zarr_url": null,
-      "section_context": "Result 2, gels subsection, condition per tbl-gel-conditions: negative control gels",
-      "asset_chain_complete": false,
-      "extraction_method": "general/render-gel-fovs.py. Same resolution level, channel, z-slice, timepoint, window and crop as gel-d5.png.",
-      "findings": [
-        "Labeled 'Negative control gels' per tbl-gel-conditions, but this store's own filename, J_N_+100uM_AHL_D7_gels, says 100 uM AHL was added. Flagged in main.md as flags-gel-well-hsl-mismatch, not resolved.",
-        "Renders almost entirely black at this z and crop, visually similar to gel-d5.png.",
-        "No notebook exists for this figure. Generated 2026-10-12.",
-        "No platemap exists yet for this store, so platemap is null rather than a filename.",
-        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
-      ]
-    },
-    {
-      "filename": "figures/gel-d9.png",
-      "pattern": "static-png",
-      "cell_label": null,
-      "source_notebook": null,
-      "platemap": null,
-      "data_source": "J_N_Consitutive_AHL_D9_gels_2026-10-07_14-52-02.837332.zarr/D/9/0",
+      "data_source": "J_N_Consitutive_AHL_D11_gels_2026-10-07_14-53-48.138799.zarr/D/11/0",
       "zarr_url": null,
       "section_context": "Result 2, gels subsection, condition: constitutive control gels",
       "asset_chain_complete": false,
-      "extraction_method": "general/render-gel-fovs.py. Same resolution level, channel, z-slice, timepoint, window and crop as gel-d5.png.",
+      "extraction_method": "general/render-gel-fovs.py. Same resolution level, channel, z-slice, timepoint, window, gamma and crop as gel-d6.png.",
       "findings": [
-        "Table and store filename agree this is the constitutive control (no mismatch here, unlike D5 and D7).",
-        "Heavily saturated at this window: real circular GUV-like structures visible against bright background signal, consistent with strong constitutive expression.",
+        "Table and store filename agree this is the constitutive control; no mismatch for this cluster.",
+        "Previously rendered from well D9 at a 3615-9372 window, fully saturated. D11 (same cluster) at the new 4526-12204 window renders correctly: real GUV-like structures visible against moderate background signal, not saturated.",
         "No notebook exists for this figure. Generated 2026-10-12.",
         "No platemap exists yet for this store, so platemap is null rather than a filename.",
         "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."

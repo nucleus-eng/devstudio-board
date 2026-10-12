@@ -560,89 +560,97 @@ once and should be repeated in future. The figure from that attempt
 than kept.
 ::: -->
 
+<!--
+Resolved, 2026-10-12, by Anton: this table originally named D3, D4, D5 "HSL
+sensing gels" and D6, D7, D8 "Negative control gels", disagreeing with the
+store filenames (J_N_-100uM_AHL_D*_gels for D3-D5, J_N_+100uM_AHL_D*_gels for
+D6-D8). Anton's correction matches the store filenames: the well clusters are
+unchanged, only the two labels swap. Treated as authoritative.
+-->
+
 :::{table} Gel conditions, synthetic cells, HSL. Triplicates for each experiment; empty ULGA gels included to account for light scattering from vesicles.
 :label: tbl-gel-conditions
 :align: center
 
 | Condition | Plasmid | Well |
 | --- | --- | --- |
-| HSL sensing gels | LuxR-mNeonGreen | D3, D4, D5 |
-| Negative control gels | LuxR-mNeonGreen | D6, D7, D8 |
+| HSL sensing gels | LuxR-mNeonGreen | D6, D7, D8 |
+| Negative control gels | LuxR-mNeonGreen | D3, D4, D5 |
 | Constitutive control gels | Constitutive mNeonGreen | D9, D10, D11 |
 | Empty ULGA gels | N/A | D12, D13, D14 |
 :::
 
-:::{danger} The gel condition table disagrees with the store filenames on which wells got HSL
-:name: flags-gel-well-hsl-mismatch
+:::{admonition}
+:name: gap-gel-label-plus1000
 
-{numref}`tbl-gel-conditions` names D3, D4, D5 as "HSL sensing gels" and D6,
-D7, D8 as "Negative control gels". The twelve store filenames below say the
-opposite: the D3-D5 stores are named `J_N_-100uM_AHL_D*_gels` (no AHL added)
-and the D6-D8 stores are named `J_N_+100uM_AHL_D*_gels` (AHL added). The
-figures below are labeled from the table, per Anton's instruction, 2026-10-12,
-not from the store filenames. Say which is right.
+Anton's correction named the HSL sensing well "D6 for + 1000". Read as the
++100 µM AHL condition, matching that well's own store filename,
+`J_N_+100uM_AHL_D6_gels`. Confirm this reading if "1000" meant something
+else.
 :::
 
 :::::{tab-set}
 
 ::::{tab-item} HSL sensing gels
-:::{figure} ./figures/gel-d5.png
-:label: fig-gel-d5
+:::{figure} ./figures/gel-d6.png
+:label: fig-gel-d6
 :align: center
 :width: 60%
-Well D5, HSL sensing gels (LuxR-mNeonGreen), z = 50 of 101, GFP channel only,
-contrast windowed 3615 to 9372, center crop, about one field of view.
+Well D6, HSL sensing gels (LuxR-mNeonGreen, +100 µM AHL), z = 50 of 101, GFP
+channel only, contrast windowed 4526 to 12204, center crop, about one field
+of view.
 :::
 ::::
 
 ::::{tab-item} Negative control gels
-:::{figure} ./figures/gel-d7.png
-:label: fig-gel-d7
+:::{figure} ./figures/gel-d5.png
+:label: fig-gel-d5
 :align: center
 :width: 60%
-Well D7, negative control gels (LuxR-mNeonGreen), z = 50 of 101, GFP channel
-only, contrast windowed 3615 to 9372, center crop, about one field of view.
+Well D5, negative control gels (LuxR-mNeonGreen, no AHL), z = 50 of 101, GFP
+channel only, contrast windowed 4526 to 12204, center crop, about one field
+of view.
 :::
 ::::
 
 ::::{tab-item} Constitutive control gels
-:::{figure} ./figures/gel-d9.png
-:label: fig-gel-d9
+:::{figure} ./figures/gel-d11.png
+:label: fig-gel-d11
 :align: center
 :width: 60%
-Well D9, constitutive control gels (Constitutive mNeonGreen), z = 50 of 101,
-GFP channel only, contrast windowed 3615 to 9372, center crop, about one
+Well D11, constitutive control gels (Constitutive mNeonGreen), z = 50 of 101,
+GFP channel only, contrast windowed 4526 to 12204, center crop, about one
 field of view.
 :::
 ::::
 
 :::::
 
-[`fig-gel-d5`, platemap: none, data source:`J_N_-100uM_AHL_D5_gels_2026-10-07_14-44-55.273559.zarr/D/5/0`, caption: (Well D5, labeled HSL sensing gels per the condition table, z = 50, GFP channel only, center crop.)]
+[`fig-gel-d6`, platemap: none, data source:`J_N_+100uM_AHL_D6_gels_2026-10-07_14-36-46.345035.zarr/D/6/0`, caption: (Well D6, HSL sensing gels, z = 50, GFP channel only, center crop.)]
 
-[`fig-gel-d7`, platemap: none, data source:`J_N_+100uM_AHL_D7_gels_2026-10-07_14-42-23.412204.zarr/D/7/0`, caption: (Well D7, labeled negative control gels per the condition table, z = 50, GFP channel only, center crop.)]
+[`fig-gel-d5`, platemap: none, data source:`J_N_-100uM_AHL_D5_gels_2026-10-07_14-44-55.273559.zarr/D/5/0`, caption: (Well D5, negative control gels, z = 50, GFP channel only, center crop.)]
 
-[`fig-gel-d9`, platemap: none, data source:`J_N_Consitutive_AHL_D9_gels_2026-10-07_14-52-02.837332.zarr/D/9/0`, caption: (Well D9, constitutive control gels, z = 50, GFP channel only, center crop.)]
+[`fig-gel-d11`, platemap: none, data source:`J_N_Consitutive_AHL_D11_gels_2026-10-07_14-53-48.138799.zarr/D/11/0`, caption: (Well D11, constitutive control gels, z = 50, GFP channel only, center crop.)]
 
 <!-- missing notebook -->
 
 <!-- All three rendered by general/render-gel-fovs.py: zarr-python direct
-read over HTTP, resolution level s0 (3000x3000 native, 0.333 um/px; this
-store's own pyramid is finer than the solution store's, so s0 rather than s2
-was used to keep the crop sharp), channel index 1 (GFP, confirmed against
-this store's own omero.channels order: Brightfield and GFP only, no Alexa
-Fluor 647), z = 50 of 101 z-planes, t = 0 (each of these twelve stores has
-only one timepoint, a single end-point Z-stack), fixed window 3615-9372 per
-Anton, 2026-10-12, center-cropped to about one field of view (1000x1000 px,
-1/9 of the full-frame area, same 1/3-linear convention as the solution
-figures), 100 um scale bar.
+read over HTTP, resolution level s0 (3000x3000 native, 0.333 um/px), channel
+index 1 (GFP), z = 50 of 101 z-planes, t = 0 (each of these twelve stores has
+only one timepoint, a single end-point Z-stack), fixed window 4526-12204,
+gamma 1 (linear), per Anton, 2026-10-12, center-cropped to about one field of
+view (1000x1000 px, 1/9 of the full-frame area), 100 um scale bar.
 
-D5 and D7 both render almost entirely black at this z and crop, with only a
-handful of pixels above the window ceiling; D9 is heavily saturated, with
-real circular GUV-like structures visible against bright background signal.
-This does not distinguish an "HSL sensing" well from a "negative control"
-well by eye, which is consistent with flags-gel-well-hsl-mismatch above: at
-least one of the two labels is likely wrong.
+Two earlier attempts preceded this one, both superseded. The first used wells
+D5, D7, D9 and a 3615-9372 window at z = 50; D5 and D7 were nearly black and
+D9 was fine, which could not settle flags-gel-well-hsl-mismatch (now
+resolved, see above). The second tried matching NM's own rendering script,
+a maximum-intensity projection across all 101 z-planes rather than a single
+slice, at wells D6, D5, D11 with this same 4526-12204 window: D5 and D11
+looked right, but D6's projected maximum (57623) was far past the window
+ceiling and rendered fully saturated. Returning to a single z = 50 slice, per
+Anton, fixed it: D6's raw value at z = 50 is 23460, inside a displayable
+range.
 
 No notebook or platemap exists yet for any of these three stores, so
 asset_chain_complete is false in manifest.json. -->
@@ -650,11 +658,9 @@ asset_chain_complete is false in manifest.json. -->
 :::{admonition}
 :name: gap-gel-fov-rendering
 
-Three of twelve stores are shown, one per labeled condition, D5, D7 and D9.
-The other nine (D3, D4, D6, D8, D10, D11, and the three empty-gel controls
-D12-D14) have no figure yet. Confirm whether more wells are wanted, and
-resolve flags-gel-well-hsl-mismatch above before trusting the HSL sensing /
-negative control labels on these two figures.
+Three of twelve stores are shown, one per condition, D6, D5 and D11. The
+other nine (D3, D4, D7, D8, D10, D12-D14) have no figure yet. Confirm whether
+more wells are wanted.
 :::
 
 <!-- :::{admonition}
