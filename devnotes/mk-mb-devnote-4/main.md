@@ -22,8 +22,9 @@ byline — same fix as mk-mb-devnote-3. Figure captions drop the literal
 `:::{figure}` directive; same fix as mk-mb-devnote-3. A "Plasmid maps"
 subsection is added after Plasmids and proteins (not in the source Doc),
 following the same placement request applied to mk-mb-devnote-3's single
-construct. A handful of sentences gained {ref} cross-links to the table
-they describe. -->
+construct, and holds both plasmid maps as a two-item tab-set (on request,
+2026-10-12), one tab per construct. A handful of sentences gained {ref}
+cross-links to the table they describe. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
@@ -138,15 +139,29 @@ Three plasmid stocks are used so that a fixed small volume delivers the intended
 
 Not a section of the source Doc. Both constructs are named in the table above as pOpen-PLA and pOpen-deGFP, and named in the Results captions below by their fuller names, pOpen-TetO-PLA and pOpen-TetO-deGFP — the same constructs as this board's `mk-mb-devnote2` and `devnote-mk-20260925-20260928`. Both files are reused unmodified from those DevNotes; see Open items.
 
+:::::{tab-set}
+
+::::{tab-item} pOpen-TetO-PLA
+:sync: pla
+
 (seqviz-popen-teto-pla)=
 
 :::{seqviz} ./dna/pOpen-TetO-PLA.gb
 :::
 
+::::
+
+::::{tab-item} pOpen-TetO-deGFP
+:sync: degfp
+
 (seqviz-popen-teto-degfp)=
 
 :::{seqviz} ./dna/pOpen-TetO-deGFP.gb
 :::
+
+::::
+
+:::::
 
 ## Cell-free system
 
