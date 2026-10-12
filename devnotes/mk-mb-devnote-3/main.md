@@ -233,6 +233,23 @@ Platemap link:
 Endpoint GFP expression across an aTc titration at three TetR concentrations. Bulk cell-free reactions containing 1 nM pT7-tetO-plamGFP and 0, 500 or 1000 nM purified TetR were induced with anhydrotetracycline at 0–10 µM final and read for 6 h at 37 °C. Points are fluorescence at the 6 h endpoint (ex 485 nm, em 528 nm, gain 75), mean ± SD of three wells per condition, with error bars smaller than the symbols in most cases. The −DNA control is a no-template reaction at the matching aTc concentration.
 :::
 
+<!--
+[`fig-2-endpoint-gfp-atc-titration`, suspected source, not yet pulled in, confirmed by matching reader/settings
+against main.md's Data acquisition and analysis section on 2026-10-12 (Cytation3, serial 130723A, 37 C with
+0 C gradient, 6 h kinetic at 5 min intervals, 73 reads, ex 485/em 528, gain 75, xenon flash high, 100 ms delay,
+10 measurements/point, 10.75 mm read height — all match exactly) and by its plate map (SPL1-28 across rows B-E
+in triplicate, SPL29-32 in row G at 2 wells each, columns 2-9 — matches the Doc's text, not the figure image):
+drive_folder: `https://drive.google.com/drive/folders/1eTAKVgISkJMnFdNtYcdUOS-P2CBdr0Cf` (MK-20260925-tetO-plamGFP/deGFP-in-bulk-and-encapsulated)
+log: `log-MK-20260925` (Google Doc, same folder)
+data source: `20260925-163935-cytation3-pure-timecourse-gfp-Mary-tetR-aTc.txt` (raw Cytation3 export, same folder)
+platemap: `MK-20260925-TetO GFP in Bulk with ATC.csv` (same folder; volumes match tbl-conditions exactly)
+notebook: `MK-20260925-platereader.ipynb` (same folder)
+stocks: `MK-Stocks.csv` (same folder)
+This resolves the Doc's own empty "dataset link:" / "Platemap link:" lines above. Not yet fetched into this
+devnote's own directory; say the word and these can be pulled in as `experiments/`, the way the sibling
+devnote-mk-20260925-20260928 does it.
+-->
+
 # Conclusion
 
 The tetR-aTc module works as specified in Nucleus Base Cytosol, repressing expression to near background at both 500 and 1000 nM TetR and recovering cleanly to the unrepressed level on induction. Both repressor concentrations are usable, so the choice between them is a choice about where the switch should sit: 500 nM gives a more sensitive detector that responds at 0.25 µM aTc, while 1000 nM gives a tighter OFF state and a threshold closer to 0.5–1 µM.
