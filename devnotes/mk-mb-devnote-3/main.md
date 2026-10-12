@@ -14,7 +14,14 @@ Prose, tables, step lists, captions and both figures are carried verbatim
 from that Doc, including its own section order. The Doc's own title/authors
 block ("Title: ..." / "Authors:" / each name and email) is not repeated in
 the body: title, authors and their emails live in this file's frontmatter
-and in curvenote.yml instead, and render as the page byline. -->
+and in curvenote.yml instead, and render as the page byline.
+
+On request, 2026-10-11: the plasmid map moved from its own trailing section
+to directly after Genetic circuit, under a new "Plasmid map" heading (not
+in the source Doc). A handful of sentences also gained {ref} cross-links to
+the table, figure, or seqviz view they describe — "the table below" became
+"{ref}`tbl-mastermix`", for example. These are the only two kinds of change
+made to the Doc's own prose; no value, unit, or claim was altered. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
@@ -68,11 +75,24 @@ Four bulk reactions were assembled: a no-DNA control, an unrepressed reaction wi
 
 ## Genetic circuit
 
-The reporter plasmid pT7-tetO-plamGFP ([b.next, Nucleus tetR-aTc Detector module](https://docs.nucleus.engineering/docs/modules/detector-tetr-atc/spec/)) places a tetO operator between the T7 promoter and the plamGFP coding sequence. Purified His-tagged TetR ([MedChemExpress, HY-P71520A](https://www.medchemexpress.com/us/en/recombinant-proteins/tetr-protein-e-coli-his.html?srsltid=AU7gw4XeoLAU4C1NcJKmfsKthnNGFGwvbKLvPkvOY3NtBwW2pcWP1Ys9)) binds tetO and blocks transcription; aTc binds TetR and releases it from the operator, restoring plamGFP expression. The output is therefore a graded GFP signal set by the aTc concentration.
+The reporter plasmid pT7-tetO-plamGFP ([b.next, Nucleus tetR-aTc Detector module](https://docs.nucleus.engineering/docs/modules/detector-tetr-atc/spec/)) places a tetO operator between the T7 promoter and the plamGFP coding sequence. Purified His-tagged TetR ([MedChemExpress, HY-P71520A](https://www.medchemexpress.com/us/en/recombinant-proteins/tetr-protein-e-coli-his.html?srsltid=AU7gw4XeoLAU4C1NcJKmfsKthnNGFGwvbKLvPkvOY3NtBwW2pcWP1Ys9)) binds tetO and blocks transcription; aTc binds TetR and releases it from the operator, restoring plamGFP expression. The output is therefore a graded GFP signal set by the aTc concentration. The full plasmid map is in {ref}`Plasmid map <seqviz-pt7-teto-plamgfp>`.
+
+## Plasmid map
+
+(seqviz-pt7-teto-plamgfp)=
+
+:::{seqviz} ./dna/pOpen-pT7-tetO.gb
+:::
+
+<!-- Not a section of the source Doc. Added because the source names the
+construct and links to its Nucleus module spec, but supplies no sequence of
+its own; the map above renders the real nucleus-eng/DNA file identified in
+Open items, taken as-is and unmodified. Placed directly after Genetic circuit
+on request, 2026-10-11, rather than as its own trailing section. -->
 
 ## Reagents and stocks
 
-Reactions were run in b.next Nucleus Base Cytosol, a PURE-type reconstituted system supplied as a premade reagent kit, and assembled following the Nucleus [Assemble Base Cytosol](https://docs.nucleus.engineering/docs/processes/assemble-base-cytosol/main) process. Per 10 µL of reaction the component ratios match that reference composition: 3.0 µL SMix, 1.0 µL tRNA, 1.2 µL PMix, 1.8 µL ribosomes and 0.5 µL RNase inhibitor. The reporter and repressor are the Nucleus [tetR-aTc Detector](https://docs.nucleus.engineering/docs/modules/detector-tetr-atc/spec) module.
+Reactions were run in b.next Nucleus Base Cytosol, a PURE-type reconstituted system supplied as a premade reagent kit, and assembled following the Nucleus [Assemble Base Cytosol](https://docs.nucleus.engineering/docs/processes/assemble-base-cytosol/main) process. Per 10 µL of reaction the component ratios match that reference composition: 3.0 µL SMix, 1.0 µL tRNA, 1.2 µL PMix, 1.8 µL ribosomes and 0.5 µL RNase inhibitor. The reporter and repressor are the Nucleus [tetR-aTc Detector](https://docs.nucleus.engineering/docs/modules/detector-tetr-atc/spec) module. Stocks and sources are listed in {ref}`tbl-reagents`.
 
 :::{table} Reagents and stocks.
 :label: tbl-reagents
@@ -94,7 +114,7 @@ Reactions were run in b.next Nucleus Base Cytosol, a PURE-type reconstituted sys
 
 ## Master mix
 
-Components common to all four conditions (SMix, tRNA, PMix, Ribosomes, RIM, Sucrose) were combined into a single master mix in a 1.5 mL Eppendorf tube, sufficient for four 380 µL reactions. Amounts were obtained by summing the per-reaction requirements in the table below. Sucrose was weighed directly into the tube as 203 mg of solid, the remaining components were added on top, and the sucrose was dissolved by pipette mixing.
+Components common to all four conditions (SMix, tRNA, PMix, Ribosomes, RIM, Sucrose) were combined into a single master mix in a 1.5 mL Eppendorf tube, sufficient for four 380 µL reactions. Amounts were obtained by summing the per-reaction requirements in {ref}`tbl-mastermix`. Sucrose was weighed directly into the tube as 203 mg of solid, the remaining components were added on top, and the sucrose was dissolved by pipette mixing.
 
 :::{table} Master mix, sufficient for four 380 µL reactions.
 :label: tbl-mastermix
@@ -115,7 +135,7 @@ The master mix was mixed gently by pipette and set aside while the DNA, TetR and
 
 ## Reaction conditions
 
-Each bulk reaction was brought to a final volume of 380 µL. Volumes below are per tube; the first six rows (SMix, tRNA, PMix, Ribosomes, RIM, Sucrose) make up the master mix volume added to each tube, as 318.44 µL to the pre-incubated plasmid, TetR, and water mixes.
+Each bulk reaction was brought to a final volume of 380 µL. Volumes in {ref}`tbl-conditions` are per tube; the first six rows (SMix, tRNA, PMix, Ribosomes, RIM, Sucrose) make up the master mix volume added to each tube, as 318.44 µL to the pre-incubated plasmid, TetR, and water mixes.
 
 Specifically, plasmid, TetR, and water were combined in their own tube per condition (61.56 µL in every case) and incubated at 37 °C for 10 min to allow TetR to bind the operator. The same volume of master mix, 318.44 µL, was then added to every tube and mixed gently.
 
@@ -143,7 +163,7 @@ Specifically, plasmid, TetR, and water were combined in their own tube per condi
 
 Each bulk reaction was dispensed at 10 µL per well into a 384-well plate, followed by 1 µL of aTc prepared at 11×, for an 11 µL final volume at the stated final aTc concentration. Each of the four conditions was plated across all seven aTc levels in triplicate.
 
-Rows B–E carry the four conditions in order (B = no DNA, C = unrepressed, D = 500 nM TetR, E = 1000 nM TetR). Columns are grouped in threes by aTc level:
+Rows B–E carry the four conditions in order (B = no DNA, C = unrepressed, D = 500 nM TetR, E = 1000 nM TetR), plated as shown in {ref}`fig-1-plate-layout`. Columns are grouped in threes by aTc level, as in {ref}`tbl-atc-columns`:
 
 :::{table} aTc stock and final concentration by plate column.
 :label: tbl-atc-columns
@@ -179,7 +199,7 @@ Endpoint values are the final timepoint of the 6 h kinetic run, reported as raw 
 
 # Results
 
-TetR represses the reporter tightly at both concentrations, and aTc relieves that repression fully, but the inducer concentration needed scales with the amount of repressor.
+TetR represses the reporter tightly at both concentrations, and aTc relieves that repression fully, but the inducer concentration needed scales with the amount of repressor. Endpoint values are in {ref}`tbl-results`, plotted in {ref}`fig-2-endpoint-gfp-atc-titration`.
 
 Without inducer, endpoint fluorescence fell from 21,662 RFU in the unrepressed reaction to 541 RFU at 500 nM TetR and 399 RFU at 1000 nM. Adding aTc restored expression in both cases, and by 5 µM neither repressed condition was distinguishable from the unrepressed one.
 
@@ -220,18 +240,6 @@ The tetR-aTc module works as specified in Nucleus Base Cytosol, repressing expre
 For circuits that need a sharp, late-triggering switch, 1000 nM is the better setting. For a detector meant to report low aTc, 500 nM is. The useful inducer range for either is 0.25–1 µM, which sits below the 2.5–5 µM the module specification recommends and well below the concentrations where aTc's own color interferes with the GFP channel.
 
 Two things are worth noting about scope. The titration is coarse between 0.5 and 5 µM, so the thresholds quoted here are read off the measured points rather than interpolated; a finer spacing across 0.1–1 µM would pin down where each curve turns over. And this write-up looks only at the 6 h endpoint, though the run recorded fluorescence every 5 min throughout. Those kinetic traces are available from the same plate and would show whether the repressed conditions differ in onset time as well as in final level.
-
-# Plasmid reference — pT7-tetO-plamGFP
-
-(seqviz-pt7-teto-plamgfp)=
-
-:::{seqviz} ./dna/pOpen-pT7-tetO.gb
-:::
-
-<!-- Not a section of the source Doc. Added because the source names the
-construct and links to its Nucleus module spec, but supplies no sequence of
-its own; the map above renders the real nucleus-eng/DNA file identified in
-Open items, taken as-is and unmodified. -->
 
 # Sources
 
