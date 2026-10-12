@@ -13,11 +13,10 @@ project:
     titration with EsaR pre-expressed overnight, a magnesium sweep with EsaR
     and DNA pre-incubated before the reaction, and an EsaR DNA template
     competition assay.
-  # Names and emails from review cycle v2, prompt 1, in the order given.
+  # Names and emails from review cycle v2, prompt 1, and author-order and
+  # contact-detail updates supplied directly by the author afterward.
   # The spelling "Charlie" follows the email the author supplied, which
   # corrected the "Chalie" first written in the Doc.
-  # REVIEW: each affiliation is inferred from the author's email domain, not
-  # stated by the author. Confirm all three, and confirm the author order.
   # REVIEW: no ORCID is recorded for any author.
   authors:
     - name: Charlie Newell
@@ -25,16 +24,26 @@ project:
       affiliations:
         - ucl
       id: contributors-curvenote-generated-uid-0
-    - name: Jonah McDonald
-      email: jonah.mcdonald@kcl.ac.uk
-      affiliations:
-        - kcl
-      id: contributors-curvenote-generated-uid-1
     - name: Manuel Bibrowski
-      email: manuel.bibrowski25@imperial.ac.uk
+      email: mb525@ic.ac.uk
       affiliations:
         - imperial
       id: contributors-curvenote-generated-uid-2
+    - name: Jonah McDonald
+      email: Jonah.McDonald@kcl.ac.uk
+      affiliations:
+        - kcl
+      id: contributors-curvenote-generated-uid-1
+    - name: Niall McIntyre
+      email: n.mcintyre@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-3
+    - name: Julia Purrinos De Oliveira
+      email: jb421@ic.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-4
   affiliations:
     - id: ucl
       name: University College London
@@ -61,14 +70,22 @@ project:
   toc:
     - file: main.md
     - file: experiments/20260924-repressor-test/platereader.ipynb
+      title: EsaR Repressor Titration (2026-09-24)
     - file: experiments/20260925-dna-titration/platereader.ipynb
+      title: Sensor DNA Titration (2026-09-25)
     - file: experiments/20260926-dna-titration-esar-spent/platereader.ipynb
+      title: DNA Titration, Spent EsaR (2026-09-26)
     - file: experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb
+      title: Magnesium Sweep (2026-10-01)
     - file: experiments/20261007-esar-template-competition/platereader.ipynb
+      title: EsaR Template Competition (2026-10-07)
     - file: experiments/20261009-guv-esar-ahsl/CN-microscopy-01.ipynb
+      title: GUV Microscopy Analysis (2026-10-09)
   resources:
     - banner-devcells.webp
     - experiments/**
   id: 99d20115-67f3-42c1-bf8f-90b7af4a0d80
 site:
   template: article-theme
+  options:
+    style: custom.css

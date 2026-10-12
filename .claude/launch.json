@@ -11,6 +11,16 @@
         "--notebook-dir=/Users/charlie/Documents/Projects/20251124-DevCells/microscopy"
       ],
       "port": 8888
+    },
+    {
+      "name": "curvenote-cn",
+      "cwd": "/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-cn-20260924-20261001",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "cd '/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-cn-20260924-20261001' && exec curvenote start --port 3100"
+      ],
+      "port": 3100
     }
   ]
 }

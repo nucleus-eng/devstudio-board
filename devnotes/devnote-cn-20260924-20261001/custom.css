@@ -1,0 +1,9 @@
+/* Centre notebook-cell-output figures (e.g. bar plots pulled in via the
+   quarto-label pattern) within their figure container. These images carry
+   a fixed pixel width/height from the notebook output itself, so a
+   `:width:` percentage on the {figure} directive constrains the wrapper
+   but not the image, and it is left-aligned by default. */
+.myst-jp-figure img {
+  margin-left: auto;
+  margin-right: auto;
+}
