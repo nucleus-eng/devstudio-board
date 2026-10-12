@@ -1,20 +1,22 @@
 version: 1
 project:
-  # Title taken from the "Draft devnote" Doc (1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E)
-  # on 2026-10-11, confirmed by Anton. Replaces the chat-supplied working
-  # title "LuxR-GFP Sensor Demo".
-  title: 'Fluorescent Biofilm-Sensing GUV Hydrogel'
-  # Description restates the same Doc's own overview paragraph, updated
-  # 2026-10-12 against the Doc's second, authoritative overview pass.
+  # Title supplied by Anton, 2026-10-12, replacing "Fluorescent
+  # Biofilm-Sensing GUV Hydrogel" (itself taken from the "Draft devnote" Doc,
+  # 1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E, on 2026-10-11). No source Doc
+  # carries this new title; it did not come from the Doc this time.
+  title: 'Bacterial Sensing in Hydrogel Embedded Synthetic Cells using LuxR Dependent Transcriptional Regulation'
+  # Description restates the Doc's own overview paragraph as of 2026-10-12.
+  # Not re-derived from the new title, which this description predates.
   description: >
     A synthetic-cell hydrogel that senses bacterial contamination through
     quorum-sensing-induced cell-free protein expression: POPC GUVs carrying
     LuxR-mNeonGreen lysate, embedded in agarose, fluorescing in response to
     3-oxo-C6-HSL from purified standard or bacterial supernatant.
-  # Authors and emails supplied by Anton in chat on 2026-10-05. No Authors
-  # table exists in any source.
-  # REVIEW: the affiliation was stated by Anton, not by either author.
-  # REVIEW: no ORCID is recorded for either author.
+  # Author list supplied by Anton, 2026-10-12, replacing the two-author list
+  # Anton supplied on 2026-10-05. No Authors table exists in any source.
+  # REVIEW: affiliations are read off each author's email domain, not stated
+  # by any author.
+  # REVIEW: no ORCID is recorded for any author.
   authors:
     - name: Julia Purrinos de Oliveira
       email: j.purrinosdeoliveira@imperial.ac.uk
@@ -26,9 +28,27 @@ project:
       affiliations:
         - imperial
       id: contributors-curvenote-generated-uid-1
+    - name: Manuel Bibrowski
+      email: manuel.bibrowski25@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-2
+    - name: Charlie Newell
+      email: charlie.newell.21@ucl.ac.uk
+      affiliations:
+        - ucl
+      id: contributors-curvenote-generated-uid-3
+    - name: Jonah McDonald
+      email: jonah.mcdonald.24@ucl.ac.uk
+      affiliations:
+        - ucl
+      id: contributors-curvenote-generated-uid-4
   affiliations:
     - id: imperial
       name: Imperial College London
+      country: United Kingdom
+    - id: ucl
+      name: University College London
       country: United Kingdom
   # Date assigned by Anton on 2026-10-05. The DevNote slug reads 202609, which
   # is a month and disagrees with this value. See the blocking date flag in

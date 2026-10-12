@@ -82,17 +82,23 @@ schematic already placed below.
 :width: 90%
 Bacterial supernatant carrying 3-oxo-C6-HSL diffuses into the LuxR-mNeonGreen
 GUV hydrogel. Inside one GUV, constitutively expressed LuxR binds 3-oxo-C6-HSL
-and activates pLux, driving mNeonGreen expression.
+and activates pLux, driving mNeonGreen expression. The inset shows the
+phospholipid bilayer HSL crosses to enter the GUV.
 :::
 
-<!-- [`fig-overview-schematic`, file:`general/overview.png`, caption: (Bacterial supernatant carrying 3-oxo-C6-HSL diffuses into the LuxR-mNeonGreen GUV hydrogel. Inside one GUV, LuxR binds 3-oxo-C6-HSL and activates pLux-driven mNeonGreen expression.)] -->
+<!-- [`fig-overview-schematic`, file:`general/overview.png`, caption: (Bacterial supernatant carrying 3-oxo-C6-HSL diffuses into the LuxR-mNeonGreen GUV hydrogel. Inside one GUV, LuxR binds 3-oxo-C6-HSL and activates pLux-driven mNeonGreen expression. The inset shows the phospholipid bilayer HSL crosses to enter the GUV.)] -->
 
 <!-- A schematic, not a data figure: no notebook, no platemap, no data
 chain. Placed in general/ before the G stage, per
 devstudio-author-myst-content's schematic convention, and referenced by
 path rather than extracted from a Doc. Added 2026-10-11, kept as-is during
 the 2026-10-12 migration: the Doc's second [image] placeholder is a separate,
-still-open spot, not a replacement for this one. -->
+still-open spot, not a replacement for this one.
+
+Re-extracted 2026-10-12: the image at this position in the Doc's own .docx
+export changed again between reads, this time adding a phospholipid bilayer
+inset on the right. Same core diagram, same file path, replaced in place
+rather than treated as a new figure. -->
 
 <!-- :::{danger} Unresolved before publication
 :name: flags-blocking -->
@@ -104,8 +110,10 @@ notebook, and any build file for any result, so no composition table exists
 yet anywhere. -->
 
 <!-- Title and date were not sourced. Title resolved, 2026-10-11:
-"Fluorescent Biofilm-Sensing GUV Hydrogel", unchanged in the Doc as of
-2026-10-12. Date still open. -->
+"Fluorescent Biofilm-Sensing GUV Hydrogel". Changed again, 2026-10-12, by
+Anton directly, not from the Doc: "Bacterial Sensing in Hydrogel Embedded
+Synthetic Cells using LuxR Dependent Transcriptional Regulation". Date still
+open. -->
 
 <!-- :::{admonition}
 :name: gap-date
@@ -1077,3 +1085,35 @@ Log folders and data, one set per result, from the "Draft devnote" Doc:
 - Result 2, gel log: <https://drive.google.com/drive/folders/1j4vF36gjF_jpaGyI8fI-_uyUs-M6mC2d>
 - Result 2, twelve gel microscopy stores: listed inline under the gels subsection above, grouped by condition.
 - Result 3, microscopy store: <https://data.nucleus.engineering/microscopy/nucleus-bnext-01/nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr>; no separate log folder link was given. -->
+
+<!--
+Summary and What's next, added 2026-10-12, supplied by Anton. Discussion
+points, Notes, the original What's next, and Resources above are already
+hidden in one HTML comment block Anton left earlier in this session, so these
+two new sections are the only live content after Methods; nothing renders
+twice.
+-->
+
+# Summary
+
+1. *E. coli* lysate-based cell-free protein expression with the
+   LuxR-mNeonGreen plasmid can successfully detect 3-oxo-C6-HSL in bulk.
+2. The same system can be successfully encapsulated in synthetic cells, which
+   is activated with 10 µM purified HSL in solution, visible using
+   fluorescence microscopy.
+3. Lysate-containing synthetic cells encapsulated within ULGA hydrogels can
+   sense 100 µM HSL added to the top of the gels.
+4. Bacterial supernatant collected from *E. coli* containing the LuxI
+   plasmid induced GFP expression in lysate GUVs containing the
+   LuxR-mNeonGreen plasmid.
+
+# What's next
+
+1. Test bacterial supernatant with lysate GUVs embedded in agarose hydrogel.
+2. Test orthogonal sensing with 3-oxo-C6-HSL and 3-oxo-C12-HSL quorum sensors
+   using LuxR and LasR to regulate transcriptional regulation.
+3. Investigate whether the LuxR system can be used for visible colorimetric
+   detection of bacterial contamination, through encapsulation of a
+   substrate and expression of an enzyme.
+4. Perform tests around the mechanical stability of GUVs embedded in
+   hydrogel.
