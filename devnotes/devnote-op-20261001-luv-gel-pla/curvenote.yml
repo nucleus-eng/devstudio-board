@@ -1,5 +1,6 @@
 version: 1
 project:
+  banner: banner-devcells.webp
   # Title taken from the revised log-devnote-draft.docx, 2026-10-11, which
   # states it on its own first line as "Title: Understanding Liposome
   # Behaviour in Hydrogel Matrices". That is a stated title in the source, so
@@ -58,6 +59,7 @@ project:
     - file: viewers.md
     - file: experiments/20261001-luv-gel-pla/platereader.ipynb
   resources:
+    - banner-devcells.webp
     - experiments/**
     - dna/**
     - figures/**

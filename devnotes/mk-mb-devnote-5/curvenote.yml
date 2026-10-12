@@ -1,5 +1,6 @@
 version: 1
 project:
+  banner: banner-devcells.webp
   # Title carried from the source Doc's own heading, 2026-10-12.
   title: 'TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning'
   description: >
@@ -44,6 +45,7 @@ project:
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
   resources:
+    - banner-devcells.webp
     - figures/**
     - dna/**
   id: dbd189bc-da6a-4818-a1d4-928349f8c5c4
