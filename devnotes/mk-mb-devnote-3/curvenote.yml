@@ -1,6 +1,6 @@
 version: 1
 project:
-  banner: ../../resources/assets/banner-devcells.webp
+  banner: banner-devcells.webp
   # Title carried from the source Doc's own heading, 2026-10-11.
   title: 'Expressing Cell-Free TetO-GFP in Solution with aTc Titration'
   description: >
@@ -46,6 +46,7 @@ project:
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
   resources:
+    - banner-devcells.webp
     - figures/**
     - dna/**
   id: 63b849a5-1b7d-414b-bcd0-da8f121b9b23
