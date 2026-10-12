@@ -1,0 +1,60 @@
+{
+  "source": {
+    "doc": "TetO-PLA in NB_CPRG",
+    "url": "https://docs.google.com/document/d/11Rcrw1_6U45LPC8VNe6-34ztsteZ8Qu-XwIrUvVDDtQ",
+    "drafted": "2026-10-12",
+    "note": "main.md is a verbatim carry of this Doc. The Doc gives no date in its own text; 2026-10-11 is the Drive file's creation date. The Doc's own 'Sequences:' subsection (raw sequences inline in prose) was restructured into a Plasmid maps tab-set in the same position; no sequence character changed."
+  },
+  "figures": [
+    {"filename": "figures/fig1-guv-gfp-gel-vs-os.png", "pattern": "static-png", "section_context": "Results, GUVs survive photopolymerization", "asset_chain_complete": false, "extraction_method": "pandoc --extract-media", "findings": ["Figure 1 of the source Doc, pasted as an image (chart + confocal panels)."]},
+    {"filename": "figures/fig2-tetr-source-comparison.png", "pattern": "static-png", "section_context": "Results, CF-TetR provides the tightest repression", "asset_chain_complete": false, "extraction_method": "pandoc --extract-media", "findings": ["Figure 2 of the source Doc, pasted as an image. Had real alpha transparency (0-255); flattened onto white."]},
+    {"filename": "figures/fig3-teto-pla1-dose-response.png", "pattern": "static-png", "section_context": "Results, TetO-PLA1 responded backwards", "asset_chain_complete": false, "extraction_method": "pandoc --extract-media", "findings": ["Figure 3 of the source Doc, pasted as an image."]},
+    {"filename": "figures/fig4-bulk-atc-poisoning.png", "pattern": "static-png", "section_context": "Results, TetO-PLA1 responded backwards", "asset_chain_complete": false, "extraction_method": "pandoc --extract-media", "findings": ["Figure 4 of the source Doc, pasted as an image."]},
+    {"filename": "figures/fig5-encapsulated-atc-titration-confocal.png", "pattern": "static-png", "section_context": "Results, TetO-PLA1 responded backwards", "asset_chain_complete": false, "extraction_method": "pandoc --extract-media", "findings": ["Figure 5 of the source Doc, pasted as an image (chart + confocal panels).", "REVIEW: the image's own chart title reads 'CF TetR and pOpen-PLA in a Two Vesicle System,' not TetO-PLA1. See Open items in main.md."]},
+    {"filename": "figures/fig6-fine-atc-titration.png", "pattern": "static-png", "section_context": "Results, aTc titration identifies 0.25 uM as the usable concentration", "asset_chain_complete": false, "extraction_method": "pandoc --extract-media", "findings": ["Figure 6 of the source Doc, pasted as an image (two-panel)."]},
+    {"filename": "figures/fig7-patterned-gel.png", "pattern": "static-png", "section_context": "Results, Programmed color change in a patterned gel", "asset_chain_complete": false, "extraction_method": "pandoc --extract-media", "findings": ["Figure 7 of the source Doc, pasted as an image. Used as the devnote thumbnail."]},
+    {"filename": "figures/fig8-two-vesicle-bnext.png", "pattern": "static-png", "section_context": "Results, Reproduced aTc poisoning effect at b.next lab", "asset_chain_complete": false, "extraction_method": "pandoc --extract-media", "findings": ["Figure 8 of the source Doc, pasted as an image."]}
+  ],
+  "constructs": [
+    {
+      "name": "pJL1_T7-TetO-GFP",
+      "sequence_file": "dna/pJL1-T7-TetO-GFP.gb",
+      "length_bp": 2486,
+      "verified": true,
+      "findings": [
+        "Built from the source Doc's own inline sequence, given in full under the Doc's 'Sequences:' subsection. T7 promoter, tetO operator, RBS and CDS located by string search on the forward strand, matching the Doc's own construct table.",
+        "CDS translates to 240 aa ending WSHPQFEK (Strep-tag II), matching the Doc's table exactly ('240 aa deGFP with a C-terminal Strep-tag II').",
+        "A different backbone (pJL1) from the pOpen backbone this board's other DevNotes use; not the same file as any existing devnote."
+      ]
+    },
+    {
+      "name": "pJL1_T7-TetO-PLA1",
+      "sequence_file": "dna/pJL1-T7-TetO-PLA1.gb",
+      "length_bp": 3223,
+      "verified": true,
+      "findings": [
+        "Built from the source Doc's own inline sequence. The Doc's construct table states this cassette sits on the reverse strand; confirmed by locating the promoter, tetO operator, RBS and CDS on the reverse complement of the given sequence, then converting coordinates back to the forward strand for the GenBank file (complement() locations).",
+        "CDS translates to 320 aa, matching the Doc's table exactly ('320 aa phospholipase A1'). Translation (MSMSLSFTSAIAPAAIQPP...ANA) is identical to the PLA1 protein this board's mk-mb-devnote2 and mk-mb-devnote-4 carry on the pOpen backbone -- the same enzyme, a different vector (pJL1 here, pOpen there).",
+        "Not the same file as either of those DevNotes' dna/pOpen-TetO-PLA.gb; this is a distinct plasmid."
+      ]
+    },
+    {
+      "name": "CF-TetR",
+      "sequence_file": null,
+      "verified": false,
+      "findings": ["In-house cell-free expressed TetR, supplied as a volume of finished reaction (1.5-3 uL depending on experiment), not a purified or sequenced construct in its own right."]
+    },
+    {
+      "name": "TetR-His (MedChemExpress, His-SUMO)",
+      "sequence_file": null,
+      "verified": false,
+      "findings": ["A purchased purified protein (His-SUMO tagged), not a construct built here. Linked in Sources."]
+    },
+    {
+      "name": "beta-galactosidase",
+      "sequence_file": null,
+      "verified": false,
+      "findings": ["A purchased enzyme (Sigma-Aldrich), co-encapsulated as the lysis reporter, not a construct built here."]
+    }
+  ]
+}

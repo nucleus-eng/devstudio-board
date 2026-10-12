@@ -1,0 +1,92 @@
+LOCUS       pJL1-T7-TetO-PLA1      3223 bp    DNA     circular SYN 12-OCT-2026
+DEFINITION  TetR-repressed, aTc-inducible phospholipase A1 (PLA1) construct.
+            Sequence carried verbatim from the Google Doc "TetO-PLA in
+            NB_CPRG" (named pJL1_T7-TetO-PLA1 there, 2026-10-12); the Doc
+            states this cassette sits on the reverse strand, confirmed here
+            by locating the promoter/operator/RBS/CDS on the reverse
+            complement of the given sequence.
+ACCESSION   pJL1-T7-TetO-PLA1
+VERSION     pJL1-T7-TetO-PLA1
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+COMMENT     Built 2026-10-12 from the source Doc's inline sequence. The
+            T7/tetO/RBS/CDS cassette sits on the reverse strand of the given
+            sequence, as the Doc's own construct table states; features
+            below are annotated with complement() locations against the
+            Doc's sequence as supplied. CDS translates to 320 aa
+            (MSMSLSFTSAIAPAAIQPP...ANA), the same PLA1 protein as
+            mk-mb-devnote2 and mk-mb-devnote-4's pOpen-TetO-PLA, here on a
+            different (pJL1) backbone. The AmpR marker is not annotated,
+            since the Doc gives no landmark for it.
+FEATURES             Location/Qualifiers
+     source          1..3223
+                     /mol_type="other DNA"
+     promoter        complement(1841..1860)
+                     /label="T7 promoter"
+     protein_bind    complement(1821..1839)
+                     /label="tetO operator"
+     RBS             complement(1762..1775)
+                     /label="RBS"
+     CDS             complement(799..1761)
+                     /label="PLA1"
+                     /codon_start=1
+                     /note="320 aa phospholipase A1, per the source Doc's
+                     construct table; on the reverse strand"
+ORIGIN
+        1 ttgagatcgt tttggtctgc gcgtaatctc ttgctctgaa aacgaaaaaa ccgccttgca
+       61 gggcggtttt tcgaaggttc tctgagctac caactctttg aaccgaggta actggcttgg
+      121 aggagcgcag tcaccaaaac ttgtcctttc agtttagcct taaccggcgc atgacttcaa
+      181 gactaactcc tctaaatcaa ttaccagtgg ctgctgccag tggtgctttt gcatgtcttt
+      241 ccgggttgga ctcaagacga tagttaccgg ataaggcgca gcggtcggac tgaacggggg
+      301 gttcgtgcat acagtccagc ttggagcgaa ctgcctaccc ggaactgagt gtcaggcgtg
+      361 gaatgagaca aacgcggcca taacagcgga atgacaccgg taaaccgaaa ggcaggaaca
+      421 ggagagcgca cgagggagcc gccaggggga aacgcctggt atctttatag tcctgtcggg
+      481 tttcgccacc actgatttga gcgtcagatt tcgtgatgct tgtcaggggg gcggagccta
+      541 tggaaaaacg gctttgccgc ggccctctca cttccctgtt aagtatcttc ctggcatctt
+      601 ccaggaaatc tccgccccgt tcgtaagcca tttccgctcg ccgaactgaa ctccacctaa
+      661 tgtcttggag attgtcggat agcgcggaat aggattgtgc cctctgagcg gataacaatt
+      721 tcacacagga aacagctatg accatgacac atgcatccac catcgcagac ttatcatcac
+      781 tgagcctcca cctagccttc atgcgttggc cattgcttcc cacggcttct gttccgccat
+      841 actcgagata actttatcga taccatgtgc agtcagtgaa cgatccaggt gttttgaggg
+      901 acgccagtca tcaatgccac tcaatgtatc gttgttcgct aaggtaattt tatgaccaat
+      961 agcgtctggg atgaggcttg ttgattcttg tgtcccagta agcatatcgt attgttcgct
+     1021 atagcgacgg atcccaccgg cctgggcatc ctgtttggct gccgcagggt caattcccat
+     1081 acgattaagc gtataatctg acaccccagc tgcgttaaaa gtaacagcca cagtccctgt
+     1141 agccaatgca gccgttgcgg cgaggccgcc ccctaagcta tggccggcaa taacaagcgc
+     1201 gtcgccgaag gcggctttag cagattttgc caagctgaca gcctgattat actgtacatc
+     1261 gtcgtatccg gtcgcttgac ggacgttgct caaccaatct cgcatatcat tggtcccagc
+     1321 aaaagcaaga acgtactgct ggttatccgt ataaatccct gcttgaaagc cggaagcggc
+     1381 gtcctgcaga cttgccggat ctatacctgc tcctaacaac gcatcagctg acaggcggtt
+     1441 gaacccttcg acaccctgtg aaccggttga ataaacatct ttagcgagca gcgccaaagt
+     1501 atagtctcct ttctgtggct gctgcccgcg cgtgactcct tgattagctg ccgccggagc
+     1561 ggcggcagag atttcggaga cgagggtatt gagcaatgat tgggcattga gggagttctg
+     1621 actcagggtt gcgacagggg cttttgtagc gctcgcttcc acaggctgac tagaagacaa
+     1681 cggttccggc tgtgtacgga ccattggcgg ttgaatagca gcgggcgcga tagccgatgt
+     1741 aaaagacagt gacatagaca tatgtatatc tccttcttaa agttaaacaa aattatttct
+     1801 agagggaaac cgttgtggtc tctctatcac tgatagggat ccctatagtg agtcgtatta
+     1861 aggtcaggcg gaatggcact tccttattcc agatgcgtgc ggattatgca tgactggccg
+     1921 tcgttttaca acgtcgtgac tgggaaaacc ctggcgcttg tggtggatca cagttattgg
+     1981 agacttcctt ggccgtacga tgggttttgt ttcaggtatc tggcactttt cggggaaatg
+     2041 tgcgcggaac ccctatttgt ttatttttct aaatacattc aaatatgtat ccgctcatga
+     2101 gacaataacc ctgataaatg cttcaataat attgaaaaag gaagagtatg agtattcaac
+     2161 atttccgtgt cgcccttatt cccttttttg cggcattttg ccttcctgtt tttgctcacc
+     2221 cagaaacgct ggtgaaagta aaagatgctg aagatcagtt gggtgcacga gtgggttaca
+     2281 tcgaactgga tctcaacagc ggtaagatcc ttgagagttt tcgccccgaa gaacgttttc
+     2341 caatgatgag cacttttaaa gttctgctat gtggcgcggt attatcccgt attgacgccg
+     2401 ggcaagagca actcggtcgc cgcatacact attctcagaa tgacttggtt gagtactcac
+     2461 cagtcacaga aaagcatctt acggatggca tgacagtaag agaattatgc agtgctgcca
+     2521 taaccatgag tgataacact gcggccaact tacttctgac aacgatcgga ggaccgaagg
+     2581 agctaaccgc ttttttgcac aacatggggg atcatgtaac tcgccttgat cgttgggaac
+     2641 cggagctgaa tgaagccata ccaaacgacg agcgtgacac cacgatgcct gtagcaatgg
+     2701 caacaacgtt gcgcaaacta ttaactggcg aactacttac tctagcttcc cggcaacaat
+     2761 taatagactg gatggaggcg gataaagttg caggaccact tctgcgctcg gcccttccgg
+     2821 ctggctggtt tattgctgat aaatctggag ccggtgagcg tggctctcgc ggtatcattg
+     2881 cagcactggg gccagatggt aagccctccc gtatcgtagt tatctacacg acggggagtc
+     2941 aggcaactat ggatgaacga aatagacaga tcgctgagat aggtgcctca ctgattaagc
+     3001 attggtaact gtcagaccaa gtttactcat atatacttta gattgattta aaacttcatt
+     3061 tttaatttaa aaggatctag gtgaagatcc ttgaattgcc attatcaaca agtttgtaca
+     3121 aaaaagcagg ctccgaattg gtatcacgag gacgatttga agccccctac ccatggacgg
+     3181 cggctttgtt gaatagagcg tcagacttaa taagatgatc ttc
+//
