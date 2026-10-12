@@ -1,6 +1,63 @@
 {
   "figures": [
     {
+      "filename": "figures/solution-j4.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/4/0",
+      "zarr_url": null,
+      "section_context": "Result 2, solution subsection, condition: HSL sensing GUVs",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-solution-fovs.py. zarr-python direct read over HTTP, resolution level s2, channel 1 (GFP), timepoint 17 (the last of 18 frames), contrast windowed to the 1st-99.5th percentile pooled across J4, J7 and J10, whole well, no crop or zoom (no Vizarr view state was supplied for this store)",
+      "findings": [
+        "Representative well for the HSL sensing GUVs condition (J3, J4, J5): the triplicate's middle well, for consistency with the Result 3 naming (C4, C7, C10).",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "This store's dynamic range is far lower than the Result 3 store; the fixed 30000-60000 window used there would render this well almost entirely black, so a pooled-percentile window was computed instead.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/solution-j7.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/7/0",
+      "zarr_url": null,
+      "section_context": "Result 2, solution subsection, condition: negative control",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-solution-fovs.py. Same resolution level, channel, timepoint and pooled window as solution-j4.png, for the negative control's middle well (J6, J7, J8).",
+      "findings": [
+        "Representative well for the negative control condition (J6, J7, J8): the triplicate's middle well.",
+        "A diagonal streak in the lower right is debris or a fiber on the plate, not biological signal; carried as imaged.",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/solution-j10.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/10/0",
+      "zarr_url": null,
+      "section_context": "Result 2, solution subsection, condition: constitutive control",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-solution-fovs.py. Same resolution level, channel, timepoint and pooled window as solution-j4.png, for the constitutive control's middle well (J9, J10, J11).",
+      "findings": [
+        "Representative well for the constitutive control condition (J9, J10, J11): the triplicate's middle well.",
+        "Brightest and densest of the three, consistent with the Doc's narrative that the constitutive control expresses faster and higher than the HSL-induced condition.",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
       "filename": "figures/result1-bulk-lysate-platereader.png",
       "pattern": "embedded-in-doc",
       "cell_label": null,
