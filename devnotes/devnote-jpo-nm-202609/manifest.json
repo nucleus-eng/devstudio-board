@@ -10,7 +10,7 @@
       "zarr_url": null,
       "section_context": "Result 2, solution subsection, condition: HSL sensing GUVs",
       "asset_chain_complete": false,
-      "extraction_method": "general/render-solution-fovs.py. zarr-python direct read over HTTP, resolution level s2, channel 1 (GFP), timepoint 17 (the last of 18 frames), contrast windowed to the 1st-99.5th percentile pooled across J4, J7 and J10, whole well, no crop or zoom (no Vizarr view state was supplied for this store)",
+      "extraction_method": "general/render-solution-fovs.py. zarr-python direct read over HTTP, resolution level s2, channel 1 (GFP), timepoint 17 (the last of 18 frames), contrast windowed to the 1st-99.5th percentile pooled across J4, J7 and J10, center-cropped to about one field of view (925x925 px, 1/9 of the full-well area), 100 um scale bar, per Anton 2026-10-12; no Vizarr view state was supplied for this store",
       "findings": [
         "Representative well for the HSL sensing GUVs condition (J3, J4, J5): the triplicate's middle well, for consistency with the Result 3 naming (C4, C7, C10).",
         "No notebook exists for this figure. Generated 2026-10-12.",
@@ -29,7 +29,7 @@
       "zarr_url": null,
       "section_context": "Result 2, solution subsection, condition: negative control",
       "asset_chain_complete": false,
-      "extraction_method": "general/render-solution-fovs.py. Same resolution level, channel, timepoint and pooled window as solution-j4.png, for the negative control's middle well (J6, J7, J8).",
+      "extraction_method": "general/render-solution-fovs.py. Same resolution level, channel, timepoint, center crop and pooled window as solution-j4.png, for the negative control's middle well (J6, J7, J8).",
       "findings": [
         "Representative well for the negative control condition (J6, J7, J8): the triplicate's middle well.",
         "A diagonal streak in the lower right is debris or a fiber on the plate, not biological signal; carried as imaged.",
@@ -48,7 +48,7 @@
       "zarr_url": null,
       "section_context": "Result 2, solution subsection, condition: constitutive control",
       "asset_chain_complete": false,
-      "extraction_method": "general/render-solution-fovs.py. Same resolution level, channel, timepoint and pooled window as solution-j4.png, for the constitutive control's middle well (J9, J10, J11).",
+      "extraction_method": "general/render-solution-fovs.py. Same resolution level, channel, timepoint, center crop and pooled window as solution-j4.png, for the constitutive control's middle well (J9, J10, J11).",
       "findings": [
         "Representative well for the constitutive control condition (J9, J10, J11): the triplicate's middle well.",
         "Brightest and densest of the three, consistent with the Doc's narrative that the constitutive control expresses faster and higher than the HSL-induced condition.",
@@ -65,7 +65,7 @@
       "platemap": null,
       "data_source": null,
       "zarr_url": null,
-      "section_context": "Result 1 — LuxR-mNeonGreen sensor plasmid in bulk lysate",
+      "section_context": "Result 1 \u2014 LuxR-mNeonGreen sensor plasmid in bulk lysate",
       "asset_chain_complete": false,
       "extraction_method": "pandoc-equivalent: docx export of the 'Draft devnote' Doc, unzipped, word/media/image2.png as of the 2026-10-12 export, confirmed by relationship order in word/document.xml",
       "findings": [
@@ -82,7 +82,7 @@
       "platemap": null,
       "data_source": "nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/4/0",
       "zarr_url": null,
-      "section_context": "Result 3 — detecting bacterially produced HSL in solution, condition: HSL sensing GUVs",
+      "section_context": "Result 3 \u2014 detecting bacterially produced HSL in solution, condition: HSL sensing GUVs",
       "asset_chain_complete": false,
       "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. zarr-python direct read over HTTP, cropped and zoomed to a Vizarr view state (target, zoom) Anton supplied, channel 1 (GFP), timepoint 19, fixed window 30000-60000, 1080x1080 px output, scale bar computed from the store's own per-level pixel scale",
       "findings": [
@@ -100,7 +100,7 @@
       "platemap": null,
       "data_source": "nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/7/0",
       "zarr_url": null,
-      "section_context": "Result 3 — detecting bacterially produced HSL in solution, condition: negative control",
+      "section_context": "Result 3 \u2014 detecting bacterially produced HSL in solution, condition: negative control",
       "asset_chain_complete": false,
       "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the negative control's middle well (C6, C7, C8).",
       "findings": [
@@ -119,7 +119,7 @@
       "platemap": null,
       "data_source": "nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/10/0",
       "zarr_url": null,
-      "section_context": "Result 3 — detecting bacterially produced HSL in solution, condition: constitutive control",
+      "section_context": "Result 3 \u2014 detecting bacterially produced HSL in solution, condition: constitutive control",
       "asset_chain_complete": false,
       "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the constitutive control's middle well (C9, C10, C11).",
       "findings": [

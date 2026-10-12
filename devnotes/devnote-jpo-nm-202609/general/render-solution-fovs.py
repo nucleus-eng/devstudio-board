@@ -2,19 +2,27 @@
 """Render one representative field of view per condition for the solution
 subsection of Result 2, from the Lysate_LuxR_Cytosol_EsaR store.
 
-Adapted from general/render-microscopy-fovs.py (Result 3), with two real
-differences, both forced by the data rather than chosen:
+Adapted from general/render-microscopy-fovs.py (Result 3), with real
+differences forced by the data and by Anton's instruction rather than chosen
+freely:
 
-1. No Anton-supplied Vizarr view state exists for this store, so these are
-   whole-well renders at resolution level s2, not a cropped and zoomed field.
+1. No Vizarr view state was supplied for this store, so there is no target
+   pixel to crop around. Anton instead asked for the well's own center,
+   cropped to about one field of view: the whole-well render at s2 is
+   2775x2775 px and visibly a tiled grid of camera fields, so a crop to 1/9
+   of that area (1/3 the linear extent, 925x925 px) centered on the well
+   approximates one field, confirmed by eye against the visible tile seams.
+
 2. This store's dynamic range is far lower than the Result 3 store: raw GFP
-   maxima were 17179 (J4), 26639 (J7), 35357 (J10), against that store's
-   signal reaching the full 16-bit range. A fixed 30000-60000 window would
-   render J4 and J7 almost entirely black here. Instead, one window is
-   computed by pooling all three wells' pixels and taking the 1st and 99.5th
+   maxima in the full well were 17179 (J4), 26639 (J7), 35357 (J10), against
+   that store's signal reaching the full 16-bit range. A fixed 30000-60000
+   window would render two of the three wells almost entirely black.
+   Instead, one window is computed by pooling the three CROPPED wells'
+   pixels (not the whole-well pixels) and taking the 1st and 99.5th
    percentile, the same pooled-percentile convention
    devnote-swh-20260925-ph-sensor-in-solution/general/render-microscopy-fovs.py
-   uses, so the three panels stay directly comparable.
+   uses, so the three panels stay directly comparable to each other at this
+   crop, which is not the same window as a whole-well version would need.
 """
 import json
 import os
@@ -33,24 +41,32 @@ T = 17  # last of 18 frames (indices 0-17), the endpoint the Doc's narrative dis
 GFP_CHANNEL = 1
 LO_PCT, HI_PCT = 1.0, 99.5
 UM_PER_PX = 1.332  # s2 scale, confirmed from this store's own multiscales metadata
-BAR_UM = 500
+BAR_UM = 100
+CROP_FRACTION = 1 / 3  # linear fraction -> 1/9 area, "about one field of view"
 OUTDIR = 'figures'
+
+
+def center_crop(frame, fraction):
+    n = frame.shape[0]
+    crop_n = round(n * fraction)
+    start = (n - crop_n) // 2
+    return frame[start:start + crop_n, start:start + crop_n]
 
 
 def main():
     frames = {}
     for name, well, path in WELLS:
         arr = zarr.open_group(f'{STORE}/{path}', mode='r')['s2']
-        frame = np.asarray(arr[T, GFP_CHANNEL, 0, :, :]).astype(np.float32)
-        frames[well] = frame
-        print(f'  {well}: min {frame.min():.0f}, max {frame.max():.0f}')
+        full = np.asarray(arr[T, GFP_CHANNEL, 0, :, :]).astype(np.float32)
+        frames[well] = center_crop(full, CROP_FRACTION)
+        print(f'  {well}: full {full.shape} -> crop {frames[well].shape}, '
+              f'min {frames[well].min():.0f}, max {frames[well].max():.0f}')
 
     pool = np.concatenate([f.ravel() for f in frames.values()])
     lo, hi = float(np.percentile(pool, LO_PCT)), float(np.percentile(pool, HI_PCT))
-    print(f'pooled window ({LO_PCT}-{HI_PCT} pct): {lo:.0f} to {hi:.0f}')
+    print(f'pooled window on crops ({LO_PCT}-{HI_PCT} pct): {lo:.0f} to {hi:.0f}')
 
     font_path = os.path.join(matplotlib.get_data_path(), 'fonts', 'ttf', 'DejaVuSans.ttf')
-    font = ImageFont.truetype(font_path, 40)
     bar_px = round(BAR_UM / UM_PER_PX)
 
     for name, well, path in WELLS:
@@ -61,23 +77,28 @@ def main():
         img = Image.fromarray(rgb, mode='RGB')
 
         draw = ImageDraw.Draw(img)
-        margin = 80
+        margin = max(15, int(img.width * 0.03))
+        font = ImageFont.truetype(font_path, max(16, int(img.width * 0.045)))
         x0, y0 = margin, img.height - margin
-        draw.rectangle([x0, y0, x0 + bar_px, y0 + 10], fill=(255, 255, 255))
+        draw.rectangle([x0, y0, x0 + bar_px, y0 + max(3, int(img.height * 0.01))],
+                       fill=(255, 255, 255))
         label = f'{BAR_UM} µm'
         box = draw.textbbox((0, 0), label, font=font)
-        draw.text((x0 + (bar_px - (box[2] - box[0])) / 2, y0 - 55), label,
-                   fill=(255, 255, 255), font=font)
+        draw.text((x0 + (bar_px - (box[2] - box[0])) / 2,
+                   y0 - (box[3] - box[1]) - int(img.height * 0.02)),
+                  label, fill=(255, 255, 255), font=font)
         draw.text((margin, margin), well, fill=(255, 255, 255), font=font)
 
         path_out = f'{OUTDIR}/solution-{well.lower()}.png'
         img.save(path_out)
-        print(f'  -> {path_out}')
+        print(f'  -> {path_out} {img.size}')
 
     with open(f'{OUTDIR}/solution-fov-params.json', 'w') as handle:
         json.dump({'t': T, 'gfp_channel': GFP_CHANNEL,
                    'window_pooled_percentiles': [LO_PCT, HI_PCT],
                    'window_values': [lo, hi], 'um_per_px': UM_PER_PX,
+                   'crop_fraction_linear': CROP_FRACTION,
+                   'bar_um': BAR_UM,
                    'wells': {well: name for name, well, _ in WELLS}},
                   handle, indent=1)
 

@@ -426,7 +426,8 @@ Unlike the Result 3 store, this one has not had a crop, zoom or contrast
 decision made for it.
 
 Answer, 2026-10-12: three representative wells rendered below, one per
-condition, GFP channel only, at T = 17, the last of 18 frames.
+condition, GFP channel only, at T = 17, the last of 18 frames, each cropped
+to the well's own center at about one field of view, per Anton.
 -->
 
 :::::{tab-set}
@@ -435,9 +436,9 @@ condition, GFP channel only, at T = 17, the last of 18 frames.
 :::{figure} ./figures/solution-j4.png
 :label: fig-solution-j4
 :align: center
-:width: 75%
+:width: 60%
 Well J4, HSL sensing GUVs (LuxR-mNeonGreen, 10 µM HSL in outer solution),
-T = 17 (endpoint), GFP channel only, whole well.
+T = 17 (endpoint), GFP channel only, center crop, about one field of view.
 :::
 ::::
 
@@ -445,10 +446,9 @@ T = 17 (endpoint), GFP channel only, whole well.
 :::{figure} ./figures/solution-j7.png
 :label: fig-solution-j7
 :align: center
-:width: 75%
+:width: 60%
 Well J7, negative control (LuxR-mNeonGreen, outer solution), T = 17
-(endpoint), GFP channel only, whole well. A diagonal streak in the lower right
-is debris or a fiber on the plate, not biological signal; carried as imaged.
+(endpoint), GFP channel only, center crop, about one field of view.
 :::
 ::::
 
@@ -456,19 +456,19 @@ is debris or a fiber on the plate, not biological signal; carried as imaged.
 :::{figure} ./figures/solution-j10.png
 :label: fig-solution-j10
 :align: center
-:width: 75%
+:width: 60%
 Well J10, constitutive control (constitutive mNeonGreen, outer solution),
-T = 17 (endpoint), GFP channel only, whole well.
+T = 17 (endpoint), GFP channel only, center crop, about one field of view.
 :::
 ::::
 
 :::::
 
-[`fig-solution-j4`, platemap: none, data source:`Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/4/0`, caption: (Well J4, HSL sensing GUVs, T = 17, GFP channel only, whole well.)]
+[`fig-solution-j4`, platemap: none, data source:`Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/4/0`, caption: (Well J4, HSL sensing GUVs, T = 17, GFP channel only, center crop.)]
 
-[`fig-solution-j7`, platemap: none, data source:`Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/7/0`, caption: (Well J7, negative control, T = 17, GFP channel only, whole well.)]
+[`fig-solution-j7`, platemap: none, data source:`Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/7/0`, caption: (Well J7, negative control, T = 17, GFP channel only, center crop.)]
 
-[`fig-solution-j10`, platemap: none, data source:`Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/10/0`, caption: (Well J10, constitutive control, T = 17, GFP channel only, whole well.)]
+[`fig-solution-j10`, platemap: none, data source:`Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/10/0`, caption: (Well J10, constitutive control, T = 17, GFP channel only, center crop.)]
 
 <!-- missing notebook -->
 
@@ -479,22 +479,23 @@ carries only two channels, an unlabeled "Channel 1" and GFP, no brightfield
 and no Alexa Fluor 647), timepoint 17 (the last of 18 frames, the endpoint
 the Doc's narrative discusses).
 
-No Anton-supplied Vizarr view state exists for this store, unlike Result 3,
-so these are whole-well renders at s2, not a cropped and zoomed field. If a
-specific crop is wanted later, the same script and convention as
-general/render-microscopy-fovs.py would apply once a target and zoom are
-given.
+Cropped 2026-10-12, per Anton: no Vizarr view state was supplied for this
+store, so instead of a specific target, the well's own center was cropped to
+about one field of view, matching the visible tile grid in the earlier
+whole-well render. One linear third of the full 2775 px frame, so 925x925 px,
+one ninth of the area. Scale bar dropped from 500 µm to 100 µm to match.
 
 This store's dynamic range is far lower than the nc_lysate_cyt_c_d store used
-for Result 3: raw GFP maxima were 17179 (J4), 26639 (J7) and 35357 (J10),
-against that store's signal reaching the full 16-bit range. The fixed
-30000-60000 window used there would render J4 and J7 almost entirely black
-here, so it was not reused. Instead, a single window was computed by pooling
-all three wells' pixels and taking the 1st and 99.5th percentile (432 to
-7961), the same pooled-percentile convention
+for Result 3: raw GFP maxima in the full well were 17179 (J4), 26639 (J7) and
+35357 (J10), against that store's signal reaching the full 16-bit range. The
+fixed 30000-60000 window used there would render two of these wells almost
+entirely black, so it was not reused. A window was instead computed by
+pooling the three CROPPED wells' pixels (not the whole-well pixels, since the
+crop changes the local brightness distribution) and taking the 1st and 99.5th
+percentile (665 to 8301), the same pooled-percentile convention
 devnote-swh-20260925-ph-sensor-in-solution/general/render-microscopy-fovs.py
-uses, so the three panels stay directly comparable: a dimmer well looks
-dimmer, not rescaled to look the same.
+uses, so the three panels stay directly comparable to each other at this
+crop.
 
 Representative wells are J4, J7 and J10, the middle well of each condition's
 triplicate, for consistency with the Result 3 figures (C4, C7, C10). No
@@ -504,7 +505,7 @@ false in manifest.json. -->
 :::{admonition}
 :name: gap-solution-fov-rendering
 
-Confirm the representative well choice (the middle well of each triplicate), the endpoint timepoint (T = 17), and the pooled-percentile contrast stretch, none of which were specified and all of which were chosen for consistency with the Result 3 figures.
+Confirm the representative well choice (the middle well of each triplicate) and the endpoint timepoint (T = 17), neither of which was specified and both of which were chosen for consistency with the Result 3 figures. The crop (center of well, about one field of view) and the scale bar (100 µm) were specified by Anton, 2026-10-12.
 :::
 
 From the endpoint microscopy data, the HSL sensing GUVs have increased
