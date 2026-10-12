@@ -1,0 +1,64 @@
+{
+  "source": {
+    "doc": "TetO-plamGFP in Solution",
+    "url": "https://docs.google.com/document/d/1F3oW_PK6oKyVTA1JaVtpX5BvqwYHdBwEvA59MDBIMes",
+    "drafted": "2026-10-11",
+    "note": "main.md is a verbatim carry of this Doc. Both authors and emails are given directly in the source, unlike the two prior DevNotes on this board."
+  },
+  "figures": [
+    {
+      "filename": "figures/fig1-plate-layout.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Protocol, aTc titration and plate layout",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Figure 1 of the source Doc, pasted as an image.",
+        "Matches the text caption (conditions 1-28, rows B-E, triplicate, grouped by aTc level).",
+        "REVIEW: the image shows fluorescein standards S1, S1, S2, S2, S3, S3, S4 across columns 2-8, with column 9 blank. The text describes S1-S4 'in duplicate' across columns 2-9. The two disagree in the source itself; not resolved here."
+      ]
+    },
+    {
+      "filename": "figures/fig2-endpoint-gfp-atc-titration.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Results",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Figure 2 of the source Doc, pasted as an image.",
+        "Checked against the Results table on 2026-10-11: plotted endpoint values at each aTc concentration match the table's RFU figures for -DNA, 0 nM, 500 nM and 1000 nM TetR.",
+        "The source leaves 'dataset link:' and 'Platemap link:' empty immediately above this figure. No notebook, platemap, or raw instrument file is named anywhere in the source Doc."
+      ]
+    }
+  ],
+  "constructs": [
+    {
+      "name": "pT7-tetO-plamGFP",
+      "sequence_file": "dna/pOpen-pT7-tetO.gb",
+      "length_bp": 2954,
+      "verified": true,
+      "findings": [
+        "The source Doc gives no inline sequence, only a construct name and a link to the Nucleus tetR-aTc Detector module spec (docs.nucleus.engineering/docs/modules/detector-tetr-atc/spec/).",
+        "nucleus-eng/DNA detectors/pOpen-pT7-tetO.gb, checked directly on 2026-10-11: 2954 bp, DEFINITION line reads 'PlamGFP green fluorescent protein with repressed by the tet repressor tetR.' Features: T7 promoter, tetO operator, UTR1 RBS, plamGFP CDS (693 nt, 230 aa, translation starting MEIEDVIKRDMK...), T7hyb6 terminator, AmpR, pOpen backbone.",
+        "This is an identity match on the file's own DEFINITION and feature labels, not a filename-resemblance guess. Taken and used as-is, unmodified, as dna/pOpen-pT7-tetO.gb.",
+        "Same plamGFP CDS considered and ruled out as a match for a different construct (pOpen-TetO-deGFP) during this board's devnote-mk-20260925-20260928 construct check on 2026-10-11 -- consistent with this file being specific to the plamGFP reporter, not deGFP."
+      ]
+    },
+    {
+      "name": "TetR, His-tagged (MedChemExpress)",
+      "sequence_file": null,
+      "verified": false,
+      "findings": [
+        "A purchased purified protein, not a construct built here. Listed under Reagents and stocks in the source Doc. Same product (MedChemExpress HY-P71520A) as this board's other two DevNotes."
+      ]
+    }
+  ]
+}
