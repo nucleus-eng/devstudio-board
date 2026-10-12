@@ -156,22 +156,6 @@
       ]
     },
     {
-      "filename": "figures/20261007-overnight-endpoint-25c.png",
-      "pattern": "static-png",
-      "cell_label": null,
-      "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
-      "platemap": "20261008-esao-mng-esar-ahsl.csv",
-      "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
-      "section_context": "2026-10-07 \u2014 EsaR DNA template competition",
-      "asset_chain_complete": false,
-      "extraction_method": "pandoc --extract-media",
-      "findings": [
-        "No cell in platereader.ipynb loads a thermocycler or endpoint read. The notebook only ever loads the continuous plate-reader timecourse, so this figure's actual data source is unconfirmed beyond the one raw data file in the folder.",
-        "5.8-fold change in the log's own text checks out: 19800 / 3400 = 5.82, consistent with the figure's two bars.",
-        "REVIEW: identify and vendor the actual source data for this endpoint read, which may not be the timecourse .txt already in the tree"
-      ]
-    },
-    {
       "filename": "fig-20260926-fold",
       "pattern": "quarto-label",
       "cell_label": "cn-20260926-fig2",
@@ -211,6 +195,37 @@
       "extraction_method": "notebook cell output",
       "findings": [
         "New label added by the author on 2026-10-12: steady-state fold change per well across 0, 5 and 10 mM magnesium."
+      ]
+    },
+    {
+      "filename": "fig-20261008-overnight",
+      "pattern": "quarto-label",
+      "cell_label": "mbcn-20261008-fig1",
+      "source_notebook": "CN-MB-20261007-EsaR_template_competition/platereader.ipynb",
+      "platemap": "20261008-esao-mng-esar-ahsl.csv",
+      "data_source": "20261007-170653-YH Cytosol comparison_CH.txt",
+      "section_context": "Running sensing reaction at lower temperatures increases the dynamic range of the sensor",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "New section and label added by the author on 2026-10-12, per explicit @Claude instructions in the log doc. Deliberately kept as a separate Results section from 2026-10-07, not merged with the existing (still-unresolved) fig-20261007-overnight static-png figure in that tab-set."
+      ]
+    },
+    {
+      "filename": "fig-20261009-guv-ahsl",
+      "pattern": "quarto-label",
+      "cell_label": "microscopy-exp-01",
+      "source_notebook": "CN-microscopy-01.ipynb",
+      "platemap": null,
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/201009o_EsaR_mNG_0.1_0.5_K_L_2026-10-09_19-47-50.861429.zarr",
+      "section_context": "GUVs encapsulating [EsaO]2-mNG sense AHSL in solution",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "Labelled by the author on 2026-10-11/12. The notebook cell renders a static 6-panel grid (3 +AHSL, 3 -AHSL replicate wells) directly from the zarr store referenced in cell 21 of the notebook; no platemap or flat-file raw data exists for this microscopy experiment.",
+        "Log cites the cell label as microscopy-exp-0 (missing the trailing 1); the notebook actually carries microscopy-exp-01. Used the notebook label, carried verbatim.",
+        "Log text reads \"successful depression of mNG\", likely a typo for \"de-repression\" given the EsaR/AHSL mechanism established elsewhere in this DevNote. Not corrected, flagged instead."
       ]
     }
   ]
