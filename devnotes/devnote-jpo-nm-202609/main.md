@@ -733,15 +733,20 @@ the gel run is at
 :name: gap-result-3
 
 Answer, from the "Draft devnote" Doc, migrated 2026-10-12: adopted verbatim below, with one new comparative sentence added since the 2026-10-11 pass.
+
+Strain corrected, 2026-10-12, per Anton: the Doc and the earlier migration
+both said DH5α; the real strain is NEB5α. Every mention in this result, the
+two tables, the three figure captions, and the Supernatant preparation
+protocol was changed.
 -->
 
 To model bacterial sensing using GUVs, the LuxI plasmid was transformed into
-DH5α *E. coli* (DH5α w/ LuxI) to encode production of 3-oxo-C6-HSL, the
+NEB5α *E. coli* (NEB5α w/ LuxI) to encode production of 3-oxo-C6-HSL, the
 small-molecule quorum sensor detected in the previous sections. The same
 LuxR-mNeonGreen plasmid was used to verify whether lysate-based synthetic
 cells are capable of detecting bacterially produced HSL, implemented through
 resuspending the GUV pellet in bacterial supernatant. Control experiments
-were performed with the DH5α strain without the LuxI plasmid (DH5α ΔLuxI),
+were performed with the NEB5α strain without the LuxI plasmid (NEB5α ΔLuxI),
 which removes HSL from the supernatant.
 
 <!-- :::{admonition}
@@ -761,9 +766,9 @@ the comment thread's reply.
 
 | Condition | Plasmid | Supernatant used |
 | --- | --- | --- |
-| HSL sensing GUVs | LuxR-mNeonGreen | DH5α w/ LuxI |
-| Negative control | LuxR-mNeonGreen | DH5α ΔLuxI |
-| Constitutive control | Constitutive mNeonGreen | DH5α ΔLuxI |
+| HSL sensing GUVs | LuxR-mNeonGreen | NEB5α w/ LuxI |
+| Negative control | LuxR-mNeonGreen | NEB5α ΔLuxI |
+| Constitutive control | Constitutive mNeonGreen | NEB5α ΔLuxI |
 :::
 
 Lysate GUVs were prepared following the standard protocol in {numref}`sec-methods`
@@ -785,7 +790,7 @@ about 7 hours.
 | Constitutive control | C9, C10, C11 |
 :::
 
-Supernatant from DH5α carrying the LuxI plasmid induced mNeonGreen expression
+Supernatant from NEB5α carrying the LuxI plasmid induced mNeonGreen expression
 within lysate GUVs carrying the LuxR-mNeonGreen plasmid, visible by
 fluorescence microscopy at 488 nm (wells C3 to C5). After about 80 minutes,
 mNeonGreen expression becomes visible within some GUVs, with more GUVs
@@ -801,13 +806,13 @@ expression within lysate GUVs, and that HSL made by *E. coli* can be detected
 by synthetic cells. Interestingly, the fluorescence intensity of
 LuxR-mNeonGreen lysate GUVs induced by bacterial supernatant was
 significantly higher than with 10 µM purified HSL, indicating that
-significantly more HSL is produced by overnight inoculation of DH5α w/ LuxI
+significantly more HSL is produced by overnight inoculation of NEB5α w/ LuxI
 than the 10 µM purified HSL used in {numref}`tbl-solution-conditions`. Future
 work should include supernatant in the bulk lysate assays
 ({numref}`fig-result1-platereader`), with supernatant extracted at various
 time points.
 
-Synthetic cells carrying the constitutive mNeonGreen plasmid in DH5α ΔLuxI
+Synthetic cells carrying the constitutive mNeonGreen plasmid in NEB5α ΔLuxI
 supernatant expressed after about 40 minutes, with expression increasing over
 the experiment (wells C9 to C11). The faster expression compared to
 LuxR-mNeonGreen follows from synthesizing one protein only, with no
@@ -825,7 +830,7 @@ page carries the open questions on contrast and timepoint.
 :label: fig-fov-c4
 :align: center
 :width: 75%
-Well C4, HSL sensing GUVs (LuxR-mNeonGreen, DH5α w/ LuxI supernatant), T = 19,
+Well C4, HSL sensing GUVs (LuxR-mNeonGreen, NEB5α w/ LuxI supernatant), T = 19,
 GFP channel only, contrast windowed 30000 to 60000. 659 µm field of view,
 cropped and zoomed to Anton's own Vizarr view state.
 :::
@@ -836,7 +841,7 @@ cropped and zoomed to Anton's own Vizarr view state.
 :label: fig-fov-c7
 :align: center
 :width: 75%
-Well C7, negative control (LuxR-mNeonGreen, DH5α ΔLuxI supernatant), T = 19,
+Well C7, negative control (LuxR-mNeonGreen, NEB5α ΔLuxI supernatant), T = 19,
 GFP channel only, contrast windowed 30000 to 60000. Same crop and zoom as the
 other two panels; carried as imaged, near-empty as expected for this control.
 :::
@@ -847,7 +852,7 @@ other two panels; carried as imaged, near-empty as expected for this control.
 :label: fig-fov-c10
 :align: center
 :width: 75%
-Well C10, constitutive control (constitutive mNeonGreen, DH5α ΔLuxI
+Well C10, constitutive control (constitutive mNeonGreen, NEB5α ΔLuxI
 supernatant), T = 19, GFP channel only, contrast windowed 30000 to 60000. Same
 crop and zoom as the other two panels.
 :::
@@ -989,7 +994,7 @@ in a plate reader or microscope overnight.
 
 ## Supernatant preparation
 
-Inoculate 5 mL LB (ampicillin) with the DH5α strain carrying the LuxI
+Inoculate 5 mL LB (ampicillin) with the NEB5α strain carrying the LuxI
 producing plasmid. Incubate overnight at 37 °C. Centrifuge for 15 minutes.
 Pipette the supernatant into a separate tube. Sterile filter the supernatant
 with a 0.22 µm filter. Store at −20 °C until use.
