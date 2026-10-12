@@ -1,0 +1,164 @@
+{
+  "figures": [
+    {
+      "filename": "figures/op-20261001-cpr-cprg-ratio.png",
+      "page": "main-supplement.md",
+      "pattern": "quarto-label",
+      "cell_label": "op-20261001-fig1",
+      "source_notebook": "OP-20261001/Copy of Copy of platereader.ipynb",
+      "platemap": "LUV-gelplatemap-platereader - platemap-platereader - LUV-gelplatemap-platereader - platemap-platereader.csv",
+      "data_source": "20260930-164151-synergy2-luv-gel-OJ.txt",
+      "section_context": "LUV-Gel",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "The figure draws on three data files, and data_source carries one. The other two are 20260930-164151-synergy2-luv-gel-OJ-Day2.txt and 20260930-164151-synergy2-luv-gel-OJ-Day2-afterPLA.txt. All three are served from https://data.nucleus.engineering/platereader/devstudio/.",
+        "The same figure is also pasted into the log Doc as an image. The notebook cell is the source of record, because it carries the label op-20261001-fig1.",
+        "BLOCKING: date mismatch. The Log folder is OP-20261001, the three data files carry 20260930, and the platemap rows carry 2/10/2026.",
+        "Cell 18 and cell 21 of the same notebook draw two further figures. Neither carries a #| label: tag, and the reviewer selected neither on 2026-10-05."
+      ]
+    },
+    {
+      "filename": "general/schematic-hydrogel-overview.png",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Module overview",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "A schematic, not a data figure. No asset chain applies. \"Figure 1: Schematic representation of unilamellar vesicles contained in a hydrogel matrix\" in log-devnote-draft.docx.",
+        "Byte-identical to the copy extracted from the 2026-10-09 version of the same document. The 2026-10-11 revision did not change it."
+      ]
+    },
+    {
+      "filename": "general/photo-luv-pellet.png",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Vesicle preparation, LUVs",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "A photograph, not a data figure. No asset chain applies. \"Figure 2: Snapshot of the LUV pellet after 4 washes\" in log-devnote-draft.docx.",
+        "Renamed from general/schematic-luv-prep-inline.png on 2026-10-11. The old name called a photograph a schematic. The image bytes are unchanged.",
+        "The 2026-10-09 version of the document left this figure uncaptioned, and the caption was carried as the placeholder \"[Caption]\". The 2026-10-11 revision supplies a real caption."
+      ]
+    },
+    {
+      "filename": "general/photo-photopatterning-peg4nb.jpg",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Hydrogel preparation, PEG4Nb tab",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "A photograph of equipment, not a data figure. No asset chain applies. \"Figure 3: Photopatterning PEG4Nb hydrogels in a 96-well plate\" in log-devnote-draft.docx.",
+        "New in the 2026-10-11 revision. It arrived with the PEG4Nb preparation steps, which the previous version did not have."
+      ]
+    },
+    {
+      "filename": "general/diagram-cprg-cpr-reaction.png",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Experimental design",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "A reaction diagram, not a data figure. No asset chain applies. It is uncaptioned in log-devnote-draft.docx, and a reviewer comment beside it reads \"TODO: add caption\". The caption in main.md is transcribed from the text inside the image itself, which names the substrate, the enzyme and the product.",
+        "New in the 2026-10-11 revision.",
+        "The image is a bitmap of text and a reaction arrow. It carries no information that could not be set as text, and it will not scale or reflow. Retained as an image per the author's instruction to keep every figure."
+      ]
+    },
+    {
+      "filename": "figures/luv-stability-hydrogels-read2.jpg",
+      "page": "main.md",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "luv_stability_hydrogels_matlabcode.txt",
+      "platemap": null,
+      "data_source": "20261009-113443-synergy2-OJMB-gfp-pla-guv-luv-gels-16UmL-LacZ.txt",
+      "section_context": "Results",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Renamed from figures/log-devnote-draft-luv-only-read2.jpg on 2026-10-11, and the image itself replaced. The 2026-10-11 revision of the document carries a different version of this figure.",
+        "The replaced version had five bars and a MATLAB data-tip artifact drawn on it. The fifth bar was 'Pre-PEG solution' at about 0.69. The current version has four bars and no artifact. The MATLAB script states the reason in a comment: 'pre-PEG left out of this graph'. The earlier image is in git history at commit 4c1295b.",
+        "BLOCKING: the pre-gel bar cannot be restored. Both pre-gel wells fail the script's own minSignal = 0.01 gate on blank-corrected A412, at -0.013 and -0.014. Among the ten matrix-only control wells the two pre-gel controls are the highest at BOTH wavelengths: 0.361 and 0.319 at 412 nm, 0.285 and 0.242 at 570 nm. The excess over the other eight controls is +0.146 at 412 nm and +0.091 at 570 nm, a ratio of 1.6, which is broadband scattering from a turbid medium and not absorbance near the 405 nm photopatterning wavelength. A reference read around 700 nm subtracted from both channels is the correction that would make this condition measurable.",
+        "The two versions of this figure rest on different numbers, and the numbers behind the five-bar version are not preserved in the current script.",
+        "BLOCKING: the analysis is luv_stability_hydrogels_matlabcode.txt, a MATLAB script rather than a notebook, so the quarto-label pattern cannot apply. The script does not read the data file named in data_source. It carries its absorbance values written into its own source under the header 'Synergy 2, 384-well, read 2 (3:09 PM, 16 U/mL LacZ), LUV only (row L)'. The link between those numbers and the named data file is that header and nothing else.",
+        "No platemap is named for this figure anywhere in the source.",
+        "The data file name carries the date 20261009, which is none of the three dates already disagreeing in this DevNote."
+      ]
+    },
+    {
+      "filename": null,
+      "page": "viewers.md",
+      "pattern": "zarr-viewer",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": "15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug",
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr",
+      "section_context": "Results, GFP-expressing GUVs",
+      "asset_chain_complete": false,
+      "extraction_method": "URL named in log-devnote-draft.docx",
+      "findings": [
+        "New in the 2026-10-12 revision. Named in the source for E12 and G12, GFP-GUVs with LUVs in solution and its control.",
+        "Moved to viewers.md on 2026-10-11, its own interactive-viewers page, from main.md where it first landed.",
+        "Rendered as two viewers deep-linked to E/12/0 and G/12/0 rather than one viewer on the plate root, carried from commit bacde77 where curvenote check passed against them.",
+        "The store is NOT committed and must not be. A viewer pointed at the served URL is the supported pattern; the store is far too large for the repository.",
+        "BLOCKING: no static archival figure exists for this result. An interactive viewer does not survive JATS conversion, which is this DevNote's export path, so the GFP result would publish as prose with no visible evidence.",
+        "The store itself returns 404 on every path tried, checked directly on 2026-10-11. Its .parquet companion, at the same stem, returns 200 and is reachable.",
+        "The .parquet is a per-object feature table, read directly on 2026-10-11. Its Well column shows the store actually covers D12, E12 and F12, not E12 alone. G12 does not appear in the table, consistent with it being a blank control rather than evidence the well is absent from the store.",
+        "The served path contains 'vescile', a misspelling of 'vesicle', copied exactly because a URL is not text to correct.",
+        "The date in the path is 2026-10-06, a fifth date in this DevNote's record."
+      ],
+      "wells_used": [
+        "E/12/0",
+        "G/12/0"
+      ]
+    },
+    {
+      "filename": null,
+      "page": "viewers.md",
+      "pattern": "zarr-viewer",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": "15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug",
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr",
+      "section_context": "Results, GFP-expressing GUVs",
+      "asset_chain_complete": false,
+      "extraction_method": "URL named in log-devnote-draft.docx",
+      "findings": [
+        "New in the 2026-10-12 revision. Named in the source only for E15, GFP-GUVs with LUVs in ULGA, as a z-stack.",
+        "Moved to viewers.md on 2026-10-11, from main.md where it first landed.",
+        "The store is NOT committed and must not be, as above.",
+        "BLOCKING: no static archival figure, as above.",
+        "The store itself returns 404 on every path tried, checked directly on 2026-10-11. Its .parquet companion, at the same stem, returns 200 and is reachable.",
+        "RESOLVED in part: the .parquet, read directly on 2026-10-11, shows this store is not E15 alone. Its Well column lists fifteen wells across rows D, E, F and G, columns 14, 15, 16 and 21, including E14, E15, E16 and E21, the full set of GFP-GUV gel conditions. Four viewers are now written, deep-linked to E/14/0, E/15/0, E/16/0 and E/21/0 by that table, not confirmed against the store's own group structure, which is not reachable to check."
+      ],
+      "wells_used": [
+        "E/14/0",
+        "E/15/0",
+        "E/16/0",
+        "E/21/0"
+      ]
+    }
+  ]
+}

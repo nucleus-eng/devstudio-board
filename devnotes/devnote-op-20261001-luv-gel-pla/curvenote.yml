@@ -1,0 +1,67 @@
+version: 1
+project:
+  # Title taken from the revised log-devnote-draft.docx, 2026-10-11, which
+  # states it on its own first line as "Title: Understanding Liposome
+  # Behaviour in Hydrogel Matrices". That is a stated title in the source, so
+  # it is adopted here.
+  # REVIEW: this replaces 'Embedding Developer Cells in Gels', which came from
+  # review cycle v1, prompt 1, on 2026-10-05. That review Doc has since been
+  # renamed '[ignore]' in Drive. A third title, 'Study of liposome behaviour in
+  # gels', was in the 2026-10-09 version of the same document. Three titles
+  # exist across the record. Confirm this one.
+  title: 'Understanding Liposome Behaviour in Hydrogel Matrices'
+  description: >
+    Whether vesicles stay stable and biochemically functional when embedded in
+    a hydrogel, where they are mechanically confined and in contact with a
+    crosslinked polymer network, read as T7-driven GFP expression in GUVs and
+    as CPRG release from LUVs across three hydrogels and a solution control.
+  # Both authors, their emails and their affiliations are stated directly in
+  # log-devnote-draft.docx. The affiliation is no longer inferred from an email
+  # domain, so that earlier REVIEW flag is cleared.
+  # REVIEW: no ORCID is recorded for either author.
+  authors:
+    - name: Ojaswita Pant
+      email: ojaswitapant2029@u.northwestern.edu
+      affiliations:
+        - northwestern
+      id: contributors-curvenote-generated-uid-0
+    - name: Manuel Bibrowski
+      email: manuel.bibrowski25@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-1
+  affiliations:
+    - id: northwestern
+      name: Northwestern University
+      country: United States
+    - id: imperial
+      name: Imperial College London
+      city: London
+      country: United Kingdom
+  # No date is stated in the source. Four source values now disagree: the Log
+  # folder reads OP-20261001, the three plate reader files read 20260930, the
+  # platemap rows read 2/10/2026, and the data file behind the results figure
+  # reads 20261009. See the blocking date flag in main-supplement.md.
+  # REVIEW: review cycle v1, prompt 3, answered "Dates do not matter", which
+  # is a deferral and not a date. The field stays unresolved.
+  date: '[PLEASE FILL IN]'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+  toc:
+    - file: main.md
+    - file: viewers.md
+    - file: experiments/20261001-luv-gel-pla/platereader.ipynb
+  resources:
+    - experiments/**
+    - dna/**
+    - figures/**
+    - general/**
+  id: 185642fd-6c48-4e95-8a96-21c936a5eb37
+site:
+  template: article-theme
