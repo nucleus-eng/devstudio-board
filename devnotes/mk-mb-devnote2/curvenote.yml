@@ -1,5 +1,6 @@
 version: 1
 project:
+  banner: ../../resources/assets/banner-devcells.webp
   # Title carried from the source Doc's own heading, 2026-10-11.
   title: 'Triggered Lysis of beta-Galactosidase-Loaded GUVs by Cell-Free Expressed Phospholipase A1'
   description: >

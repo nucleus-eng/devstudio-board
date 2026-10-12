@@ -1,5 +1,6 @@
 version: 1
 project:
+  banner: ../../resources/assets/banner-devcells.webp
   # Title confirmed by Anton in chat, 2026-10-12. Matches the Doc's own
   # first line; no Specification table exists in the source.
   title: 'Implementing of a bulk color change module into bacterial quorum sensing'

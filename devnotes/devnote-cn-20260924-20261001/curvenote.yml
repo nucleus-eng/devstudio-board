@@ -1,5 +1,6 @@
 version: 1
 project:
+  banner: ../../resources/assets/banner-devcells.webp
   # Candidate title from the platemap Experiment column:
   # "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL" and
   # "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL" — QC to confirm.

@@ -1,5 +1,6 @@
 version: 1
 project:
+  banner: ../../resources/assets/banner-devcells.webp
   title: Two Vesicle Colorimetric pH Sensor System
   description: >
     pH-gated PLA1 two-vesicle lysis cascade. PLA1-expressing GUVs co-incubated

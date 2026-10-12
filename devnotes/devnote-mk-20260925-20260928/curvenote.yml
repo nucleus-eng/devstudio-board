@@ -1,5 +1,6 @@
 version: 1
 project:
+  banner: ../../resources/assets/banner-devcells.webp
   # Title carried from the source Doc's own heading, 2026-10-11. The previous
   # value, "aTc Sensor", was set by hand on 2026-10-04 before the Doc existed.
   title: 'GUV Encapsulation of a TetR/aTc-Inducible deGFP Cell-Free Sensor'

@@ -1,5 +1,6 @@
 version: 1
 project:
+  banner: ../../resources/assets/banner-devcells.webp
   # Title supplied by Anton, 2026-10-12, replacing "Fluorescent
   # Biofilm-Sensing GUV Hydrogel" (itself taken from the "Draft devnote" Doc,
   # 1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E, on 2026-10-11). No source Doc
