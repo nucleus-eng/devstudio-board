@@ -1,0 +1,42 @@
+version: 1
+project:
+  # Title carried from the source Doc's own heading, 2026-10-11.
+  title: 'Triggered Lysis of beta-Galactosidase-Loaded GUVs by Cell-Free Expressed Phospholipase A1'
+  description: >
+    Phospholipase A1 (PLA1), expressed in a cell-free reaction and placed
+    under TetR/anhydrotetracycline control, is delivered to the outside of
+    giant unilamellar vesicles loaded with beta-galactosidase to ask
+    whether externally supplied PLA1 can lyse the membrane, and whether
+    that lysis can be triggered on demand.
+  # Name, email and affiliation carried from this author's sibling DevNote
+  # in this board, devnotes/devnote-mk-20260925-20260928/curvenote.yml,
+  # where they were supplied by Anton Molina on 2026-10-04. Not re-confirmed
+  # for this DevNote specifically — see the Open items admonition in main.md.
+  authors:
+    - name: Mary Kelly
+      email: marykelly2026@u.northwestern.edu
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-0
+  affiliations:
+    - id: affiliations-curvenote-generated-uid-0
+      name: Northwestern University
+  # The source Doc is dated 2026-10-11 and does not separately date the
+  # experiment it reports.
+  date: '2026-10-11'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+  resources:
+    - figures/**
+    - dna/**
+  id: becbf1c2-2957-4d46-b402-1204f47da714
+site:
+  template: article-theme
