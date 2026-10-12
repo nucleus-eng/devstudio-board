@@ -1,0 +1,30 @@
+Well,Date,Experiment,Name,Type,Rxn Volume (uL),EsaR Vol (uL),DNA Template (nM),[AHSL] (uM),[Fluorescein] (uM)
+B2,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),mNG,Sample,10,0,0,0,
+B3,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),mNG,Sample,10,0,0,0,
+B4,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),mNG,Sample,10,0,0,0,
+B6,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),Fluorescein 0uM,Standard,10,0,0,0,0
+B7,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),Fluorescein 0uM,Standard,10,0,0,0,0
+B10,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),Fluorescein 0.5uM,Standard,10,0,0,0,0.5
+B11,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),Fluorescein 0.5uM,Standard,10,0,0,0,0.5
+B14,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),Fluorescein 1uM,Standard,10,0,0,0,1
+B15,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),Fluorescein 1uM,Standard,10,0,0,0,1
+B18,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),Fluorescein 2uM,Standard,10,0,0,0,2
+B19,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),Fluorescein 2uM,Standard,10,0,0,0,2
+D2,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.1nM DNA,Sample,10,2.275,0.1,0,
+D3,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.1nM DNA,Sample,10,2.275,0.1,0,
+D4,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.1nM DNA,Sample,10,2.275,0.1,0,
+D6,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.1nM DNA + AHSL,Sample,10,2.275,0.1,5,
+D7,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.1nM DNA + AHSL,Sample,10,2.275,0.1,5,
+D8,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.1nM DNA + AHSL,Sample,10,2.275,0.1,5,
+D10,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.5nM DNA,Sample,10,2.275,0.5,0,
+D11,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.5nM DNA,Sample,10,2.275,0.5,0,
+D12,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.5nM DNA,Sample,10,2.275,0.5,0,
+D14,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.5nM DNA + AHSL,Sample,10,2.275,0.5,5,
+D15,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.5nM DNA + AHSL,Sample,10,2.275,0.5,5,
+D16,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 0.5nM DNA + AHSL,Sample,10,2.275,0.5,5,
+F2,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 1nM DNA,Sample,10,2.275,1,0,
+F3,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 1nM DNA,Sample,10,2.275,1,0,
+F4,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 1nM DNA,Sample,10,2.275,1,0,
+F6,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 1nM DNA + AHSL,Sample,10,2.275,1,5,
+F7,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 1nM DNA + AHSL,Sample,10,2.275,1,5,
+F8,2026-09-24,[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose),[EsaO]2-mNG + 1nM DNA + AHSL,Sample,10,2.275,1,5,

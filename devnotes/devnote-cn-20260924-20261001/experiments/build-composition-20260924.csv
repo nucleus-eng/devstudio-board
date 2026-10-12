@@ -1,0 +1,10 @@
+Component,Stock Conc.,Unit,Final Conc.,Unit,mNG [µL],EsaO-mNG (0 µL EsaR) [µL],EsaO-mNG (1 µL EsaR) [µL],EsaO-mNG (4 µL EsaR) [µL],EsaO-mNG (7 µL EsaR) [µL],[EsaO]2-mNG (0 µL EsaR) [µL],[EsaO]2-mNG (1 µL EsaR) [µL],[EsaO]2-mNG (4 µL EsaR) [µL],[EsaO]2-mNG (7 µL EsaR) [µL]
+Small molecule mix,3.33,×,1,×,9.85,19.70,19.70,19.70,19.70,19.70,19.70,19.70,19.70
+tRNA,10,×,1,×,3.25,6.50,6.50,6.50,6.50,6.50,6.50,6.50,6.50
+Protein mix,8.33,×,1,×,3.90,7.80,7.80,7.80,7.80,7.80,7.80,7.80,7.80
+Ribosomes,5.5,×,1,×,5.91,11.82,11.82,11.82,11.82,11.82,11.82,11.82,11.82
+RNase inhibitor,40,U/µL,1,U/µL,0.81,1.62,1.62,1.62,1.62,1.62,1.62,1.62,1.62
+DNA Template,200,ng/µL,10,ng/µL,1.54,2.87,2.87,2.87,2.87,3.25,3.25,3.25,3.25
+Pre-expressed EsaR,—,—,—,—,0,0,2,8,14,0,2,8,14
+Nuclease free water,—,—,—,—,7.23,14.69,12.69,6.69,0.69,14.31,12.31,6.31,0.31
+Total [µL],,,,,32.5,65,65,65,65,65,65,65,65
