@@ -1,0 +1,41 @@
+{
+ "store": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr",
+ "z_index": 6,
+ "crop_fraction": 0.3333333333333333,
+ "out_px": 650,
+ "group_percentiles": [
+  50.0,
+  99.9
+ ],
+ "brightfield_percentiles": [
+  1.0,
+  99.0
+ ],
+ "brightfield_weight": 0.25,
+ "groups": {
+  "PEG4Nb": [
+   "E14",
+   "E21"
+  ],
+  "E15": [
+   "E15"
+  ],
+  "E16": [
+   "E16"
+  ]
+ },
+ "group_gfp_stretch": {
+  "PEG4Nb": [
+   11864.0,
+   20154.951171875
+  ],
+  "E15": [
+   8405.0,
+   11247.0
+  ],
+  "E16": [
+   4158.0,
+   7020.0
+  ]
+ }
+}
