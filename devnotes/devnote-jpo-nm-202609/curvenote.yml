@@ -1,0 +1,50 @@
+version: 1
+project:
+  # Title taken from the "Draft devnote" Doc (1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E)
+  # on 2026-10-11, confirmed by Anton. Replaces the chat-supplied working
+  # title "LuxR-GFP Sensor Demo".
+  title: 'Fluorescent Biofilm-Sensing GUV Hydrogel'
+  # Description restates the same Doc's own overview paragraph.
+  description: >
+    POPC giant unilamellar vesicles carrying cell-free E. coli lysate and the
+    LuxR-mNeonGreen sensor plasmid, embedded in an agarose hydrogel, producing
+    a fluorescent readout in response to 3-oxo-C6-HSL.
+  # Authors and emails supplied by Anton in chat on 2026-10-05. No Authors
+  # table exists in any source.
+  # REVIEW: the affiliation was stated by Anton, not by either author.
+  # REVIEW: no ORCID is recorded for either author.
+  authors:
+    - name: Julia Purrinos de Oliveira
+      email: j.purrinosdeoliveira@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-0
+    - name: Niall McIntyre
+      email: niall.mcintyre16@imperial.ac.uk
+      affiliations:
+        - imperial
+      id: contributors-curvenote-generated-uid-1
+  affiliations:
+    - id: imperial
+      name: Imperial College London
+      country: United Kingdom
+  # Date assigned by Anton on 2026-10-05. The DevNote slug reads 202609, which
+  # is a month and disagrees with this value. See the blocking date flag in
+  # main.md.
+  date: '2026-10-12'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+  toc:
+    - file: main.md
+    - file: 2026-10-08-interactive-viewer.md
+  resources:
+    - experiments/**
+  id: e3fbd024-9242-4ebd-95b2-7092117c8c7c
+site:
+  template: article-theme
