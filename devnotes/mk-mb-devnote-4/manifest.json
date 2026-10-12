@@ -1,0 +1,123 @@
+{
+  "source": {
+    "doc": "Single Vesicle Lysis System Leveraging deGFP CFPE",
+    "url": "https://docs.google.com/document/d/1DouMRrZWCUKdWzuMoH48izjj8-7_oyKGCQrU2xOm5GI",
+    "drafted": "2026-10-12",
+    "note": "main.md is a verbatim carry of this Doc. The Doc covers two experiments (a 16-condition co-encapsulation assay and a 5-condition follow-up), each with its own Results and Conclusion heading. The Doc gives no date in its own text; 2026-10-12 is the Drive file's creation date."
+  },
+  "figures": [
+    {
+      "filename": "figures/fig1-lysis-no-dna.png",
+      "pattern": "static-png",
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Results (experiment 1)",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": ["Figure 1 of the source Doc, pasted as an image. No notebook, platemap, or raw instrument file is named anywhere in the source Doc."]
+    },
+    {
+      "filename": "figures/fig2-lysis-degfp.png",
+      "pattern": "static-png",
+      "section_context": "Results (experiment 1)",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": ["Figure 2 of the source Doc, pasted as an image."]
+    },
+    {
+      "filename": "figures/fig3-degfp-vs-pla1.png",
+      "pattern": "static-png",
+      "section_context": "Results (experiment 1)",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": ["Figure 3 of the source Doc, pasted as an image."]
+    },
+    {
+      "filename": "figures/fig4-pla1-dose.png",
+      "pattern": "static-png",
+      "section_context": "Results (experiment 1)",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": ["Figure 4 of the source Doc, pasted as an image.", "REVIEW: the source skips Figure 5 entirely -- nine images exist for ten figure numbers (1-4, 6-10). Carried as supplied, not a gap introduced here."]
+    },
+    {
+      "filename": "figures/fig6-constitutive-degfp-atc-series.png",
+      "pattern": "static-png",
+      "section_context": "Results (follow-up experiment)",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": ["Figure 6 of the source Doc, pasted as an image.", "REVIEW: renders as Figure 5 on this devnote's page, since MyST auto-numbers all nine figures 1-9 with no gap for the source's missing Figure 5. See Open items in main.md."]
+    },
+    {
+      "filename": "figures/fig7-repressed-degfp-atc-series.png",
+      "pattern": "static-png",
+      "section_context": "Results (follow-up experiment)",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": ["Figure 7 of the source Doc, pasted as an image. Two-panel figure (100 nM and 500 nM TetR)."]
+    },
+    {
+      "filename": "figures/fig8-endpoint-abs-15h.png",
+      "pattern": "static-png",
+      "section_context": "Results (follow-up experiment)",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": ["Figure 8 of the source Doc, pasted as an image. Used as the devnote thumbnail."]
+    },
+    {
+      "filename": "figures/fig9-hydrogel-photos.png",
+      "pattern": "static-png",
+      "section_context": "Results (follow-up experiment)",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": ["Figure 9 of the source Doc, a photograph (not a chart) of four hydrogel pieces labeled E2, E4, E7, E8, showing a color gradient."]
+    },
+    {
+      "filename": "figures/fig10-cf-tetr-sham-atc-series.png",
+      "pattern": "static-png",
+      "section_context": "Results (follow-up experiment)",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": ["Figure 10 of the source Doc, pasted as an image. Two-panel figure (cell-free TetR and its deGFP sham)."]
+    }
+  ],
+  "constructs": [
+    {
+      "name": "pOpen-TetO-PLA",
+      "sequence_file": "dna/pOpen-TetO-PLA.gb",
+      "verified": false,
+      "findings": [
+        "Reused verbatim from this board's devnote/mk-mb-devnote2 (dna/pOpen-TetO-PLA.gb), unmodified. That file's own provenance note still applies: built from an inline sequence in that DevNote's source Doc, not from a canonical nucleus-eng/DNA file, and its PLA1 CDS matches devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk at the part level.",
+        "Named pOpen-PLA in this Doc's Materials table and pOpen-TetO-PLA in its Results captions; treated as the same construct."
+      ]
+    },
+    {
+      "name": "pOpen-TetO-deGFP",
+      "sequence_file": "dna/pOpen-TetO-deGFP.gb",
+      "verified": false,
+      "findings": [
+        "Reused verbatim from this board's devstudio/devnote-mk-20260925-20260928 (dna/pOpen-TetO-deGFP.gb), unmodified, not yet merged to main. That file's own provenance note still applies: built from an inline sequence in that DevNote's source Doc, not from a canonical nucleus-eng/DNA file.",
+        "Named pOpen-deGFP in this Doc's Materials table and pOpen-TetO-deGFP in its Results captions; treated as the same construct."
+      ]
+    },
+    {
+      "name": "TetR-His (MedChemExpress)",
+      "sequence_file": null,
+      "verified": false,
+      "findings": ["A purchased purified protein, not a construct built here. Used both as supplied and after a detergent-removal spin column."]
+    },
+    {
+      "name": "CF TetR / CF deGFP",
+      "sequence_file": null,
+      "verified": false,
+      "findings": ["In-house cell-free expressed TetR and its deGFP sham, supplied as 3 uL (main experiment) or 2.5 uL (follow-up) of a finished overnight or 1 h reaction, not a purified or sequenced construct in its own right."]
+    },
+    {
+      "name": "beta-galactosidase (LacZ)",
+      "sequence_file": null,
+      "verified": false,
+      "findings": ["A purchased enzyme co-encapsulated as the lysis reporter, not a construct built here. The source Doc's Materials table lists its stock concentration as 'see open items,' which the Doc never resolves."]
+    }
+  ]
+}

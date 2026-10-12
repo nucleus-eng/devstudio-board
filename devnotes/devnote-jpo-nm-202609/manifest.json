@@ -1,0 +1,200 @@
+{
+  "figures": [
+    {
+      "filename": "figures/gel-d6.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "J_N_+100uM_AHL_D6_gels_2026-10-07_14-36-46.345035.zarr/D/6/0",
+      "zarr_url": null,
+      "section_context": "Result 2, gels subsection, condition per corrected tbl-gel-conditions: HSL sensing gels",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-gel-fovs.py. zarr-python direct read over HTTP, resolution level s0 (3000x3000 native, 0.333 um/px), channel 1 (GFP), z = 50 of 101, t = 0 (single end-point Z-stack), fixed window 4526-12204, gamma 1, per Anton, center-cropped to about one field of view (1000x1000 px, 1/9 of the full-frame area), 100 um scale bar",
+      "findings": [
+        "The condition table originally named D3-D5 'HSL sensing gels' and D6-D8 'negative control gels', disagreeing with this well's own filename. Anton corrected the table 2026-10-12 to match the filenames; D6 is now labeled HSL sensing gels.",
+        "A maximum-intensity z-projection was tried first at this same window and rendered fully saturated (projected max 57623, far past 12204); reverted to a single z = 50 slice (raw max 23460), which renders correctly.",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/gel-d5.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "J_N_-100uM_AHL_D5_gels_2026-10-07_14-44-55.273559.zarr/D/5/0",
+      "zarr_url": null,
+      "section_context": "Result 2, gels subsection, condition per corrected tbl-gel-conditions: negative control gels",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-gel-fovs.py. Same resolution level, channel, z-slice, timepoint, window, gamma and crop as gel-d6.png.",
+      "findings": [
+        "The condition table originally named this cluster (D3-D5) 'HSL sensing gels', disagreeing with this well's own filename. Anton corrected the table 2026-10-12 to match the filenames; D5 is now labeled negative control gels.",
+        "Renders almost entirely black at this z, crop and window, consistent with minimal or no expression.",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/gel-d11.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "J_N_Consitutive_AHL_D11_gels_2026-10-07_14-53-48.138799.zarr/D/11/0",
+      "zarr_url": null,
+      "section_context": "Result 2, gels subsection, condition: constitutive control gels",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-gel-fovs.py. Same resolution level, channel, z-slice, timepoint, window, gamma and crop as gel-d6.png.",
+      "findings": [
+        "Table and store filename agree this is the constitutive control; no mismatch for this cluster.",
+        "Previously rendered from well D9 at a 3615-9372 window, fully saturated. D11 (same cluster) at the new 4526-12204 window renders correctly: real GUV-like structures visible against moderate background signal, not saturated.",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/solution-j4.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/4/0",
+      "zarr_url": null,
+      "section_context": "Result 2, solution subsection, condition: HSL sensing GUVs",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-solution-fovs.py. zarr-python direct read over HTTP, resolution level s2, channel 1 (GFP), timepoint 17 (the last of 18 frames), contrast windowed to the 1st-99.5th percentile pooled across J4, J7 and J10, center-cropped to about one field of view (925x925 px, 1/9 of the full-well area), 100 um scale bar, per Anton 2026-10-12; no Vizarr view state was supplied for this store",
+      "findings": [
+        "Representative well for the HSL sensing GUVs condition (J3, J4, J5): the triplicate's middle well, for consistency with the Result 3 naming (C4, C7, C10).",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "This store's dynamic range is far lower than the Result 3 store; the fixed 30000-60000 window used there would render this well almost entirely black, so a pooled-percentile window was computed instead.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/solution-j7.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/7/0",
+      "zarr_url": null,
+      "section_context": "Result 2, solution subsection, condition: negative control",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-solution-fovs.py. Same resolution level, channel, timepoint, center crop and pooled window as solution-j4.png, for the negative control's middle well (J6, J7, J8).",
+      "findings": [
+        "Representative well for the negative control condition (J6, J7, J8): the triplicate's middle well.",
+        "A diagonal streak in the lower right is debris or a fiber on the plate, not biological signal; carried as imaged.",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/solution-j10.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/10/0",
+      "zarr_url": null,
+      "section_context": "Result 2, solution subsection, condition: constitutive control",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-solution-fovs.py. Same resolution level, channel, timepoint, center crop and pooled window as solution-j4.png, for the constitutive control's middle well (J9, J10, J11).",
+      "findings": [
+        "Representative well for the constitutive control condition (J9, J10, J11): the triplicate's middle well.",
+        "Brightest and densest of the three, consistent with the Doc's narrative that the constitutive control expresses faster and higher than the HSL-induced condition.",
+        "No notebook exists for this figure. Generated 2026-10-12.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/result1-bulk-lysate-platereader.png",
+      "pattern": "embedded-in-doc",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "zarr_url": null,
+      "section_context": "Result 1 \u2014 LuxR-mNeonGreen sensor plasmid in bulk lysate",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc-equivalent: docx export of the 'Draft devnote' Doc, unzipped, word/media/image2.png as of the 2026-10-12 export, confirmed by relationship order in word/document.xml",
+      "findings": [
+        "Replaced 2026-10-12: the figure at this relationship position changed between the 2026-10-11 and 2026-10-12 exports. The new figure has three traces (+10 uM HSL, -10 uM HSL, Constitutive) and a corrected legend; the old one had two traces and an incorrect 'Control (outer solution)' label Julia flagged as wrong in the Doc's own comments (it is water).",
+        "No notebook, no platemap and no raw data file are named for this figure anywhere in the source Doc.",
+        "asset_chain_complete is false because none of notebook, platemap or raw data is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/fov-c4.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/4/0",
+      "zarr_url": null,
+      "section_context": "Result 3 \u2014 detecting bacterially produced HSL in solution, condition: HSL sensing GUVs",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. zarr-python direct read over HTTP, cropped and zoomed to a Vizarr view state (target, zoom) Anton supplied, channel 1 (GFP), timepoint 19, fixed window 30000-60000, 1080x1080 px output, scale bar computed from the store's own per-level pixel scale",
+      "findings": [
+        "Representative well for the HSL sensing GUVs condition (C3, C4, C5): the triplicate's middle well, chosen because Anton's own Vizarr link named C4.",
+        "No notebook exists for this figure. Generated 2026-10-11, confirmed by Anton: GFP only, window 30000-60000, crop and zoom from a Vizarr URL for well C4.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/fov-c7.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/7/0",
+      "zarr_url": null,
+      "section_context": "Result 3 \u2014 detecting bacterially produced HSL in solution, condition: negative control",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the negative control's middle well (C6, C7, C8).",
+      "findings": [
+        "Representative well for the negative control condition (C6, C7, C8): the triplicate's middle well, for consistency with C4 and C10.",
+        "No notebook exists for this figure. Generated 2026-10-11.",
+        "Near-black as expected for a negative control.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    },
+    {
+      "filename": "figures/fov-c10.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": "nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/10/0",
+      "zarr_url": null,
+      "section_context": "Result 3 \u2014 detecting bacterially produced HSL in solution, condition: constitutive control",
+      "asset_chain_complete": false,
+      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the constitutive control's middle well (C9, C10, C11).",
+      "findings": [
+        "Representative well for the constitutive control condition (C9, C10, C11): the triplicate's middle well, for consistency with C4 and C7.",
+        "Renamed from 'positive control' to 'constitutive control' on 2026-10-12 to match the Doc's current table wording; the comment thread itself still has Niall asking and Julia confirming 'positive control', unresolved against the body text.",
+        "No notebook exists for this figure. Generated 2026-10-11.",
+        "No platemap exists yet for this store, so platemap is null rather than a filename.",
+        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+      ]
+    }
+  ],
+  "notes": [
+    "Drafted 2026-10-05 from a chat outline, not from a DevStudio Log folder.",
+    "Restructured 2026-10-11 and again 2026-10-12 against the 'Draft devnote' Doc (1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E), treated as authoritative on 2026-10-12: where this file and the Doc disagreed, the Doc won.",
+    "figures/result2-gels-platereader.png removed 2026-10-12. The Doc explains the figure belonged to an abandoned 10 uM gel attempt that showed no expression; the surrounding text is marked ***Ignore in the Doc itself, and the real gel experiment (100 uM, wells D3-D14, twelve zarr stores) has no figure of its own yet.",
+    "Result 2 split into two explicit subsections, solution and gels, per the Doc's own instruction. The solution subsection has real narrative but no figure or viewer decision yet. The gels subsection has a real protocol and condition table and twelve real zarr store links, but no interpretive results text at all; not invented here.",
+    "Three figures exist for Result 3, one per condition in the well map, cropped and zoomed to a Vizarr view state Anton supplied for well C4, reused verbatim for C7 and C10. Captions renamed 'positive control' to 'constitutive control' 2026-10-12 to match the Doc's current table wording.",
+    "figures/fov-render-params.json is the sidecar the rendering script itself writes: zoom, target, timepoint, channel, window and the computed scale for each well.",
+    "An untracked figures/2026-10-08-C10-t19-composite.png sits in this directory, not produced in this session. It is a composite of more than one channel, which the 2026-10-09 instruction excludes. It is not referenced by main.md and not recorded here."
+  ]
+}

@@ -1,11 +1,11 @@
 version: 1
 project:
+  banner: banner-devcells.webp
   # Candidate title from the platemap Experiment column:
   # "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL" and
   # "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL" — QC to confirm.
   # No Specification table exists in any of the five source logs.
   title: 'Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation'
-  banner: figures/devcells-banner.png
   description: >
     EsaR(D91G) repression of single- and dual-operator EsaO-mNG sensor
     constructs in Nucleus Cytosol, across five days: an EsaR titration at
@@ -82,6 +82,7 @@ project:
     - file: experiments/20261009-guv-esar-ahsl/CN-microscopy-01.ipynb
       title: GUV Microscopy Analysis (2026-10-09)
   resources:
+    - banner-devcells.webp
     - experiments/**
   id: 99d20115-67f3-42c1-bf8f-90b7af4a0d80
 site:

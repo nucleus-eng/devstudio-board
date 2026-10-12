@@ -1,0 +1,14 @@
+{
+ "t": 17,
+ "gfp_channel": 1,
+ "window_pooled_percentiles": [1.0, 99.5],
+ "window_values": [665.0, 8300.6298828125],
+ "um_per_px": 1.332,
+ "crop_fraction_linear": 0.3333333333333333,
+ "bar_um": 100,
+ "wells": {
+  "J4": "HSL sensing GUVs",
+  "J7": "Negative control",
+  "J10": "Constitutive control"
+ }
+}

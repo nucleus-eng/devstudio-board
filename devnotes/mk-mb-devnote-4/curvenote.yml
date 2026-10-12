@@ -1,0 +1,56 @@
+version: 1
+project:
+  banner: banner-devcells.webp
+  # Title carried from the source Doc's own heading, 2026-10-12.
+  title: 'Co-Encapsulated Cell-Free PLA1 Expression in beta-Galactosidase GUVs'
+  description: >
+    Co-encapsulating a complete cell-free reaction with beta-galactosidase
+    inside GUVs shows that protein expression itself, not phospholipase
+    activity, drives loss of membrane containment; a follow-up experiment
+    confirms the effect is graded and controlled by expression level via
+    TetR/aTc, independent of which protein is made.
+  # Both authors and emails are given directly in the source Doc, 2026-10-12.
+  # Dr. Mary Kelly's email here (marydkelly1@gmail.com) differs from the
+  # marykelly2026@u.northwestern.edu used in her other DevNotes on this
+  # board — see the Open items admonition in main.md. Affiliation
+  # (Northwestern University) is inferred from the source Doc's own role
+  # lines ("Post Doctorate, Northwestern University" / "PhD Candidate,
+  # Northwestern University").
+  authors:
+    - name: Dr. Mary Kelly
+      email: marydkelly1@gmail.com
+      corresponding: true
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-0
+    - name: Madison Briggs
+      email: madisonbriggs2028@u.northwestern.edu
+      corresponding: true
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-1
+  affiliations:
+    - id: affiliations-curvenote-generated-uid-0
+      name: Northwestern University
+  # The source Doc gives no date anywhere in its text. 2026-10-12 is the
+  # Drive file's own creation date (checked 2026-10-12), not a date stated
+  # in the document.
+  date: '2026-10-12'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  thumbnail: figures/fig8-endpoint-abs-15h.png
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+  resources:
+    - banner-devcells.webp
+    - figures/**
+    - dna/**
+  id: 4cd58297-034d-48de-b742-beaf3a3e4b73
+site:
+  template: article-theme

@@ -1,0 +1,73 @@
+{
+  "source": {
+    "doc": "TetO-PLA For Triggered Lysis of beta-Galactosidase-Loaded GUVs",
+    "url": "https://docs.google.com/document/d/1vmAaYyH21pxErmB583Prsc-LUFs3JG34Y1ZjypEiRbI",
+    "drafted": "2026-10-11",
+    "note": "main.md is a verbatim carry of this Doc. The Doc covers one experiment only; no prior log or earlier draft exists for this devnote directory."
+  },
+  "figures": [
+    {
+      "filename": "figures/fig1-pla1-guv-lysis-kinetics.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "section_context": "Results",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Figure 1 of the source Doc, pasted as an image.",
+        "REVIEW: no notebook, platemap, or raw instrument file is named anywhere in the source Doc. The figure cannot be traced past the pasted image."
+      ]
+    }
+  ],
+  "constructs": [
+    {
+      "name": "pOpen-TetO-PLA",
+      "sequence_file": "dna/pOpen-TetO-PLA.gb",
+      "length_bp": 3140,
+      "verified": false,
+      "findings": [
+        "The full sequence is inline in main.md, carried from the source Doc.",
+        "Landmarks measured against the inline sequence on 2026-10-11: T7 promoter at base 5, tetO operator at base 26, g10 leader and RBS at base 90, PLA1 CDS 104 to 1075 (972 nt, 323 codons plus stop), T7 terminator at base 1076.",
+        "No file for this full plasmid exists in nucleus-eng/DNA. Its part-type directories (reporters, detectors, promoters, pores, emitters, control, assembly, PURE, RBS, terminators, energy) were listed on 2026-10-11 and none names a PLA1 or phospholipase construct.",
+        "MATCH AT THE PART LEVEL: the PLA1 CDS translates identical, byte for byte, to the PLA1 CDS in this board's devnotes/devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk (translation MSMSLSFTSAIAPAAIQPP...ANA, 323 aa). Same enzyme, different promoter context (EsaO/R quorum-sensing there, T7/tetO here). That file is also not yet in nucleus-eng/DNA.",
+        "REVIEW: submit dna/pOpen-TetO-PLA.gb (or a corrected version of it) to nucleus-eng/DNA, or confirm it is a duplicate of a file already pending submission from the luv-gel-pla devnote."
+      ]
+    },
+    {
+      "name": "PJL-PLA",
+      "sequence_file": null,
+      "verified": false,
+      "findings": [
+        "Named in the Materials and Part 1 condition tables as a second backbone for PLA1, but the source Doc gives only one full plasmid sequence, labeled pOpen-TetO-PLA. No separate sequence for PJL-PLA is in the source.",
+        "REVIEW: locate or request the PJL-PLA sequence before this construct can be verified or diagrammed."
+      ]
+    },
+    {
+      "name": "pOpen-deGFP",
+      "sequence_file": null,
+      "verified": false,
+      "findings": [
+        "Named in the Materials table as the non-lytic expression control. No sequence is given in the source Doc for this DevNote; a pOpen-TetO-deGFP sequence exists in the sibling devnotes/devnote-mk-20260925-20260928/dna/pOpen-TetO-deGFP.gb, but that construct carries a tetO operator this Materials table does not mention for pOpen-deGFP, so identity was not assumed."
+      ]
+    },
+    {
+      "name": "TetR, His-tagged (MedChemExpress)",
+      "sequence_file": null,
+      "verified": false,
+      "findings": [
+        "A purchased purified protein, not a construct built here. Listed under Materials in the source Doc."
+      ]
+    },
+    {
+      "name": "beta-galactosidase (LacZ)",
+      "sequence_file": null,
+      "verified": false,
+      "findings": [
+        "A purchased enzyme used as the GUV cargo and lysis reporter, not a construct built here. Listed under Materials in the source Doc."
+      ]
+    }
+  ]
+}

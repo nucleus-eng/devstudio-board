@@ -1,0 +1,25 @@
+Well,Date,Experiment,Name,Type,Rxn Volume (uL),Condition,[DNA] (nM),[TetR] (nM),[ATC] (uM),[Fluorescein] (uM),Smix Vol (uL),tRNA Vol (uL),Pmix Vol (uL),Rib Vol (uL),RIM Vol (uL),Sucrose Vol (uL),DNA Vol (uL),TetR Vol (uL),H2O Vol (uL),ATC Vol (uL),Fluorescein Vol (uL),DNA ID,TetR ID,ATC ID
+B2,2026-09-28,TetO GFP Encapsulated,No DNA - 0 ATC,Negative Control,11,No DNA,0,0,0,0,3,1,1.2,1.8,0.52,0.88,0,0,1.6,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+B3,2026-09-28,TetO GFP Encapsulated,No DNA - 0 ATC,Negative Control,11,No DNA,0,0,0,0,3,1,1.2,1.8,0.52,0.88,0,0,1.6,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+C2,2026-09-28,TetO GFP Encapsulated,No DNA - 1 ATC,Negative Control,11,No DNA,0,0,1,0,3,1,1.2,1.8,0.52,0.88,0,0,1.6,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+C3,2026-09-28,TetO GFP Encapsulated,No DNA - 1 ATC,Negative Control,11,No DNA,0,0,1,0,3,1,1.2,1.8,0.52,0.88,0,0,1.6,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+D2,2026-09-28,TetO GFP Encapsulated,Unrepressed - 0 ATC,Positive Control,11,Unrepressed,0.9091,0,0,0,3,1,1.2,1.8,0.52,0.88,0.1,0,1.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+D3,2026-09-28,TetO GFP Encapsulated,Unrepressed - 0 ATC,Positive Control,11,Unrepressed,0.9091,0,0,0,3,1,1.2,1.8,0.52,0.88,0.1,0,1.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+E2,2026-09-28,TetO GFP Encapsulated,Unrepressed - 1 ATC,Positive Control,11,Unrepressed,0.9091,0,1,0,3,1,1.2,1.8,0.52,0.88,0.1,0,1.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+E3,2026-09-28,TetO GFP Encapsulated,Unrepressed - 1 ATC,Positive Control,11,Unrepressed,0.9091,0,1,0,3,1,1.2,1.8,0.52,0.88,0.1,0,1.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+F2,2026-09-28,TetO GFP Encapsulated,1000 nM TetR - 0 ATC,Sample,11,1000 nM TetR,0.9091,909.091,0,0,3,1,1.2,1.8,0.52,0.88,0.1,1,0.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+F3,2026-09-28,TetO GFP Encapsulated,1000 nM TetR - 0 ATC,Sample,11,1000 nM TetR,0.9091,909.091,0,0,3,1,1.2,1.8,0.52,0.88,0.1,1,0.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+G2,2026-09-28,TetO GFP Encapsulated,1000 nM TetR - 0.25 ATC,Sample,11,1000 nM TetR,0.9091,909.091,0.25,0,3,1,1.2,1.8,0.52,0.88,0.1,1,0.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+G3,2026-09-28,TetO GFP Encapsulated,1000 nM TetR - 0.25 ATC,Sample,11,1000 nM TetR,0.9091,909.091,0.25,0,3,1,1.2,1.8,0.52,0.88,0.1,1,0.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+H2,2026-09-28,TetO GFP Encapsulated,1000 nM TetR - 0.5 ATC,Sample,11,1000 nM TetR,0.9091,909.091,0.5,0,3,1,1.2,1.8,0.52,0.88,0.1,1,0.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+H3,2026-09-28,TetO GFP Encapsulated,1000 nM TetR - 0.5 ATC,Sample,11,1000 nM TetR,0.9091,909.091,0.5,0,3,1,1.2,1.8,0.52,0.88,0.1,1,0.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+I2,2026-09-28,TetO GFP Encapsulated,1000 nM TetR - 1 ATC,Sample,11,1000 nM TetR,0.9091,909.091,1,0,3,1,1.2,1.8,0.52,0.88,0.1,1,0.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+I3,2026-09-28,TetO GFP Encapsulated,1000 nM TetR - 1 ATC,Sample,11,1000 nM TetR,0.9091,909.091,1,0,3,1,1.2,1.8,0.52,0.88,0.1,1,0.5,1,0,,TetR-His (MedChem),ATC (4600 uM stock)
+K2,2026-09-28,TetO GFP Encapsulated,Fluorescein: 0uM,Standard,10,,,,,0,,,,,,,,,,,10,,,
+K3,2026-09-28,TetO GFP Encapsulated,Fluorescein: 0uM,Standard,10,,,,,0,,,,,,,,,,,10,,,
+L2,2026-09-28,TetO GFP Encapsulated,Fluorescein: 0.5uM,Standard,10,,,,,0.5,,,,,,,,,,,10,,,
+L3,2026-09-28,TetO GFP Encapsulated,Fluorescein: 0.5uM,Standard,10,,,,,0.5,,,,,,,,,,,10,,,
+M2,2026-09-28,TetO GFP Encapsulated,Fluorescein: 1uM,Standard,10,,,,,1,,,,,,,,,,,10,,,
+M3,2026-09-28,TetO GFP Encapsulated,Fluorescein: 1uM,Standard,10,,,,,1,,,,,,,,,,,10,,,
+N2,2026-09-28,TetO GFP Encapsulated,Fluorescein: 2uM,Standard,10,,,,,2,,,,,,,,,,,10,,,
+N3,2026-09-28,TetO GFP Encapsulated,Fluorescein: 2uM,Standard,10,,,,,2,,,,,,,,,,,10,,,

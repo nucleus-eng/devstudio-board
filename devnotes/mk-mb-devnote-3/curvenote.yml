@@ -1,0 +1,54 @@
+version: 1
+project:
+  banner: banner-devcells.webp
+  # Title carried from the source Doc's own heading, 2026-10-11.
+  title: 'Expressing Cell-Free TetO-GFP in Solution with aTc Titration'
+  description: >
+    TetR represses the pT7-tetO-plamGFP cell-free reporter to near background
+    at 500 and 1000 nM, and a seven-point anhydrotetracycline (aTc)
+    titration relieves that repression fully by 5 uM; the amount of TetR
+    sets where the induction threshold sits rather than whether the switch
+    works.
+  # Both authors and emails are given directly in the source Doc, 2026-10-11.
+  # Affiliation (Northwestern University) is inferred from the shared
+  # @u.northwestern.edu email domain, matching Mary Kelly's affiliation on
+  # this board's sibling DevNote (devnote-mk-20260925-20260928), where Anton
+  # Molina confirmed it on 2026-10-04. Not independently confirmed for this
+  # DevNote or for Madison Briggs.
+  authors:
+    - name: Mary D. Kelly, PhD
+      email: marykelly2026@u.northwestern.edu
+      corresponding: true
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-0
+    - name: Madison Briggs
+      email: madisonbriggs2028@u.northwestern.edu
+      corresponding: true
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-1
+  affiliations:
+    - id: affiliations-curvenote-generated-uid-0
+      name: Northwestern University
+  # The source Doc is dated 2026-10-11 and does not separately date the
+  # experiment it reports.
+  date: '2026-10-11'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  thumbnail: figures/fig2-endpoint-gfp-atc-titration.png
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+  resources:
+    - banner-devcells.webp
+    - figures/**
+    - dna/**
+  id: 63b849a5-1b7d-414b-bcd0-da8f121b9b23
+site:
+  template: article-theme

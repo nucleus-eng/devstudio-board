@@ -1,0 +1,54 @@
+{
+  "figures": [
+    {
+      "filename": "figures/luv-pellet.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "zarr_url": null,
+      "section_context": "Methods, 1.1 LUVs — pellet after washing",
+      "asset_chain_complete": false,
+      "extraction_method": "Downloaded directly from the supporting-documents Drive folder (file LUVpellet.png); a phone photograph, not a notebook output.",
+      "findings": [
+        "No notebook or platemap exists for this figure; it is a photograph of a tube, not a plot.",
+        "Renamed from LUVpellet.png to luv-pellet.png for a descriptive filename."
+      ]
+    },
+    {
+      "filename": "figures/colorchange-1h.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "zarr_url": null,
+      "section_context": "Results — bulk color change, 1 h timepoint",
+      "asset_chain_complete": false,
+      "extraction_method": "Downloaded directly from the supporting-documents Drive folder (file 1h.png); a phone photograph, not a notebook output.",
+      "findings": [
+        "No notebook or platemap exists for this figure.",
+        "The source Doc states 'Plot of platereader is missing' — the quantitative 570 nm kinetic absorbance trace this photo stands in for was never produced or was lost; flagged in main.md.",
+        "Renamed from 1h.png to colorchange-1h.png for a descriptive filename."
+      ]
+    },
+    {
+      "filename": "figures/colorchange-overnight.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": null,
+      "platemap": null,
+      "data_source": null,
+      "zarr_url": null,
+      "section_context": "Results — bulk color change, overnight timepoint",
+      "asset_chain_complete": false,
+      "extraction_method": "Downloaded directly from the supporting-documents Drive folder (file overnight.png); a phone photograph, not a notebook output.",
+      "findings": [
+        "No notebook or platemap exists for this figure.",
+        "Same missing platereader plot as colorchange-1h.png applies here.",
+        "Renamed from overnight.png to colorchange-overnight.png for a descriptive filename."
+      ]
+    }
+  ]
+}

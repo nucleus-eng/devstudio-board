@@ -1,0 +1,109 @@
+{
+  "source": {
+    "doc": "TetO-deGFP Encapsulated",
+    "url": "https://docs.google.com/document/d/1oWYWO6-2OJEOMaWc-6dxgFCW8nUEhhw0ddNB8TZ9AXE",
+    "redrafted": "2026-10-11",
+    "note": "main.md is a verbatim carry of this Doc. The 2026-09-25 aTc titration that earlier drafts covered is not in the Doc and is no longer in main.md."
+  },
+  "figures": [
+    {
+      "filename": "figures/fig1-bulk-kinetics.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb",
+      "platemap": "MK-20260928-platemap-nucleus-bulk.csv",
+      "data_source": "20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt",
+      "section_context": "Results, Bulk",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Figure 1 of the source Doc, pasted as an image.",
+        "REVIEW: no #| label: on the producing cell. The notebook's only label, mk-20260928, is on its final cell, kinetics.plot_summary, which is not this figure. Add a label to switch to the quarto-label pattern."
+      ]
+    },
+    {
+      "filename": "figures/fig2-bulk-endpoint.png",
+      "pattern": "static-png",
+      "cell_label": null,
+      "source_notebook": "MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb",
+      "platemap": "MK-20260928-platemap-nucleus-bulk.csv",
+      "data_source": "20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt",
+      "section_context": "Results, Bulk",
+      "asset_chain_complete": true,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "Figure 2 of the source Doc, pasted as an image.",
+        "REVIEW: no #| label: on the producing cell."
+      ]
+    },
+    {
+      "filename": null,
+      "pattern": "zarr-viewer",
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.zarr",
+      "source_notebook": "MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy",
+      "platemap": "20260928-MK-full-sensor-microscopy.csv",
+      "data_source": "deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet",
+      "section_context": "Results, Encapsulated",
+      "asset_chain_complete": true,
+      "extraction_method": "link in source Doc",
+      "findings": [
+        "Figure 3 of the source Doc is a link, not an image, with the instruction 'Import microscope data for a figure here'.",
+        "The viewer points at the plate root. The convention is to deep-link one well, for example <store>.zarr/C/5/0. Wells not yet chosen.",
+        "The Doc's link carries a viewState query parameter. The widget forwards only source, height and menuOpen, so it is not carried.",
+        "A viewer does not survive JATS conversion. An archival static figure is still needed for this panel.",
+        "OME-NGFF 0.5 plate, zarr v3. 48 wells, rows C to N, columns 3 to 6. Five pyramid levels. Channels GFP 00FF00 and Alexa Fluor 647 0000FF, both with omero window start 0 and end 65535."
+      ]
+    },
+    {
+      "filename": null,
+      "pattern": "quarto-label",
+      "cell_label": "mk-20260928-uscope",
+      "source_notebook": "MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy",
+      "platemap": "20260928-MK-full-sensor-microscopy.csv",
+      "data_source": "deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet",
+      "section_context": "Results, Encapsulated",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "Figure 4 of the source Doc. Verified on 2026-10-11 against the image pasted in the Doc: three rows by four columns, quantile ribbon, log y, titled 'Intensity Mean (GFP) over Timepoint, by [ATC] (uM)'. Matches this cell's output."
+      ]
+    },
+    {
+      "filename": null,
+      "pattern": "quarto-label",
+      "cell_label": "mk-20260928-uscope-subtract-bkg",
+      "source_notebook": "MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy",
+      "platemap": "20260928-MK-full-sensor-microscopy.csv",
+      "data_source": "deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet",
+      "section_context": "Results, Encapsulated",
+      "asset_chain_complete": true,
+      "extraction_method": "notebook cell output",
+      "findings": [
+        "Figure 5 of the source Doc, the background-subtracted version of Figure 4."
+      ]
+    }
+  ],
+  "constructs": [
+    {
+      "name": "pOpen-TetO-deGFP",
+      "sequence_file": null,
+      "length_bp": 2855,
+      "verified": false,
+      "findings": [
+        "The full sequence is inline in main.md, carried from the source Doc. No .gb or .gbk file matching it was found, so devstudio-verify-dna-constructs was not run.",
+        "Landmarks measured against the inline sequence on 2026-10-11: T7 promoter at base 5, tetO operator at base 26, g10 leader and RBS at base 90, deGFP CDS 104 to 781 (678 nt, 225 codons), T7 terminator at base 791.",
+        "RULED OUT: nucleus-eng/DNA detectors/pOpen-pT7-tetO.gb. 2954 bp, CDS 1705..2397 is plamGFP (693 nt, 230 aa, MEIEDVIKRDMK), against the Doc's deGFP (678 nt, 225 aa, MELFTGVVPILV). 7.6% residue identity. It also uses UTR1 and a T7hyb6 terminator.",
+        "CLOSEST MATCH: nucleus-eng/DNA reporters/pOpen-deGFP.gbk. 2812 bp, 43 bp shorter. 22 of 23 sampled 120-nt windows of the Doc appear in it verbatim; the one that does not is bases 1-120, holding the promoter, operator and RBS. It has the T7 promoter and deGFP CDS but no tetO.",
+        "REVIEW: build the GenBank file from reporters/pOpen-deGFP.gbk plus the 43 bp tetO insertion, or supply the authoritative file, and add it to dna/."
+      ]
+    },
+    {
+      "name": "TetR, His-tagged (MedChemExpress)",
+      "sequence_file": null,
+      "verified": false,
+      "findings": [
+        "A purchased purified protein, not a construct built here. Listed under Materials in the source Doc."
+      ]
+    }
+  ]
+}

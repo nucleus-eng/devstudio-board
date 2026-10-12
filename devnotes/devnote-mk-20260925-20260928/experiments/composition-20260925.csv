@@ -1,0 +1,12 @@
+Component,Stock Conc.,Unit,Final Conc.,Unit,No DNA Ctrl (uL),Unrepressed (uL),Repressed 500 nM TetR (uL),Repressed 1000 nM TetR (uL)
+Small molecule mix,N/A,N/A,N/A,N/A,3,3,3,3
+tRNA,N/A,N/A,N/A,N/A,1,1,1,1
+Protein mix,N/A,N/A,N/A,N/A,1.2,1.2,1.2,1.2
+Ribosomes,N/A,N/A,N/A,N/A,1.8,1.8,1.8,1.8
+RNase inhibitor,N/A,N/A,N/A,N/A,0.5,0.5,0.5,0.5
+Sucrose,N/A,N/A,N/A,N/A,0.88,0.88,0.88,0.88
+TetO-plamGFP (B.next),129.6,nM,0.9301,nM,0,0.0789,0.0789,0.0789
+TetR-His (MedChem),10000,nM,"0 / 454.55 / 909.09",nM,0,0,0.5,1
+Nuclease free water,N/A,N/A,N/A,N/A,1.62,1.5411,1.0411,0.5411
+Anhydrotetracycline,unresolved,uM,0-10,uM,1,1,1,1
+Total (uL),,,,,11,11,11,11

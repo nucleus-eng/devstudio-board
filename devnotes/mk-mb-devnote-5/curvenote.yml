@@ -1,0 +1,53 @@
+version: 1
+project:
+  banner: banner-devcells.webp
+  # Title carried from the source Doc's own heading, 2026-10-12.
+  title: 'TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patterning'
+  description: >
+    A TetO-regulated phospholipase A1 sensor in GUVs runs backward at the
+    1-10 uM aTc concentrations usually used for induction, because
+    cell-free poisoning, aTc autofluorescence, and membrane partitioning
+    all scale with aTc and outweigh the induction they are meant to drive;
+    dropping to 0.25 uM recovers the intended behavior and gives a clean,
+    spatially confined color change on a patterned hydrogel.
+  # Both authors and emails are given directly in the source Doc,
+  # 2026-10-12. Affiliation (Northwestern University) is inferred from the
+  # shared @u.northwestern.edu email domain, matching this author's other
+  # DevNotes on this board.
+  authors:
+    - name: Mary D. Kelly, PhD
+      email: marykelly2026@u.northwestern.edu
+      corresponding: true
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-0
+    - name: Madison Briggs
+      email: madisonbriggs2028@u.northwestern.edu
+      corresponding: true
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-1
+  affiliations:
+    - id: affiliations-curvenote-generated-uid-0
+      name: Northwestern University
+  # The source Doc gives no date anywhere in its text. 2026-10-11 is the
+  # Drive file's own creation date, checked 2026-10-12.
+  date: '2026-10-11'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  thumbnail: figures/fig7-patterned-gel.png
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+  resources:
+    - banner-devcells.webp
+    - figures/**
+    - dna/**
+  id: dbd189bc-da6a-4818-a1d4-928349f8c5c4
+site:
+  template: article-theme

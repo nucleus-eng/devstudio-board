@@ -1,0 +1,31 @@
+{
+ "zoom": -0.873947580175899,
+ "target": [
+  6706.657784297582,
+  4480.135606141096
+ ],
+ "t": 19,
+ "gfp_channel": 1,
+ "window": [
+  30000,
+  60000
+ ],
+ "out_px": 1080,
+ "wells": {
+  "C4": {
+   "condition": "HSL sensing GUVs",
+   "um_per_px": 0.6102793426626113,
+   "bar_um": 100
+  },
+  "C7": {
+   "condition": "Negative control",
+   "um_per_px": 0.6102793426626113,
+   "bar_um": 100
+  },
+  "C10": {
+   "condition": "Positive control",
+   "um_per_px": 0.6102793426626113,
+   "bar_um": 100
+  }
+ }
+}
