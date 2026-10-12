@@ -233,7 +233,7 @@ tbl-reagents. -->
 <!-- Tab-set per an @claude comment left in this file: "let's take ULGA,
 LGA, and PEG4Nb as three tab sets". -->
 
-:::{note} The PEG4Nb concentrations are settled; the ratio sentence beside them is not
+<!-- :::{note} The PEG4Nb concentrations are settled; the ratio sentence beside them is not
 :name: gap-peg4nb-units
 
 **Settled on 2026-10-11.** `80 mM` counts molecules, and both PEG4Nb and
@@ -260,9 +260,9 @@ is obtained". So the concentrations above cannot be rescaled to match the
 clause. Recorded here because the arithmetic that reaches 0.64 g is correct at
 every line, and three sessions followed it before anyone asked whether the
 answer would dissolve.
-:::
+::: -->
 
-:::{danger} The source states two different solvents for the PEG4Nb precursor
+<!-- :::{danger} The source states two different solvents for the PEG4Nb precursor
 :name: gap-peg4nb-solvent
 
 Step 1 above says the precursor is dissolved in 1 mL of PBS.
@@ -293,7 +293,7 @@ Separately, a second session reports finding the same wording in a hydrogel
 protocol PDF in the DevStudio Drive, and a notebook entry recording a different
 solvent for this run. That is recorded here as a pointer only. It is not folded
 in, because neither document is part of this DevNote's sources.
-:::
+::: -->
 
 # Experimental design
 
@@ -333,7 +333,7 @@ main-supplement.md's Resources for why. -->
 | PEG4Nb | 80 mM | 40 mM |
 :::
 
-:::{attention} The design narrowed from four conditions to two, and both plate maps changed
+<!-- :::{attention} The design narrowed from four conditions to two, and both plate maps changed
 :name: gap-design-narrowed
 
 The 2026-10-11 version of the source said "Four vesicle conditions were tested"
@@ -355,9 +355,9 @@ source. Two new maps are, one per condition. The row conflict recorded in
 {ref}`gap-rows-ij-conflict` was found in the earlier map and in files derived
 from it, so confirm whether it carries over to the new ones before either is
 used.
-:::
+::: -->
 
-:::{danger} Which plate rows hold GFP-GUVs and which hold PLA-GUVs is not settled
+<!-- :::{danger} Which plate rows hold GFP-GUVs and which hold PLA-GUVs is not settled
 :name: gap-rows-ij-conflict
 
 Three sources describe the same plate and give two different answers for rows
@@ -381,7 +381,7 @@ Only an author can say which assignment is correct.
 
 A second item in the same sheets: cell K6 reads `GFP GUVs` and cell K7 reads
 `GUVs`. They are a duplicate pair and should match.
-:::
+::: -->
 
 # Results
 
@@ -417,7 +417,7 @@ colour change, consistent with the greatest release of CPRG and its conversion
 to CPR. These are endpoint measurements on duplicate wells, so the differences
 are descriptive and not statistically tested.
 
-:::{attention} The figure's analysis is a script that does not read its own data file
+<!-- :::{attention} The figure's analysis is a script that does not read its own data file
 :name: gap-figure4-analysis
 
 The analysis for {numref}`fig-luv-stability-hydrogels` is
@@ -472,7 +472,7 @@ way. Because the interference is scattering, a reference read at a wavelength
 where neither CPRG nor CPR absorbs, around 700 nm, subtracted from both
 channels before the ratio is taken, is the correction that would make this
 condition measurable. That is worth deciding before the plate is rebuilt.
-:::
+::: -->
 
 ## GFP-expressing GUVs
 
@@ -503,7 +503,7 @@ autofluorescence than ULGA and LGA, which gave lower background fluorescence.
 This reduces the signal-to-background ratio for GFP in PEG4Nb relative to the
 thermogels.
 
-:::{danger} The microscopy has no archival figure, and the viewers will not survive export
+<!-- :::{danger} The microscopy has no archival figure, and the viewers will not survive export
 :name: gap-microscopy-no-static
 
 The three viewers on [Interactive viewers](./viewers.md) read the
@@ -546,9 +546,9 @@ two viewers on [Interactive viewers](./viewers.md) are wired to these
 URLs and will likely render blank until the stores are uploaded. Ask
 whoever ran this microscopy session whether the Zarr export is still
 pending.
-:::
+::: -->
 
-:::{attention} Three claims in this section need their evidence named
+<!-- :::{attention} Three claims in this section need their evidence named
 :name: gap-gfp-claims
 
 **All three gels.** The prose reports GFP in PEG4Nb, ULGA and LGA. The three
@@ -565,7 +565,7 @@ checked against, or soften it.
 **Autofluorescence.** PEG4Nb is reported as considerably higher than ULGA and
 LGA. No number, channel or exposure is given, and no PEG4Nb store is linked, so
 the claim cannot be checked from this page.
-:::
+::: -->
 
 # Discussion
 
@@ -626,17 +626,17 @@ recorded here so the removal is visible rather than silent.
 :::
 -->
 
-# Conclusion
+<!-- # Conclusion
 
-[PLEASE FILL IN]
+[PLEASE FILL IN] -->
 
 <!-- The source Conclusion heading carries no text. -->
 
-# What's next
+<!-- # What's next
 
-[PLEASE FILL IN]
+[PLEASE FILL IN] -->
 
-:::{attention} What's next is unanswered, though the Discussion now carries part of it
+<!-- :::{attention} What's next is unanswered, though the Discussion now carries part of it
 :name: gap-whats-next
 
 A reviewer comment on the source reads: "What's next here? What work does
@@ -649,9 +649,9 @@ crosslinking dynamics, metrology suited to hydrogels, and quantification of
 expression yield. None of it sits under this heading, and the source still has
 no What's next section. Either move those statements here, or say the
 Discussion is where they belong and this heading comes out.
-:::
+::: -->
 
-# Review questions
+<!-- # Review questions
 
 <!-- Rebuilt on 2026-10-12 against the second revision of
 `log-devnote-draft.docx`. Items the revisions closed are recorded as closed
@@ -707,9 +707,9 @@ fetches, so re-fetching the same way will not resolve it.
 This may be a fault in the download path rather than in the files themselves,
 and the check cannot tell which. Open the originals and confirm them before
 either construct is cited as a sequence.
-:::
+::: -->
 
-# Open questions
+<!-- # Open questions
 
 :::{admonition}
 
@@ -717,7 +717,7 @@ either construct is cited as a sequence.
 2. Can PLA lyse?
 3. Do only the gels lyse?
 
-:::
+::: -->
 
 <!-- Moved to the end of the page per an @claude comment left in this
 file: "maybe open questions come at the end?" -->
