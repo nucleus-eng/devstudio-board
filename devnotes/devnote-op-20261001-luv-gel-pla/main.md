@@ -7,22 +7,8 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 after the authors revised it a second time. `main-supplement.md` holds the full
 analysis chain for `OP-20261001`, every disagreement found between sources, and
 the review history, so that page and this one do not restate each other. Title
-and authors also live in `curvenote.yml`, as project frontmatter. They are also
-repeated here as body text. The source document states them in its own body,
-with each author's email. The doc-fidelity convention this page follows
-carries that over. -->
-
-Title: Understanding Liposome Behaviour in Hydrogel Matrices
-
-Ojaswita Pant
-
-PhD student, Northwestern University
-[ojaswitapant2029@u.northwestern.edu](mailto:ojaswitapant2029@u.northwestern.edu)
-
-Manuel Bibrowski
-
-PhD student, Imperial College London
-[manuel.bibrowski25@imperial.ac.uk](mailto:manuel.bibrowski25@imperial.ac.uk)
+and authors live in `curvenote.yml`, as project frontmatter, and render on this
+page from there. They are not repeated here as body text. -->
 
 # Abstract
 
@@ -34,7 +20,7 @@ largely unexplored. This module addresses that gap and examines how hydrogel
 formation and fabrication govern the integration of synthetic cells into soft
 materials.
 
-# Module overview
+# Overview
 
 We assessed vesicle functionality in hydrogels through two complementary
 readouts: (i) quantification of T7-driven GFP expression yield in giant
