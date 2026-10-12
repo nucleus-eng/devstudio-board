@@ -620,6 +620,9 @@ Finally, this platform is a practical starting point for groups without a
 synthetic-biology background, because many of the control experiments needed to
 establish baseline behaviour have already been carried out.
 
+<!-- RESOLVED by direct instruction: the Discussion text above is
+confirmed as final, as given. The flag's substance stays on record below.
+
 :::{attention} One Discussion claim is not supported by this DevNote's own figure
 :name: gap-discussion-vs-figure
 
@@ -635,6 +638,7 @@ The earlier Discussion also stated "PLA lyses the vesicles in all gels". That
 sentence is gone from the source and no figure ever supported it. It is
 recorded here so the removal is visible rather than silent.
 :::
+-->
 
 # Conclusion
 
