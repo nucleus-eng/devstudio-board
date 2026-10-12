@@ -103,5 +103,26 @@
         "The data file name carries the date 20261009, which is none of the three dates already disagreeing in this DevNote."
       ]
     }
+  ],
+  "microscopy_stores": [
+    {
+      "url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr",
+      "wells_used": ["E/12/0", "G/12/0"],
+      "section_context": "Results, GFP expression in hydrogels",
+      "caption_pair": "GFP-GUVs+LUVs in solution (E12) and its outer-solution-only control (G12)",
+      "findings": [
+        "Added to log-devnote-draft.docx between 2026-10-11 23:28 and 2026-10-12 00:12, after this DevNote's prior fold-in pass, which is why gap-figure5-missing originally found no GFP figure at all. Confirmed reachable by URL; content not fetched, per convention."
+      ]
+    },
+    {
+      "url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr",
+      "wells_used": ["root, not yet confirmed well-addressed"],
+      "section_context": "Results, GFP expression in hydrogels",
+      "caption_pair": "GFP-GUVs+LUVs in ULGA (E15), z-stack",
+      "findings": [
+        "Filename names E15 specifically, unlike the paired solution store above, so it is used at its root rather than addressed to a well path. Not independently confirmed as single-well.",
+        "No store is yet linked for E14/E21 (PEG4Nb pre-gel and gel) or E16 (LGA), named in the Results well list with no data behind them."
+      ]
+    }
   ]
 }

@@ -412,17 +412,78 @@ the figure.
 
 **GFP expression in hydrogels**
 
-[PLEASE FILL IN]
+Plate map 2: `15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug`.
 
-:::{attention} The second results figure and its plate map are both empty
+GFP expression was detected in GUVs encapsulated in all three hydrogel
+formats: the photocrosslinked PEG4Nb hydrogel and the physical,
+thermogelling hydrogels ULGA and LGA. Cell-free expression was
+therefore supported inside each gel network. GUVs have previously been
+shown to remain functional in thermogelling hydrogels. To the authors'
+knowledge, this is the first demonstration of GFP expression, and
+therefore retained biological function, in a photocrosslinked hydrogel,
+which indicates that GUV-based expression systems are compatible with
+photocrosslinking. The PEG4Nb hydrogel showed considerably higher
+autofluorescence than ULGA and LGA, which gave lower background
+fluorescence. This reduces the signal-to-background ratio for GFP in
+PEG4Nb relative to the thermogels.
+
+- E12: GFP-GUVs+LUVs in solution, and G12 is the control.
+- E15: GFP-GUVs+LUVs in ULGA, and G15 is the control.
+- E14: GFP-GUVs+LUVs in PEG4Nb pre-gel, and E21 in PEG4Nb gel, with G14
+  and G21 as controls.
+- E16: GFP-GUVs+LUVs in LGA, and G16 is the control.
+
+:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:class: w-full
+
+{
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/E/12/0",
+    "height": "600px",
+    "menuOpen": true
+}
+:::
+
+[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/E/12/0`, caption: (GFP-GUVs+LUVs in solution, well E12.)]
+
+:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:class: w-full
+
+{
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/G/12/0",
+    "height": "600px",
+    "menuOpen": true
+}
+:::
+
+[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/G/12/0`, caption: (Outer-solution-only control, well G12.)]
+
+:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:class: w-full
+
+{
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr",
+    "height": "600px",
+    "menuOpen": true
+}
+:::
+
+[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr`, caption: (GFP-GUVs+LUVs in ULGA, well E15, z-stack.)]
+
+:::{attention} Three of five GUV conditions have no microscopy store yet, and no viewer survives to the archive
 :name: gap-figure5-missing
 
-The source carries a heading, "Figure 5: GFP expression in hydrogels", with no
-image beneath it, and a "Plate map:" line with nothing after it. No GFP
-microscopy or fluorescence figure exists anywhere in the DevNote folder.
+Resolved in part. `log-devnote-draft.docx` was edited again between
+2026-10-11 23:28 and 2026-10-12 00:12, after this DevNote's prior fold-in
+pass, which is why the heading previously read empty. It now carries real
+Zarr and Parquet links for two of the five listed conditions: E12/G12 in
+solution, and E15/G15 in ULGA. E14/E21 (PEG4Nb pre-gel and gel) and E16
+(LGA) are still named with no store linked.
 
-Supply the figure and the plate map, or say that this result is not ready and
-the heading comes out.
+Separately, the three viewers above do not survive JATS conversion. The
+archive's only record of these wells, once exported, will be this prose
+and the well list. A static PNG export is still needed as the archival
+figure, at least for the confirmed E12, G12 and E15 fields of view,
+matching the convention used elsewhere in this pipeline.
 :::
 
 # Discussion
@@ -444,10 +505,10 @@ comment on the source asks "What are the key takeaways?" and another asks that
 the results be presented "in parallel".
 
 Two of these also need their evidence named. Item 1 says GFP expression worked
-in all three gels, and this DevNote carries no GFP figure, per
-{ref}`gap-figure5-missing`. Item 2 says PLA lyses vesicles in all gels, and
-{numref}`fig-luv-stability-hydrogels` shows LUV-only wells, not the PLA-GUV
-condition. Name the figure or the run each claim rests on.
+in all three gels. Two of the three now have a microscopy viewer, and one does
+not, per {ref}`gap-figure5-missing`. Item 2 says PLA lyses vesicles in all
+gels, and {numref}`fig-luv-stability-hydrogels` shows LUV-only wells, not the
+PLA-GUV condition. Name the figure or the run each claim rests on.
 :::
 
 # Conclusion
@@ -496,8 +557,9 @@ Closed by the 2026-10-11 revision:
 Still open, and each has its own flag above:
 
 - The Conclusion heading has no text.
-- No GFP figure exists, so "Microscopy data" and "Figure 5" are both still
-  empty. See {ref}`gap-figure5-missing`.
+- "Microscopy data" and "Figure 5" are no longer empty. Two of five GUV
+  conditions now have a microscopy viewer; three still do not. See
+  {ref}`gap-figure5-missing`.
 - The plasmid question is open in words: is T7-EsaO-mNG linear or a plasmid, is
   T7-EsaO-PLA1 the same, and does either carry a tetO operator. Two sequence
   files were linked on the source on 2026-10-10, and they answer identity, not
