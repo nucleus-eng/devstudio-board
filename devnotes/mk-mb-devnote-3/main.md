@@ -164,7 +164,7 @@ Rows B–E carry the four conditions in order (B = no DNA, C = unrepressed, D = 
 :label: fig-1-plate-layout
 :align: center
 :width: 90%
-*Figure 1.* Plate layout. Conditions 1–28 occupy rows B–E, columns 2–22, in triplicate and grouped in threes by aTc concentration. Rows run no DNA (B), no TetR (C), 500 nM TetR (D) and 1000 nM TetR (E). Fluorescein standards S1–S4 sit in row G, columns 2–9, in duplicate. Shaded wells around the perimeter hold water only.
+Plate layout. Conditions 1–28 occupy rows B–E, columns 2–22, in triplicate and grouped in threes by aTc concentration. Rows run no DNA (B), no TetR (C), 500 nM TetR (D) and 1000 nM TetR (E). Fluorescein standards S1–S4 sit in row G, columns 2–9, in duplicate. Shaded wells around the perimeter hold water only.
 :::
 
 Four fluorescein standards (S1–S4, at 0, 0.5, 1 and 2 µM) were plated in duplicate in row G, columns 2–9, for conversion of arbitrary fluorescence units to molar equivalents of fluorescein (MEF).
@@ -210,7 +210,7 @@ Platemap link:
 :label: fig-2-endpoint-gfp-atc-titration
 :align: center
 :width: 90%
-*Figure 2.* Endpoint GFP expression across an aTc titration at three TetR concentrations. Bulk cell-free reactions containing 1 nM pT7-tetO-plamGFP and 0, 500 or 1000 nM purified TetR were induced with anhydrotetracycline at 0–10 µM final and read for 6 h at 37 °C. Points are fluorescence at the 6 h endpoint (ex 485 nm, em 528 nm, gain 75), mean ± SD of three wells per condition, with error bars smaller than the symbols in most cases. The −DNA control is a no-template reaction at the matching aTc concentration.
+Endpoint GFP expression across an aTc titration at three TetR concentrations. Bulk cell-free reactions containing 1 nM pT7-tetO-plamGFP and 0, 500 or 1000 nM purified TetR were induced with anhydrotetracycline at 0–10 µM final and read for 6 h at 37 °C. Points are fluorescence at the 6 h endpoint (ex 485 nm, em 528 nm, gain 75), mean ± SD of three wells per condition, with error bars smaller than the symbols in most cases. The −DNA control is a no-template reaction at the matching aTc concentration.
 :::
 
 # Conclusion
