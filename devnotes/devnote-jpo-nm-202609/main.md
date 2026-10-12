@@ -606,7 +606,8 @@ else.
 :width: 60%
 Well D6, HSL sensing gels (LuxR-mNeonGreen, +100 µM AHL), z = 50 of 101, GFP
 channel only, contrast windowed 4526 to 12204, center crop, about one field
-of view.
+of view. The triplicate well, D7, has its own
+[interactive viewer](./2026-10-07-interactive-viewer.md#d7-hsl-sensing-gels).
 :::
 ::::
 
@@ -617,7 +618,8 @@ of view.
 :width: 60%
 Well D5, negative control gels (LuxR-mNeonGreen, no AHL), z = 50 of 101, GFP
 channel only, contrast windowed 4526 to 12204, center crop, about one field
-of view.
+of view. The triplicate well, D4, has its own
+[interactive viewer](./2026-10-07-interactive-viewer.md#d4-negative-control-gels).
 :::
 ::::
 
@@ -628,7 +630,8 @@ of view.
 :width: 60%
 Well D11, constitutive control gels (Constitutive mNeonGreen), z = 50 of 101,
 GFP channel only, contrast windowed 4526 to 12204, center crop, about one
-field of view.
+field of view. The triplicate well, D10, has its own
+[interactive viewer](./2026-10-07-interactive-viewer.md#d10-constitutive-control-gels).
 :::
 ::::
 
