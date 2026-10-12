@@ -106,6 +106,76 @@
       ]
     },
     {
+      "filename": "figures/fov-E14.png",
+      "page": "main.md",
+      "pattern": "rendered-from-zarr",
+      "cell_label": null,
+      "source_notebook": "general/render-microscopy-fovs.py",
+      "platemap": "15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug",
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/14/0",
+      "section_context": "Results, GFP-expressing GUVs",
+      "asset_chain_complete": true,
+      "extraction_method": "general/render-microscopy-fovs.py, run on 2026-10-12",
+      "findings": [
+        "New on 2026-10-12. The archival figure gap-microscopy-no-static asked for, for all four gel conditions.",
+        "Single z-plane (z=6 of 12), centre crop covering 1/9 of the field's area, GFP channel stretched at its own 50th-to-99.9th percentile (not pooled with the other three wells), Brightfield blended in at 25% weight for context.",
+        "Uses the first of two channels both labelled GFP in the store's own metadata. See gap-second-gfp-channel in main.md.",
+        "Full parameters, including the exact per-well stretch, are in figures/fov-render-params.json."
+      ]
+    },
+    {
+      "filename": "figures/fov-E15.png",
+      "page": "main.md",
+      "pattern": "rendered-from-zarr",
+      "cell_label": null,
+      "source_notebook": "general/render-microscopy-fovs.py",
+      "platemap": "15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug",
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/15/0",
+      "section_context": "Results, GFP-expressing GUVs",
+      "asset_chain_complete": true,
+      "extraction_method": "general/render-microscopy-fovs.py, run on 2026-10-12",
+      "findings": [
+        "New on 2026-10-12, as figures/fov-E14.png above.",
+        "Full parameters are in figures/fov-render-params.json."
+      ]
+    },
+    {
+      "filename": "figures/fov-E16.png",
+      "page": "main.md",
+      "pattern": "rendered-from-zarr",
+      "cell_label": null,
+      "source_notebook": "general/render-microscopy-fovs.py",
+      "platemap": "15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug",
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/16/0",
+      "section_context": "Results, GFP-expressing GUVs",
+      "asset_chain_complete": true,
+      "extraction_method": "general/render-microscopy-fovs.py, run on 2026-10-12",
+      "findings": [
+        "New on 2026-10-12, as figures/fov-E14.png above.",
+        "Full parameters are in figures/fov-render-params.json."
+      ]
+    },
+    {
+      "filename": "figures/fov-E21.png",
+      "page": "main.md",
+      "pattern": "rendered-from-zarr",
+      "cell_label": null,
+      "source_notebook": "general/render-microscopy-fovs.py",
+      "platemap": "15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug",
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/21/0",
+      "section_context": "Results, GFP-expressing GUVs",
+      "asset_chain_complete": true,
+      "extraction_method": "general/render-microscopy-fovs.py, run on 2026-10-12",
+      "findings": [
+        "New on 2026-10-12, as figures/fov-E14.png above.",
+        "Full parameters are in figures/fov-render-params.json."
+      ]
+    },
+    {
       "filename": null,
       "page": "viewers.md",
       "pattern": "zarr-viewer",

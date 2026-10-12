@@ -490,6 +490,86 @@ All four GFP-GUV gel conditions are shown as interactive viewers,
 deep-linked by well, on [Interactive viewers](./viewers.md). So are the
 solution condition and its control: E12, G12, E14, E15, E16 and E21.
 
+Archival figures for the four gel conditions, one field of view each, are
+below. Each image is a single z-plane, a centre crop covering 1/9 of the
+field's area, with GFP shown at its own 50th-to-99.9th-percentile
+stretch per well, not a stretch shared across wells. Brightfield is
+blended in at low weight for the gel matrix as context. See
+`general/render-microscopy-fovs.py` and `figures/fov-render-params.json`
+for the full method and the exact stretch used per well.
+
+:::::{tab-set}
+
+::::{tab-item} E14 (PEG4Nb pre-gel)
+:sync: e14
+
+:::{figure} ./figures/fov-E14.png
+:label: fig-fov-e14
+:align: center
+:width: 60%
+GFP-GUVs+LUVs in PEG4Nb pre-gel, well E14.
+:::
+
+[`fig-fov-e14`, file:`figures/fov-E14.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/14/0`, caption: (GFP-GUVs+LUVs in PEG4Nb pre-gel, well E14.)]
+
+::::
+
+::::{tab-item} E15 (ULGA)
+:sync: e15
+
+:::{figure} ./figures/fov-E15.png
+:label: fig-fov-e15
+:align: center
+:width: 60%
+GFP-GUVs+LUVs in ULGA, well E15.
+:::
+
+[`fig-fov-e15`, file:`figures/fov-E15.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/15/0`, caption: (GFP-GUVs+LUVs in ULGA, well E15.)]
+
+::::
+
+::::{tab-item} E16 (LGA)
+:sync: e16
+
+:::{figure} ./figures/fov-E16.png
+:label: fig-fov-e16
+:align: center
+:width: 60%
+GFP-GUVs+LUVs in LGA, well E16.
+:::
+
+[`fig-fov-e16`, file:`figures/fov-E16.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/16/0`, caption: (GFP-GUVs+LUVs in LGA, well E16.)]
+
+::::
+
+::::{tab-item} E21 (PEG4Nb gel)
+:sync: e21
+
+:::{figure} ./figures/fov-E21.png
+:label: fig-fov-e21
+:align: center
+:width: 60%
+GFP-GUVs+LUVs in PEG4Nb gel, well E21.
+:::
+
+[`fig-fov-e21`, file:`figures/fov-E21.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/21/0`, caption: (GFP-GUVs+LUVs in PEG4Nb gel, well E21.)]
+
+::::
+
+:::::
+
+:::{attention} Each well's store carries a second, unexplained GFP-labelled channel
+:name: gap-second-gfp-channel
+
+The four gel-condition wells each carry three channels. One is
+Brightfield. The other two are both labelled `GFP` in the store's own
+omero metadata, at different intensity ranges: roughly 9000 to 14000
+counts for one, 4000 to 7000 for the other. The figures above use the
+first of the two.
+Nothing in the source says what the second channel is, or which of the
+two is the intended GFP read. Confirm this before citing either figure
+as quantitative.
+:::
 
 GFP expression was detected in GUVs encapsulated in all three hydrogel formats:
 the photocrosslinked PEG4Nb hydrogel and the physical (thermogelling) hydrogels
@@ -503,9 +583,15 @@ autofluorescence than ULGA and LGA, which gave lower background fluorescence.
 This reduces the signal-to-background ratio for GFP in PEG4Nb relative to the
 thermogels.
 
-<!-- RESOLVED in part on 2026-10-12: the 404 claim below is wrong. Both
-stores are live; see `gap-zarr-stores-not-live` on viewers.md for the
-correction. The JATS-export gap stays open. -->
+<!-- RESOLVED in part on 2026-10-12. Two claims below are now wrong.
+First, the 404 claim: both stores are live; see
+`gap-zarr-stores-not-live` on viewers.md for the correction. Second, "no
+archival figure exists for this result": the four gel conditions now
+have one, above, rendered from the live stores with
+general/render-microscopy-fovs.py. E12 and G12, the solution condition
+and its control, still have no static figure. The JATS-export gap
+stays open regardless, since the interactive viewers still will not
+survive that conversion. -->
 
 <!-- :::{danger} The microscopy has no archival figure, and the viewers will not survive export
 :name: gap-microscopy-no-static
