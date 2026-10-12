@@ -243,10 +243,21 @@ anywhere on this page, by instruction.
 
 **Still open, and it is the authors' own sentence.** Step 1 above describes the
 20 mM PEG-4SH as "a 1:1 stoichiometric ratio with PEG4Nb". The concentrations
-it cites in the same sentence give 4:1. The sentence is carried verbatim
+it cites in the same sentence give 4:1, in molecules and in reactive groups
+alike, because both reagents carry four arms. The sentence is carried verbatim
 because it is what the authors wrote, and this DevNote does not edit its
 source. Say whether that clause should be struck from the source document, and
 the authors will have to be the ones to strike it.
+
+**The fix is to the sentence, not to the formulation.** Satisfying a 1:1 group
+ratio by raising the thiol instead would need 320 mM PEG-4SH, which at
+2000 g/mol is 0.64 g. With the 0.4 g of PEG4Nb already in the same millilitre
+that is about 1.04 g of polymer, leaving roughly 0.1 mL for everything else —
+a paste, in a step whose own instruction is to repeat "until a clear solution
+is obtained". So the concentrations above cannot be rescaled to match the
+clause. Recorded here because the arithmetic that reaches 0.64 g is correct at
+every line, and three sessions followed it before anyone asked whether the
+answer would dissolve.
 :::
 
 :::{danger} The source states two different solvents for the PEG4Nb precursor
