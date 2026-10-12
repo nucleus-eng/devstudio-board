@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Render one field of view per well from the OME-Zarr store named in viewers.md.
+"""Render one field of view per well from the OME-Zarr store named in viewers.md,
+and stitch the four into one composite figure.
 
-Writes figures/fov-<well>.png. Run from the DevNote directory:
+Writes figures/fov-<well>.png and figures/fov-composite.png. Run from the
+DevNote directory:
 
     python3 general/render-microscopy-fovs.py
 
 Requires: zarr>=3, numpy, pillow.
 
-Three things this script decides, because the data does not record them.
+Four things this script decides, because the data does not record them.
 
 1. Crop. "One field of view" is taken as a centre crop covering 1/9 of the
    plane's area, that is 1/3 of its width and 1/3 of its height, at full
@@ -16,21 +18,25 @@ Three things this script decides, because the data does not record them.
 
 2. Z-slice. Each store is a 12-plane z-stack. A single slice at the middle
    index (z=6 of 0-11) is rendered, not a projection, so the image is one
-   real plane rather than a composite.
+   real plane rather than a composite of several.
 
-3. Contrast, per well rather than pooled. The pH-sensor DevNote's render
-   script pools one stretch across its wells, because that figure compares
-   signal level between conditions. This figure does not: its only claim is
-   that GFP-expressing GUVs are present in each gel. Measured directly, the
-   four wells' GFP medians span roughly 4100 to 12300, a 3-fold range,
-   consistent with the main page's own report of higher autofluorescence in
-   PEG4Nb than ULGA or LGA. A pooled stretch puts that whole range inside
-   one window, so the dimmer wells render as a near-uniform wash rather
-   than showing the GUVs in them. Each well is stretched from its own 50th
-   to 99.9th percentile instead, which held no pixels at either 0 or 255 in
-   every well checked. Brightfield is stretched from its own 1st to 99th
-   percentile and blended in at 25% weight, for the gel matrix as context,
-   not as a second measurement.
+3. Contrast, grouped only where that holds up. Measured directly, the four
+   wells' GFP medians are E14 11130, E21 12320, E15 8405, E16 4158,
+   consistent with the main page's own report of higher autofluorescence
+   in PEG4Nb than ULGA or LGA. A single stretch pooled across all four
+   puts that whole range in one window and washes the dimmer wells into a
+   near-uniform green. The two PEG4Nb wells (E14, E21) pool cleanly, since
+   their medians are close. E15 and E16 do not: pooling them, even with
+   the high percentile raised to 99.99, left E15 a near-uniform wash and
+   E16 almost dark, because E15's whole distribution sits close to E16's
+   ceiling rather than merely having a brighter tail. E15 and E16 each
+   keep their own one-well stretch. Brightfield stays per-well throughout,
+   since it is shown only as gel-matrix context, not as a second
+   measurement.
+
+4. GROUP_PCT picks the 50th to 99.9th percentile within each group (or
+   each well, for E15 and E16). Checked directly: this holds no pixels at
+   0 or 255 in any of the four.
 
 Channel note: each well's image carries three channels, Brightfield and
 two both labelled "GFP" in the store's own omero metadata, with different
@@ -50,19 +56,31 @@ STORE = (
     'https://data.nucleus.engineering/microscopy/nucleus-bnext-01/'
     'OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr'
 )
-WELLS = [
-    ('E14', 'E/14/0'),
-    ('E15', 'E/15/0'),
-    ('E16', 'E/16/0'),
-    ('E21', 'E/21/0'),
-]
+# name -> (well path, display label, group)
+#
+# PEG4Nb's two wells (E14, E21) pool into one stretch; their GFP medians,
+# 11130 and 12320, are close enough that one window shows both. ULGA and
+# LGA do not: tried pooled at the 50th-99.9th and 50th-99.99th percentile,
+# and both left E15 (median 8405) a near-uniform wash and E16 (median
+# 4158) almost dark, because E15's whole distribution sits close to E16's
+# ceiling rather than merely having a brighter tail. E15 and E16 each keep
+# their own one-well stretch instead.
+WELLS = {
+    'E14': ('E/14/0', 'E14 - PEG4Nb pre-gel', 'PEG4Nb'),
+    'E21': ('E/21/0', 'E21 - PEG4Nb gel', 'PEG4Nb'),
+    'E15': ('E/15/0', 'E15 - ULGA', 'E15'),
+    'E16': ('E/16/0', 'E16 - LGA', 'E16'),
+}
+GRID = [['E14', 'E21'], ['E15', 'E16']]  # composite layout, one row per gel family
+
 Z_INDEX = 6            # middle of 12 planes (0-11)
 CROP_FRACTION = 1 / 3  # linear fraction per side; 1/3 x 1/3 = 1/9 area
 OUT_PX = 650
-GFP_PCT = (50.0, 99.9)
+GROUP_PCT = (50.0, 99.9)
 BRIGHTFIELD_PCT = (1.0, 99.0)
 BRIGHTFIELD_WEIGHT = 0.25
 GFP_COLOR = np.array([0.0, 1.0, 0.0])
+HEADER_PX = 48
 OUTDIR = 'figures'
 
 
@@ -91,14 +109,29 @@ def load(well_path):
     return um_per_px, crop[0], crop[1]
 
 
-def stretch(channel, pct):
-    lo, hi = np.percentile(channel, pct[0]), np.percentile(channel, pct[1])
-    return np.clip((channel - lo) / max(hi - lo, 1), 0, 1), (float(lo), float(hi))
+def stretch(channel, lo, hi):
+    return np.clip((channel - lo) / max(hi - lo, 1), 0, 1)
 
 
-def draw(name, um_per_px, brightfield, gfp):
-    bf_norm, bf_range = stretch(brightfield, BRIGHTFIELD_PCT)
-    gfp_norm, gfp_range = stretch(gfp, GFP_PCT)
+def group_stretch(crops, names, pct):
+    pool = np.concatenate([crops[n][2].ravel() for n in names])
+    lo, hi = np.percentile(pool, pct[0]), np.percentile(pool, pct[1])
+    return float(lo), float(hi)
+
+
+def font(height, scale=0.045):
+    try:
+        return ImageFont.truetype('/System/Library/Fonts/Helvetica.ttc',
+                                   int(height * scale))
+    except OSError:
+        return ImageFont.load_default()
+
+
+def render_panel(label, um_per_px, brightfield, gfp, gfp_lo, gfp_hi):
+    bf_lo, bf_hi = np.percentile(brightfield, BRIGHTFIELD_PCT[0]), \
+        np.percentile(brightfield, BRIGHTFIELD_PCT[1])
+    bf_norm = stretch(brightfield, bf_lo, bf_hi)
+    gfp_norm = stretch(gfp, gfp_lo, gfp_hi)
 
     rgb = np.zeros(gfp.shape + (3,), np.float32)
     rgb += bf_norm[..., None] * BRIGHTFIELD_WEIGHT
@@ -114,37 +147,68 @@ def draw(name, um_per_px, brightfield, gfp):
     bar_px = int(round(bar_um / um_per_px))
     margin = int(width * 0.04)
     bar_h = max(4, int(height * 0.009))
-    try:
-        font = ImageFont.truetype('/System/Library/Fonts/Helvetica.ttc',
-                                  int(height * 0.045))
-    except OSError:
-        font = ImageFont.load_default()
+    f = font(height)
     draw_ctx.rectangle(
         [width - margin - bar_px, height - margin - bar_h,
          width - margin, height - margin], fill=(255, 255, 255))
     text = f'{bar_um} um'
-    box = draw_ctx.textbbox((0, 0), text, font=font)
+    box = draw_ctx.textbbox((0, 0), text, font=f)
     draw_ctx.text(
         (width - margin - (box[2] - box[0]),
          height - margin - bar_h - (box[3] - box[1]) - int(height * 0.018)),
-        text, fill=(255, 255, 255), font=font)
-    draw_ctx.text((margin, margin), name, fill=(255, 255, 255), font=font)
+        text, fill=(255, 255, 255), font=f)
 
-    path = f'{OUTDIR}/fov-{name}.png'
-    img.save(path)
-    return path, bar_um, bf_range, gfp_range
+    # panel header bar with the well's label
+    panel = Image.new('RGB', (width, height + HEADER_PX), (20, 20, 20))
+    header_font = font(HEADER_PX, scale=0.6)
+    header_draw = ImageDraw.Draw(panel)
+    box = header_draw.textbbox((0, 0), label, font=header_font)
+    header_draw.text(
+        ((width - (box[2] - box[0])) / 2, (HEADER_PX - (box[3] - box[1])) / 2 - box[1]),
+        label, fill=(255, 255, 255), font=header_font)
+    panel.paste(img, (0, HEADER_PX))
+    return panel, bar_um
+
+
+def stitch(panels, grid, gap=6, background=(20, 20, 20)):
+    rows = len(grid)
+    cols = len(grid[0])
+    cell_w = max(panels[n].width for row in grid for n in row)
+    cell_h = max(panels[n].height for row in grid for n in row)
+    out = Image.new('RGB',
+                     (cols * cell_w + (cols - 1) * gap,
+                      rows * cell_h + (rows - 1) * gap),
+                     background)
+    for r, row in enumerate(grid):
+        for c, name in enumerate(row):
+            out.paste(panels[name], (c * (cell_w + gap), r * (cell_h + gap)))
+    return out
 
 
 def main():
-    params = {}
-    for name, well_path in WELLS:
-        print(f'loading {name} ...')
-        um_per_px, brightfield, gfp = load(well_path)
-        path, bar_um, bf_range, gfp_range = draw(name, um_per_px, brightfield, gfp)
-        print(f'  {path}  {OUT_PX}x{OUT_PX} px  bar {bar_um} um  '
-              f'brightfield {bf_range[0]:.0f}-{bf_range[1]:.0f}  '
-              f'GFP {gfp_range[0]:.0f}-{gfp_range[1]:.0f}')
-        params[name] = {'brightfield_stretch': bf_range, 'gfp_stretch': gfp_range}
+    crops = {name: load(path) for name, (path, _, _) in WELLS.items()}
+
+    group_names = {}
+    for name, (_, _, group) in WELLS.items():
+        group_names.setdefault(group, []).append(name)
+    group_ranges = {g: group_stretch(crops, names, GROUP_PCT)
+                     for g, names in group_names.items()}
+    print('\ngroup GFP stretch:')
+    for g, (lo, hi) in group_ranges.items():
+        print(f'   {g:10s} {lo:8.0f} -> {hi:8.0f}  (wells: {group_names[g]})')
+
+    panels = {}
+    bar_ums = {}
+    for name, (_, label, group) in WELLS.items():
+        um_per_px, brightfield, gfp = crops[name]
+        lo, hi = group_ranges[group]
+        panels[name], bar_ums[name] = render_panel(label, um_per_px, brightfield, gfp, lo, hi)
+        panels[name].save(f'{OUTDIR}/fov-{name}.png')
+        print(f'  {OUTDIR}/fov-{name}.png  bar {bar_ums[name]} um')
+
+    composite = stitch(panels, GRID)
+    composite.save(f'{OUTDIR}/fov-composite.png')
+    print(f'\n  {OUTDIR}/fov-composite.png  {composite.size[0]}x{composite.size[1]} px')
 
     with open(f'{OUTDIR}/fov-render-params.json', 'w') as handle:
         json.dump({
@@ -152,10 +216,11 @@ def main():
             'z_index': Z_INDEX,
             'crop_fraction': CROP_FRACTION,
             'out_px': OUT_PX,
-            'gfp_percentiles': GFP_PCT,
+            'group_percentiles': GROUP_PCT,
             'brightfield_percentiles': BRIGHTFIELD_PCT,
             'brightfield_weight': BRIGHTFIELD_WEIGHT,
-            'per_well_stretch': params,
+            'groups': group_names,
+            'group_gfp_stretch': group_ranges,
         }, handle, indent=1)
 
 

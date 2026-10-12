@@ -491,72 +491,35 @@ deep-linked by well, on [Interactive viewers](./viewers.md). So are the
 solution condition and its control: E12, G12, E14, E15, E16 and E21.
 
 Archival figures for the four gel conditions, one field of view each, are
-below. Each image is a single z-plane, a centre crop covering 1/9 of the
-field's area, with GFP shown at its own 50th-to-99.9th-percentile
-stretch per well, not a stretch shared across wells. Brightfield is
-blended in at low weight for the gel matrix as context. See
+below, stitched into one image with each well's label as its panel
+header. Each panel is a single z-plane, a centre crop covering 1/9 of
+the field's area. Brightfield is blended in at low weight for the gel
+matrix as context.
+
+GFP contrast is grouped where the two wells' signal levels allow it, and
+kept per-well otherwise. The PEG4Nb pre-gel and gel wells (E14, E21)
+share one stretch, 11864 to 20155 counts, since their GFP medians are
+close. ULGA and LGA (E15, E16) do not share a window. E15's whole GFP
+distribution sits close to E16's ceiling. Pooling the two, even with the
+high percentile raised to 99.99, left E15 a near-uniform wash and E16
+almost dark. E15 is stretched at 8405 to 11247 counts, and E16 at 4158
+to 7020 counts, each its own 50th-to-99.9th percentile. See
 `general/render-microscopy-fovs.py` and `figures/fov-render-params.json`
-for the full method and the exact stretch used per well.
+for the full method.
 
-:::::{tab-set}
-
-::::{tab-item} E14 (PEG4Nb pre-gel)
-:sync: e14
-
-:::{figure} ./figures/fov-E14.png
-:label: fig-fov-e14
+:::{figure} ./figures/fov-composite.png
+:label: fig-fov-composite
 :align: center
-:width: 60%
-GFP-GUVs+LUVs in PEG4Nb pre-gel, well E14.
+:width: 85%
+GFP-GUVs+LUVs across the four gel conditions, one field of view each.
+PEG4Nb pre-gel (E14) and PEG4Nb gel (E21) share a GFP stretch of 11864
+to 20155 counts. ULGA (E15) is stretched at 8405 to 11247 counts, and
+LGA (E16) at 4158 to 7020 counts, each on its own. The two wells' GFP
+levels do not share a usable common window. Brightfield is blended in
+at 25% weight as gel-matrix context.
 :::
 
-[`fig-fov-e14`, file:`figures/fov-E14.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/14/0`, caption: (GFP-GUVs+LUVs in PEG4Nb pre-gel, well E14.)]
-
-::::
-
-::::{tab-item} E15 (ULGA)
-:sync: e15
-
-:::{figure} ./figures/fov-E15.png
-:label: fig-fov-e15
-:align: center
-:width: 60%
-GFP-GUVs+LUVs in ULGA, well E15.
-:::
-
-[`fig-fov-e15`, file:`figures/fov-E15.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/15/0`, caption: (GFP-GUVs+LUVs in ULGA, well E15.)]
-
-::::
-
-::::{tab-item} E16 (LGA)
-:sync: e16
-
-:::{figure} ./figures/fov-E16.png
-:label: fig-fov-e16
-:align: center
-:width: 60%
-GFP-GUVs+LUVs in LGA, well E16.
-:::
-
-[`fig-fov-e16`, file:`figures/fov-E16.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/16/0`, caption: (GFP-GUVs+LUVs in LGA, well E16.)]
-
-::::
-
-::::{tab-item} E21 (PEG4Nb gel)
-:sync: e21
-
-:::{figure} ./figures/fov-E21.png
-:label: fig-fov-e21
-:align: center
-:width: 60%
-GFP-GUVs+LUVs in PEG4Nb gel, well E21.
-:::
-
-[`fig-fov-e21`, file:`figures/fov-E21.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/21/0`, caption: (GFP-GUVs+LUVs in PEG4Nb gel, well E21.)]
-
-::::
-
-:::::
+[`fig-fov-composite`, file:`figures/fov-composite.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr`, caption: (GFP-GUVs+LUVs across the four gel conditions: E14, E21, E15, E16. Contrast limits and grouping in the figure caption above.)]
 
 :::{attention} Each well's store carries a second, unexplained GFP-labelled channel
 :name: gap-second-gfp-channel

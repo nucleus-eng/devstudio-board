@@ -106,8 +106,29 @@
       ]
     },
     {
-      "filename": "figures/fov-E14.png",
+      "filename": "figures/fov-composite.png",
       "page": "main.md",
+      "pattern": "rendered-from-zarr",
+      "cell_label": null,
+      "source_notebook": "general/render-microscopy-fovs.py",
+      "platemap": "15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug",
+      "data_source": null,
+      "zarr_url": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr",
+      "section_context": "Results, GFP-expressing GUVs",
+      "asset_chain_complete": true,
+      "extraction_method": "general/render-microscopy-fovs.py, run on 2026-10-12",
+      "findings": [
+        "New on 2026-10-12. The archival figure gap-microscopy-no-static asked for, for all four gel conditions, as one stitched 2x2 figure with each well's label as its panel header.",
+        "Single z-plane (z=6 of 12) per panel, centre crop covering 1/9 of the field's area, Brightfield blended in at 25% weight for context.",
+        "GFP contrast is grouped where the data allows it, not uniformly pooled or uniformly per-well. PEG4Nb's two wells (E14, E21) share one stretch, 11864-20155 counts, since their GFP medians are close (11130, 12320). ULGA and LGA (E15, E16) were tried pooled, including with the high percentile raised to 99.99, and left E15 a near-uniform wash and E16 almost dark, because E15's whole distribution sits close to E16's ceiling. Each keeps its own stretch instead: E15 at 8405-11247, E16 at 4158-7020.",
+        "Supersedes the four separate figures/fov-E14.png, fov-E15.png, fov-E16.png, fov-E21.png entries below, which this script still writes but main.md no longer embeds directly.",
+        "Uses the first of two channels both labelled GFP in the store's own metadata. See gap-second-gfp-channel in main.md.",
+        "Full parameters, including the exact stretch per well and per group, are in figures/fov-render-params.json."
+      ]
+    },
+    {
+      "filename": "figures/fov-E14.png",
+      "page": null,
       "pattern": "rendered-from-zarr",
       "cell_label": null,
       "source_notebook": "general/render-microscopy-fovs.py",
@@ -118,15 +139,13 @@
       "asset_chain_complete": true,
       "extraction_method": "general/render-microscopy-fovs.py, run on 2026-10-12",
       "findings": [
-        "New on 2026-10-12. The archival figure gap-microscopy-no-static asked for, for all four gel conditions.",
-        "Single z-plane (z=6 of 12), centre crop covering 1/9 of the field's area, GFP channel stretched at its own 50th-to-99.9th percentile (not pooled with the other three wells), Brightfield blended in at 25% weight for context.",
-        "Uses the first of two channels both labelled GFP in the store's own metadata. See gap-second-gfp-channel in main.md.",
-        "Full parameters, including the exact per-well stretch, are in figures/fov-render-params.json."
+        "Written by the same script that builds figures/fov-composite.png, which main.md embeds instead of this file directly.",
+        "Full parameters are in figures/fov-render-params.json."
       ]
     },
     {
       "filename": "figures/fov-E15.png",
-      "page": "main.md",
+      "page": null,
       "pattern": "rendered-from-zarr",
       "cell_label": null,
       "source_notebook": "general/render-microscopy-fovs.py",
@@ -137,13 +156,13 @@
       "asset_chain_complete": true,
       "extraction_method": "general/render-microscopy-fovs.py, run on 2026-10-12",
       "findings": [
-        "New on 2026-10-12, as figures/fov-E14.png above.",
+        "Written by the same script that builds figures/fov-composite.png, which main.md embeds instead of this file directly.",
         "Full parameters are in figures/fov-render-params.json."
       ]
     },
     {
       "filename": "figures/fov-E16.png",
-      "page": "main.md",
+      "page": null,
       "pattern": "rendered-from-zarr",
       "cell_label": null,
       "source_notebook": "general/render-microscopy-fovs.py",
@@ -154,13 +173,13 @@
       "asset_chain_complete": true,
       "extraction_method": "general/render-microscopy-fovs.py, run on 2026-10-12",
       "findings": [
-        "New on 2026-10-12, as figures/fov-E14.png above.",
+        "Written by the same script that builds figures/fov-composite.png, which main.md embeds instead of this file directly.",
         "Full parameters are in figures/fov-render-params.json."
       ]
     },
     {
       "filename": "figures/fov-E21.png",
-      "page": "main.md",
+      "page": null,
       "pattern": "rendered-from-zarr",
       "cell_label": null,
       "source_notebook": "general/render-microscopy-fovs.py",
@@ -171,7 +190,7 @@
       "asset_chain_complete": true,
       "extraction_method": "general/render-microscopy-fovs.py, run on 2026-10-12",
       "findings": [
-        "New on 2026-10-12, as figures/fov-E14.png above.",
+        "Written by the same script that builds figures/fov-composite.png, which main.md embeds instead of this file directly.",
         "Full parameters are in figures/fov-render-params.json."
       ]
     },

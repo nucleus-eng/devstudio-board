@@ -3,7 +3,7 @@
  "z_index": 6,
  "crop_fraction": 0.3333333333333333,
  "out_px": 650,
- "gfp_percentiles": [
+ "group_percentiles": [
   50.0,
   99.9
  ],
@@ -12,46 +12,30 @@
   99.0
  ],
  "brightfield_weight": 0.25,
- "per_well_stretch": {
-  "E14": {
-   "brightfield_stretch": [
-    2188.0,
-    3766.0
-   ],
-   "gfp_stretch": [
-    11130.0,
-    17876.0
-   ]
-  },
-  "E15": {
-   "brightfield_stretch": [
-    2041.0,
-    3712.0
-   ],
-   "gfp_stretch": [
-    8405.0,
-    11247.0
-   ]
-  },
-  "E16": {
-   "brightfield_stretch": [
-    2518.0,
-    4629.0
-   ],
-   "gfp_stretch": [
-    4158.0,
-    7020.0
-   ]
-  },
-  "E21": {
-   "brightfield_stretch": [
-    2242.0,
-    3806.0
-   ],
-   "gfp_stretch": [
-    12320.0,
-    22301.0
-   ]
-  }
+ "groups": {
+  "PEG4Nb": [
+   "E14",
+   "E21"
+  ],
+  "E15": [
+   "E15"
+  ],
+  "E16": [
+   "E16"
+  ]
+ },
+ "group_gfp_stretch": {
+  "PEG4Nb": [
+   11864.0,
+   20154.951171875
+  ],
+  "E15": [
+   8405.0,
+   11247.0
+  ],
+  "E16": [
+   4158.0,
+   7020.0
+  ]
  }
 }
