@@ -4,11 +4,13 @@ project:
   # on 2026-10-11, confirmed by Anton. Replaces the chat-supplied working
   # title "LuxR-GFP Sensor Demo".
   title: 'Fluorescent Biofilm-Sensing GUV Hydrogel'
-  # Description restates the same Doc's own overview paragraph.
+  # Description restates the same Doc's own overview paragraph, updated
+  # 2026-10-12 against the Doc's second, authoritative overview pass.
   description: >
-    POPC giant unilamellar vesicles carrying cell-free E. coli lysate and the
-    LuxR-mNeonGreen sensor plasmid, embedded in an agarose hydrogel, producing
-    a fluorescent readout in response to 3-oxo-C6-HSL.
+    A synthetic-cell hydrogel that senses bacterial contamination through
+    quorum-sensing-induced cell-free protein expression: POPC GUVs carrying
+    LuxR-mNeonGreen lysate, embedded in agarose, fluorescing in response to
+    3-oxo-C6-HSL from purified standard or bacterial supernatant.
   # Authors and emails supplied by Anton in chat on 2026-10-05. No Authors
   # table exists in any source.
   # REVIEW: the affiliation was stated by Anton, not by either author.

@@ -10,25 +10,9 @@
       "zarr_url": null,
       "section_context": "Result 1 — LuxR-mNeonGreen sensor plasmid in bulk lysate",
       "asset_chain_complete": false,
-      "extraction_method": "pandoc-equivalent: docx export of the 'Draft devnote' Doc, unzipped, word/media/image3.png, confirmed by relationship order in word/document.xml to be the second of three embedded images",
+      "extraction_method": "pandoc-equivalent: docx export of the 'Draft devnote' Doc, unzipped, word/media/image2.png as of the 2026-10-12 export, confirmed by relationship order in word/document.xml",
       "findings": [
-        "No notebook, no platemap and no raw data file are named for this figure anywhere in the source Doc.",
-        "asset_chain_complete is false because none of notebook, platemap or raw data is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
-      ]
-    },
-    {
-      "filename": "figures/result2-gels-platereader.png",
-      "pattern": "embedded-in-doc",
-      "cell_label": null,
-      "source_notebook": null,
-      "platemap": null,
-      "data_source": null,
-      "zarr_url": null,
-      "section_context": "Result 2 — detecting purified HSL in solution and in gels",
-      "asset_chain_complete": false,
-      "extraction_method": "pandoc-equivalent: docx export of the 'Draft devnote' Doc, unzipped, word/media/image2.png, confirmed by relationship order in word/document.xml to be the third of three embedded images",
-      "findings": [
-        "The figure's own title reads 10 uM purified AHL. Every other mention of the gel experiment in this DevNote says 100 uM. Flagged in main.md as flags-gel-ahl-concentration rather than resolved.",
+        "Replaced 2026-10-12: the figure at this relationship position changed between the 2026-10-11 and 2026-10-12 exports. The new figure has three traces (+10 uM HSL, -10 uM HSL, Constitutive) and a corrected legend; the old one had two traces and an incorrect 'Control (outer solution)' label Julia flagged as wrong in the Doc's own comments (it is water).",
         "No notebook, no platemap and no raw data file are named for this figure anywhere in the source Doc.",
         "asset_chain_complete is false because none of notebook, platemap or raw data is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
       ]
@@ -78,12 +62,12 @@
       "platemap": null,
       "data_source": "nc_lysate_cyt_c_d_2026-10-08_20-00-25.520782.zarr/C/10/0",
       "zarr_url": null,
-      "section_context": "Result 3 — detecting bacterially produced HSL in solution, condition: positive control",
+      "section_context": "Result 3 — detecting bacterially produced HSL in solution, condition: constitutive control",
       "asset_chain_complete": false,
-      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the positive control's middle well (C9, C10, C11).",
+      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the constitutive control's middle well (C9, C10, C11).",
       "findings": [
-        "Representative well for the positive control condition (C9, C10, C11): the triplicate's middle well, for consistency with C4 and C7.",
-        "Supersedes figures/20261008-c10-gfp-t19.png, the earlier whole-well render, removed 2026-10-11 once this cropped-and-zoomed version replaced it.",
+        "Representative well for the constitutive control condition (C9, C10, C11): the triplicate's middle well, for consistency with C4 and C7.",
+        "Renamed from 'positive control' to 'constitutive control' on 2026-10-12 to match the Doc's current table wording; the comment thread itself still has Niall asking and Julia confirming 'positive control', unresolved against the body text.",
         "No notebook exists for this figure. Generated 2026-10-11.",
         "No platemap exists yet for this store, so platemap is null rather than a filename.",
         "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
@@ -92,10 +76,11 @@
   ],
   "notes": [
     "Drafted 2026-10-05 from a chat outline, not from a DevStudio Log folder.",
-    "The 'Draft devnote' Doc embeds three images: the Overview schematic (already in general/overview.png as a hand-placed schematic) plus two plate reader figures, extracted 2026-10-11 by exporting the Doc to .docx and reading word/media/ directly, since the text-only read returns bare [image] placeholders. Order confirmed against word/document.xml's relationship IDs, not assumed from file numbering.",
-    "Restructured 2026-10-11 against the 'Draft devnote' Doc (1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E): new title, real Overview, real Results 1 through 3 (merged from the old four), real Methods for all five subsections, a fourth Discussion point, and Resources links. Two Surendra Yadav comment threads on that Doc, giving alternate plasmid links, are still open and not swept into this draft.",
-    "Three figures now exist for Result 3, one per condition in the well map, cropped and zoomed to a Vizarr view state Anton supplied for well C4, reused verbatim for C7 and C10 so all three sit at the same pixel offset and scale.",
-    "figures/fov-render-params.json is the sidecar the rendering script itself writes: zoom, target, timepoint, channel, window and the computed scale for each well. Kept beside the figures, same convention as the SWH DevNote this script was adapted from.",
+    "Restructured 2026-10-11 and again 2026-10-12 against the 'Draft devnote' Doc (1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E), treated as authoritative on 2026-10-12: where this file and the Doc disagreed, the Doc won.",
+    "figures/result2-gels-platereader.png removed 2026-10-12. The Doc explains the figure belonged to an abandoned 10 uM gel attempt that showed no expression; the surrounding text is marked ***Ignore in the Doc itself, and the real gel experiment (100 uM, wells D3-D14, twelve zarr stores) has no figure of its own yet.",
+    "Result 2 split into two explicit subsections, solution and gels, per the Doc's own instruction. The solution subsection has real narrative but no figure or viewer decision yet. The gels subsection has a real protocol and condition table and twelve real zarr store links, but no interpretive results text at all; not invented here.",
+    "Three figures exist for Result 3, one per condition in the well map, cropped and zoomed to a Vizarr view state Anton supplied for well C4, reused verbatim for C7 and C10. Captions renamed 'positive control' to 'constitutive control' 2026-10-12 to match the Doc's current table wording.",
+    "figures/fov-render-params.json is the sidecar the rendering script itself writes: zoom, target, timepoint, channel, window and the computed scale for each well.",
     "An untracked figures/2026-10-08-C10-t19-composite.png sits in this directory, not produced in this session. It is a composite of more than one channel, which the 2026-10-09 instruction excludes. It is not referenced by main.md and not recorded here."
   ]
 }
