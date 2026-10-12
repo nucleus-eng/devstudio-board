@@ -137,8 +137,6 @@ Three plasmid stocks are used so that a fixed small volume delivers the intended
 
 ## Plasmid maps
 
-Not a section of the source Doc. Both constructs are named in the table above as pOpen-PLA and pOpen-deGFP, and named in the Results captions below by their fuller names, pOpen-TetO-PLA and pOpen-TetO-deGFP — the same constructs as this board's `mk-mb-devnote2` and `devnote-mk-20260925-20260928`. Both files are reused unmodified from those DevNotes; see Open items.
-
 :::::{tab-set}
 
 ::::{tab-item} pOpen-TetO-PLA
