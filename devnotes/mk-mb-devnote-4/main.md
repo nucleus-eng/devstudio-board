@@ -23,8 +23,11 @@ byline — same fix as mk-mb-devnote-3. Figure captions drop the literal
 subsection is added after Plasmids and proteins (not in the source Doc),
 following the same placement request applied to mk-mb-devnote-3's single
 construct, and holds both plasmid maps as a two-item tab-set (on request,
-2026-10-12), one tab per construct. A handful of sentences gained {ref}
-cross-links to the table they describe. -->
+2026-10-12), one tab per construct. A number of sentences gained {ref}
+cross-links to the table, figure, or seqviz view they describe (on
+request, 2026-10-12); two of those are new bridging sentences not in the
+source Doc, added only to carry a cross-link to the follow-up's master
+mix and plate layout tables. No value, unit, or claim changed. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
@@ -268,7 +271,7 @@ Make the 18-reaction batch. Sixteen encapsulations plus pipetting loss will not 
 
 1. Prepare the cell-free TetR and deGFP reactions in advance — one pair run overnight, one pair run 1 h — so they are ready when the main reactions are assembled.
 2. Pass an aliquot of the MedChemExpress TetR through a detergent-removal column. Keep the untreated stock alongside it.
-3. Weigh out the solid sucrose for the batch and vortex it into the Smix until dissolved, then add tRNA, Pmix, ribosomes, RIM and LacZ in that order.
+3. Weigh out the solid sucrose for the batch and vortex it into the Smix until dissolved, then add tRNA, Pmix, ribosomes, RIM and LacZ in that order, at the fractions in {ref}`tbl-cellfree`.
 4. Combine plasmid, protein addition and water for each condition in its own tube and pre-incubate 10 min at 37 °C so TetR can bind tetO before transcription starts.
 5. Add 21.5 µL of master mix to each tube. Mix by gentle pipetting; do not vortex.
 6. Hold on ice and encapsulate immediately — expression must start inside the vesicle, not in the tube.
@@ -306,13 +309,13 @@ CPRG and aTc are delivered together in one 2 µL addition, so that the clock sta
 | aTc (induced rows only) | 10 µM | 2 µL | ≈0.9 µM |
 :::
 
-1. Add 2 µL of 5 mM CPRG to the no-aTc wells, and 2 µL of 5 mM CPRG plus 10 µM aTc to the induced wells.
+1. Add 2 µL of 5 mM CPRG to the no-aTc wells, and 2 µL of 5 mM CPRG plus 10 µM aTc to the induced wells, per {ref}`tbl-part4-addition`.
 2. Read absorbance at 575 nm kinetically. Seal the plate against evaporation before starting — an unsealed long read cost the in-solution arm of the preceding experiment.
 3. Read long enough for the constitutive PLA conditions to separate from the deGFP conditions, and record the full kinetic trace rather than an endpoint.
 
 ### Plate layout, 384-well
 
-Columns 3–18 carry conditions 1–16 in order. Rows C–E are the uninduced triplicate; rows F–H are the 1 µM aTc triplicate.
+Columns 3–18 carry conditions 1–16 in order, as in {ref}`tbl-part4-layout`. Rows C–E are the uninduced triplicate; rows F–H are the 1 µM aTc triplicate.
 
 :::{table} Plate layout, 384-well.
 :label: tbl-part4-layout
@@ -360,7 +363,7 @@ CPRG conversion at 575 nm over 5 h, n = 3 technical replicates. Raising pOpen-Te
 
 Co-encapsulating the cell-free reaction changed what this assay measures. With the reaction inside the vesicle and only CPRG and aTc added from outside, the signal is no longer explicable by anything delivered to the membrane externally — and it is still there. The central finding is that protein expression by itself permeabilises these vesicles.
 
-Three observations converge on it. deGFP and PLA1 at matched template concentration gave nearly identical traces, so the lytic readout does not distinguish a phospholipase from a fluorescent protein. Raising the PLA1 template from 0.5 nM to 1 nM raised conversion, and because the deGFP comparison rules out product identity, that dose effect tracks how much protein is being made rather than what it is. And within the deGFP series, repression lowered conversion while aTc induction restored it — the same ordering, driven by expression level alone.
+Three observations converge on it. deGFP and PLA1 at matched template concentration gave nearly identical traces ({ref}`fig-3-degfp-vs-pla1`), so the lytic readout does not distinguish a phospholipase from a fluorescent protein. Raising the PLA1 template from 0.5 nM to 1 nM raised conversion ({ref}`fig-4-pla1-dose`), and because the deGFP comparison rules out product identity, that dose effect tracks how much protein is being made rather than what it is. And within the deGFP series, repression lowered conversion while aTc induction restored it ({ref}`fig-2-lysis-degfp`) — the same ordering, driven by expression level alone.
 
 This experiment therefore provides no evidence that PLA1 is lysing vesicles. Any lytic contribution it makes is below what expression alone produces, and the current design cannot resolve it. Candidate mechanisms for the expression effect are worth separating before anything else: the osmotic drop as nucleotides and amino acids are polymerised into macromolecules; nascent or misfolded protein associating with the inner leaflet; crowding and viscosity changes in the lumen; and depletion of a component contributing to membrane stability. The follow-up experiment is designed around that question.
 
@@ -397,6 +400,8 @@ All five carry 1 nM pOpen-TetO-deGFP and one lipid film each. Conditions 4 and 5
 
 ### Assembly, µL per 25 µL reaction
 
+All five share one master mix, {ref}`tbl-followup-mastermix`.
+
 :::{table} Follow-up assembly volumes.
 :label: tbl-followup-assembly
 :align: center
@@ -431,6 +436,8 @@ Purified TetR stocks differ by condition so that a convenient volume gives the i
 :::
 
 ### Plate layout
+
+Conditions 3–7 are plated across the four aTc levels in duplicate, per {ref}`tbl-followup-layout`.
 
 :::{table} Follow-up plate layout.
 :label: tbl-followup-layout
@@ -488,7 +495,7 @@ Kinetic absorbance at 575 nm over 14 h for cell-free expressed TetR (top panel) 
 
 This follow-up closes the loop on the preceding experiment, and {ref}`fig-6-constitutive-degfp-atc-series` is what makes the rest of it interpretable. In the constitutive condition, where no TetR is present and aTc has nothing to de-repress, conversion was uniformly high and unaffected by aTc concentration. aTc therefore does not drive CPRG conversion on its own — not by acting on the membrane, not by absorbing at 575 nm, not by any route independent of the repressor. Every aTc dose response elsewhere in this experiment is acting through TetR.
 
-Against that baseline, the repressed conditions give a graded response. Conversion tracked aTc at both 100 nM and 500 nM purified TetR and with cell-free expressed TetR, and the constitutive condition sat at the top of the range in the endpoint comparison. Because deGFP has no lytic activity of its own, the only thing aTc controls here is how much protein gets made. Expression level sets the rate of containment loss — inferred from template dose in the preceding experiment, demonstrated directly here.
+Against that baseline, the repressed conditions give a graded response. Conversion tracked aTc at both 100 nM and 500 nM purified TetR ({ref}`fig-7-repressed-degfp-atc-series`) and with cell-free expressed TetR ({ref}`fig-10-cf-tetr-sham-atc-series`), and the constitutive condition sat at the top of the range in the endpoint comparison ({ref}`fig-8-endpoint-abs-15h`). Because deGFP has no lytic activity of its own, the only thing aTc controls here is how much protein gets made. Expression level sets the rate of containment loss — inferred from template dose in the preceding experiment, demonstrated directly here.
 
 That reframes the finding. Expression-driven permeabilisation is not only real but graded and controllable: a small molecule applied outside a crosslinked hydrogel produces a tunable colorimetric output from inside the vesicle. As a lysis assay for phospholipase that is a problem, since it sets a floor no PLA1 signal has yet cleared. As a reporter architecture it is a result in its own right — an inducible, dose-responsive release system needing no lytic enzyme at all.
 
