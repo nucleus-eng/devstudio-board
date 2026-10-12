@@ -484,9 +484,9 @@ Wells, as the source lists them:
   G21 as controls
 - E16 GFP-GUVs+LUVs in LGA and G16 as control
 
-E12, G12 and E15 are shown as interactive viewers, deep-linked by well,
-on [Interactive viewers](./viewers.md). That page also carries E14 and
-E16, named there as not yet backed by any store.
+All four GFP-GUV gel conditions are shown as interactive viewers,
+deep-linked by well, on [Interactive viewers](./viewers.md). So are the
+solution condition and its control: E12, G12, E14, E15, E16 and E21.
 
 
 GFP expression was detected in GUVs encapsulated in all three hydrogel formats:
@@ -510,27 +510,31 @@ for this result anywhere: the source document carries the stores as
 links and embeds no picture, and the DevNote folder holds no microscopy
 image.
 
-**Two of five conditions have a store.** `log-devnote-draft.docx` was edited
-again between 2026-10-11 23:28 and 2026-10-12 00:12, which is why an earlier
-pass over this page found no GFP figure at all. The edit brought Zarr and
-Parquet links for E12/G12 in solution and E15/G15 in ULGA. E14 and E21, the
-PEG4Nb pre-gel and gel, and E16 in LGA are named in the well list with no store
-linked.
+**All five conditions now have a store.** `log-devnote-draft.docx` was
+edited again between 2026-10-11 23:28 and 2026-10-12 00:12, which is why
+an earlier pass over this page found no GFP figure at all. The edit
+brought Zarr and Parquet links for two stores, one named for E12 and one
+for E15. Both looked single-well by name.
+
+Reading each store's own `.parquet` companion directly, on 2026-10-11,
+told a different story. The "E12" store actually covers wells D12, E12
+and F12. The "E15" store covers fifteen wells, across rows D, E, F and
+G, including E14, E15, E16 and E21, the full set of GFP-GUV gel
+conditions. See {ref}`gap-zarr-stores-not-live` on
+[Interactive viewers](./viewers.md) for the full well lists.
 
 An interactive viewer does not survive conversion to JATS, which is the format
 this DevNote exports for the venue. On that path the GFP result becomes a
 section with prose and no visible evidence, and the archive's only record of
 these wells will be that prose and the well list. Supply a static export as the
-archival figure, at least for the confirmed E12, G12 and E15 fields of view,
-and say in each caption that it is the archival record of the viewer.
+archival figure, for all six confirmed fields of view: E12, G12, E14, E15, E16
+and E21. Say in each caption that it is the archival record of the viewer.
 
 The stores themselves are deliberately not committed to this repository, and
 must not be. A viewer pointed at the served URL is the supported pattern.
 
-Two further items. The parquet companion of each store is named in the source
-and is not referenced here, because nothing on this page reads it; say if it
-should be. And the served paths contain `vescile`, a misspelling of `vesicle`,
-copied exactly because a URL is not text to correct.
+One further item. The served paths contain `vescile`, a misspelling of
+`vesicle`, copied exactly because a URL is not text to correct.
 
 Checked directly on 2026-10-11: neither Zarr URL resolves. The solution
 store and the E15 store both return 404, at every sub-path tried

@@ -107,7 +107,7 @@
     },
     {
       "filename": null,
-      "page": "main.md",
+      "page": "viewers.md",
       "pattern": "zarr-viewer",
       "cell_label": null,
       "source_notebook": null,
@@ -118,11 +118,13 @@
       "asset_chain_complete": false,
       "extraction_method": "URL named in log-devnote-draft.docx",
       "findings": [
-        "New in the 2026-10-12 revision. Wells E12 and G12, GFP-GUVs with LUVs in solution and its control.",
+        "New in the 2026-10-12 revision. Named in the source for E12 and G12, GFP-GUVs with LUVs in solution and its control.",
+        "Moved to viewers.md on 2026-10-11, its own interactive-viewers page, from main.md where it first landed.",
         "Rendered as two viewers deep-linked to E/12/0 and G/12/0 rather than one viewer on the plate root, carried from commit bacde77 where curvenote check passed against them.",
         "The store is NOT committed and must not be. A viewer pointed at the served URL is the supported pattern; the store is far too large for the repository.",
         "BLOCKING: no static archival figure exists for this result. An interactive viewer does not survive JATS conversion, which is this DevNote's export path, so the GFP result would publish as prose with no visible evidence.",
-        "A .parquet companion is named in the source at the same stem. Nothing on the page reads it, so it is not referenced.",
+        "The store itself returns 404 on every path tried, checked directly on 2026-10-11. Its .parquet companion, at the same stem, returns 200 and is reachable.",
+        "The .parquet is a per-object feature table, read directly on 2026-10-11. Its Well column shows the store actually covers D12, E12 and F12, not E12 alone. G12 does not appear in the table, consistent with it being a blank control rather than evidence the well is absent from the store.",
         "The served path contains 'vescile', a misspelling of 'vesicle', copied exactly because a URL is not text to correct.",
         "The date in the path is 2026-10-06, a fifth date in this DevNote's record."
       ],
@@ -133,7 +135,7 @@
     },
     {
       "filename": null,
-      "page": "main.md",
+      "page": "viewers.md",
       "pattern": "zarr-viewer",
       "cell_label": null,
       "source_notebook": null,
@@ -144,13 +146,18 @@
       "asset_chain_complete": false,
       "extraction_method": "URL named in log-devnote-draft.docx",
       "findings": [
-        "New in the 2026-10-12 revision. A z-stack of well E15, GFP-GUVs with LUVs in ULGA.",
+        "New in the 2026-10-12 revision. Named in the source only for E15, GFP-GUVs with LUVs in ULGA, as a z-stack.",
+        "Moved to viewers.md on 2026-10-11, from main.md where it first landed.",
         "The store is NOT committed and must not be, as above.",
         "BLOCKING: no static archival figure, as above.",
-        "The source reports GFP in all three gels, but names a store only for solution (E12) and ULGA (E15). LGA (E16) and both PEG4Nb wells (E14, E21) have no linked data."
+        "The store itself returns 404 on every path tried, checked directly on 2026-10-11. Its .parquet companion, at the same stem, returns 200 and is reachable.",
+        "RESOLVED in part: the .parquet, read directly on 2026-10-11, shows this store is not E15 alone. Its Well column lists fifteen wells across rows D, E, F and G, columns 14, 15, 16 and 21, including E14, E15, E16 and E21, the full set of GFP-GUV gel conditions. Four viewers are now written, deep-linked to E/14/0, E/15/0, E/16/0 and E/21/0 by that table, not confirmed against the store's own group structure, which is not reachable to check."
       ],
       "wells_used": [
-        "E15"
+        "E/14/0",
+        "E/15/0",
+        "E/16/0",
+        "E/21/0"
       ]
     }
   ]
