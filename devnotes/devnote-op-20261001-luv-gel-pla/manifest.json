@@ -126,7 +126,8 @@
         "The store itself returns 404 on every path tried, checked directly on 2026-10-11. Its .parquet companion, at the same stem, returns 200 and is reachable.",
         "The .parquet is a per-object feature table, read directly on 2026-10-11. Its Well column shows the store actually covers D12, E12 and F12, not E12 alone. G12 does not appear in the table, consistent with it being a blank control rather than evidence the well is absent from the store.",
         "The served path contains 'vescile', a misspelling of 'vesicle', copied exactly because a URL is not text to correct.",
-        "The date in the path is 2026-10-06, a fifth date in this DevNote's record."
+        "The date in the path is 2026-10-06, a fifth date in this DevNote's record.",
+        "RESOLVED on 2026-10-12: the 2026-10-11 404 finding was a false negative. The store is Zarr v3, which answers at zarr.json rather than the Zarr v2 markers (.zattrs, .zgroup, .zarray) the earlier check tried. zarr.json returns 200, and a pixel chunk fetched directly from E/12/0/s0/c/0/0/0/0/0 also returns 200. The store's own zarr.json plate record confirms G12 as a well group alongside D12, E12 and F12, so G12's absence from the .parquet is only from the segmentation step finding nothing in a blank control, not from the well being missing."
       ],
       "wells_used": [
         "E/12/0",
@@ -151,7 +152,8 @@
         "The store is NOT committed and must not be, as above.",
         "BLOCKING: no static archival figure, as above.",
         "The store itself returns 404 on every path tried, checked directly on 2026-10-11. Its .parquet companion, at the same stem, returns 200 and is reachable.",
-        "RESOLVED in part: the .parquet, read directly on 2026-10-11, shows this store is not E15 alone. Its Well column lists fifteen wells across rows D, E, F and G, columns 14, 15, 16 and 21, including E14, E15, E16 and E21, the full set of GFP-GUV gel conditions. Four viewers are now written, deep-linked to E/14/0, E/15/0, E/16/0 and E/21/0 by that table, not confirmed against the store's own group structure, which is not reachable to check."
+        "RESOLVED in part: the .parquet, read directly on 2026-10-11, shows this store is not E15 alone. Its Well column lists fifteen wells across rows D, E, F and G, columns 14, 15, 16 and 21, including E14, E15, E16 and E21, the full set of GFP-GUV gel conditions. Four viewers are now written, deep-linked to E/14/0, E/15/0, E/16/0 and E/21/0 by that table, not confirmed against the store's own group structure, which is not reachable to check.",
+        "RESOLVED on 2026-10-12: the 2026-10-11 404 finding was a false negative, for the same reason as the E12 store (Zarr v3 answers at zarr.json, not the v2 markers tried). zarr.json returns 200. Its plate record lists all sixteen wells across rows D, E, F, G and columns 14, 15, 16, 21 as groups, confirming the well paths above against the store's own structure rather than against the .parquet alone."
       ],
       "wells_used": [
         "E/14/0",

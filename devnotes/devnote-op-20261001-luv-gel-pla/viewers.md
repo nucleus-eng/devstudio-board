@@ -12,44 +12,55 @@ Each viewer sets `"menuOpen": true`, because the widget starts its
 sidebar closed by default and that sidebar holds the per-channel
 contrast sliders a reader needs.
 
+**Changed on 2026-10-12: the viewers now point at
+`../../plugins/vizarr/vizarr-viewer.mjs`, not at the widget on
+`curvenote.github.io`.** myst-theme mounts an anywidget inside a shadow
+root. The style tags Material-UI and vizarr inject into `document.head`
+do not cross that boundary. With the upstream widget, the sidebar
+renders with its labels but zero-sized sliders. An earlier screenshot
+of this page showed thin vertical bars where the Z and channel sliders
+belong, for that reason. The local copy mirrors those styles
+into the shadow root, the same fix already in place for the pH-sensor
+DevNote's viewers. This page's two prior reconciliations settled on the
+upstream widget instead, because the local copy then on hand failed
+`curvenote check`. That copy is not this one: `plugins/vizarr/` is a
+later, shared fix, and it passes.
+
 These viewers do not survive JATS conversion. The archived record of
 this result, once one exists, is a static figure and the prose on
-[the main page](./main.md), not an image here. See
-`gap-microscopy-no-static` on the main page for the full flag.
+[the main page](./main.md), not an image here.
 
-:::{danger} Neither store resolves yet, though both are confirmed multi-well
+:::{note} Both stores are live, and the 2026-10-11 404s were a v2 check against a v3 store
 :name: gap-zarr-stores-not-live
 
-Checked directly on 2026-10-11. Both URLs below, and every sub-path
-tried under them (`/`, `/.zattrs`, `/.zgroup`, `/0/.zattrs`,
-`/E/12/0/.zarray`), return 404. Their `.parquet` companions, at the same
-base filename, both return 200 and are reachable.
+**RESOLVED on 2026-10-12.** Both stores answer at `zarr.json`, with
+`200`. The 2026-10-11 check tested `.zattrs`, `.zgroup` and `.zarray`,
+the Zarr v2 marker names. Both stores are Zarr v3. A Zarr v3 store uses
+`zarr.json` for its group and array markers instead. Every path tried
+on 2026-10-11 answered 404 for that reason, even though the data was
+already there. A pixel
+chunk fetched directly from `E/12/0/s0/c/0/0/0/0/0` also returns `200`.
+The image data itself, not only the metadata, is reachable.
 
 - `https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr`
 - `https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr`
 
-The viewers below are wired to these URLs and will likely render blank
-until the stores are uploaded. Ask whoever ran this microscopy session
-whether the Zarr export is still pending. Also ask whether the URL in
-`log-devnote-draft.docx` has a typo against the real location.
+Each store's `zarr.json` carries an OME-NGFF plate record. That record
+states the well lists read earlier from the `.parquet` companions. The
+"E12" store is a 4-row (D, E, F, G), 1-column (12) plate. All four
+wells, including `G12`, exist as groups in the store. The "E15" store is
+a 4-row, 4-column (14, 15, 16, 21) plate. All sixteen wells exist. The
+well paths below, `<row>/<column>/0`, are checked against this record,
+not inferred from the `.parquet` alone as they were on 2026-10-11.
 
-Each `.parquet` is a per-object feature table, not image data, and each
-carries a `Well` column. Read directly, they show each store is
-multi-well, despite each being named in the source for one well only.
-The "E12" store's table lists wells `D12`, `E12` and `F12`. The "E15"
-store's table lists fifteen wells, across rows D, E, F and G and
-columns 14, 15, 16 and 21. That includes all four GFP-GUV gel
-conditions named on the main page: `E14`, `E15`, `E16` and `E21`.
-
-The well paths below, `<row>/<column>/0`, follow that table and the
-convention already used for `E12`. They are not confirmed against the
-Zarr group structure itself, since that structure is not reachable to
-check. Confirm them once the store is live.
+Each well's image group carries two channels, Brightfield and GFP, and
+a multiscale pyramid with levels `s0` through `s4`. The viewers below
+render against that data directly.
 :::
 
 ## E12 — GFP-GUVs+LUVs in solution
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
@@ -63,7 +74,7 @@ check. Confirm them once the store is live.
 
 ## G12 — outer-solution-only control
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
@@ -75,19 +86,20 @@ check. Confirm them once the store is live.
 
 [zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/G/12/0`, caption: (Outer-solution-only control, well G12.)]
 
-:::{attention} G12 carries no segmented objects in the parquet table
+:::{note} G12 exists in the store, and carries no segmented objects in the parquet table
 :name: gap-g12-no-objects
 
-The "E12" store's `.parquet` lists wells `D12`, `E12` and `F12` only.
-`G12` does not appear. `G12` is the outer-solution-only control. One
-explanation is that it holds nothing for the segmentation step to find.
-Another is that the well is missing from the store. Neither is
-confirmed.
+**Narrowed on 2026-10-12.** The store's own `zarr.json` lists `G12` as a
+well group, alongside `D12`, `E12` and `F12`. The well is not missing
+from the store. Its absence is only from the `.parquet`, the per-object
+segmentation table. `G12` is the outer-solution-only control, so an
+empty segmentation table for it is the expected result, not a gap in the
+data.
 :::
 
 ## E14 — GFP-GUVs+LUVs in PEG4Nb pre-gel
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
@@ -101,7 +113,7 @@ confirmed.
 
 ## E15 — GFP-GUVs+LUVs in ULGA, z-stack
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
@@ -115,7 +127,7 @@ confirmed.
 
 ## E16 — GFP-GUVs+LUVs in LGA
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
@@ -129,7 +141,7 @@ confirmed.
 
 ## E21 — GFP-GUVs+LUVs in PEG4Nb gel
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {

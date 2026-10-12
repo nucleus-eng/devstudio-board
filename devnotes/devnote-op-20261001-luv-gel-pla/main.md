@@ -503,6 +503,10 @@ autofluorescence than ULGA and LGA, which gave lower background fluorescence.
 This reduces the signal-to-background ratio for GFP in PEG4Nb relative to the
 thermogels.
 
+<!-- RESOLVED in part on 2026-10-12: the 404 claim below is wrong. Both
+stores are live; see `gap-zarr-stores-not-live` on viewers.md for the
+correction. The JATS-export gap stays open. -->
+
 <!-- :::{danger} The microscopy has no archival figure, and the viewers will not survive export
 :name: gap-microscopy-no-static
 
@@ -538,24 +542,27 @@ must not be. A viewer pointed at the served URL is the supported pattern.
 One further item. The served paths contain `vescile`, a misspelling of
 `vesicle`, copied exactly because a URL is not text to correct.
 
-Checked directly on 2026-10-11: neither Zarr URL resolves. The solution
-store and the E15 store both return 404, at every sub-path tried
-(`/`, `/.zattrs`, `/.zgroup`, `/0/.zattrs`, `/E/12/0/.zarray`). Their
-`.parquet` companions, at the same base filename, both return 200. The
-two viewers on [Interactive viewers](./viewers.md) are wired to these
-URLs and will likely render blank until the stores are uploaded. Ask
-whoever ran this microscopy session whether the Zarr export is still
-pending.
+Checked on 2026-10-11, both Zarr URLs appeared to fail. The check tested
+`.zattrs`, `.zgroup` and `.zarray`, the Zarr v2 marker names, and both
+stores returned 404 for all of them.
+
+**That check was wrong.** Both stores are Zarr v3, which answers at
+`zarr.json` instead. Checked again on 2026-10-12, both `zarr.json`
+paths return 200, and a pixel chunk fetched directly from
+`E/12/0/s0/c/0/0/0/0/0` also returns 200. The two viewers on
+[Interactive viewers](./viewers.md) render against real data. See
+`gap-zarr-stores-not-live` there for the full correction.
 ::: -->
+
+<!-- RESOLVED in part: the "All three gels" claim below is stale. All six
+wells (E12, G12, E14, E15, E16, E21) have viewers on viewers.md now. -->
 
 <!-- :::{attention} Three claims in this section need their evidence named
 :name: gap-gfp-claims
 
-**All three gels.** The prose reports GFP in PEG4Nb, ULGA and LGA. The three
-viewers cover solution (E12, with its control G12) and ULGA (E15). No store is
-given for the LGA well
-(E16) or for either PEG4Nb well (E14, E21), so three of the four reported
-conditions have no linked data on this page.
+**All three gels.** The prose reports GFP in PEG4Nb, ULGA and LGA. All six
+wells, the solution condition (E12, with its control G12) and all three gels
+(E14, E15, E16, E21), now have viewers on [Interactive viewers](./viewers.md).
 
 **A priority claim.** "To our knowledge, this is the first demonstration of GFP
 expression ... in a photocrosslinked hydrogel" is a claim about the literature,
