@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Render a static thumbnail for well K18 of the 2026-10-09 EsaR-mNG AHSL
-store: the final timepoint, a centre crop covering 1/9 of the plane's area,
-an empirically measured per-channel contrast stretch, and a burned-in 100 um
-scale bar.
+store: the final timepoint, a crop matching one real stitched field of
+view with no seam in it, an empirically measured per-channel contrast
+stretch, and a burned-in 100 um scale bar.
 
 Writes figures/thumbnail-k18.png and figures/thumbnail-render-params.json.
 Run from the DevNote directory:
@@ -19,10 +19,21 @@ down.
    the array's own shape rather than hardcoded, so a re-run against a
    store with a different timepoint count stays correct.
 
-2. Crop. A centre crop covering 1/9 of the plane's area, i.e. 1/3 of its
-   width and 1/3 of its height, at full (s0) resolution, matching the same
-   convention devnote-op-20261001-luv-gel-pla/general/render-microscopy-fovs.py
-   already uses for "one field of view."
+2. Crop. A first version of this script used a 1/9-area centre crop, the
+   same convention
+   devnote-op-20261001-luv-gel-pla/general/render-microscopy-fovs.py
+   uses for "one field of view" there. That convention does not carry
+   over here: this well is itself a stitched mosaic, and a 1/9-area centre
+   crop (3700x3700 px) is larger than one real stitched tile, so it always
+   crossed a seam.
+
+   Measured directly, at the s2 pyramid level (4x downsampled from s0),
+   by scanning column-mean and row-mean intensity for jump discontinuities:
+   seam centers fall near s0 x = 2696, 5396, 8096 and s0 y = 2696, 5696,
+   8396, consistent with a 4-tile mosaic with a tile pitch of roughly
+   2700-3000 px. FOV_CROP below (x0=3050, y0=3200, size=2000) sits inside
+   the tile bounded by those seams, with 350-500 px of margin on every
+   side, comfortably clear of the few-pixel-wide blend band at each seam.
 
 3. Contrast. The store's own omero metadata gives a window of 0-65535 for
    both channels, the full bit depth, not a real calibration (the same
@@ -55,7 +66,9 @@ STORE = (
     '201009o_EsaR_mNG_0.1_0.5_K_L_2026-10-09_19-47-50.861429.zarr'
 )
 WELL_PATH = 'K/18/0'
-CROP_FRACTION = 1 / 3  # linear fraction per side; 1/3 x 1/3 = 1/9 area
+# Interior of one stitched tile, clear of every measured seam by 350-500 px.
+# See the module docstring, point 2, for how these were measured.
+FOV_CROP = {'x0': 3050, 'y0': 3200, 'size': 2000}
 OUT_PX = 650
 BAR_UM = 100
 CONTRAST_PCT = (1.0, 99.5)
@@ -73,10 +86,9 @@ def load():
     t_index = t - 1  # final timepoint
     assert z == 1, f'expected a single z-plane, found {z}'
 
-    crop_h = int(round(height * CROP_FRACTION))
-    crop_w = int(round(width * CROP_FRACTION))
-    y0 = (height - crop_h) // 2
-    x0 = (width - crop_w) // 2
+    x0, y0, size = FOV_CROP['x0'], FOV_CROP['y0'], FOV_CROP['size']
+    crop_h = crop_w = size
+    assert x0 + crop_w <= width and y0 + crop_h <= height, 'FOV_CROP runs off the plane'
     crop = np.asarray(
         meta[t_index, :, 0, y0:y0 + crop_h, x0:x0 + crop_w]
     ).astype(np.float32)
@@ -162,7 +174,7 @@ def main():
             'store': STORE,
             'well_path': WELL_PATH,
             't_index': t_index,
-            'crop_fraction': CROP_FRACTION,
+            'fov_crop': FOV_CROP,
             'out_px': OUT_PX,
             'bar_um': BAR_UM,
             'bar_px': bar_px,
