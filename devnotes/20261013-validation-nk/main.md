@@ -1,10 +1,17 @@
-# Build a Base Cell: Validation-01
+<!-- Title and subtitle live in curvenote.yml, as project frontmatter, and
+render on this page from there. Not repeated here as body text, matching
+devnote-op-20261001-luv-gel-pla/main.md's own stated convention. -->
 
-## Overview
+# Overview
 
-This DevNote validates the Build a Base Cell protocol (accessed on: 2026-10-13) at the DevStudio Capstone event.
+This DevNote validates the
+[Build a Base Cell](https://docs.nucleus.engineering/docs/processes/assemble-base-cell/main)
+protocol (accessed on: 2026-10-13) at the DevStudio Capstone event.
 
-## Result
+- Lab-ready protocol: [PDF](https://docs.nucleus.engineering/build/assemble-base-cell-p-cbad915fce91160da3a3b54e7e53a733.pdf)
+- Bill of materials: [PDF](https://docs.nucleus.engineering/build/assemble-base-cell-b-744efff6a9ba654d53ca3bbbf6790f8e.pdf)
+
+# Result
 
 Reporter: pOpen-T7-deGFP, 2812 bp, circular, from
 [nucleus-eng/DNA](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk).
