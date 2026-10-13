@@ -1,6 +1,6 @@
 version: 1
 project:
-  title: 'Base Cell Validation — Neha Kamat'
+  title: 'Build a Base Cell: Validation-01'
   description: >
     Validates the Build a Base Cell protocol at the DevStudio Capstone event.
   authors:
