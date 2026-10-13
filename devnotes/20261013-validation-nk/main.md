@@ -18,6 +18,30 @@ This run uses the EsaR-mNG AHSL dataset as a stand-in for a pipeline speed run o
 Please fill in: describe what you see in your well. Do you see green fluorescence? How does it compare to the example image in the Base Cell protocol?
 :::
 
+:::{admonition} Well ID and dataset link disagree
+:class: warning
+:name: flags-well-mismatch
+
+The source doc's "Well ID" field reads K18, matching the well this guest
+was originally assigned. The "Dataset" link pasted into the same doc
+points at well K/20/0 instead. Rendered below using K18, the explicitly
+labeled field. Say which well is correct before this goes further.
+:::
+
+Reporter: pOpen-T7-deGFP, 2812 bp, circular, from
+[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk).
+
+:::{seqviz} ./dna/pOpen-deGFP.gbk
+:height: 400px
+:::
+
+:::{platemap} ./experiments/20261013-validation-platemap-esaR-mNG-AHSL.csv
+:height: 480px
+:fields: Guest
+:wells: 384
+:label: platemap-20261013-nk
+:::
+
 :::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
@@ -32,16 +56,6 @@ Please fill in: describe what you see in your well. Do you see green fluorescenc
 <!-- REVIEW: no static archival figure. A viewer does not survive JATS conversion, and this run has no screenshot captured yet. Add one once the author records an observation. -->
 
 Well ID: K18
-
-:::{table} Platemap, 2026-10-09 EsaR-mNG AHSL run
-:label: tbl-platemap-nk
-
-| Well | Name | Type |
-| --- | --- | --- |
-| K18 | + AHSL | Sample |
-:::
-
-Full platemap: [20261013-validation-platemap-esaR-mNG-AHSL.csv](../../resources/20261013-validation-platemap-esaR-mNG-AHSL.csv)
 
 ## What's next
 
