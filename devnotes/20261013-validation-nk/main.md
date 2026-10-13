@@ -53,7 +53,20 @@ Reporter: pOpen-T7-deGFP, 2812 bp, circular, from
 :::
 
 <!-- missing notebook -->
-<!-- REVIEW: no static archival figure. A viewer does not survive JATS conversion, and this run has no screenshot captured yet. Add one once the author records an observation. -->
+
+:::{figure} ./figures/thumbnail-k18.png
+:label: fig-thumbnail-k18
+:align: center
+:width: 75%
+
+Archival record of the Vizarr viewer above, since a viewer does not
+survive JATS conversion. Well K18, final timepoint (t=19 of 20), a centre
+crop covering 1/9 of the plane. GFP shows in green and Alexa Fluor 647 in
+blue, the store's own omero channel colors. Contrast comes from a
+measured 1st-99.5th percentile stretch per channel, since the store's own
+window metadata is the full 0-65535 range, not a real calibration. Scale
+bar: 100 um.
+:::
 
 Well ID: K18
 

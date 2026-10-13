@@ -19,6 +19,7 @@ project:
   # venue check after one category; that stop is the failing Corresponding
   # Author test below, confirmed by testing both with and without this fix.
   open_access: true
+  thumbnail: figures/thumbnail-k18.png
   license:
     content: CC-BY-4.0
     code: CERN-OHL-P-2.0
