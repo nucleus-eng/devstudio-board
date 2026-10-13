@@ -6,11 +6,11 @@ subtitle: Validation-01
 # Overview
 
 This DevNote validates the
-[Build a Base Cell](https://docs.nucleus.engineering/docs/processes/assemble-base-cell/main)
+[Build a Base Cell](https://docs.nucleus.engineering/docs/processes/build-base-cell/main/)
 protocol (accessed on: 2026-10-13) at the DevStudio Capstone event.
 
-- Lab-ready protocol: [Protocol](https://docs.nucleus.engineering/docs/processes/assemble-base-cell/main#protocol)
-- Bill of materials: [Materials and Equipment](https://docs.nucleus.engineering/docs/processes/assemble-base-cell/main#materials-and-equipment)
+- Process protocol: <https://docs.nucleus.engineering/docs/processes/build-base-cell/main/>
+- Base cytosol specification: <https://docs.nucleus.engineering/docs/modules/base-cytosol/spec/>
 
 # Result
 
