@@ -1,0 +1,36 @@
+version: 1
+project:
+  title: 'Build a Base Cell'
+  subtitle: 'Validation-01'
+  description: >
+    Validates the Build a Base Cell protocol at the DevStudio Capstone event.
+  authors:
+    # REVIEW: no affiliation given in the source doc.
+    - name: 'Neha Kamat'
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-0
+  affiliations:
+    # REVIEW: no affiliation given in the source doc.
+    - id: affiliations-curvenote-generated-uid-0
+      name: ''
+  # REVIEW: no date given in the source doc. Omitted rather than left as
+  # '', since an empty string fails curvenote's own date validator with a
+  # real error (measured 2026-10-13), even though it is not what stops the
+  # venue check after one category; that stop is the failing Corresponding
+  # Author test below, confirmed by testing both with and without this fix.
+  open_access: true
+  thumbnail: figures/thumbnail-k18.png
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+    - ../../plugins/platemap/platemap.mjs
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+  id: 5b626550-878e-45f5-ab3a-d4fb0e622263
+site:
+  template: article-theme

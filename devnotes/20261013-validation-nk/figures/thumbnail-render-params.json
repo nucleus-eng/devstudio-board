@@ -1,0 +1,29 @@
+{
+ "store": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/201009o_EsaR_mNG_0.1_0.5_K_L_2026-10-09_19-47-50.861429.zarr",
+ "well_path": "K/18/0",
+ "t_index": 19,
+ "fov_crop": {
+  "x0": 3050,
+  "y0": 3200,
+  "size": 2000
+ },
+ "out_px": 650,
+ "bar_um": 100,
+ "bar_px": 98,
+ "um_per_px_s0": 0.333,
+ "um_per_px_output": 1.0246153846153847,
+ "contrast_percentiles": [
+  1.0,
+  99.5
+ ],
+ "measured_channel_stretch": {
+  "GFP": [
+   958.0,
+   3849.0
+  ],
+  "Alexa Fluor 647": [
+   143.0,
+   373.0
+  ]
+ }
+}
