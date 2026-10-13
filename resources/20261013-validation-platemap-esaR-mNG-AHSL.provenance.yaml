@@ -1,0 +1,19 @@
+platemap_kind: retrospective
+source:
+  path: "https://devnotes.nucleus.engineering/articles/01a108c6-4719-7833-92af-daf6f91ed06a/cn-microscopy-01#microscopy-exp-01"
+  note: "external published page, not a local file; no git blob applies"
+columns:
+  Well: {state: source, note: "recovered from the notebook's wells dictionary, Fogplots section"}
+  Date: {state: imputed, note: "from the dataset filename and the page's stated experiment date, 2026-10-09"}
+  Experiment: {state: imputed, note: "named from the dataset filename and page title; not given verbatim on the page"}
+  Name: {state: source, note: "AHSL induction condition from the notebook's own well labels"}
+  Type: {state: assumed, note: "marked Sample for both conditions; the '- AHSL' wells may be a negative control for the EsaR reporter, not confirmed on the page"}
+  Guest: {state: assumed, note: "well-to-guest pairing (Neha Kamat, Claudia Contini, Michael Booth to K18/K19/K20) is a demo convenience proposed by Claude for the 2026-10-13 pipeline speed run, not a real assignment from any run"}
+used_by:
+  - devnotes/20261013-validation-nk/main.md
+  - devnotes/20261013-validation-cc/main.md
+  - devnotes/20261013-validation-mb/main.md
+open_findings:
+  - "This dataset (EsaR-mNG, AHSL quorum-sensing induction) does not match the Base Cell / deGFP validation protocol named in the guest doc template's Overview text. Confirmed with the author on 2026-10-13: the Overview wording stays as-is, this is a demo dataset standing in for the real one."
+  - "Rxn Volume (uL) is not recorded anywhere in the source notebook; left out rather than guessed."
+  - "Guest-to-well pairing is proposed, not sourced. Confirm or reassign before treating this as final."

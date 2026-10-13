@@ -1,0 +1,28 @@
+version: 1
+project:
+  title: 'Base Cell Validation — Neha Kamat'
+  description: >
+    Validates the Build a Base Cell protocol at the DevStudio Capstone event.
+  authors:
+    # REVIEW: no affiliation given in the source doc.
+    - name: 'Neha Kamat'
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-0
+  affiliations:
+    # REVIEW: no affiliation given in the source doc.
+    - id: affiliations-curvenote-generated-uid-0
+      name: ''
+  # REVIEW: no date given in the source doc.
+  date: ''
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  exports:
+    - format: meca
+  toc:
+    - file: main.md
+  id: 5b626550-878e-45f5-ab3a-d4fb0e622263
+site:
+  template: article-theme
