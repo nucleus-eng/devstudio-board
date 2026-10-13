@@ -18,7 +18,7 @@ This run uses the EsaR-mNG AHSL dataset as a stand-in for a pipeline speed run o
 Please fill in: describe what you see in your well. Do you see green fluorescence? How does it compare to the example image in the Base Cell protocol?
 :::
 
-:::{anywidget} https://curvenote.github.io/widgets/widgets/vizarr-viewer.js
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
 :class: w-full
 
 {
