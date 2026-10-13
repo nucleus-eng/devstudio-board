@@ -14,6 +14,18 @@ branch name, or a guest list position.
 | 01 | Neha Kamat | `20261013-validation-nk` | `devstudio/20261013-validation-nk` | K18 | Draft submitted, not merged |
 | 02 | Claudia Contini | `20261013-validation-cc` | `devstudio/20261013-validation-cc` | K19 | Branch opened, devnote not yet built |
 | 03 | Michael Booth | `20261013-validation-mb` | `devstudio/20261013-validation-mb` | K20 | Branch opened, devnote not yet built |
+| 04 | Leopold Green | `20261013-lg-validation-04` | none yet | none yet | Google Doc created, devnote not yet built |
+| 05 | Richard Murray | `20261013-rm-validation-05` | none yet | none yet | Google Doc created, devnote not yet built |
+| 06 | Michael Clear | `20261013-mc-validation-06` | none yet | none yet | Google Doc created, devnote not yet built |
+| 07 | Becky Pferdehirt | `20261013-bp-validation-07` | none yet | none yet | Google Doc created, devnote not yet built |
+| 08 | Andrew Ellington | `20261013-ae-validation-08` | none yet | none yet | Google Doc created, devnote not yet built |
+
+**The Slug column mixes two naming orders on purpose.** Rows 01-03 use
+the git devnote slug, `validation` before initials, already live as real
+branches. Rows 04-08 use the Google Drive doc name, initials before
+`validation`, given directly for that batch. When 04-08 get their own
+devnote branches, pick one order. Say so here. Do not let both orders
+keep drifting.
 
 ## Why a plain table, not a generated number
 
