@@ -1,6 +1,7 @@
-<!-- Title and subtitle live in curvenote.yml, as project frontmatter, and
-render on this page from there. Not repeated here as body text, matching
-devnote-op-20261001-luv-gel-pla/main.md's own stated convention. -->
+---
+title: Build a Base Cell
+subtitle: Validation-01
+---
 
 # Overview
 
@@ -8,8 +9,8 @@ This DevNote validates the
 [Build a Base Cell](https://docs.nucleus.engineering/docs/processes/assemble-base-cell/main)
 protocol (accessed on: 2026-10-13) at the DevStudio Capstone event.
 
-- Lab-ready protocol: [PDF](https://docs.nucleus.engineering/build/assemble-base-cell-p-cbad915fce91160da3a3b54e7e53a733.pdf)
-- Bill of materials: [PDF](https://docs.nucleus.engineering/build/assemble-base-cell-b-744efff6a9ba654d53ca3bbbf6790f8e.pdf)
+- Lab-ready protocol: [Protocol](https://docs.nucleus.engineering/docs/processes/assemble-base-cell/main#protocol)
+- Bill of materials: [Materials and Equipment](https://docs.nucleus.engineering/docs/processes/assemble-base-cell/main#materials-and-equipment)
 
 # Result
 
