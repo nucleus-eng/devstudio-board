@@ -46,22 +46,29 @@ The plate held 11 wells, one or two per guest, imaged over 9 timepoints
 
 Full notebook: [Liposome Timeseries Analysis (2026-10-13)](./20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.ipynb).
 
-## Cell segmentation check
+:::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
+:class: w-full
 
-A spot check of four segmented objects across four wells and timepoints.
-Each one matches its stored label at 100%.
+{
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr/E/10/0",
+    "height": "600px",
+    "menuOpen": true
+}
+:::
 
-:::{figure} ./figures/cell-grid-1.png
-:label: fig-cell-grid
-:align: center
-:width: 90%
+:::{admonition} Showing well E10 (Claudia Contini)
+:name: scope-vizarr-well
 
-Four example objects: one from well MC 2 (t7), one from BP (t5), and two
-from MB 1 (t7 and t2). Each one shows the Rhodamine and GFP channels
-with its segmentation mask outlined.
+The viewer above points at one well, E10, not the plate root. A reader
+who opens the root gets the whole plate with no way to pick a well. E10
+is a plain, working well with no reported deviation. Say if a different
+well represents this run better.
 :::
 
 ## Population summaries
+
+The population summary below comes from segmented liposome images taken
+at the Capstone.
 
 :::{figure} ./figures/fogplot-compare-0.png
 :label: fig-fogplot-compare
@@ -100,4 +107,9 @@ Sciences, well D9), Leopold Green (Purdue University, well E5), Michael
 Booth (University College London, wells E6 and E7), Michael Clear
 (Schmidt Sciences, wells E8 and E9), and Claudia Contini (Imperial
 College London, well E10).
+
+# Acknowledgments
+
+Thank you to Yen-Yu Hsu (b.next) and Surendra Yadav (b.next) for serving
+as TAs at this session.
 

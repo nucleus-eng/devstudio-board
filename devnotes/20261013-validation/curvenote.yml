@@ -7,40 +7,11 @@ project:
     Capstone event, 2026-10-13: one plate-wide dataset and discussion in
     place of a separate DevNote per guest.
   authors:
-    # REVIEW: authorship proposed, not confirmed. Surendra Yadav generated
-    # the dataset and ran the session; Booth, Contini, and Clear are the
-    # three guests who left written Discussion content. Confirm this list
-    # before merging.
-    - name: 'Surendra Yadav'
-      affiliations:
-        - affiliations-curvenote-generated-uid-0
+    # REVIEW: no email on file for this collective name, so the
+    # Corresponding Author check will not pass. Not fabricating one for
+    # a group name that is not a real inbox.
+    - name: 'DevStudio Capstone Lab Participants'
       id: contributors-curvenote-generated-uid-0
-    - name: 'Michael Booth'
-      affiliations:
-        - affiliations-curvenote-generated-uid-1
-      id: contributors-curvenote-generated-uid-1
-      email: m.j.booth@ucl.ac.uk
-      orcid: 0000-0002-4224-798X
-    - name: 'Claudia Contini'
-      affiliations:
-        - affiliations-curvenote-generated-uid-2
-      id: contributors-curvenote-generated-uid-2
-      email: c.contini@imperial.ac.uk
-    - name: 'Michael Clear'
-      affiliations:
-        - affiliations-curvenote-generated-uid-3
-      id: contributors-curvenote-generated-uid-3
-      email: mclear@schmidtsciences.org
-  affiliations:
-    # REVIEW: no affiliation given anywhere for Surendra Yadav.
-    - id: affiliations-curvenote-generated-uid-0
-      name: ''
-    - id: affiliations-curvenote-generated-uid-1
-      name: University College London
-    - id: affiliations-curvenote-generated-uid-2
-      name: Imperial College London
-    - id: affiliations-curvenote-generated-uid-3
-      name: Schmidt Sciences
   date: '2026-10-13'
   open_access: true
   thumbnail: figures/fogplot-compare-0.png
