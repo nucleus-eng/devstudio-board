@@ -1,7 +1,7 @@
 version: 1
 project:
   title: 'Build a Base Cell'
-  subtitle: 'Validation-01'
+  subtitle: 'Validation'
   description: >
     Pooled validation of the Build a Base Cell protocol from the DevStudio
     Capstone event, 2026-10-13: one plate-wide dataset and discussion in

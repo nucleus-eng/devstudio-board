@@ -1,6 +1,6 @@
 ---
 title: Build a Base Cell
-subtitle: Validation-01
+subtitle: Validation
 ---
 
 # Overview
@@ -48,23 +48,22 @@ Full notebook: [Liposome Timeseries Analysis (2026-10-13)](./20261013-devstudio-
 :class: w-full
 
 {
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-gel-zstack-timeseries_2026-10-13_12-40-31.838188.zarr/D/8/0",
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr/E/10/0",
     "height": "600px",
     "menuOpen": true
 }
 :::
 
-:::{admonition} Plate root tested: it picks a well, but the wrong path
+:::{admonition} Showing well E10 (Claudia Contini)
 :name: scope-vizarr-well
 
-Tried the plate root directly. vizarr detects this store as a plate and
-auto-opens well D8. The network log shows it. It requests D8 without
-the trailing field index, though, so every image chunk 404s and the
-viewer stays black. Pointed at the well path with the field index added
-(`/D/8/0`), the same fix that already works elsewhere in this project.
-This store holds two wells, D7 and D8, not the full 11-well liposome
-plate the population summaries come from. Say if this is the dataset
-meant to show here, and which of the two wells.
+The viewer above points at one well, E10, not the plate root. Tried
+the plate root directly against this same store's structure earlier:
+vizarr detects a plate and auto-opens a well. It requests that well
+without the trailing field index, though, so every image chunk 404s
+and the viewer stays black. E10 is a plain, working well with no
+reported deviation.
+Say if a different well represents this run better.
 :::
 
 ## Population summaries
