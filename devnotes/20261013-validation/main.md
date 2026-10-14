@@ -48,21 +48,16 @@ Full notebook: [Liposome Timeseries Analysis (2026-10-13)](./20261013-devstudio-
 :class: w-full
 
 {
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr",
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr/E/10/0",
     "height": "600px",
     "menuOpen": true
 }
 :::
 
-:::{admonition} Full-plate grid, working
-:name: scope-vizarr-well
+Showing well E10 (Claudia Contini), not the plate root. The full-plate
+grid failed to fetch on deployment, since it loads all 11 wells at
+once instead of one. Name a different well to show here instead of E10.
 
-Points at the plate root, not one well. vizarr builds one loader per
-well and renders the whole plate as a clickable grid. This works
-against this exact store. An earlier attempt against a different,
-2-well store showed a black viewer. That other store was the problem,
-not this one.
-:::
 
 ## Population summaries
 
