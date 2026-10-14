@@ -43,7 +43,7 @@ project:
       name: Schmidt Sciences
   date: '2026-10-13'
   open_access: true
-  thumbnail: figures/summary-0.png
+  thumbnail: figures/fogplot-compare-0.png
   license:
     content: CC-BY-4.0
     code: CERN-OHL-P-2.0
