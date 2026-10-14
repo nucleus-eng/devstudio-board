@@ -5,9 +5,7 @@ subtitle: Validation-01
 
 # Overview
 
-This DevNote pools the Build a Base Cell protocol validation from the
-DevStudio Capstone event, 2026-10-13. It covers every guest who built a
-Base Cell liposome that day.
+This DevNote validates the Build a Base Cell protocol at the DevStudio Capstone event. Documentation was accessed on 2026-10-13
 
   - Process protocol: <https://docs.nucleus.engineering/docs/processes/build-base-cell/main/>
   - Base cytosol specification: <https://docs.nucleus.engineering/docs/modules/base-cytosol/spec/>
@@ -50,19 +48,20 @@ Full notebook: [Liposome Timeseries Analysis (2026-10-13)](./20261013-devstudio-
 :class: w-full
 
 {
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr/E/10/0",
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-gel-zstack-timeseries_2026-10-13_12-40-31.838188.zarr",
     "height": "600px",
     "menuOpen": true
 }
 :::
 
-:::{admonition} Showing well E10 (Claudia Contini)
+:::{admonition} Plate root, not one well: testing this now
 :name: scope-vizarr-well
 
-The viewer above points at one well, E10, not the plate root. A reader
-who opens the root gets the whole plate with no way to pick a well. E10
-is a plain, working well with no reported deviation. Say if a different
-well represents this run better.
+The viewer above points at this store's plate root, not a single well.
+vizarr's own code detects a plate (rows, columns, wells) directly. This
+store holds two wells, D7 and D8, not the full 11-well liposome plate
+the population summaries come from. Say if this is the dataset meant to
+show here.
 :::
 
 ## Population summaries
