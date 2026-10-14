@@ -48,20 +48,23 @@ Full notebook: [Liposome Timeseries Analysis (2026-10-13)](./20261013-devstudio-
 :class: w-full
 
 {
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-gel-zstack-timeseries_2026-10-13_12-40-31.838188.zarr",
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-gel-zstack-timeseries_2026-10-13_12-40-31.838188.zarr/D/8/0",
     "height": "600px",
     "menuOpen": true
 }
 :::
 
-:::{admonition} Plate root, not one well: testing this now
+:::{admonition} Plate root tested: it picks a well, but the wrong path
 :name: scope-vizarr-well
 
-The viewer above points at this store's plate root, not a single well.
-vizarr's own code detects a plate (rows, columns, wells) directly. This
-store holds two wells, D7 and D8, not the full 11-well liposome plate
-the population summaries come from. Say if this is the dataset meant to
-show here.
+Tried the plate root directly. vizarr detects this store as a plate and
+auto-opens well D8. The network log shows it. It requests D8 without
+the trailing field index, though, so every image chunk 404s and the
+viewer stays black. Pointed at the well path with the field index added
+(`/D/8/0`), the same fix that already works elsewhere in this project.
+This store holds two wells, D7 and D8, not the full 11-well liposome
+plate the population summaries come from. Say if this is the dataset
+meant to show here, and which of the two wells.
 :::
 
 ## Population summaries
