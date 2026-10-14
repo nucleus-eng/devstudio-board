@@ -48,22 +48,20 @@ Full notebook: [Liposome Timeseries Analysis (2026-10-13)](./20261013-devstudio-
 :class: w-full
 
 {
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr/E/10/0",
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr",
     "height": "600px",
     "menuOpen": true
 }
 :::
 
-:::{admonition} Showing well E10 (Claudia Contini)
+:::{admonition} Full-plate grid, working
 :name: scope-vizarr-well
 
-The viewer above points at one well, E10, not the plate root. Tried
-the plate root directly against this same store's structure earlier:
-vizarr detects a plate and auto-opens a well. It requests that well
-without the trailing field index, though, so every image chunk 404s
-and the viewer stays black. E10 is a plain, working well with no
-reported deviation.
-Say if a different well represents this run better.
+Points at the plate root, not one well. vizarr builds one loader per
+well and renders the whole plate as a clickable grid. This works
+against this exact store. An earlier attempt against a different,
+2-well store showed a black viewer. That other store was the problem,
+not this one.
 :::
 
 ## Population summaries
