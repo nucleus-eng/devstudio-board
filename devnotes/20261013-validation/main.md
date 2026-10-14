@@ -25,13 +25,33 @@ collects the protocol feedback guests wrote down.
 # Results
 
 The plate held 11 wells, one or two per guest, imaged over 9 timepoints
-(t0-t8).
+(t0-t8). Every well carries the same reporter construct, pOpen-T7-deGFP,
+2812 bp, circular, from
+[nucleus-eng/DNA](https://github.com/nucleus-eng/DNA/blob/main/reporters/pOpen-deGFP.gbk).
+
+:::::{tab-set}
+
+::::{tab-item} Construct
+:sync: construct
+
+:::{seqviz} ./dna/pOpen-deGFP.gbk
+:height: 400px
+:::
+
+::::
+
+::::{tab-item} Platemap
+:sync: platemap
 
 :::{platemap} ./experiments/20261013-devstudio-liposomes-platemap.csv
 :height: 420px
 :fields: Person, DNA, Membrane
 :label: platemap-20261013-validation
 :::
+
+::::
+
+:::::
 
 Full notebook: [Liposome Timeseries Analysis (2026-10-13)](./20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.ipynb).
 

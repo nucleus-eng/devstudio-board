@@ -48,9 +48,12 @@ project:
     content: CC-BY-4.0
     code: CERN-OHL-P-2.0
   plugins:
+    - ../../plugins/seqviz/seqviz.mjs
     - ../../plugins/platemap/platemap.mjs
   exports:
     - format: meca
+  resources:
+    - experiments/**
   toc:
     - file: main.md
     - file: 20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.ipynb
