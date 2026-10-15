@@ -1,0 +1,21 @@
+version: 1
+project:
+  license: CC-BY-4.0
+  open_access: true
+  venue: Nucleus
+  subject: Developer Note
+  github: https://github.com/bnext-bio/nucleus-developer-notes
+  references:
+    devnotes: https://devnotes.bnext.bio
+  plugins:
+    - lorem.mjs
+  jupyter: true
+  requirements:
+    - environment.yml
+  resources:
+    #- src/**/*
+    #- figures/**/*
+    #- experiments/**/*
+site:
+  template: https://github.com/myst-templates/article-theme.git
+  nav: []
