@@ -48,15 +48,14 @@ Full notebook: [Liposome Timeseries Analysis (2026-10-13)](./20261013-devstudio-
 :class: w-full
 
 {
-    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr/E/10/0",
+    "source": "https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr",
     "height": "600px",
     "menuOpen": true
 }
 :::
 
-Showing well E10 (Claudia Contini), not the plate root. The full-plate
-grid failed to fetch on deployment, since it loads all 11 wells at
-once instead of one. Name a different well to show here instead of E10.
+Full-plate grid, back in for a Brave-versus-Safari test. Say which
+version to keep once that test is done.
 
 
 ## Population summaries
