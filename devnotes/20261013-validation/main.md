@@ -54,8 +54,8 @@ Full notebook: [Liposome Timeseries Analysis (2026-10-13)](./20261013-devstudio-
 }
 :::
 
-Full-plate grid, back in for a Brave-versus-Safari test. Say which
-version to keep once that test is done.
+Full resolution of participant dataset is available here:
+[https://data.nucleus.engineering](https://bnext-bio.github.io/vizarr/?source=https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.zarr&viewState={%22target%22:[40038,13346],%22zoom%22:-5.636237316232194}).
 
 
 ## Population summaries
