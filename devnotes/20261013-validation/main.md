@@ -63,6 +63,9 @@ Full resolution of participant dataset is available here:
 The population summary below comes from segmented liposome images taken
 at the Capstone.
 
+Segmented data is available here:
+[https://data.nucleus.engineering](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/20261013-devstudio-liposomes-timeseries_2026-10-13_12-07-24.011026.parquet).
+
 :::{figure} ./figures/fogplot-compare-0.png
 :label: fig-fogplot-compare
 :align: center
