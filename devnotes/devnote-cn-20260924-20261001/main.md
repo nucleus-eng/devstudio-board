@@ -5,13 +5,26 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 
 # Overview
 
-Quorum sensing allows bacteria to regulate gene expression in response to population density by secreting diffusible acyl-homoserine lactones (AHSLs). Responding to these signals offers a route to developer cells that detect and act on the presence of bacteria. Here we reconstitute AHSL sensing in a nucleus–cytosol cell-free system using the EsaR repressor. EsaR binds the esa box operator placed downstream of a T7 promoter, where it sterically blocks T7 RNA polymerase and silences transcription of a downstream fluorescent reporter (mNeonGreen, mNG). Addition of the cognate ligand 3-oxo-C6-HSL relieves EsaR–DNA binding and derepresses reporter production. Previous reconstitutions of EsaR/esa box in PURExpress co-expressed the repressor at the same time as the operator-controlled reporter DNA and achieved only a weak on/off response. We decouple these two steps: EsaR is first expressed cell-free, then pre-incubated with the reporter construct so that operator sites are occupied before the template enters the reaction, deepening the ‘off’ state. We further expanded the dynamic range by systematically varying the molar ratio of pre-expressed EsaR to reporter DNA, the reaction temperature, and the molar competition between the two DNA constructs. Together these results establish a tunable, ligand-inducible transcriptional switch that equips developer cells to respond to bacterial quorum signalling.
+Developer cells encapsulating Nucleus Cytosol can be programmed to communicate with their external environment using genetically encoded sensors. Synthetic biology has produced DNA sensors for a range of natural signalling molecules. One example is acyl-homoserine lactones (AHSLs), small molecules secreted by bacteria that regulate gene expression in response to population density. A developer cell programmed to sense AHSL and produce a detectable output could enable sensitive detection of bacteria in specific environments. We envision these developer cells detecting food spoilage or contamination in medical settings.
+
+Towards this goal, we programme developer cells to sense AHSL using the *Pantoea stewartii* repressor EsaR. In the absence of its cognate ligand, 3-oxo-C6-HSL, EsaR natively binds the EsaO operator overlapping the esaR promoter, where it is thought to occlude RNA polymerase and prevent transcription. In this case, we insert one or two EsaO operators downstream of the T7 promoter, blocking transcription in Nucleus cytosol until AHSL is added ({numref}`fig-esar-sensing`). EsaR has previously been co-expressed with its target inside synthetic cells; however, the lag in EsaR expression was proposed to result in early unrepressed transcription, producing a variable output {cite}`tang2018`. An alternative system supplied EsaR to lysate-encapsulated synthetic cells by pre-expressing EsaR in *E. coli* prior to lysate harvesting {cite}`ding2018`. This ensured that EsaR was present throughout the entire reaction; however, lysate-based systems often pose a challenge to further engineering due to their undefined composition.
+
+To benefit from a defined chemical composition, and to limit early unrepressed transcription, we instead pre-express EsaR in Nucleus cytosol and pre-incubate it with the reporter DNA so that operator sites are occupied before the template enters the final reaction. We test single and dual operator reporters, the latter inspired by {cite}`shong2013`, in bulk cytosol reactions, optimising reaction conditions for increased sensor dynamic range before constructing developer cells that can sense exogenously added AHSL. We hope to build upon this work by embedding the developer cells in a hydrogel matrix, increasing their stability and progressing towards a deployable device ([Bacterial Sensing in Hydrogel Embedded Synthetic Cells using LuxR Dependent Transcriptional Regulation](https://devnotes.nucleus.engineering/articles/01a1121a-7513-7ec7-8378-0326c6b3630b)).
 
 :::{figure} figures/EsaR-sensing.png
 :label: fig-esar-sensing
 
 EsaO/EsaR-dependent transcriptional regulation. EsaR binds the EsaO box preventing T7 polymerase from transcribing an mNeonGreen reporter protein. Upon binding of a AHSL signal, EsaR leaves the DNA re-enabling transcription.
 :::
+
+---
+
+# Objectives
+
+- Establish the pre-expressed EsaR : reporter DNA molar ratio needed to produce a defined 'on'/'off' state.
+- Optimise sensor dynamic range by varying reaction conditions.
+- Validate the optimised sensor in GUVs, as a step toward a deployable developer-cell sensor.
+
 
 <!-- Overview supplied by the reviewer in review cycle v2, prompt 21, and
 carried verbatim. No source log carries an overview section. The five logs
@@ -1153,3 +1166,10 @@ Raw instrument data.
 - [`experiments/20260926-dna-titration-esar-spent/20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`](./experiments/20260926-dna-titration-esar-spent/20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt)
 - [`experiments/20261001-mg-osmo-sweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`](./experiments/20261001-mg-osmo-sweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt)
 - [`experiments/20261007-esar-template-competition/20261007-170653-YH Cytosol comparison_CH.txt`](<./experiments/20261007-esar-template-competition/20261007-170653-YH%20Cytosol%20comparison_CH.txt>)
+
+---
+
+# References
+
+:::{bibliography}
+:::

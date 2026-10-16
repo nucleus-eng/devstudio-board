@@ -84,6 +84,8 @@ project:
   resources:
     - banner-devcells.webp
     - experiments/**
+  bibliography:
+    - references.bib
   id: 99d20115-67f3-42c1-bf8f-90b7af4a0d80
 site:
   template: article-theme
