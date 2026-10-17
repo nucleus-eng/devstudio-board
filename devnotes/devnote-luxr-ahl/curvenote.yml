@@ -59,11 +59,6 @@ project:
   thumbnail: figures/colorchange-overnight.png
   exports:
     - format: meca
-      id: meca
-  downloads:
-    - id: meca
-      title: Computational Archive
-      filename: devnote-luxr-ahl.zip
   toc:
     - file: main.md
   resources:

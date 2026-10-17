@@ -62,13 +62,8 @@ project:
   license:
     content: CC-BY-4.0
     code: CERN-OHL-P-2.0
-  exports:
-    - format: meca
-      id: meca
-  downloads:
-    - id: meca
-      title: Computational Archive
-      filename: devnote-cn-20260924-20261001.zip
+  # exports:
+  #   - format: meca
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
     - ../../plugins/platemap/platemap.mjs

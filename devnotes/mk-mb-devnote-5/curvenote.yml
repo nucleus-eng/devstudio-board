@@ -40,11 +40,6 @@ project:
   thumbnail: figures/fig7-patterned-gel.png
   exports:
     - format: meca
-      id: meca
-  downloads:
-    - id: meca
-      title: Computational Archive
-      filename: mk-mb-devnote-5.zip
   toc:
     - file: main.md
   plugins:

@@ -23,11 +23,6 @@ project:
     - ../../plugins/platemap/platemap.mjs
   exports:
     - format: meca
-      id: meca
-  downloads:
-    - id: meca
-      title: Computational Archive
-      filename: 20261013-validation.zip
   resources:
     - experiments/**
   toc:

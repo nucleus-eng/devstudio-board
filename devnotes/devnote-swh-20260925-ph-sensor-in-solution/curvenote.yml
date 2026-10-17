@@ -36,11 +36,6 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
-      id: meca
-  downloads:
-    - id: meca
-      title: Computational Archive
-      filename: devnote-swh-20260925-ph-sensor-in-solution.zip
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
   toc:

@@ -61,11 +61,6 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
-      id: meca
-  downloads:
-    - id: meca
-      title: Computational Archive
-      filename: devnote-jpo-nm-202609.zip
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
   toc:
