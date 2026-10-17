@@ -41,6 +41,11 @@ project:
   thumbnail: figures/fig2-endpoint-gfp-atc-titration.png
   exports:
     - format: meca
+      id: meca
+  downloads:
+    - id: meca
+      title: Computational Archive
+      filename: mk-mb-devnote-3.zip
   toc:
     - file: main.md
   plugins:

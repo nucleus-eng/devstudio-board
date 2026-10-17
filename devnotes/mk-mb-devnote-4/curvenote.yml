@@ -43,6 +43,11 @@ project:
   thumbnail: figures/fig8-endpoint-abs-15h.png
   exports:
     - format: meca
+      id: meca
+  downloads:
+    - id: meca
+      title: Computational Archive
+      filename: mk-mb-devnote-4.zip
   toc:
     - file: main.md
   plugins:
