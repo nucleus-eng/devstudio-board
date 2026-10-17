@@ -29,6 +29,11 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
+      id: meca
+  downloads:
+    - id: meca
+      title: Computational Archive
+      filename: devnote-mk-20260925-20260928.zip
   toc:
     - file: main.md
     - file: experiments/MK-20260928-platereader.ipynb
