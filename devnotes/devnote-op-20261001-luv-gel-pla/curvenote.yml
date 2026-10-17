@@ -52,6 +52,11 @@ project:
     code: CERN-OHL-P-2.0
   exports:
     - format: meca
+      id: meca
+  downloads:
+    - id: meca
+      title: Computational Archive
+      filename: devnote-op-20261001-luv-gel-pla.zip
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
   toc:
