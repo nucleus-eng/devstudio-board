@@ -741,7 +741,7 @@ Reactions were incubated overnight in a thermocycler and measured on a plateread
 :label: fig-20261008-overnight
 :align: center
 :width: 55%
-Background-corrected GFP fluorescence for 0.1 nM [EsaO]2-mNG DNA after overnight incubation at 25 °C. Reactions were run with and without 5 µM AHSL.
+Background-corrected GFP fluorescence for 0.1 nM [EsaO]2-mNG DNA after overnight incubation at 25 °C. Reactions were run with and without 5 µM AHSL. Reaction composition is in {numref}`tbl-composition-20261008`.
 :::
 
 <!-- [`fig-20261008-overnight`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Background-corrected GFP fluorescence for 0.1 nM [EsaO]2-mNG DNA after overnight incubation at 25 °C. Reactions were run with and without 5 µM AHSL.)] -->
@@ -832,13 +832,28 @@ cell-label year typo.
 
 ## Protocols
 
-Reactions across the EsaR titration, sensor DNA titration, and overnight EsaR
-pre-expression experiments shared a common assembly: a mastermix of
-Nucleus cytosol was prepared without DNA or water. Pre-expressed EsaR(D91G) was mixed with the DNA construct(s) and incubated at 37 ˚C for 15 min then topped up with water and added to the cytosol mastermix. Reactions were split in half and AHSL added to one half to a final concentration of 5 µM. Each reaction was distributed in triplicate 10 µL vols into a 384-well plate and read on a platereader set to detect GFP at 37 ˚C for 6 hrs. The following sections state specific information relating to the associated experiment, and any changes from this base procedure.
+Reactions across all experiments in this work shared a common base assembly:
+
+1. Prepare a mastermix of Nucleus cytosol, without DNA or water.
+2. Mix pre-expressed EsaR(D91G) with the DNA construct(s).
+3. Incubate the EsaR–DNA mixture for 15 min or 1 hr at 37 °C.
+4. Top up with water to the target premix volume, where needed — some conditions require no top-up. Add the premix to the cytosol mastermix.
+5. Add AHSL (final 5 µM), either:
+   - as a dedicated component pipetted directly into the mastermix at assembly (water in its place for the −AHSL condition), or
+   - by splitting the fully assembled reaction in half and adding AHSL to one half.
+6. Distribute in triplicate 10 µL volumes into a 384-well plate.
+7. Read on a platereader (GFP, 37 °C, 6 hr timecourse).
+
+The following sections state only how each experiment deviates from this base protocol, plus its reaction composition and platemap.
 
 ### Titrating pre-expressed EsaR into cytosol reactions containing mNG with single or dual EsaO operators
 
-To ensure either 0, 1, 4, or 7 µL of pre-expressed EsaR was added to the final cytosol reaction. Varying amounts of pre-expressed EsaR were mixed with 320.5 ng of either T7-\[EsaO\]-mNG-T7term or T7-\[EsaO\]2-mNG-t7term to a total reaction volume of 65 µL. The final sensor DNA concentration was 12 nM. Reaction composition is in {numref}`tbl-composition-20260924`.
+Deviates from the base protocol:
+- Step 2: EsaR titrated across 0, 1, 4 or 7 µL per reaction, against a fixed 320.5 ng (12 nM) of either T7-\[EsaO\]-mNG-T7term or T7-\[EsaO\]2-mNG-t7term.
+- Reaction scaled to 65 µL total.
+- Step 5: AHSL added by splitting.
+
+Reaction composition is in {numref}`tbl-composition-20260924`.
 
 <!-- Composition table sourced from build file: build (Google Sheet), sheet
 20260924_Repression_test_rxns, in CN-20260924_repressor_test. Mastermix
@@ -883,7 +898,12 @@ platemap itself does not record. -->
 
 ### Titrating single and dual operator EsaO-mNG DNA against fixed pre-expressed EsaR
 
- 14 µL of pre-expressed EsaR was combined with varying amounts of T7-\[EsaO\]-mNG-T7term and T7-\[EsaO\]2-mNG-t7term sensor constructs to a total reaction volume of 65 µL. Full reaction composition is in {numref}`tbl-composition-20260925`.
+Deviates from the base protocol:
+- Step 2: pre-expressed EsaR fixed at 14 µL; sensor DNA titrated across 0.1–9 nM for each of T7-\[EsaO\]-mNG-T7term and T7-\[EsaO\]2-mNG-t7term.
+- Reaction scaled to 65 µL total.
+- Step 5: AHSL added by splitting.
+
+Full reaction composition is in {numref}`tbl-composition-20260925`.
 
 <!-- Composition table sourced from build file: build (Google Sheet), sheet
 20260925_DNA_titration, in CN-20260925-DNA_titration. -->
@@ -922,9 +942,12 @@ platemap itself does not record. -->
 
 ### Comparing unspent and spent pre-expressed EsaR added to [EsaO]2-mNG DNA reactions
 
-EsaR(D91G) was instead pre-expressed for 17 hrs at 30 ˚C and held at 4 ˚C.
-14 µL of pre-expressed EsaR was mixed with varying amounts of
-T7-\[EsaO\]2-mNG-t7term only to a total reaction volume of 70 µL. Sensor DNA was provided so that the concentrations in the final reaction were 0.1, 0.5 and 1 nM. Full reaction composition is in {numref}`tbl-composition-20260926`.
+Deviates from the base protocol:
+- Step 2: EsaR instead pre-expressed for 17 hrs at 30 °C and held at 4 °C (rather than the standard 3 hrs at 37 °C), fixed at 14 µL; sensor DNA titrated across 0.1, 0.5 and 1 nM of T7-\[EsaO\]2-mNG-t7term only.
+- Reaction scaled to 70 µL total.
+- Step 5: AHSL added by splitting.
+
+Full reaction composition is in {numref}`tbl-composition-20260926`.
 
 <!-- Composition table sourced from build file: build (Google Sheet), sheet
 20260926-DNA_titration_EsaR_spent, in CN-20260926-DNA_titration_spent_EsaR.
@@ -966,12 +989,17 @@ compared to previous experiment". -->
 
 ### Effect of additional Mg on EsaR-dependent repression of [EsaO]2-mNG DNA
 
-EsaR(D91G) was instead incubated with sensor DNA for 1 hr at 37 ˚C instead of 15 mins at 37 ˚C. Sensor DNA was provided so that the concentration in the final reaction was 0.5 nM. Varying amounts of magnesium was added reaching concentrations of 0, 5, 10, and 20 mM during the incubation step. Final reaction volumes were 33 µL with and without 5 µM AHSL. Reactions were therefore directly distributed in triplicate 10 µL vols into a 384-well plate without splitting. 
+Deviates from the base protocol:
+- Step 3: incubated for 1 hr instead of 15 min, with 0, 5, 10 or 20 mM Mg²⁺ added during this step.
+- Step 5: AHSL pipetted directly into the mastermix as a dedicated component, not via splitting.
+- Step 6: distributed in duplicate instead of triplicate.
+
+Sensor DNA was provided so that the concentration in the final reaction was 0.5 nM. Composition in {numref}`tbl-composition-20261001`.
 
 ::::{admonition} Reaction composition
 :class: dropdown
 
-:::{table} Reaction composition. No build file exists for this day; final concentrations are calculated from the stock concentrations and volumes the log records. Magnesium concentrations are those reached in the EsaR–DNA–Mg pre-incubation (2.3 + 0.15 + 0.15 = 2.6 µL), not the diluted 10 µL final reaction — each Mg stock (346.7/173.3/86.6 mM) is diluted 0.15/2.6 to land on 20/10/5 mM. In the 0 mM Mg column, that 0.15 µL slot is water instead of Mg stock (see "Water" row). Reactions were scaled 3.3× (to 33 µL) for bulk pipetting before being distributed in triplicate 10 µL vols per well — see prose above.
+:::{table} Reaction composition. <!-- No build file exists for this day; final concentrations are calculated from the stock concentrations and volumes the log records. Magnesium concentrations are those reached in the EsaR–DNA–Mg pre-incubation (2.3 + 0.15 + 0.15 = 2.6 µL), not the diluted 10 µL final reaction — each Mg stock (346.7/173.3/86.6 mM) is diluted 0.15/2.6 to land on 20/10/5 mM. In the 0 mM Mg column, that 0.15 µL slot is water instead of Mg stock (see "Water" row). Reactions were scaled 3.3× (to 33 µL) for bulk pipetting before being distributed in triplicate 10 µL vols per well — see prose above. -->
 :label: tbl-composition-20261001
 :align: center
 
@@ -1012,12 +1040,23 @@ pre-incubation premix lands within rounding of the stated 20/10/5 mM. -->
 
 ### Effect of increasing EsaR DNA concentration on [EsaO]2-mNG DNA repression
 
-To increase the amount of EsaR DNA template in the final reaction, the sensor DNA (4 ng/µL) was diluted 1:1 with the EsaR DNA template (213 ng /µL) and added to the final cytosol reaction ensuring that the final concentration of sensor DNA was 0.1 nM. This increased the EsaR DNA template concentration from 3.4 nM to 8.7 nM increasing the template excess from 34x to 87x. Final reaction volumes were 33 µL with and without 5 µM AHSL. Reactions were therefore directly distributed in triplicate 10 µL vols into a 384-well plate without splitting.
+Deviates from the base protocol:
+- Step 2: the DNA aliquot added to the reaction is reporter DNA (4 ng/µL) diluted 1:1, either with water (−EsaR DNA) or with a 213 ng/µL EsaR DNA template stock (+EsaR DNA). This keeps the final sensor DNA concentration at 0.1 nM while increasing the EsaR DNA template concentration from 3.4 nM to 8.7 nM — a template excess of 34× to 87×.
+- Step 5: AHSL pipetted directly into the mastermix as a dedicated component, not via splitting.
+
+<!-- The previous version of this paragraph also stated "Final reaction
+volumes were 33 µL," matching the 2026-10-01 Mg sweep's scaled-batch volume.
+This day's own composition table totals 10 µL with no scaled-batch column,
+and nothing else in this day's log mentions a 33 µL batch, so that detail
+looks like it was carried over from the Mg sweep day in error. Dropped here
+rather than repeated; flagged for the author to confirm. -->
+
+Reaction composition is in {numref}`tbl-composition-20261007`.
 
 ::::{admonition} Reaction composition
 :class: dropdown
 
-:::{table} Reaction composition. No build file exists for this day (the `build` Sheet in `CN-MB-20261007-EsaR_template_competition` is empty). Final concentrations are calculated from the stock concentrations and volumes the log records; mastermix stocks match the standard cytosol mastermix used throughout this work. "Pre-expressed EsaR (template DNA carryover)" is the residual, unreacted EsaR template DNA carried over from the pre-expression step, not EsaR protein — its concentration is reported here in nM DNA, present regardless of condition. The 0.33 µL DNA aliquot is a 1:1 (50:50) mix, split here into its two 0.165 µL halves: Reporter DNA (present in every condition) and either Added EsaR template (+EsaR DNA condition) or Water (−EsaR DNA condition). The reporter's 4 ng/µL stock (the "2×" stock the log refers to) was supplied by the author, not stated in the log excerpt itself; at 663,974.37 g/mol for [EsaO]2-mNG, 4 ng/µL diluted 0.165/10 into the full reaction gives 0.099 nM — matching the stated 0.1 nM final concentration. The 320 nM raw-PCR EsaR template stock, diluted 0.165/10, gives 5.28 nM ≈ 5.3 nM.
+:::{table} Reaction composition. <!-- No build file exists for this day (the `build` Sheet in `CN-MB-20261007-EsaR_template_competition` is empty). Final concentrations are calculated from the stock concentrations and volumes the log records; mastermix stocks match the standard cytosol mastermix used throughout this work. "Pre-expressed EsaR (template DNA carryover)" is the residual, unreacted EsaR template DNA carried over from the pre-expression step, not EsaR protein — its concentration is reported here in nM DNA, present regardless of condition. The 0.33 µL DNA aliquot is a 1:1 (50:50) mix, split here into its two 0.165 µL halves: Reporter DNA (present in every condition) and either Added EsaR template (+EsaR DNA condition) or Water (−EsaR DNA condition). The reporter's 4 ng/µL stock (the "2×" stock the log refers to) was supplied by the author, not stated in the log excerpt itself; at 663,974.37 g/mol for [EsaO]2-mNG, 4 ng/µL diluted 0.165/10 into the full reaction gives 0.099 nM — matching the stated 0.1 nM final concentration. The 320 nM raw-PCR EsaR template stock, diluted 0.165/10, gives 5.28 nM ≈ 5.3 nM. -->
 :label: tbl-composition-20261007
 :align: center
 
@@ -1065,64 +1104,78 @@ itself. -->
 
 ### Effect of lower reaction temperature on EsaR-dependent repression of [EsaO]2-mNG DNA
 
+This experiment reused the same plate, platemap, and raw data file as the EsaR DNA template competition day (2026-10-07) — see the review note above {numref}`tbl-composition-20261007`.
+
+Deviates from the base protocol:
+- Step 3: incubated for 1 hr instead of 15 min at 37 °C.
+- Step 7: rather than the standard 3 hr incubation at 37 °C, reactions were instead incubated overnight at 25 °C and read the following day.
+- Step 5: AHSL pipetted directly into the mastermix as a dedicated component, not via splitting.
+
+<!-- As with the 2026-10-07 section above, this paragraph previously also
+stated "Final reaction volumes were 33 µL," which doesn't match this day's
+own composition table (10 µL total, no scaled-batch column) and isn't
+mentioned anywhere else in this day's log. Dropped here rather than
+repeated; flagged for the author to confirm. -->
+
+Sensor DNA was provided so that the concentration in the final reaction was 0.1 nM. Reaction composition is in {numref}`tbl-composition-20261008`.
+
 <!-- No build file exists for this day either, same gap as 2026-10-01 and
 2026-10-07. Both tables are carried verbatim from the log. -->
 
-::::{admonition} Reaction volumes
+::::{admonition} Reaction composition
 :class: dropdown
 
-:::{table} Preexpression of EsaR, as the log writes it. Not a composition table — no stock or final concentrations, and no build file to source one from.
-:label: tbl-volumes-20261008-preexpression
+:::{table} Reaction composition. <!--   No build file exists for this day. Final concentrations are calculated from the stock concentrations and volumes the log records. The DNA stock (4 ng/µL) is not restated in this day's own log excerpt — it is carried over from {numref}`tbl-composition-20261007`'s reporter DNA stock, since this experiment shares that day's plate, platemap, and raw data file; at 663,974.37 g/mol for [EsaO]2-mNG, 4 ng/µL diluted 0.15/10 gives 0.090 nM, close to the stated 0.1 nM. "Pre-expressed EsaR" has no stated stock or final concentration for this specific condition, unlike 2026-10-07's carryover value, and is not inferred here. -->
+:label: tbl-composition-20261008
 :align: center
 
-| Component | Volume (µL) |
-| --- | --- |
-| S-mix | 3 |
-| Ribosomes | 1.8 |
-| P-mix | 1.2 |
-| T rna | 1 |
-| DNA | 0.15 |
-| Rnase inhibitor | 0.25 |
-| DI Water | 2.45 |
-| AHSL | 0.15 |
-| Total | 10 |
+| Component | Stock Conc. | Unit | Final Conc. | Unit | − EsaR [µL] | + EsaR [µL] |
+| --- | --- | --- | --- | --- | --- | --- |
+| Small molecule mix | 3.33 | × | 1 | × | 3 | 3 |
+| tRNA | 10 | × | 1 | × | 1 | 1 |
+| Protein mix | 8.33 | × | 1 | × | 1.2 | 1.2 |
+| Ribosomes | 5.5 | × | 1 | × | 1.8 | 1.8 |
+| RNase inhibitor | 40 | U/µL | 1 | U/µL | 0.25 | 0.25 |
+| DNA Template ([EsaO]2-mNG) | 4 | ng/µL | 0.1 | nM | 0.15 | 0.15 |
+| Pre-expressed EsaR | — | — | — | — | 0 | 2.45 |
+| Water (replacing EsaR) | — | — | — | — | 2.45 | 0 |
+| AHSL | — | — | 0 / 5 | µM | 0.15 | 0.15 |
+| Total | | | | | 10 | 10 |
 :::
+::::
 
-:::{table} Reaction mix, same for all sensing reactions in this log.
-:label: tbl-volumes-20261008-reaction
-:align: center
+::::{admonition} Platemap
+:class: dropdown
 
-| Component | Volume (µL) |
-| --- | --- |
-| S-mix | 3 |
-| Ribosomes | 1.8 |
-| P-mix | 1.2 |
-| T rna | 1 |
-| DNA | 0.15 |
-| Rnase inhibitor | 0.25 |
-| EsaR | 2.45 |
-| AHSL | 0.15 |
-| Total | 10 |
+:::{platemap} ./experiments/20261007-esar-template-competition/20261008-esao-mng-esar-ahsl.csv
+:height: 480px
+:fields: [EsaO-mNG] (nM), [EsaR] (nM), [AHSL] (uM)
+:label: platemap-20261008
 :::
 ::::
 
 ### Testing EsaR-dependent repression of [EsaO]2-mNG DNA in GUVs
 
-2 mg of POPC was dried under nitrogen and further dried under vacuum for at
-least two hours. Lipids were resuspended in 500 µL mineral oil and the
-mixture was sonicated at room temperature for around 20 minutes.
-
-EsaR was pre-expressed in a cell-free reaction at a template concentration of
-24 nM, double the 12 nM used previously, resulting in a final concentration
-of 5 nM. The reporter construct, (*esa*)₂-mNG, was held at 0.1 nM. Following
-completion of EsaR pre-expression, the reporter DNA was incubated with the
-pre-expressed EsaR for approximately 1 h at 37 °C prior to encapsulation. The
-EsaR reaction itself was incubated for 3 h at 37 °C before being supplemented
-with the DNA and incubated for a further 1 h. This mixture was used as a
-supplement to the inner solution of the GUVs, as an EsaR-DNA mixture.
+1. Dry 2 mg POPC under nitrogen, then under vacuum for at least 2 hours.
+2. Resuspend the dried lipid film in 500 µL mineral oil.
+3. Sonicate the lipid-in-oil mixture at room temperature for ~20 min.
+4. Pre-express EsaR in a cell-free reaction at 24 nM template DNA — double the standard 12 nM, giving a final concentration of 5 nM — and incubate for 3 h at 37 °C. Composition in {numref}`tbl-volumes-20261009-esar`.
+5. Add reporter DNA ([EsaO]2-mNG, final 0.1 nM) to the pre-expressed EsaR and incubate a further 1 h at 37 °C, forming the EsaR-DNA mixture used to supplement the GUV inner solution.
+6. Prepare the GUV inner solution (20 µL total), including the EsaR-DNA mixture. Composition in {numref}`tbl-volumes-20261009-guv`.
+7. Add 200 µL of the lipid-in-oil mixture onto the inner solution and pipette up and down 9 times to form a water-in-oil emulsion.
+8. Add the emulsion onto 250 µL outer solution.
+9. Centrifuge at 15 °C, 9,000 g, for 20 min to form GUVs.
+10. Resuspend the resulting pellet in 100 mL outer solution.
+11. Add 7.5 µL GUV solution into 22.5 µL outer solution in a 384-well plate.
+12. Image for 6 hrs at 37 °C.
 
 <!-- No build file exists for this day either, same gap as 2026-10-01,
-2026-10-07 and 2026-10-08. Both tables are carried verbatim from the log. -->
+2026-10-07 and 2026-10-08. Both tables are carried verbatim from the log.
+
+Step 10, "100 mL outer solution," is carried verbatim from the log. Every
+other volume in this protocol is µL-scale; given the tiny (20 µL) inner
+solution batch, 100 mL looks like a likely typo for 100 µL, but this is not
+corrected here — flagged for the author to confirm. -->
 
 ::::{admonition} Reaction volumes
 :class: dropdown
@@ -1160,14 +1213,6 @@ supplement to the inner solution of the GUVs, as an EsaR-DNA mixture.
 | Total | 10 |
 :::
 ::::
-
-The inner solution was prepared as 20 µL. The water-in-oil emulsion was
-prepared by adding 200 µL of lipid-in-oil mixture onto the inner solution and
-pipetting up and down 9 times. The emulsion was added onto 250 µL of outer
-solution. GUVs were formed by spinning the two phases in a centrifuge at
-15 °C for 20 min at 9,000 g. The resulting pellet was resuspended in 100 mL
-outer solution. 7.5 µL of GUV solution were added into 22.5 µL of outer
-solution in a 384-well plate and imaged for 6 hrs at 37 °C.
 
 ---
 
