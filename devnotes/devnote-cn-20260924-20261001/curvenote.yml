@@ -17,33 +17,37 @@ project:
   # contact-detail updates supplied directly by the author afterward.
   # The spelling "Charlie" follows the email the author supplied, which
   # corrected the "Chalie" first written in the Doc.
-  # REVIEW: no ORCID is recorded for any author.
   authors:
     - name: Charlie Newell
       email: charlie.newell.21@ucl.ac.uk
       affiliations:
         - ucl
       id: contributors-curvenote-generated-uid-0
+      orcid: 0000-0001-9208-7542
     - name: Manuel Bibrowski
       email: mb525@ic.ac.uk
       affiliations:
         - imperial
       id: contributors-curvenote-generated-uid-2
+      orcid: 0009-0002-8330-0692
     - name: Jonah McDonald
       email: Jonah.McDonald@kcl.ac.uk
       affiliations:
         - kcl
       id: contributors-curvenote-generated-uid-1
+      orcid: 0009-0003-3314-6874
     - name: Niall McIntyre
       email: n.mcintyre@imperial.ac.uk
       affiliations:
         - imperial
       id: contributors-curvenote-generated-uid-3
+      orcid: 0009-0004-7397-3812
     - name: Julia Purrinos De Oliveira
       email: jb421@ic.ac.uk
       affiliations:
         - imperial
       id: contributors-curvenote-generated-uid-4
+      orcid: 0009-0004-7229-6709
   affiliations:
     - id: ucl
       name: University College London
