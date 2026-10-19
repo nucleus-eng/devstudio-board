@@ -658,7 +658,7 @@ As expected, expressing additional EsaR reduced overall fluorescence yield rough
 :label: fig-20261007-normalized
 :align: center
 :width: 100%
-Time-course fluorescence for EsaO-mNG at 0.1 nM, with and without 8.7 nM added EsaR DNA template, each with and without AHSL (n = 3). Fluorescence is raw RFU.
+Time-course fluorescence for EsaO-mNG at 0.1 nM, with and without 8.7 nM added EsaR DNA template, each with and without AHSL (n = 3). Fluorescence is raw RFU. Reaction composition is in {numref}`tbl-composition-20261007`.
 :::
 ::::
 
@@ -971,22 +971,23 @@ EsaR(D91G) was instead incubated with sensor DNA for 1 hr at 37 ˚C instead of 1
 ::::{admonition} Reaction composition
 :class: dropdown
 
-:::{table} Reaction composition.
+:::{table} Reaction composition. No build file exists for this day; final concentrations are calculated from the stock concentrations and volumes the log records. Magnesium concentrations are those reached in the EsaR–DNA–Mg pre-incubation (2.3 + 0.15 + 0.15 = 2.6 µL), not the diluted 10 µL final reaction — each Mg stock (346.7/173.3/86.6 mM) is diluted 0.15/2.6 to land on 20/10/5 mM. In the 0 mM Mg column, that 0.15 µL slot is water instead of Mg stock (see "Water" row). Reactions were scaled 3.3× (to 33 µL) for bulk pipetting before being distributed in triplicate 10 µL vols per well — see prose above.
 :label: tbl-composition-20261001
 :align: center
 
-| Component | Stock Conc. | Unit | Final Conc. | Unit | Volume [µL] | Scaled [µL] |
-| --- | --- | --- | --- | --- | --- | --- |
-| Small molecule mix | 3.33 | × | 1 | × | 3 | 9.9 |
-| tRNA | 10 | × | 1 | × | 1 | 3.3 |
-| Protein mix | 8.33 | × | 1 | × | 1.2 | 3.96 |
-| Ribosomes | 5.5 | × | 1 | × | 1.8 | 5.94 |
-| RNase inhibitor | 40 | U/µL | 1 | U/µL | 0.25 | 0.825 |
-| DNA Template | 22 | ng/µL | 0.5 | nM | 0.15 | 0.495 |
-| Pre-expressed EsaR | — | — | — | — | 2.3 | 7.59 |
-| Magnesium | — / 86.6 / 173.3 / 346.7 | mM | 0 / 5 / 10 / 20 | mM | 0.15 | 0.495 |
-| AHSL | — | — | 0 / 5 | µM | 0.15 | 0.495 |
-| Total | | | | | 10 | 33 |
+| Component | Stock Conc. | Unit | Final Conc. | Unit | 0 mM Mg [µL] | 5 mM Mg [µL] | 10 mM Mg [µL] | 20 mM Mg [µL] |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Small molecule mix | 3.33 | × | 1 | × | 3 | 3 | 3 | 3 |
+| tRNA | 10 | × | 1 | × | 1 | 1 | 1 | 1 |
+| Protein mix | 8.33 | × | 1 | × | 1.2 | 1.2 | 1.2 | 1.2 |
+| Ribosomes | 5.5 | × | 1 | × | 1.8 | 1.8 | 1.8 | 1.8 |
+| RNase inhibitor | 40 | U/µL | 1 | U/µL | 0.25 | 0.25 | 0.25 | 0.25 |
+| DNA Template | 22 | ng/µL | 0.5 | nM | 0.15 | 0.15 | 0.15 | 0.15 |
+| Pre-expressed EsaR | — | — | — | — | 2.3 | 2.3 | 2.3 | 2.3 |
+| Magnesium | — / 86.6 / 173.3 / 346.7 | mM | — / 5 / 10 / 20 | mM | 0 | 0.15 | 0.15 | 0.15 |
+| Water (replacing Mg stock) | — | — | — | — | 0.15 | 0 | 0 | 0 |
+| AHSL | — | — | 0 / 5 | µM | 0.15 | 0.15 | 0.15 | 0.15 |
+| Total | | | | | 10 | 10 | 10 | 10 |
 :::
 ::::
 
@@ -1011,33 +1012,46 @@ pre-incubation premix lands within rounding of the stated 20/10/5 mM. -->
 
 ### Effect of increasing EsaR DNA concentration on [EsaO]2-mNG DNA repression
 
-We ran our EsaR repression reactions at the same conditions as before with
-0.1nM DNA template and preincubating the DNA for 1h at 37C with a cell free
-pre expressed EsaR (15nM DNA, 3h at37C).
+To increase the amount of EsaR DNA template in the final reaction, the sensor DNA (4 ng/µL) was diluted 1:1 with the EsaR DNA template (213 ng /µL) and added to the final cytosol reaction ensuring that the final concentration of sensor DNA was 0.1 nM. This increased the EsaR DNA template concentration from 3.4 nM to 8.7 nM increasing the template excess from 34x to 87x. Final reaction volumes were 33 µL with and without 5 µM AHSL. Reactions were therefore directly distributed in triplicate 10 µL vols into a 384-well plate without splitting.
 
-EsaR DNA was 15nM. Final EsaR concentration is 3.4nM in the cell free reaction
-where 2.27µL of EsaR were added and around 0.33 of the DNA stock -\> 2.6µL of
-EsaR-DNA mixture added on 7.4µL mix of Nucleus cytosol+RNase inhibitor and
-AHSL(5µM)/ DI water (0.15µL)
+::::{admonition} Reaction composition
+:class: dropdown
 
-To improve the amounts of EsaR in the final reaction and introduce a higher
-off switch:
+:::{table} Reaction composition. No build file exists for this day (the `build` Sheet in `CN-MB-20261007-EsaR_template_competition` is empty). Final concentrations are calculated from the stock concentrations and volumes the log records; mastermix stocks match the standard cytosol mastermix used throughout this work. "Pre-expressed EsaR (template DNA carryover)" is the residual, unreacted EsaR template DNA carried over from the pre-expression step, not EsaR protein — its concentration is reported here in nM DNA, present regardless of condition. The 0.33 µL DNA aliquot is a 1:1 (50:50) mix, split here into its two 0.165 µL halves: Reporter DNA (present in every condition) and either Added EsaR template (+EsaR DNA condition) or Water (−EsaR DNA condition). The reporter's 4 ng/µL stock (the "2×" stock the log refers to) was supplied by the author, not stated in the log excerpt itself; at 663,974.37 g/mol for [EsaO]2-mNG, 4 ng/µL diluted 0.165/10 into the full reaction gives 0.099 nM — matching the stated 0.1 nM final concentration. The 320 nM raw-PCR EsaR template stock, diluted 0.165/10, gives 5.28 nM ≈ 5.3 nM.
+:label: tbl-composition-20261007
+:align: center
 
-we added more EsaR DNA template:
-
-We diluted the mNG DNA template not in DI water but in the DNA template of
-EsaR:
-
-Of mixing a 2x DNA stock with the raw PCR template that was at 320nM in a
-50:50 manner so we have 5.3nM extra added enhancing the 34x excess of DNA
-template up to 77x
+| Component | Stock Conc. | Unit | Final Conc. | Unit | − EsaR DNA [µL] | + EsaR DNA (8.7 nM) [µL] |
+| --- | --- | --- | --- | --- | --- | --- |
+| Small molecule mix | 3.33 | × | 1 | × | 3 | 3 |
+| tRNA | 10 | × | 1 | × | 1 | 1 |
+| Protein mix | 8.33 | × | 1 | × | 1.2 | 1.2 |
+| Ribosomes | 5.5 | × | 1 | × | 1.8 | 1.8 |
+| RNase inhibitor | 40 | U/µL | 1 | U/µL | 0.25 | 0.25 |
+| Pre-expressed EsaR (template DNA carryover) | 15 | nM DNA | 3.4 | nM DNA | 2.27 | 2.27 |
+| Reporter DNA ([EsaO]2-mNG) | 4 | ng/µL | 0.1 | nM | 0.165 | 0.165 |
+| Added EsaR template | — / 320 | nM DNA | — / 5.3 | nM DNA | 0 | 0.165 |
+| Water (replacing EsaR template) | — | — | — | — | 0.165 | 0 |
+| AHSL | — | — | 0 / 5 | µM | 0.15 | 0.15 |
+| Total | | | | | 10 | 10 |
+:::
+::::
 
 <!-- No build file exists for this day either. `build` in
 `CN-MB-20261007-EsaR_template_competition` is an empty default Sheet, same
 shape as the 2026-10-01 gap. 2.27 + 0.33 = 2.6, which matches the "2.6µL"
 the log states, so that part of the arithmetic checks out. Whether the 0.15µL
 AHSL/water volume sits inside the stated 7.4µL or on top of it is not stated,
-and is not inferred here. -->
+and is not inferred here. The table above resolves it: 2.6 (EsaR-DNA premix)
++ 7.4 (rest) = 10 exactly, and the rest (7.4) matches the standard mastermix
+(7.25) + AHSL/water (0.15), so the AHSL/water volume sits inside the stated
+7.4 µL, not on top of it.
+
+Separately, the log's own arithmetic reads "enhancing the 34x excess of DNA
+template up to 77x." 8.7 nM / 0.1 nM = 87, not 77, matching the Results text
+above and the 320 nM / 50:50 dilution math below — "77x" is carried here as
+a probable transcription slip for "87x," not corrected in the log excerpt
+itself. -->
 
 ::::{admonition} Platemap
 :class: dropdown
