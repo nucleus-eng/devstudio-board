@@ -756,7 +756,7 @@ Images show the final timepoint for all conditions collected on a Cephla microsc
 :label: fig-20261009-guv-ahsl
 :align: center
 :width: 100%
-Dual-operator [EsaO]2-mNG encapsulated in GUVs with pre-expressed EsaR, three replicate wells each minus and plus 5 µM AHSL. Green LUT, vmin/vmax 1200:4500, 20 µm scale bar.
+Dual-operator [EsaO]2-mNG encapsulated in GUVs with pre-expressed EsaR, three replicate wells each minus and plus 5 µM AHSL. Green LUT, vmin/vmax 1200:4500, 20 µm scale bar. Reaction composition is in {numref}`tbl-volumes-20261009-esar` and {numref}`tbl-volumes-20261009-guv`.
 :::
 
 <!-- [`fig-20261009-guv-ahsl`, notebook:`CN-microscopy-01.ipynb`, platemap:`none`, data source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/201009o_EsaR_mNG_0.1_0.5_K_L_2026-10-09_19-47-50.861429.zarr`, caption: (Dual-operator [EsaO]2-mNG encapsulated in GUVs with pre-expressed EsaR, minus and plus AHSL.)] -->
@@ -1156,18 +1156,23 @@ Sensor DNA was provided so that the concentration in the final reaction was 0.1 
 
 ### Testing EsaR-dependent repression of [EsaO]2-mNG DNA in GUVs
 
+Deviates from the base protocol:
+- Step 2: EsaR pre-expressed at 24 nM template DNA — double the standard 12 nM, giving a final concentration of 5 nM — and incubated for 3 h at 37 °C. Composition in {numref}`tbl-volumes-20261009-esar`.
+- Step 3: reporter DNA ([EsaO]2-mNG, final 0.1 nM) added to the pre-expressed EsaR and incubated a further 1 h at 37 °C, forming the EsaR-DNA mixture.
+- Steps 4 onward: the EsaR-DNA mixture is not added to a cytosol mastermix directly — it instead supplements the GUV inner solution, prepared as part of the GUV preparation below.
+
+**GUV preparation:**
+
 1. Dry 2 mg POPC under nitrogen, then under vacuum for at least 2 hours.
 2. Resuspend the dried lipid film in 500 µL mineral oil.
 3. Sonicate the lipid-in-oil mixture at room temperature for ~20 min.
-4. Pre-express EsaR in a cell-free reaction at 24 nM template DNA — double the standard 12 nM, giving a final concentration of 5 nM — and incubate for 3 h at 37 °C. Composition in {numref}`tbl-volumes-20261009-esar`.
-5. Add reporter DNA ([EsaO]2-mNG, final 0.1 nM) to the pre-expressed EsaR and incubate a further 1 h at 37 °C, forming the EsaR-DNA mixture used to supplement the GUV inner solution.
-6. Prepare the GUV inner solution (20 µL total), including the EsaR-DNA mixture. Composition in {numref}`tbl-volumes-20261009-guv`.
-7. Add 200 µL of the lipid-in-oil mixture onto the inner solution and pipette up and down 9 times to form a water-in-oil emulsion.
-8. Add the emulsion onto 250 µL outer solution.
-9. Centrifuge at 15 °C, 9,000 g, for 20 min to form GUVs.
-10. Resuspend the resulting pellet in 100 mL outer solution.
-11. Add 7.5 µL GUV solution into 22.5 µL outer solution in a 384-well plate.
-12. Image for 6 hrs at 37 °C.
+4. Prepare the GUV inner solution (20 µL total), including the EsaR-DNA mixture. Composition in {numref}`tbl-volumes-20261009-guv`.
+5. Add 200 µL of the lipid-in-oil mixture onto the inner solution and pipette up and down 9 times to form a water-in-oil emulsion.
+6. Add the emulsion onto 250 µL outer solution.
+7. Centrifuge at 15 °C, 9,000 g, for 20 min to form GUVs.
+8. Resuspend the resulting pellet in 100 mL outer solution.
+9. Add 7.5 µL GUV solution into 22.5 µL outer solution in a 384-well plate.
+10. Image for 6 hrs at 37 °C.
 
 <!-- No build file exists for this day either, same gap as 2026-10-01,
 2026-10-07 and 2026-10-08. Both tables are carried verbatim from the log.
@@ -1177,40 +1182,40 @@ other volume in this protocol is µL-scale; given the tiny (20 µL) inner
 solution batch, 100 mL looks like a likely typo for 100 µL, but this is not
 corrected here — flagged for the author to confirm. -->
 
-::::{admonition} Reaction volumes
+::::{admonition} Reaction composition
 :class: dropdown
 
-:::{table} Pre-expressed EsaR, as the log writes it. Not a composition table — no stock or final concentrations, and no build file to source one from.
+:::{table} EsaR pre-expression reaction. No build file exists for this day; final concentrations are calculated from the stock concentrations and volumes the log records. The EsaR DNA Template final (24 nM) and its implied stock (1600 nM) both follow from "double the 12 nM used previously," stated in the prose above. The log also lists an AHSL row in this pre-expression-only reaction — no reporter construct is present yet, so it has no obvious function here; carried verbatim from the log, not corrected or explained further.
 :label: tbl-volumes-20261009-esar
 :align: center
 
-| Component | Volume (µL) |
-| --- | --- |
-| S-mix | 3 |
-| Ribosomes | 1.8 |
-| P-mix | 1.2 |
-| T rna | 1 |
-| EsaR DNA | 0.15 |
-| Rnase inhibitor | 0.25 |
-| DI water | 2.45 |
-| AHSL | 0.15 |
-| Total | 10 |
+| Component | Stock Conc. | Unit | Final Conc. | Unit | Volume [µL] |
+| --- | --- | --- | --- | --- | --- |
+| Small molecule mix | 3.33 | × | 1 | × | 3 |
+| tRNA | 10 | × | 1 | × | 1 |
+| Protein mix | 8.33 | × | 1 | × | 1.2 |
+| Ribosomes | 5.5 | × | 1 | × | 1.8 |
+| RNase inhibitor | 40 | U/µL | 1 | U/µL | 0.25 |
+| EsaR DNA Template | 1600 | nM DNA | 24 | nM DNA | 0.15 |
+| Water | — | — | — | — | 2.45 |
+| AHSL | — | — | — | — | 0.15 |
+| Total | | | | | 10 |
 :::
 
-:::{table} GUV inner solution.
+:::{table} GUV inner solution. No build file exists for this day. The "EsaR-DNA mixture" row carries over the pre-expressed EsaR reaction above, after reporter DNA was added to it; neither the intermediate volume nor the reporter DNA's own stock concentration is stated, so the reporter DNA's 0.1 nM final is taken directly from the Results text rather than independently derived. The EsaR template end does reconcile closely without extra assumptions: the pre-expression reaction's own 24 nM final, diluted 2.25/10 into this inner solution, gives 5.4 nM — close to the 5 nM final stated throughout Results.
 :label: tbl-volumes-20261009-guv
 :align: center
 
-| Component | Volume (µL) |
-| --- | --- |
-| S-mix | 3 |
-| Ribosomes | 1.8 |
-| P-mix | 1.2 |
-| T rna | 1 |
-| DNA-EsaR mixture | 2.25 |
-| Rnase inhibitor | 0.25 |
-| Optiprep | 0.5 |
-| Total | 10 |
+| Component | Stock Conc. | Unit | Final Conc. | Unit | Volume [µL] |
+| --- | --- | --- | --- | --- | --- |
+| Small molecule mix | 3.33 | × | 1 | × | 3 |
+| tRNA | 10 | × | 1 | × | 1 |
+| Protein mix | 8.33 | × | 1 | × | 1.2 |
+| Ribosomes | 5.5 | × | 1 | × | 1.8 |
+| RNase inhibitor | 40 | U/µL | 1 | U/µL | 0.25 |
+| EsaR-DNA mixture: EsaR template<br>+ Reporter DNA ([EsaO]2-mNG) | —<br>— | —<br>— | 5<br>0.1 | nM DNA<br>nM | 2.25 |
+| Optiprep | — | — | — | — | 0.5 |
+| Total | | | | | 10 |
 :::
 ::::
 
