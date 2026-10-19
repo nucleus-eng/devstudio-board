@@ -7,16 +7,25 @@ project:
   # No Specification table exists in any of the five source logs.
   title: 'Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation'
   description: >
-    EsaR(D91G) repression of single- and dual-operator EsaO-mNG sensor
-    constructs in Nucleus Cytosol, across five days: an EsaR titration at
-    fixed sensor DNA, a sensor DNA titration at fixed EsaR, a repeat of that
-    titration with EsaR pre-expressed overnight, a magnesium sweep with EsaR
-    and DNA pre-incubated before the reaction, and an EsaR DNA template
-    competition assay.
+    Over a 3-week DevStudio collaboration, we optimised the EsaR/EsaO
+    quorum-sensing system for use in Nucleus cytosol. Unlike previous
+    implementations that co-expressed EsaR alongside the sensor construct,
+    we pre-expressed EsaR and added a second EsaO operator to the sensor
+    DNA, enabling up to a 5.8-fold change between 'on' and 'off' states.
+    Encapsulating the sensor in GUVs produced developer cells that
+    detected exogenously added AHSL, a step toward a device for sensing
+    contaminated surfaces.
   # Names and emails from review cycle v2, prompt 1, and author-order and
   # contact-detail updates supplied directly by the author afterward.
   # The spelling "Charlie" follows the email the author supplied, which
   # corrected the "Chalie" first written in the Doc.
+  keywords: 
+    - DevStudio
+    - Developer cells 
+    - Nucleus cytosol
+    - Quorum sensing
+    - EsaR/EsaO
+    - GUVs
   authors:
     - name: Charlie Newell
       email: charlie.newell.21@ucl.ac.uk
