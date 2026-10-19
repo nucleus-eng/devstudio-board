@@ -67,6 +67,8 @@ project:
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
     - ../../plugins/platemap/platemap.mjs
+  references:
+    nucleus-docs: https://docs.nucleus.engineering
   toc:
     - file: main.md
     - file: experiments/20260924-repressor-test/platereader.ipynb

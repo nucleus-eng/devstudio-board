@@ -32,6 +32,12 @@ FEATURES             Location/Qualifiers
      misc_feature    81..150
                      /label=Leader sequence 1
                      /note="color: #b4abac"
+     misc_feature    108..150
+                     /label=epsilon enhancer
+                     /note="color: #93c5fd"
+     misc_feature    137..142
+                     /label=Strong RBS
+                     /note="color: #fcd34d"
      CDS             151..861
                      /codon_start=1
                      /label=mNeonGreen
