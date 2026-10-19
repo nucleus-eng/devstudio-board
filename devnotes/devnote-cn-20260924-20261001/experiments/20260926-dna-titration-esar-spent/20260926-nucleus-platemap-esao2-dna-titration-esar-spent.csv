@@ -1,0 +1,30 @@
+Well,Date,Experiment,Name,Type,Rxn Volume (uL),Construct,Small Molecule Mix Vol (uL),tRNA Vol (uL),Protein Mix Vol (uL),Ribosomes Vol (uL),RNase Inhibitor Vol (uL),DNA Template Vol (uL),EsaR Vol (uL),AHSL Vol (uL),Water Vol (uL),[DNA Template] (ng/uL),DNA Template (nM),[AHSL] (uM),[Fluorescein] (uM)
+B2,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,mNG control (15.6 nM),Sample,10,mNG,3.0314,1,1.2,1.8171,0.2514,0.4743,0,0,2.2257,,,0,0
+B3,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,mNG control (15.6 nM),Sample,10,mNG,3.0314,1,1.2,1.8171,0.2514,0.4743,0,0,2.2257,,,0,0
+B4,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,mNG control (15.6 nM),Sample,10,mNG,3.0314,1,1.2,1.8171,0.2514,0.4743,0,0,2.2257,,,0,0
+B6,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,Fluorescein 0uM,Standard,10,,,,,,,0,0,0,,0,0,0,0
+B7,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,Fluorescein 0uM,Standard,10,,,,,,,0,0,0,,0,0,0,0
+B10,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,Fluorescein 0.5uM,Standard,10,,,,,,,0,0,0,,0,0,0,0.5
+B11,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,Fluorescein 0.5uM,Standard,10,,,,,,,0,0,0,,0,0,0,0.5
+B14,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,Fluorescein 1uM,Standard,10,,,,,,,0,0,0,,0,0,0,1
+B15,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,Fluorescein 1uM,Standard,10,,,,,,,0,0,0,,0,0,0,1
+B18,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,Fluorescein 2uM,Standard,10,,,,,,,0,0,0,,0,0,0,2
+B19,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,Fluorescein 2uM,Standard,10,,,,,,,0,0,0,,0,0,0,2
+D2,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.1 nM),Sample,10,T7-[EsaO]2-mNG-T7term,3.0314,1,1.2,1.8171,0.2514,0.0657,2,0,0.6343,0.0657,0.1,0,0
+D3,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.1 nM),Sample,10,T7-[EsaO]2-mNG-T7term,3.0314,1,1.2,1.8171,0.2514,0.0657,2,0,0.6343,0.0657,0.1,0,0
+D4,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.1 nM),Sample,10,T7-[EsaO]2-mNG-T7term,3.0314,1,1.2,1.8171,0.2514,0.0657,2,0,0.6343,0.0657,0.1,0,0
+D6,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.1 nM) + AHSL,Sample,10,T7-[EsaO]2-mNG-T7term,3.0014,0.9901,1.1881,1.7992,0.2489,0.0651,1.9802,0.099,0.628,0.0657,0.1,5,0
+D7,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.1 nM) + AHSL,Sample,10,T7-[EsaO]2-mNG-T7term,3.0014,0.9901,1.1881,1.7992,0.2489,0.0651,1.9802,0.099,0.628,0.0657,0.1,5,0
+D8,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.1 nM) + AHSL,Sample,10,T7-[EsaO]2-mNG-T7term,3.0014,0.9901,1.1881,1.7992,0.2489,0.0651,1.9802,0.099,0.628,0.0657,0.1,5,0
+D10,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.5 nM),Sample,10,T7-[EsaO]2-mNG-T7term,3.0314,1,1.2,1.8171,0.2514,0.0657,2,0,0.6343,0.3286,0.5,0,0
+D11,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.5 nM),Sample,10,T7-[EsaO]2-mNG-T7term,3.0314,1,1.2,1.8171,0.2514,0.0657,2,0,0.6343,0.3286,0.5,0,0
+D12,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.5 nM),Sample,10,T7-[EsaO]2-mNG-T7term,3.0314,1,1.2,1.8171,0.2514,0.0657,2,0,0.6343,0.3286,0.5,0,0
+D14,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.5 nM) + AHSL,Sample,10,T7-[EsaO]2-mNG-T7term,3.0014,0.9901,1.1881,1.7992,0.2489,0.0651,1.9802,0.099,0.628,0.3286,0.5,5,0
+D15,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.5 nM) + AHSL,Sample,10,T7-[EsaO]2-mNG-T7term,3.0014,0.9901,1.1881,1.7992,0.2489,0.0651,1.9802,0.099,0.628,0.3286,0.5,5,0
+D16,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (0.5 nM) + AHSL,Sample,10,T7-[EsaO]2-mNG-T7term,3.0014,0.9901,1.1881,1.7992,0.2489,0.0651,1.9802,0.099,0.628,0.3286,0.5,5,0
+F2,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (1 nM),Sample,10,T7-[EsaO]2-mNG-T7term,3.0314,1,1.2,1.8171,0.2514,0.0657,2,0,0.6343,0.6571,1,0,0
+F3,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (1 nM),Sample,10,T7-[EsaO]2-mNG-T7term,3.0314,1,1.2,1.8171,0.2514,0.0657,2,0,0.6343,0.6571,1,0,0
+F4,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (1 nM),Sample,10,T7-[EsaO]2-mNG-T7term,3.0314,1,1.2,1.8171,0.2514,0.0657,2,0,0.6343,0.6571,1,0,0
+F6,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (1 nM) + AHSL,Sample,10,T7-[EsaO]2-mNG-T7term,3.0014,0.9901,1.1881,1.7992,0.2489,0.0651,1.9802,0.099,0.628,0.6571,1,5,0
+F7,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (1 nM) + AHSL,Sample,10,T7-[EsaO]2-mNG-T7term,3.0014,0.9901,1.1881,1.7992,0.2489,0.0651,1.9802,0.099,0.628,0.6571,1,5,0
+F8,2026-09-26,[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR,[EsaO]2-mNG (1 nM) + AHSL,Sample,10,T7-[EsaO]2-mNG-T7term,3.0014,0.9901,1.1881,1.7992,0.2489,0.0651,1.9802,0.099,0.628,0.6571,1,5,0

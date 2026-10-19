@@ -7,9 +7,9 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 
 Developer cells encapsulating Nucleus Cytosol can be programmed to communicate with their external environment using genetically encoded sensors. Synthetic biology has produced DNA sensors for a range of natural signalling molecules. One example is acyl-homoserine lactones (AHSLs), small molecules secreted by bacteria that regulate gene expression in response to population density. A developer cell programmed to sense AHSL and produce a detectable output could enable sensitive detection of bacteria in specific environments. We envision these developer cells detecting food spoilage or contamination in medical settings.
 
-Towards this goal, we programme developer cells to sense AHSL using the *Pantoea stewartii* repressor EsaR. In the absence of its cognate ligand, 3-oxo-C6-HSL, EsaR natively binds the EsaO operator overlapping the esaR promoter, where it is thought to occlude RNA polymerase and prevent transcription. In this case, we insert one or two EsaO operators downstream of the T7 promoter, blocking transcription in Nucleus cytosol until AHSL is added ({numref}`fig-esar-sensing`). EsaR has previously been co-expressed with its target inside synthetic cells; however, the lag in EsaR expression was proposed to result in early unrepressed transcription, producing a variable output {cite}`tang2018`. An alternative system supplied EsaR to lysate-encapsulated synthetic cells by pre-expressing EsaR in *E. coli* prior to lysate harvesting {cite}`ding2018`. This ensured that EsaR was present throughout the entire reaction; however, lysate-based systems often pose a challenge to further engineering due to their undefined composition.
+Towards this goal, we programme developer cells to sense AHSL using the *Pantoea stewartii* repressor protein, EsaR. In the absence of its cognate ligand, 3-oxo-C6-HSL, EsaR natively binds the EsaO operator where it is thought to occlude RNA polymerase and prevent transcription. In our case, we insert one or two EsaO operators downstream of the T7 promoter, blocking transcription in Nucleus cytosol until AHSL is added ({numref}`fig-esar-sensing`). EsaR has previously been co-expressed with an EsaO-controlled reporter both in bulk PURE reactions, and inside synthetic cells; however, the lag in EsaR expression was thought to result in early unrepressed transcription producing variable outputs {cite}`tang2018,chizzolini2017`. An alternative system supplied EsaR to lysate-encapsulated synthetic cells by pre-expressing EsaR in *E. coli* prior to lysate harvesting {cite}`ding2018`. This ensured that EsaR was present throughout the entire reaction; however, lysate-based systems often pose a challenge to further engineering due to their undefined composition.
 
-To benefit from a defined chemical composition, and to limit early unrepressed transcription, we instead pre-express EsaR in Nucleus cytosol and pre-incubate it with the reporter DNA so that operator sites are occupied before the template enters the final reaction. We test single and dual operator reporters, the latter inspired by {cite}`shong2013`, in bulk cytosol reactions, optimising reaction conditions for increased sensor dynamic range before constructing developer cells that can sense exogenously added AHSL. We hope to build upon this work by embedding the developer cells in a hydrogel matrix, increasing their stability and progressing towards a deployable device ([Bacterial Sensing in Hydrogel Embedded Synthetic Cells using LuxR Dependent Transcriptional Regulation](https://devnotes.nucleus.engineering/articles/01a1121a-7513-7ec7-8378-0326c6b3630b)).
+To benefit from a defined chemical composition, and to limit early unrepressed transcription, we instead pre-express EsaR in Nucleus cytosol and pre-incubate it with the reporter DNA so that operator sites are occupied before the template enters the final reaction. We test single and dual operator reporters, the latter inspired by {cite}`shong2013`, in bulk cytosol reactions, optimising reaction conditions for increased sensor dynamic range before constructing developer cells that can sense exogenously added AHSL. We hope to build upon this work by embedding the developer cells in a hydrogel matrix, increasing their stability and progressing towards a deployable device ([DevStudio: London Node LuxR demo](https://devnotes.nucleus.engineering/articles/01a1121a-7513-7ec7-8378-0326c6b3630b)).
 
 :::{figure} figures/EsaR-sensing.png
 :label: fig-esar-sensing
@@ -97,23 +97,23 @@ every sequence has to be added inline. No `.gb` file for any of the seven was
 located, so `devstudio-verify-dna-constructs` was not run and no
 construct-to-file identity claim is made here.
 
-**Every construct used in this DevNote is supplied and verified, except the
-control.** The three that carry the experiments are in the tree:
-`T7-EsaR(D91G)-T7term` in {ref}`seq-esar-d91g`, `T7-\[EsaO\]-mNG-T7term` in
-{ref}`seq-esao-mng` and `T7-\[EsaO\]2-mNG-t7term` in {ref}`seq-esao2-mng`.
-The three agree with each other: both reporters share one mNeonGreen coding
-sequence byte for byte, and all three operator boxes are the same 19 bp.
+**Every construct used in this DevNote is supplied and verified.** All four
+are in the tree: `T7-EsaR(D91G)-T7term` in {ref}`seq-esar-d91g`,
+`T7-\[EsaO\]-mNG-T7term` in {ref}`seq-esao-mng`, `T7-\[EsaO\]2-mNG-t7term` in
+{ref}`seq-esao2-mng` and `T7-mNG-t7term`, the unrepressed control, in
+{ref}`seq-mng`. The three mNG-bearing constructs agree with each other: they
+share one mNeonGreen coding sequence byte for byte, and both reporters'
+operator boxes are the same 19 bp.
 
 **Resolved, 2026-10-12.** The three PLA1 templates (`T7-PLA1-t7term`,
 `T7-\[EsaO\]-PLA1-T7term`, `T7-\[EsaO\]2-PLA1-t7term`) were dropped from
 {numref}`tbl-constructs` — they were prepared on 2026-09-23 but appear in no
 experiment in this DevNote, and chasing their sequences was not worth it for
-unused constructs. `T7-mNG-t7term` was dropped too, on the same reasoning:
-it is the unrepressed control on all three CN days, still has no source, and
-{numref}`tbl-constructs` now carries only the three supplied and verified
-constructs.
+unused constructs. `T7-mNG-t7term`, the unrepressed control on all three CN
+days, was added back on 2026-10-18 once its source file was supplied, so
+{numref}`tbl-constructs` now carries four supplied and verified constructs.
 
-None of the three is in `nucleus-eng/DNA`, on `main` or on
+None of the four is in `nucleus-eng/DNA`, on `main` or on
 `devcells/devstudio-constructs`. The repo carries the neighbouring
 quorum-sensing family but nothing for EsaR or EsaO. These belong in that repo,
 and once they are there the DevNote can reference them by GitHub URL and carry
@@ -128,14 +128,18 @@ this DevNote and is not reported.
 
 **No build file for 2026-10-01.** The file named `build` in that folder is a
 platemap. It holds `Well`, `Date`, `Experiment`, `Name` and `Type` and nothing
-else, so it carries no component, no concentration and no volume. No
-composition table can be produced for that day and no sidecar exists.
-{numref}`tbl-volumes-20261001` carries the log's own volume table instead, and
-that table has no stock or final concentrations in it. Supply a build file in
-the canonical format.
+else, so it carries no component, no concentration and no volume. No sidecar
+exists for this day.
 
 **Answered, review cycle v2, prompt 5, and deferred.** This will be addressed
 later. The volume table stands in the meantime.
+
+**Superseded, 2026-10-18.** A reaction composition table
+({numref}`tbl-composition-20261001`) was built by hand from the log's own
+stock concentrations and volumes, since no build file will be supplied. This
+also surfaced a transcription slip: the sensor DNA final concentration was
+stated as 0.1 nM but calculates to 0.5 nM from the logged 22 ng/µL stock,
+and has been corrected throughout.
 :::
 -->
 
@@ -153,7 +157,20 @@ date and the filename date still disagree, and that is a human call. The `Date`
 column inside all three CN platemaps also reads `2026-09-24`.
 
 **Resolved, review cycle v2, prompt 6.** Each file holds the correct
-information. The filenames are the slip, not the folders. 
+information. The filenames are the slip, not the folders.
+
+**Superseded, 2026-10-18.** For the 2026-09-26 file specifically, this call
+was wrong on one field. A retrospective, provenance-documented platemap
+(`20260926-nucleus-platemap-esao2-dna-titration-esar-spent.csv`, cross-checked
+against the instrument file and log) shows `Date` and `Experiment` were
+harmless copy-paste leftovers as this note says, but `EsaR Vol (uL)` also
+carried a stale 2026-09-24 value (2.275, that day's top EsaR dose) instead of
+the 2026-09-26 run's actual 2.0 µL (1.9802 in `+AHSL` wells). The stale file
+has been replaced with the corrected one in
+`experiments/20260926-dna-titration-esar-spent/` and in {numref}`platemap-20260926`.
+The 2026-09-25 file (`20260924-dna-titration-esar-fixed.csv`) has not been
+re-checked against a similar retrospective record and this resolution still
+stands for it.
 
  **Template residue in every `test-data/` subfolder.** All four folders hold an
 identical `20251111-122213-cytation5-pure-timecourse-gfp-MFG-98-tRNA-QC.txt`
@@ -307,9 +324,13 @@ replaced.
 
 ---
 
+# Sensor Design
+
+To quantify sensor output we chose mNeonGreen, a bright fluorescent protein commonly used to report on cell-free protein synthesis {cite}`copeland2022`. This would enable us to rapidly optimise the sensor using plate reader assays. To pre-express EsaR, we used the directed-evolution variant EsaR(D91G) {cite}`shong2013-chembio`. This variant shows substantially increased 3-oxo-C6-HSL sensitivity relative to wild-type EsaR. For the reporter constructs, we followed the design used by {cite}`chizzolini2017` in which the EsaO operator is placed directly adjacent to the T7 promoter for maximal repression. The EsaO is flanked by a leader sequence containing the epsilon enhancer sequence and a strong ribosomal binding sit. To further deepen repression, a second EsaO operator was inserted upstream of the native operator in the dual-operator construct. The two operators are separated by a single thymine. This follows the P{sub}`esa`R-C design described by {cite}`shong2013`. P{sub}`esa`R-C showed tighter repression and greater derepression than the native promoter when tested in *E. coli*. We were interested to see whether this same behaviour would translate to Nucleus cytosol reactions.
+
 # DNA Constructs
 
-Three linear DNA templates were used throughout this work: the EsaR(D91G) template used to pre-express EsaR, and two EsaO-mNG reporter constructs carrying either a single or a dual EsaO operator. Linear templates were amplified using PCR and cleaned-up prior to their addition into cytosol reactions.
+Four linear DNA templates were used throughout this work: the EsaR(D91G) template used to pre-express EsaR, two EsaO-mNG reporter constructs carrying either single or dual EsaO operator boxes, and an unrepressed mNG control. Linear templates were amplified from g-blocks using PCR and cleaned-up prior to their addition into cytosol reactions.
 
 :::{table}  DNA constructs used throughout this work. Sequences with annotations are listed in the below viewers.
 :label: tbl-constructs
@@ -320,6 +341,7 @@ Three linear DNA templates were used throughout this work: the EsaR(D91G) templa
 | T7-\[EsaO\]-mNG-T7term | [`dna/t7pro-esao-ls1-mneongreen.gbk`](./dna/t7pro-esao-ls1-mneongreen.gbk) | EsaR-dependent expression of mNG in cytosol |
 | T7-\[EsaO\]2-mNG-t7term | [`dna/t7pro-esao2-ls1-mneongreen.gbk`](./dna/t7pro-esao2-ls1-mneongreen.gbk) | EsaR-dependent expression of mNG in cytosol |
 | T7-EsaR(D91G)-T7term | [`dna/t7pro-ls1-esard91g.gbk`](./dna/t7pro-ls1-esard91g.gbk) | Expression of EsaR in cytosol |
+| T7-mNG-t7term | [`dna/t7pro-ls1-mneongreen.gbk`](./dna/t7pro-ls1-mneongreen.gbk) | Unrepressed mNG control, independent of AHSL (5 µM) |
 :::
 
 :::::{tab-set}
@@ -330,7 +352,8 @@ Three linear DNA templates were used throughout this work: the EsaR(D91G) templa
 **Name:** T7-\[EsaO\]2-mNG-t7term  
 **Source file:** [`dna/t7pro-esao2-ls1-mneongreen.gbk`](./dna/t7pro-esao2-ls1-mneongreen.gbk)  
 **Length:** 1118 bp  
-**Annotations:** 5' spacer, M13_Fwd, T7pro, +1, EsaO, EsaO, LS1, mNeonGreen, T7 terminator, M13_Rev, 3' spacer
+**Annotations:** 5' spacer, M13_Fwd, T7pro, +1, EsaO, EsaO, LS1, mNeonGreen, T7 terminator, M13_Rev, 3' spacer  
+**References:** {cite}`shong2013`, {cite}`chizzolini2017`, {cite}`copeland2022`
 
 <!--Its mNeonGreen coding sequence is byte-identical to the one in
 {ref}`seq-esao-mng`, so the two reporters differ only in the operator region.-->
@@ -349,7 +372,8 @@ read `CCTGTACTATAGTGCAGGT`. One `T` separates them, at position 81.
 **Name:** T7-\[EsaO\]-mNG-T7term  
 **Source file:** [`dna/t7pro-esao-ls1-mneongreen.gbk`](./dna/t7pro-esao-ls1-mneongreen.gbk)  
 **Length:** 1098 bp  
-**Annotations:** 5' spacer, M13_Fwd, T7pro, +1, EsaO, Leader sequence 1, mNeonGreen, T7 terminator, M13_Rev, 3' spacer
+**Annotations:** 5' spacer, M13_Fwd, T7pro, +1, EsaO, Leader sequence 1, mNeonGreen, T7 terminator, M13_Rev, 3' spacer  
+**References:** {cite}`chizzolini2017`, {cite}`copeland2022`
 
 The file carries exactly one `EsaO` feature, 19 bp at 62..80, which is what
 makes this the single-operator construct. It sits between the +1 transcription
@@ -366,9 +390,24 @@ start and the leader sequence.
 **Name:** T7-EsaR(D91G)-T7term  
 **Source file:** [`dna/t7pro-ls1-esard91g.gbk`](./dna/t7pro-ls1-esard91g.gbk)  
 **Length:** 1118 bp  
-**Annotations:** 5' spacer, M13_Fwd, T7pro, +1, LS1, EsaR, T7 terminator, M13_Rev, 3' spacer
+**Annotations:** 5' spacer, M13_Fwd, T7pro, +1, LS1, EsaR, T7 terminator, M13_Rev, 3' spacer  
+**References:** {cite}`shong2013-chembio`
 
 :::{seqviz} ./dna/t7pro-ls1-esard91g.gbk
+:viewer: linear
+:::
+::::
+
+::::{tab-item} mNG (constitutive control)
+
+(seq-mng)=
+**Name:** T7-mNG-t7term  
+**Source file:** [`dna/t7pro-ls1-mneongreen.gbk`](./dna/t7pro-ls1-mneongreen.gbk)  
+**Length:** 1079 bp  
+**Annotations:** 5' spacer, M13_Fwd, T7pro, +1, LS1, mNeonGreen, T7 terminator, M13_Rev, 3' spacer  
+**References:** {cite}`copeland2022`
+
+:::{seqviz} ./dna/t7pro-ls1-mneongreen.gbk
 :viewer: linear
 :::
 ::::
@@ -377,35 +416,35 @@ start and the leader sequence.
 
 <!-- RESOLVED 2026-10-12: the three PLA1 templates were dropped from
 tbl-constructs, since they were prepared on 2026-09-23 but never used in any
-experiment in this DevNote. T7-mNG is the one remaining template that does not
-appear in any composition table — it is used as the unrepressed control in
-the three CN experiments but still has no sequence. -->
+experiment in this DevNote. T7-mNG-t7term, the unrepressed control used across
+the CN experiments, was added to tbl-constructs on 2026-10-18 once its source
+file (`dna/t7pro-ls1-mneongreen.gbk`) was supplied. -->
 
 ---
 
 # Results
 
 
-## At 12nM, T7-EsaO-mNG DNA is not repressed by cell-free expressed EsaR
+## EsaR titration fails to repress EsaO-mNG at 12 nM DNA
 
-To determine the ratio of pre-expressed EsaR repressor to sensor construct that gives a well-defined ‘on’/’off’ state, we titrated increasing amounts of pre-expressed EsaR protein into nucleus–cytosol reactions containing one of two esa-mNeonGreen reporter constructs, carrying either one or two esa box operators. The reporter construct was held at 12.2 nM (10 ng/µL) in all reactions.
+To determine the ratio of pre-expressed EsaR repressor to sensor construct that gives a well-defined ‘on’/’off’ state, we titrated increasing amounts of pre-expressed EsaR protein into Nucleus cytosol reactions containing single-operator EsaO-mNG or dual-operator [EsaO]2-mNG reporter DNA. The reporter construct was held at 12.2 nM (10 ng/µL) in all reactions. Each reaction was split, with AHSL added to one half to a final concentration of 5 µM.
 
-No difference between the ‘on’ and ‘off’ states was observed under those conditions. This suggests either that the pre-expressed EsaR was non-functional, or that the reporter construct remained in excess even at the highest EsaR-to-DNA ratio tested.
+No difference between the ‘on’ and ‘off’ states was observed at any EsaR volume tested ({numref}`fig-20260924-esao-titration`). Note that 7 µL is the highest achievable amount of EsaR that could be added without affecting the stoichiometry of Nucleus cytosol. This suggests either that the pre-expressed EsaR was non-functional, or that the reporter construct remained in excess even at the highest EsaR-to-DNA ratio tested.
 
 :::{figure} #fig-20260924-esao
 :label: fig-20260924-esao-titration
 :align: center
 :width: 75%
-Single-operator EsaO-mNG and dual-operator [EsaO]2-mNG with 0, 1, 4 and 7 µL pre-expressed EsaR, minus and plus AHSL. Reaction composition is in {numref}`tbl-composition-20260924`.
+Single-operator EsaO-mNG and dual-operator [EsaO]2-mNG with 0 and 7 µL pre-expressed EsaR, minus and plus 5 µM AHSL (n = 3 replicate wells; shaded region shows standard deviation). Reaction composition is in {numref}`tbl-composition-20260924`.
 :::
 
-<!-- [`fig-20260924-esao-titration`, notebook:`CN-20260924_repressor_test/platereader.ipynb`, platemap:`build - 20260924_Platemap.csv`, data source:`20260924-151252-cytation5-pure-timecourse-gfp-repressor_test.txt`, caption: (Single-operator EsaO-mNG and dual-operator [EsaO]2-mNG with 0, 1, 4 and 7 µL pre-expressed EsaR, minus and plus AHSL.)] -->
+<!-- [`fig-20260924-esao-titration`, notebook:`CN-20260924_repressor_test/platereader.ipynb`, platemap:`build - 20260924_Platemap.csv`, data source:`20260924-151252-cytation5-pure-timecourse-gfp-repressor_test.txt`, caption: (Single-operator EsaO-mNG and dual-operator [EsaO]2-mNG with 0 and 7 µL pre-expressed EsaR, minus and plus 5 µM AHSL.)] -->
 
-## Lower concentrations of T7-EsaO-mNG DNA activates repression
+## Repression scales with the EsaR : reporter DNA ratio
 
-To test whether the EsaO-mNG DNA templates had previously been in excess, we titrated the reporter construct concentration while holding pre-expressed EsaR at the highest achievable concentration in each reaction. Repression was lost above 1 nM DNA, whereas 0.5 nM and 0.1 nM gave fold-changes in reporter fluorescence of approximately 2 and 1.5 respectively.
+To test whether the EsaO-mNG DNA templates had previously been in excess, we titrated the reporter construct concentration while holding pre-expressed EsaR at the highest achievable concentration of 7 µL in each reaction. Repression was lost above 1 nM DNA. At 0.1 nM and 0.5 nM, the single-operator construct gave fold-changes of approximately 1.5 and 1 respectively, while the dual-operator construct gave approximately 2 and 1.6 (Figure {numref}`%s <fig-20260925-0p1nm>`–{numref}`%s <fig-20260925-fold>`). At both concentrations, the dual-operator [EsaO]2-mNG construct showed higher fold-induction than the single-operator EsaO-mNG, consistent with the tighter repression expected from the additional EsaO operator. This suggests that the repressor behaviour exhibited *in vivo* translates to PURE systems such as Nucleus cytosol.
 
-Even at roughly ten-fold lower DNA concentrations, these reactions achieved fluorescence yields comparable to the constitutively expressed control. We hypothesise this is because the pre-expressed EsaR preparation carries over unspent energy components as well as transcription and translation factors, so each addition of repressor also supplies additional capacity to the reaction.
+Additionally, we noticed that the mNG control present at 15.6 nM was matched or exceeded in fluorescence signal by reporter DNA constructs at 0.5 nM and upwards ({numref}`%s <fig-20260925-0p5nm>`–{numref}`%s <fig-20260925-3nm>`). This was surprising as the reporter DNA was 5- to 30-fold lower in concentration. We hypothesise this may be due to the pre-expressed EsaR preparation carrying over unspent energy components as well as transcription and translation factors that may supply additional capacity to the reaction. 
 
 
 :::::{tab-set}
@@ -415,10 +454,10 @@ Even at roughly ten-fold lower DNA concentrations, these reactions achieved fluo
 :label: fig-20260925-0p1nm
 :align: center
 :width: 75%
-0.1 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator. Reaction composition is in {numref}`tbl-composition-20260925`.
+0.1 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator, alongside the mNG control (15.63 nM) (n = 3; shaded region shows standard deviation). Reaction composition is in {numref}`tbl-composition-20260925`.
 :::
 
-<!-- [`fig-20260925-0p1nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (0.1 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator.)] -->
+<!-- [`fig-20260925-0p1nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (0.1 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator, alongside the mNG control (15.63 nM), n = 3, shaded region shows standard deviation.)] -->
 ::::
 
 ::::{tab-item} 0.5 nM DNA
@@ -426,10 +465,10 @@ Even at roughly ten-fold lower DNA concentrations, these reactions achieved fluo
 :label: fig-20260925-0p5nm
 :align: center
 :width: 75%
-0.5 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator. Replicate wells are drawn individually rather than as a mean. Reaction composition is in {numref}`tbl-composition-20260925`.
+0.5 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator, alongside the mNG control (15.63 nM). Replicate wells are drawn individually rather than as a mean. Reaction composition is in {numref}`tbl-composition-20260925`.
 :::
 
-<!-- [`fig-20260925-0p5nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (0.5 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator.)] -->
+<!-- [`fig-20260925-0p5nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (0.5 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator, alongside the mNG control (15.63 nM). Replicate wells are drawn individually rather than as a mean.)] -->
 ::::
 
 ::::{tab-item} 1 nM DNA
@@ -437,10 +476,10 @@ Even at roughly ten-fold lower DNA concentrations, these reactions achieved fluo
 :label: fig-20260925-1nm
 :align: center
 :width: 75%
-1 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator. Reaction composition is in {numref}`tbl-composition-20260925`.
+1 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator, alongside the mNG control (15.63 nM) (n = 3; shaded region shows standard deviation). Reaction composition is in {numref}`tbl-composition-20260925`.
 :::
 
-<!-- [`fig-20260925-1nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (1 nM sensor DNA, single operator against dual operator.)] -->
+<!-- [`fig-20260925-1nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (1 nM sensor DNA, single operator against dual operator, alongside the mNG control (15.63 nM), n = 3, shaded region shows standard deviation.)] -->
 ::::
 
 ::::{tab-item} 3 nM DNA
@@ -448,10 +487,10 @@ Even at roughly ten-fold lower DNA concentrations, these reactions achieved fluo
 :label: fig-20260925-3nm
 :align: center
 :width: 75%
-3 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator. Reaction composition is in {numref}`tbl-composition-20260925`.
+3 nM sensor DNA at 7 µL pre-expressed EsaR and 5 µM AHSL, single operator against dual operator, alongside the mNG control (15.63 nM) (n = 3; shaded region shows standard deviation). Reaction composition is in {numref}`tbl-composition-20260925`.
 :::
 
-<!-- [`fig-20260925-3nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (3 nM sensor DNA, single operator against dual operator.)] -->
+<!-- [`fig-20260925-3nm`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (3 nM sensor DNA, single operator against dual operator, alongside the mNG control (15.63 nM), n = 3, shaded region shows standard deviation.)] -->
 ::::
 
 ::::{tab-item} Fold induction
@@ -459,10 +498,10 @@ Even at roughly ten-fold lower DNA concentrations, these reactions achieved fluo
 :label: fig-20260925-fold
 :align: center
 :width: 75%
-Steady-state AHSL fold induction, plus AHSL over minus AHSL, shown as separate panels for EsaO-mNG and [EsaO]2-mNG across 0.1, 0.5, 1 and 3 nM sensor DNA.
+Steady-state AHSL fold induction (+AHSL / −AHSL) for EsaO-mNG and [EsaO]2-mNG at 0.1, 0.5, 1 and 3 nM sensor DNA (n = 3; n = 2 at 0.5 nM after excluding one low-outlier +AHSL well per construct; error bars show standard deviation).
 :::
 
-<!-- [`fig-20260925-fold`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (Steady-state AHSL fold induction, separate panels for EsaO-mNG and [EsaO]2-mNG, at 0.1, 0.5, 1 and 3 nM sensor DNA.)] -->
+<!-- [`fig-20260925-fold`, notebook:`CN-20260925-DNA_titration/platereader.ipynb`, platemap:`20260924-dna-titration-esar-fixed.csv`, data source:`20260925-153022-synergy2-pure-timecourse-gfp-DNA_titration.txt`, caption: (Steady-state AHSL fold induction (+AHSL / −AHSL) for EsaO-mNG and [EsaO]2-mNG at 0.1, 0.5, 1 and 3 nM sensor DNA, n = 3, n = 2 at 0.5 nM after excluding one low-outlier +AHSL well per construct, error bars show standard deviation.)] -->
 ::::
 
 :::::
@@ -502,9 +541,11 @@ cell outputs, because none of those cells carries a `#| label:` tag. -->
 :::
 -->
 
-## Overnight pre-expression of EsaR reduces overall yield whilst maintaining sensor dynamic range
+## Prolonged EsaR pre-expression doesn't improve repression but reduces yield
 
-To test whether the yield increase depends on unspent energy components carried over from the EsaR pre-expression reaction, we pre-expressed EsaR at 30 °C for 17 h rather than 37 °C for 3 h before adding it to fresh nucleus–cytosol reactions containing sensor DNA. EsaR volumes added to each reaction were kept consistent with previous experiments, and sensor DNA was limited to 0.1 nM, 0.5 nM and 1 nM. Relative to the previous experiment, the fold-change between ‘on’ and ‘off’ states remained consistent at each DNA concentration, while overall fluorescent yield across all conditions decreased.  We hypothesise that byproducts accumulating during the extended pre-expression such as inorganic phosphate affect the subsequent reactions and lowered overall yield.
+To test whether pre-expressing EsaR for longer increases the amount of repressor available and improves repression, we pre-expressed EsaR at 30 °C for 17 hrs instead of 37 °C for 3 hrs. EsaR volumes added to Nucleus cytosol reactions containing sensor DNA matched the previous experiment, and sensor DNA was limited to 0.1 nM, 0.5 nM and 1 nM. Data was compared to previous experiments in which EsaR was pre-expressed at 37 ˚C for 3 hrs. To ensure an accurate comparison, all data was first normalized to an internal 0.5 µM fluorescein control, before a second normalization step to a constitutive [EsaO]2-mNG without EsaR. This accounted for any batch-to-batch variations in Nucleus cytosol yields.
+
+The fold-change between ‘on’ and ‘off’ states remained consistent at each DNA concentration ({numref}`fig-20260926-fold`), so extending pre-expression didn't improve repression. We did notice, however, that overall fluorescent yield decreased across all conditions when EsaR was pre-expressed at 30 ˚C for 17 hrs ({numref}`fig-20260926-endpoint`). We hypothesise that byproducts accumulating during the extended pre-expression, such as inorganic phosphate, may lower the yield of the subsequent reaction. Subsequent experiments maintained the pre-expression at 37 ˚C for 3 hrs; however, it is possible that a pre-expression period between 3–17 hrs is more optimal. Despite this, we don't expect the gains to be substantial as Nucleus cytosol reactions typically reach their steady-state by 3 hrs.
 
 <!-- RESOLVED 2026-10-11: the author added fluorescein-normalized panels and a
 fold-change plot, answering both asks below. {numref}`fig-20260926-normalized`
@@ -524,10 +565,10 @@ titration**. -->
 :label: fig-20260926-normalized
 :align: center
 :width: 100%
-Normalized fluorescence (fluorescein-calibrated, batch-corrected to the mNG constitutive control) for dual-operator [EsaO]2-mNG across the spent EsaR reaction, comparing EsaR pre-expressed for 3 hrs at 37 ˚C against 17 hrs at 30 ˚C. The mNG control is used only for the batch correction and is not plotted. Reaction composition is in {numref}`tbl-composition-20260926`.
+Time-course fluorescence for dual-operator [EsaO]2-mNG, comparing EsaR pre-expressed for 3 hours at 37 °C against 17 hours at 30 °C. Fluorescence is calibrated to fluorescein and batch-corrected to the mNG control. Sensor DNA was tested at 0.1, 0.5 and 1 nM, with and without 5 µM AHSL. The mNG control is used only for the batch correction and is not plotted. Shaded regions show standard deviation across three replicate wells. Reaction composition is in {numref}`tbl-composition-20260926`.
 :::
 
-<!-- [`fig-20260926-normalized`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260924-esao2-dna-titration.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (Normalized, batch-corrected fluorescence for dual-operator [EsaO]2-mNG, EsaR pre-expressed 3 hrs at 37C versus 17 hrs at 30C.)] -->
+<!-- [`fig-20260926-normalized`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260926-nucleus-platemap-esao2-dna-titration-esar-spent.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (Time-course fluorescence for dual-operator [EsaO]2-mNG, EsaR pre-expressed 3 hours at 37C versus 17 hours at 30C, calibrated to fluorescein and batch-corrected to the mNG control, sensor DNA at 0.1, 0.5 and 1 nM with and without 5 µM AHSL, shaded regions show standard deviation across three replicate wells.)] -->
 ::::
 
 ::::{tab-item} Fold change (- AHSL / + AHSL)
@@ -535,10 +576,10 @@ Normalized fluorescence (fluorescein-calibrated, batch-corrected to the mNG cons
 :label: fig-20260926-fold
 :align: center
 :width: 55%
-Steady-state AHSL fold induction for [EsaO]2-mNG, comparing EsaR pre-expressed for 17 hrs at 30 ˚C against 3 hrs at 37 ˚C, across 0.1, 0.5 and 1 nM sensor DNA.
+Fold-induction for [EsaO]2-mNG, comparing EsaR pre-expressed for 17 hours at 30 °C against 3 hours at 37 °C. Fluorescence is calibrated to 0.5 µM fluorescein. Sensor DNA was tested at 0.1, 0.5 and 1 nM. Error bars show standard deviation across three replicate wells, except at 1 nM for the 30 °C preparation and 0.5 nM for the 37 °C preparation. At each of these two conditions, one low-outlier +AHSL well was excluded, leaving two replicates.
 :::
 
-<!-- [`fig-20260926-fold`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260924-esao2-dna-titration.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (Steady-state AHSL fold induction for [EsaO]2-mNG, 17 hrs at 30C versus 3 hrs at 37C.)] -->
+<!-- [`fig-20260926-fold`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260926-nucleus-platemap-esao2-dna-titration-esar-spent.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (Fold-induction for [EsaO]2-mNG, EsaR pre-expressed 17 hours at 30C versus 3 hours at 37C, calibrated to 0.5 µM fluorescein, sensor DNA at 0.1, 0.5 and 1 nM, n = 3 except n = 2 at 1 nM (30C) and 0.5 nM (37C) after excluding one low-outlier +AHSL well at each, error bars show standard deviation.)] -->
 ::::
 
 ::::{tab-item} End-point
@@ -546,17 +587,19 @@ Steady-state AHSL fold induction for [EsaO]2-mNG, comparing EsaR pre-expressed f
 :label: fig-20260926-endpoint
 :align: center
 :width: 55%
-End-point fluorescence (batch-corrected to the mNG control) for [EsaO]2-mNG, comparing EsaR pre-expressed for 17 hrs at 30 ˚C against 3 hrs at 37 ˚C, across 0.1, 0.5 and 1 nM sensor DNA.
+End-point fluorescence for [EsaO]2-mNG, comparing EsaR pre-expressed for 17 hours at 30 °C against 3 hours at 37 °C. Fluorescence is calibrated to fluorescein and batch-corrected to the mNG control. Sensor DNA was tested at 0.1, 0.5 and 1 nM. Error bars show standard deviation across three replicate wells, except at 1 nM for the 30 °C preparation and 0.5 nM for the 37 °C preparation. At each of these two conditions, the same low-outlier +AHSL well excluded in {numref}`fig-20260926-fold` was excluded here too, leaving two replicates.
 :::
 
-<!-- [`fig-20260926-endpoint`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260924-esao2-dna-titration.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (End-point fluorescence, batch-corrected to mNG control, for [EsaO]2-mNG, 17 hrs at 30C versus 3 hrs at 37C.)] -->
+<!-- [`fig-20260926-endpoint`, notebook:`CN-20260926-DNA_titration_spent_EsaR/platereader.ipynb`, platemap:`20260926-nucleus-platemap-esao2-dna-titration-esar-spent.csv`, data source:`20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt`, caption: (End-point fluorescence for [EsaO]2-mNG, EsaR pre-expressed 17 hours at 30C versus 3 hours at 37C, calibrated to fluorescein and batch-corrected to mNG control, sensor DNA at 0.1, 0.5 and 1 nM, n = 3 except n = 2 at 1 nM (30C) and 0.5 nM (37C) after excluding the same low-outlier +AHSL well as the fold-induction figure, error bars show standard deviation.)] -->
 ::::
 
 :::::
 
-## Magnesium addition doesn't affect dynamic range but increased pre-incubation does
+## Magnesium doesn't improve dynamic range but longer pre-incubation does
 
-The incubation of sensor DNA and EsaR  was supplemented with 0 mM, 5 mM, 10 mM or 20 mM magnesium before addition to the cell-free reaction, on the expectation that magnesium would improve EsaR–DNA binding and strengthen repression. Sensor DNA was incubated with EsaR for 1 h at 37 °C before addition to each reaction, rather than the 15 min used previously. Magnesium did not alter the dynamic range at any concentration tested, and 20 mM markedly reduced overall yield. The extended pre-incubation did improve the switch: the fluorescent fold-change rose to approximately five across all DNA concentrations, compared with around two previously.
+With the assumption that additional Mg²⁺ could improve EsaR–DNA binding, we next tested whether supplementing the EsaR–DNA pre-incubation with magnesium could strengthen repression. Sensor DNA and EsaR were pre-incubated together with 0, 5, 10 or 20 mM additional Mg²⁺. Contrary to previous experiments, incubation time was increased from 15 minutes to 1 hour at 37 °C. Pre-incubations were then added to the final cytosol reaction.
+
+Magnesium did not alter the dynamic range at any concentration tested ({numref}`fig-20261001-mg-sweep`), and 20 mM markedly reduced overall yield. The longer pre-incubation, however, improved the switch from two-fold induction with the standard 15-minute pre-incubation to approximately three-fold across all conditions tested, with individual replicates reaching as high as four-fold ({numref}`fig-20261001-mg-sweep-fold`).
 <!-- Results narrative supplied by the reviewer in review cycle v2, prompt 22,
 and carried verbatim. The source log carries no results narrative. -->
 
@@ -567,10 +610,10 @@ and carried verbatim. The source log carries no results narrative. -->
 :label: fig-20261001-mg-sweep
 :align: center
 :width: 100%
-Added magnesium at 0, 5 and 10 mM, each minus and plus 5 µM AHSL, after pre-incubating EsaR with the DNA. Reaction volumes are in {numref}`tbl-volumes-20261001`.
+Time-course fluorescence for [EsaO]2-mNG, with 0, 5 or 10 mM additional magnesium added during the EsaR–DNA pre-incubation. Reactions were prepared with and without 5 µM AHSL (n = 2). Reaction composition is in {numref}`tbl-composition-20261001`.
 :::
 
-<!-- [`fig-20261001-mg-sweep`, notebook:`2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb`, platemap:`20261001-mg-sweep-platemap.csv`, data source:`20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`, caption: (Added magnesium at 0, 5 and 10 mM, minus and plus 5 µM AHSL.)] -->
+<!-- [`fig-20261001-mg-sweep`, notebook:`2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb`, platemap:`20261001-mg-sweep-platemap.csv`, data source:`20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`, caption: (Time-course fluorescence for [EsaO]2-mNG, 0, 5 or 10 mM additional magnesium during the EsaR-DNA pre-incubation, with and without 5 µM AHSL, n = 2.)] -->
 ::::
 
 ::::{tab-item} Fold change
@@ -578,10 +621,10 @@ Added magnesium at 0, 5 and 10 mM, each minus and plus 5 µM AHSL, after pre-inc
 :label: fig-20261001-mg-sweep-fold
 :align: center
 :width: 55%
-Steady-state AHSL fold induction (+AHSL / −AHSL) at 0, 5 and 10 mM magnesium, per-well, after pre-incubating EsaR with the DNA.
+Fold-induction for [EsaO]2-mNG at 0, 5 and 10 mM magnesium, after pre-incubating EsaR with the DNA for 1 hour at 37 °C. Error bars show standard deviation across two replicate wells.
 :::
 
-<!-- [`fig-20261001-mg-sweep-fold`, notebook:`2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb`, platemap:`20261001-mg-sweep-platemap.csv`, data source:`20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`, caption: (Steady-state AHSL fold induction at 0, 5 and 10 mM magnesium.)] -->
+<!-- [`fig-20261001-mg-sweep-fold`, notebook:`2026-10-01-MB-MgSweep/20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.ipynb`, platemap:`20261001-mg-sweep-platemap.csv`, data source:`20261001-181311-cytation5-pure-timecourse-gfp-JM-MB-Mg-Osmo-Sweep.txt`, caption: (Fold-induction for [EsaO]2-mNG at 0, 5 and 10 mM magnesium, EsaR pre-incubated with DNA for 1 hour at 37C, error bars show standard deviation across two replicate wells.)] -->
 ::::
 
 :::::
@@ -604,20 +647,18 @@ narrative above.
 
 ## EsaR DNA template competition improves sensor dynamic range but reduces yield
 
-To raise the final EsaR concentration, additional EsaR template was added to the sensor reaction, so that EsaR continued to be expressed alongside the reporter. Previously, EsaR was present only as carryover from the pre-expression step; here, pre-expressed repressor provides immediate operator occupancy while the added template sustains EsaR production during the reaction.
+Thus far, any EsaR template present in the final cytosol reaction was carryover from the initial EsaR pre-expression. This gave a final concentration of ~3.4 nM, a 34-fold excess over the 0.1 nM reporter template. To further deepen the 'off' state, 5.3 nM EsaR template was added by diluting the reporter DNA stock in EsaR template rather than water. This brought the total EsaR template in the final reaction to 8.7 nM, an 87-fold excess over reporter. This served two purposes. It increased the overall amount of EsaR available to repress the reporter, and it continuously diverted Nucleus cytosol resources away from reporter production.
 
-Adding pre-expressed EsaR also carries over EsaR template, giving a nominal final concentration of 3.4 nM, a 34-fold excess over the 0.1 nM reporter template. To deepen the ‘off’ state further, 5.3 nM EsaR template was added by diluting the reporter DNA stock in EsaR PCR template rather than water, bringing the total EsaR template in the reaction to 8.7 nM, an 87-fold excess over reporter.
-
-Expressing additional EsaR limited overall fluorescence yield, as resources were diverted away from reporter production. This came with an improved dynamic range: the fold-change between ‘on’ and ‘off’ states almost doubled, reflecting a deeper ‘off’ state.
+As expected, expressing additional EsaR reduced overall fluorescence yield roughly four-fold ({numref}`fig-20261007-normalized`). This came with an improved dynamic range, rising from 2.8 without added EsaR template to a reliable 4-fold change with it ({numref}`fig-20261007-fold`).
 
 :::::{tab-set}
 
-::::{tab-item} Normalized curves
+::::{tab-item} Timecourse
 :::{figure} #mbcn-20261007-fig1
 :label: fig-20261007-normalized
 :align: center
 :width: 100%
-Time-course RFU for EsaO-mNG at 0.1 nM, minus and plus 8 nM pre-expressed EsaR, each minus and plus AHSL.
+Time-course fluorescence for EsaO-mNG at 0.1 nM, with and without 8.7 nM added EsaR DNA template, each with and without AHSL (n = 3). Fluorescence is raw RFU.
 :::
 ::::
 
@@ -626,19 +667,15 @@ Time-course RFU for EsaO-mNG at 0.1 nM, minus and plus 8 nM pre-expressed EsaR, 
 :label: fig-20261007-fold
 :align: center
 :width: 65%
-Steady-state AHSL fold induction (+AHSL / −AHSL) per well, with and without the added EsaR DNA template (8 nM).
+Fold-induction for EsaO-mNG at 0.1 nM, with and without 8.7 nM added EsaR DNA template (n = 3). Error bars show standard deviation.
 :::
 ::::
 
 :::::
 
-<!-- [`fig-20261007-normalized`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Time-course RFU for EsaO-mNG at 0.1 nM, minus and plus 8 nM pre-expressed EsaR, each minus and plus AHSL.)] -->
+<!-- [`fig-20261007-normalized`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Time-course fluorescence for EsaO-mNG at 0.1 nM, with and without 8.7 nM added EsaR DNA template, with and without AHSL, n = 3, raw RFU.)] -->
 
-<!-- [`fig-20261007-fold`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Steady-state AHSL fold induction per well, with and without the added EsaR DNA template.)] -->
-
-25C reactions were incubated in a thermocycler giving a 5.8 fold change as the
-strongest sensor after over night incubation ({numref}`fig-20261008-overnight`:
-19 800 / 3 400 ≈ 5.8, checked against the figure's own bars, below).
+<!-- [`fig-20261007-fold`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Fold-induction for EsaO-mNG at 0.1 nM, with and without 8.7 nM added EsaR DNA template, n = 3, error bars show standard deviation.)] -->
 
 <!--
 :::{admonition} Open items on 2026-10-07
@@ -676,34 +713,44 @@ final reaction, which is the same distinction review cycle v2 settled for the
 magnesium basis on 2026-10-01. Or one of the two numbers is wrong. Not
 resolved here.
 
+**Resolved, 2026-10-18.** Both numbers are correct and describe different
+conditions, not different stages. 3.4 nM is the carryover-only baseline (no
+added EsaR template); 8.7 nM (rounded to 8 nM in the platemap and figure
+legends) is that same carryover plus the 5.3 nM EsaR template added to deepen
+the 'off' state. The body text above now states both figures explicitly.
+
 **One plot title in the notebook names the wrong construct.** Cell 18's title
 reads "0.1 nM [Esao]2-mNG DNA titration", but the cell selects data named
 `EsaO-mNG (0.1 nM)`, the single-operator construct, not `[EsaO]2-mNG`. The
 plotted data and the platemap agree with each other; only the title text is
 wrong.
+
+**Resolved, 2026-10-18.** The producing cell for {numref}`fig-20261007-normalized`
+(`mbcn-20261007-fig1`) now reads "EsaO-mNG" in both panel titles, matching the
+single-operator construct actually plotted.
 :::
 -->
 
 ## Lower reaction temperatures increase sensor dynamic range
 
-Cell-free reactions were run at the ratios established above, with sensor DNA at 0.1 nM and EsaR template at 3.4 nM. Reactions were incubated at 25 °C rather than 37 °C, on the reasoning that a lower temperature would both strengthen EsaR–DNA binding and slow T7 kinetics, limiting reporter expression from templates that were insufficiently repressed. Reactions were incubated overnight in a thermocycler and read on a plate reader the following day, giving an increased fold-change of ~ 5.8.
+To test whether lower reaction temperatures could both stabilise EsaR-DNA binding, and slow T7 kinetics to limit EsaR being knocked-off reporter templates, reactions were incubated at 25 ˚C overnight rather than 37 ˚C for 3 hrs. Ideally, this would reduce reporter expression from templates that were insufficiently repressed. 
+
+Reactions were incubated overnight in a thermocycler and measured on a platereader the following day. The highest fold change across all experiments was recorded at ~ 5.8. This suggests that temperature plays an important role in repression within the system. Timecourse reactions should be recorded in future to understand this in more detail.
 
 :::{figure} #mbcn-20261008-fig1
 :label: fig-20261008-overnight
 :align: center
 :width: 55%
-Background-corrected GFP fluorescence for 0.1 nM [EsaO]2-mNG DNA, minus and plus 5 µM AHSL, after overnight incubation at 25 ˚C.
+Background-corrected GFP fluorescence for 0.1 nM [EsaO]2-mNG DNA after overnight incubation at 25 °C. Reactions were run with and without 5 µM AHSL.
 :::
 
-<!-- [`fig-20261008-overnight`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Background-corrected GFP fluorescence for 0.1 nM [EsaO]2-mNG DNA, minus and plus 5 µM AHSL, after overnight incubation at 25 ˚C.)] -->
+<!-- [`fig-20261008-overnight`, notebook:`CN-MB-20261007-EsaR_template_competition/platereader.ipynb`, platemap:`20261008-esao-mng-esar-ahsl.csv`, data source:`20261007-170653-YH Cytosol comparison_CH.txt`, caption: (Background-corrected GFP fluorescence for 0.1 nM [EsaO]2-mNG DNA after overnight incubation at 25 °C. Reactions were run with and without 5 µM AHSL.)] -->
 
-## GUVs encapsulating [EsaO]2-mNG sense AHSL in solution
+## Developer cells encapsulating sensor DNA detect AHSL in solution
 
-Images show the final timepoint of a six-hour incubation at 37 ˚C, processed
-in Python with matplotlib using a consistent vmin/vmax across all wells. GUVs
-in the +AHSL conditions are markedly brighter than the -AHSL conditions,
-demonstrating that GUV-encapsulated [EsaO]2-mNG senses AHSL in solution and
-derepresses mNG production.
+To take a step towards producing a functional developer cell that can sense bacteria through the detection of secreted AHSL, GUVs were prepared encapsulating Nucleus cytosol, 5 nM EsaR template, and 0.1 nM sensor DNA. Note the EsaR template was present at a final concentration of 5 nM by increasing the EsaR template in the pre-expression reaction to 24 nM. This method of preparation had not previously been tested in bulk Nucleus cytosol; that characterisation will be done in future. GUVs samples were split, with 5 µM AHSL added to one half. Samples were loaded in a 384-well plate and imaged for 6 hrs at 37˚C. 
+
+Images show the final timepoint for all conditions collected on a Cephla microscope. Each image was processed in Python using matplotlib applying a consistent vmin/vmax across all wells. GUVs in the + AHSL conditions are markedly brighter than the - AHSL conditions, demonstrating that GUV-encapsulated sensor DNA detects AHSL in solution and derepresses mNG production.
 
 :::{figure} #microscopy-exp-01
 :label: fig-20261009-guv-ahsl
@@ -742,30 +789,18 @@ cell-label year typo.
   5' UTR sequence and codon optimise to maximise the amount of protein
   produced.
 - Assess whether it is possible to increase repression further by adding a
-  third EsaO box. Furthermore, search the literature / perform random
-  mutagenesis to determine whether EsaO mutations can promote increased
-  EsaR binding.
+  third EsaO box. 
+- Furthermore, search the literature / perform random mutagenesis to determine
+  whether EsaO mutations can promote increased EsaR binding.
 - Purchase / recombinantly purify EsaR protein. Add purified EsaR to cytosol
-  reactions containing [EsaO]2-mNG in >100x excess in an attempt to achieve
+  reactions containing sensor DNA in >100x excess in an attempt to achieve
   maximal gene repression. Test in bulk reactions first and then in GUVs.
-- Once optimised, test [EsaO]2-PLA1 in the colour change module to confirm a
+- Once optimised, test sensor DNA in the colour change module to confirm a
   visible colour change upon GUVs sensing AHSL.
 
 ---
 
 # Methods
-
-Reactions across the EsaR titration, sensor DNA titration, and overnight EsaR
-pre-expression experiments below shared a common assembly: a mastermix of
-Nucleus cytosol was prepared without DNA or water, per that experiment's own
-reaction composition table. Pre-expressed EsaR(D91G) was mixed with the DNA
-construct(s) and incubated at 37 ˚C for 15 min — this incubation step was
-lengthened to 1 h starting with the magnesium sweep experiment and in every
-experiment after it — then topped up with water and added to the cytosol
-mastermix. Reactions were split in half, AHSL added to one half to a final
-concentration of 5 µM, then distributed in triplicate into a 384-well plate
-and read on a platereader set to detect GFP at 37 ˚C. Each section below
-states only what changed from this base procedure.
 
 ## Reagents
 
@@ -795,12 +830,15 @@ states only what changed from this base procedure.
 <!-- STYLE: the source heading was the underlined run-in label "Day #2
 (20260924)". It is promoted to a subsection heading here. -->
 
-## Titrating pre-expressed EsaR into cytosol reactions containing mNG with single or dual EsaO operators
+## Protocols
 
-EsaR(D91G) was pre-expressed for 3 hrs at 37 ˚C and held at 4 ˚C. Varying
-amounts of pre-expressed EsaR were mixed with 320.5 ng of either
-T7-\[EsaO\]-mNG-T7term or T7-\[EsaO\]2-mNG-t7term, to a total reaction volume
-of 65 µL. Full reaction composition is in {numref}`tbl-composition-20260924`.
+Reactions across the EsaR titration, sensor DNA titration, and overnight EsaR
+pre-expression experiments shared a common assembly: a mastermix of
+Nucleus cytosol was prepared without DNA or water. Pre-expressed EsaR(D91G) was mixed with the DNA construct(s) and incubated at 37 ˚C for 15 min then topped up with water and added to the cytosol mastermix. Reactions were split in half and AHSL added to one half to a final concentration of 5 µM. Each reaction was distributed in triplicate 10 µL vols into a 384-well plate and read on a platereader set to detect GFP at 37 ˚C for 6 hrs. The following sections state specific information relating to the associated experiment, and any changes from this base procedure.
+
+### Titrating pre-expressed EsaR into cytosol reactions containing mNG with single or dual EsaO operators
+
+To ensure either 0, 1, 4, or 7 µL of pre-expressed EsaR was added to the final cytosol reaction. Varying amounts of pre-expressed EsaR were mixed with 320.5 ng of either T7-\[EsaO\]-mNG-T7term or T7-\[EsaO\]2-mNG-t7term to a total reaction volume of 65 µL. The final sensor DNA concentration was 12 nM. Reaction composition is in {numref}`tbl-composition-20260924`.
 
 <!-- Composition table sourced from build file: build (Google Sheet), sheet
 20260924_Repression_test_rxns, in CN-20260924_repressor_test. Mastermix
@@ -843,13 +881,9 @@ the sheet states. That factor is "Distribute into 1x 23.72 µL (mNG), and 8x
 build-composition table above, which carries per-component concentrations the
 platemap itself does not record. -->
 
-## Titrating single and dual operator EsaO-mNG DNA against fixed pre-expressed EsaR
+### Titrating single and dual operator EsaO-mNG DNA against fixed pre-expressed EsaR
 
-EsaR(D91G) was pre-expressed for 3 hrs at 37 ˚C and held at 4 ˚C, as above.
-This time, 14 µL of pre-expressed EsaR was held fixed while sensor DNA
-concentration was varied across T7-\[EsaO\]-mNG-T7term and
-T7-\[EsaO\]2-mNG-t7term, to a total reaction volume of 65 µL. Full reaction
-composition is in {numref}`tbl-composition-20260925`.
+ 14 µL of pre-expressed EsaR was combined with varying amounts of T7-\[EsaO\]-mNG-T7term and T7-\[EsaO\]2-mNG-t7term sensor constructs to a total reaction volume of 65 µL. Full reaction composition is in {numref}`tbl-composition-20260925`.
 
 <!-- Composition table sourced from build file: build (Google Sheet), sheet
 20260925_DNA_titration, in CN-20260925-DNA_titration. -->
@@ -886,13 +920,11 @@ composition is in {numref}`tbl-composition-20260925`.
 :::
 ::::
 
-## Comparing unspent and spent pre-expressed EsaR added to [EsaO]2-mNG DNA reactions
+### Comparing unspent and spent pre-expressed EsaR added to [EsaO]2-mNG DNA reactions
 
 EsaR(D91G) was instead pre-expressed for 17 hrs at 30 ˚C and held at 4 ˚C.
-14 µL of pre-expressed EsaR was mixed with varying concentrations of
-T7-\[EsaO\]2-mNG-t7term only, to a total reaction volume of 70 µL — AHSL was
-added as 0.35 µL of 0.5 mM stock, for the same 5 µM final concentration as
-before. Full reaction composition is in {numref}`tbl-composition-20260926`.
+14 µL of pre-expressed EsaR was mixed with varying amounts of
+T7-\[EsaO\]2-mNG-t7term only to a total reaction volume of 70 µL. Sensor DNA was provided so that the concentrations in the final reaction were 0.1, 0.5 and 1 nM. Full reaction composition is in {numref}`tbl-composition-20260926`.
 
 <!-- Composition table sourced from build file: build (Google Sheet), sheet
 20260926-DNA_titration_EsaR_spent, in CN-20260926-DNA_titration_spent_EsaR.
@@ -924,7 +956,7 @@ compared to previous experiment". -->
 ::::{admonition} Platemap
 :class: dropdown
 
-:::{platemap} ./experiments/20260926-dna-titration-esar-spent/20260924-esao2-dna-titration.csv
+:::{platemap} ./experiments/20260926-dna-titration-esar-spent/20260926-nucleus-platemap-esao2-dna-titration-esar-spent.csv
 :height: 480px
 :fields: EsaR Vol (uL), DNA Template (nM), [AHSL] (uM)
 :wells: 384
@@ -932,50 +964,41 @@ compared to previous experiment". -->
 :::
 ::::
 
-## Effect of additional Mg on EsaR-dependent repression of [EsaO]2-mNG DNA
+### Effect of additional Mg on EsaR-dependent repression of [EsaO]2-mNG DNA
 
-Optimising EsaR repression by preeincubating EsaR with the DNA with a higher Mg
-concentration
+EsaR(D91G) was instead incubated with sensor DNA for 1 hr at 37 ˚C instead of 15 mins at 37 ˚C. Sensor DNA was provided so that the concentration in the final reaction was 0.5 nM. Varying amounts of magnesium was added reaching concentrations of 0, 5, 10, and 20 mM during the incubation step. Final reaction volumes were 33 µL with and without 5 µM AHSL. Reactions were therefore directly distributed in triplicate 10 µL vols into a 384-well plate without splitting. 
 
-Preexpressing EsaR for 3-4h
-
-And then add the DNA with the PURE reaction for 1h at 37 to ensure full
-repression
-
-::::{admonition} Reaction volumes
+::::{admonition} Reaction composition
 :class: dropdown
 
-:::{table} Reaction volumes as the log writes them. This is not a composition table. It carries no stock or final concentrations, and no build file exists to source one from. The first column sums to the stated 10 µL and the second to the stated 33 µL, a 3.3-fold scale.
-:label: tbl-volumes-20261001
+:::{table} Reaction composition.
+:label: tbl-composition-20261001
 :align: center
 
-| Component | Volume (µL) | Scaled (µL) |
-| --- | --- | --- |
-| S-mix | 3 | 9.9 |
-| Ribosomes | 1.8 | 5.94 |
-| P-mix | 1.2 | 3.96 |
-| T rna | 1 | 3.3 |
-| E.coli pol | 0 | 0 |
-| DNA | 0.15 | 0.495 |
-| Rnase inhibitor | 0.25 | 0.825 |
-| EsaR | 2.3 | 7.59 |
-| AHSL optional | 0.15 | 0.495 |
-| Mg | 0.15 | 0.495 |
-| Total | 10 | 33 |
+| Component | Stock Conc. | Unit | Final Conc. | Unit | Volume [µL] | Scaled [µL] |
+| --- | --- | --- | --- | --- | --- | --- |
+| Small molecule mix | 3.33 | × | 1 | × | 3 | 9.9 |
+| tRNA | 10 | × | 1 | × | 1 | 3.3 |
+| Protein mix | 8.33 | × | 1 | × | 1.2 | 3.96 |
+| Ribosomes | 5.5 | × | 1 | × | 1.8 | 5.94 |
+| RNase inhibitor | 40 | U/µL | 1 | U/µL | 0.25 | 0.825 |
+| DNA Template | 22 | ng/µL | 0.5 | nM | 0.15 | 0.495 |
+| Pre-expressed EsaR | — | — | — | — | 2.3 | 7.59 |
+| Magnesium | — / 86.6 / 173.3 / 346.7 | mM | 0 / 5 / 10 / 20 | mM | 0.15 | 0.495 |
+| AHSL | — | — | 0 / 5 | µM | 0.15 | 0.495 |
+| Total | | | | | 10 | 33 |
 :::
 ::::
 
-The log continues:
-
-Mix of DNA and EsaR pure reaction:
-Final is 0.332
-DNA stock at 22ng/µL
-2.6 overall\* 3.5
-Mg concentrations: 5, 10, 20 locally:
-Stocks of Mg:
-X20 = 346.7mM
-X10 = 173.3mM
-X5 = 86.6mM
+<!-- The log also reads: "Mix of DNA and EsaR pure reaction: Final is 0.332,
+DNA stock at 22ng/µL, 2.6 overall* 3.5." The 22 ng/µL DNA stock is carried into
+the table above, confirmed by calculation to give 0.5 nM (not the previously
+stated 0.1 nM, a transcription slip) in the final 33 µL reaction: stock
+molarity 22 ng/µL / 663,974.37 g/mol = 33.13 nM, diluted 0.495/33 into the
+final reaction = 0.497 nM. "Final is 0.332" and "2.6 overall* 3.5" do not
+reconcile against any other number in this log and are not inferred into the
+table. The Mg stocks (X20/X10/X5) do reconcile: each diluted 0.15/2.6 into the
+pre-incubation premix lands within rounding of the stated 20/10/5 mM. -->
 
 ::::{admonition} Platemap
 :class: dropdown
@@ -986,7 +1009,7 @@ X5 = 86.6mM
 :::
 ::::
 
-## Effect of increasing EsaR DNA concentration on [EsaO]2-mNG DNA repression
+### Effect of increasing EsaR DNA concentration on [EsaO]2-mNG DNA repression
 
 We ran our EsaR repression reactions at the same conditions as before with
 0.1nM DNA template and preincubating the DNA for 1h at 37C with a cell free
@@ -1026,7 +1049,7 @@ and is not inferred here. -->
 :::
 ::::
 
-## Effect of lower reaction temperature on EsaR-dependent repression of [EsaO]2-mNG DNA
+### Effect of lower reaction temperature on EsaR-dependent repression of [EsaO]2-mNG DNA
 
 <!-- No build file exists for this day either, same gap as 2026-10-01 and
 2026-10-07. Both tables are carried verbatim from the log. -->
@@ -1069,9 +1092,9 @@ and is not inferred here. -->
 :::
 ::::
 
-## Testing EsaR-dependent repression of [EsaO]2-mNG DNA in GUVs
+### Testing EsaR-dependent repression of [EsaO]2-mNG DNA in GUVs
 
-2 mg of POPC were dried under nitrogen and further dried under vacuum for at
+2 mg of POPC was dried under nitrogen and further dried under vacuum for at
 least two hours. Lipids were resuspended in 500 µL mineral oil and the
 mixture was sonicated at room temperature for around 20 minutes.
 
@@ -1130,7 +1153,7 @@ pipetting up and down 9 times. The emulsion was added onto 250 µL of outer
 solution. GUVs were formed by spinning the two phases in a centrifuge at
 15 °C for 20 min at 9,000 g. The resulting pellet was resuspended in 100 mL
 outer solution. 7.5 µL of GUV solution were added into 22.5 µL of outer
-solution in a 384-well plate and imaged overnight at 37 °C.
+solution in a 384-well plate and imaged for 6 hrs at 37 °C.
 
 ---
 
@@ -1146,10 +1169,10 @@ or 2026-10-07, because neither folder has a build file.
 Analysis notebooks.
 
 - [`experiments/20260924-repressor-test/platereader.ipynb`](./experiments/20260924-repressor-test/platereader.ipynb)
-- [`experiments/20260925-dna-titration/platereader.ipynb`](./experiments/20260925-dna-titration/platereader.ipynb)
-- [`experiments/20260926-dna-titration-esar-spent/platereader.ipynb`](./experiments/20260926-dna-titration-esar-spent/platereader.ipynb)
+- [`experiments/20260925-dna-titration/dna-titration.ipynb`](./experiments/20260925-dna-titration/dna-titration.ipynb)
+- [`experiments/20260926-dna-titration-esar-spent/dna-titration-esar-spent.ipynb`](./experiments/20260926-dna-titration-esar-spent/dna-titration-esar-spent.ipynb)
 - [`experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb`](./experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb)
-- [`experiments/20261007-esar-template-competition/platereader.ipynb`](./experiments/20261007-esar-template-competition/platereader.ipynb)
+- [`experiments/20261007-esar-template-competition/esar-template-competition.ipynb`](./experiments/20261007-esar-template-competition/esar-template-competition.ipynb)
 
 Platemaps.
 

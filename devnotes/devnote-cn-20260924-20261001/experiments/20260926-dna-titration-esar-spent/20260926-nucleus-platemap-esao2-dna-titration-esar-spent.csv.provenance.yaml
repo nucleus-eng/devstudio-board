@@ -1,0 +1,149 @@
+platemap_kind: retrospective
+
+# No `blob:` below. Every source is a Google Drive file, not a file on disk, so
+# there are no canonical bytes to hash. The Drive file id plus its modified time
+# pins a Drive revision and is the equivalent claim. Take the git digests when
+# these files are downloaded into a DevNote directory.
+source:
+  path: "20260924-esao2-dna-titration.csv"
+  blob: null
+  drive_id: 14mr1h7jZeJneQKCLnzcGVZnuyMuyPIkv
+  created_time: "2026-09-26T22:27:53.327Z"
+  modified_time: "2026-09-27T05:03:24.266Z"
+  note: >
+    The platemap of record for this run, per the experimenter. Its 29 wells and
+    11 groups match the instrument Layout block for 2026-09-26 well for well.
+    It was copied from Sheet6 of the 2026-09-24 build file and its wells were
+    remapped to this run, but its Date, Experiment and EsaR Vol fields still
+    hold 2026-09-24 values. See `conflicts` below.
+recipe:
+  path: "build / sheet 20260926-DNA_titration_EsaR_spent"
+  blob: null
+  drive_id: 1JK5gWa7nHnGRv8-9zoj_P0OSNvyd7cj0kYb8rx4SVtg
+  modified_time: "2026-09-26T22:29:26.606Z"
+instrument:
+  path: "20260926-115326-synergy2-pure-timecourse-gfp-DNA_titration_EsaR_spent.txt"
+  blob: null
+  drive_id: 1oB_drvnZlumdGA3YeNzLriyyOfpD0Tf2
+  modified_time: "2026-09-27T05:03:09.896Z"
+  note: >
+    Synergy 2 export. Its Layout block holds the same 29 wells in the same 11
+    groups as `source`, which is independent support for the layout. Its header
+    gives the run date as 9/26/2026.
+log:
+  path: "log"
+  blob: null
+  drive_id: 1mvqDS02lqmGtEodt2eM6olFpD6kssCQJapT4IiTSQC8
+  modified_time: "2026-09-29T14:18:31.788Z"
+
+# Three fields where `source` disagrees with the build sheet, the instrument
+# file and the log. This file takes the 2026-09-26 value in each case and
+# leaves the disagreement on the record. It does not edit `source`.
+#
+# All three trace to one cause. `source` was copied from Sheet6 of the
+# 2026-09-24 build file (drive_id 1Dx7GuQqkNtgVIBjIZ3vKHsrRxDdcNVyYzpdZuEFY7hQ),
+# and its wells were remapped to this run's 29-well layout while these three
+# text and number fields were left as they were.
+conflicts:
+  Date:
+    source_value: "2026-09-24"
+    taken: "2026-09-26"
+    because: "Instrument header reads 9/26/2026. The data filename reads 20260926."
+    resolved: true
+  Experiment:
+    source_value: "[EsaO]2-mNG DNA template titration +/- AHSL (EsaR fixed at highest prior dose)"
+    taken: "[EsaO]2-mNG DNA titration +/- AHSL with pre-expressed EsaR"
+    because: >
+      The source string is the 2026-09-24 Sheet6 string. It describes EsaR held
+      at the top dose of the 2026-09-24 EsaR titration. This run instead
+      pre-expressed EsaR for 17 h at 30 C and titrated DNA against it.
+    resolved: true
+  "EsaR Vol (uL)":
+    source_value: "2.275"
+    taken: "2.0 (and 1.9802 in the AHSL wells)"
+    because: >
+      2.275 is a 2026-09-24 value. In the 2026-09-24 build file the EsaR
+      titration steps 0, 0.325 and upward per 10 uL well, and 2.275 is 7 times
+      0.325, the top dose that Sheet6 calls "EsaR fixed at highest prior dose".
+      This run's build sheet gives 14 uL EsaR per 70 uL prep and the log repeats
+      that number, which is 2.0 uL in a 10 uL well.
+    resolved: true
+
+columns:
+  Well:
+    state: source
+    note: "Also present well for well in the instrument Layout block, groups SPL1 to SPL11. No well was generated."
+  Date:
+    state: derived
+    note: "Taken from the instrument header, not from `source`. See `conflicts`."
+  Experiment:
+    state: imputed
+    note: "From the log and the data filename slug DNA_titration_EsaR_spent. See `conflicts`."
+  Name:
+    state: source
+  Type:
+    state: source
+    note: "Fluorescein wells are typed Standard and are excluded from kinetic analysis. No well is typed Blank."
+  "Rxn Volume (uL)":
+    state: source
+    note: "Agrees with a 35 uL half split 3 ways with overage."
+  Construct:
+    state: imputed
+    note: >
+      Not a column in `source`. The log names T7-[EsaO]2-mNG-t7term. The control
+      construct is written only as mNG. Added so that the two DNA templates on
+      this plate are not read through one concentration column.
+  "Small Molecule Mix Vol (uL)":
+    state: derived
+    note: "Build sheet standard reaction, scaled to a 10 uL well."
+  "tRNA Vol (uL)":
+    state: derived
+    note: "Build sheet standard reaction, scaled to a 10 uL well."
+  "Protein Mix Vol (uL)":
+    state: derived
+    note: "Build sheet standard reaction, scaled to a 10 uL well."
+  "Ribosomes Vol (uL)":
+    state: derived
+    note: "Build sheet standard reaction, scaled to a 10 uL well."
+  "RNase Inhibitor Vol (uL)":
+    state: derived
+    note: "Build sheet standard reaction, scaled to a 10 uL well."
+  "DNA Template Vol (uL)":
+    state: derived
+    note: "0.46 uL per 70 uL prep, and 1.66 uL per 35 uL prep, scaled to a 10 uL well."
+  "EsaR Vol (uL)":
+    state: derived
+    note: "14 uL pre-expressed EsaR per 70 uL prep, scaled to a 10 uL well. See `conflicts`."
+  "AHSL Vol (uL)":
+    state: derived
+    note: "0.35 uL into a 35 uL half, scaled to a 10 uL well."
+  "Water Vol (uL)":
+    state: derived
+    note: "Build sheet V H20, scaled to a 10 uL well."
+  "[DNA Template] (ng/uL)":
+    state: derived
+    note: >
+      0.46 uL of a 10, 50 or 100 ng/uL stock into 70 uL. The mNG control stock
+      is not stated anywhere, so the control rows are empty.
+  "DNA Template (nM)":
+    state: source
+    note: >
+      Source gives 0.1, 0.5 and 1 nM for the reporter arms and 0 for the mNG
+      control. The build sheet shows the control did receive 1.66 uL of its own
+      template, so 0 reads as "none of the [EsaO]2 reporter" rather than "no
+      DNA". The control rows are left empty here instead of 0, because the
+      amount of mNG template is unknown, not zero.
+  "[AHSL] (uM)":
+    state: source
+    note: "The log writes AHL. The column name follows `source`."
+  "[Fluorescein] (uM)":
+    state: source
+    note: "Source leaves this empty on reaction rows. Written as 0 here, because fluorescein was deliberately absent rather than unrecorded."
+
+# The 2026-09-24 build file. Not a source for any value here. Recorded because
+# it is where `source` was copied from, and it is what settles the EsaR number.
+prior_build:
+  path: "build (2026-09-24 log folder)"
+  blob: null
+  drive_id: 1Dx7GuQqkNtgVIBjIZ3vKHsrRxDdcNVyYzpdZuEFY7hQ
+  modified_time: "2026-09-25T18:50:59.546Z"

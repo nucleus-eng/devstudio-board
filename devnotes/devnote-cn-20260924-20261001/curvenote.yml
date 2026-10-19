@@ -71,13 +71,13 @@ project:
     - file: main.md
     - file: experiments/20260924-repressor-test/platereader.ipynb
       title: EsaR Repressor Titration (2026-09-24)
-    - file: experiments/20260925-dna-titration/platereader.ipynb
+    - file: experiments/20260925-dna-titration/dna-titration.ipynb
       title: Sensor DNA Titration (2026-09-25)
-    - file: experiments/20260926-dna-titration-esar-spent/platereader.ipynb
+    - file: experiments/20260926-dna-titration-esar-spent/dna-titration-esar-spent.ipynb
       title: DNA Titration, Spent EsaR (2026-09-26)
     - file: experiments/20261001-mg-osmo-sweep/20261001-mg-osmo-sweep.ipynb
       title: Magnesium Sweep (2026-10-01)
-    - file: experiments/20261007-esar-template-competition/platereader.ipynb
+    - file: experiments/20261007-esar-template-competition/esar-template-competition.ipynb
       title: EsaR Template Competition (2026-10-07)
     - file: experiments/20261009-guv-esar-ahsl/CN-microscopy-01.ipynb
       title: GUV Microscopy Analysis (2026-10-09)
