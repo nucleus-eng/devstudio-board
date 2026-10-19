@@ -920,9 +920,9 @@ Sensor DNA was provided so that the concentration in the final reaction was 0.1 
 7. Centrifuge at 15 °C, 9,000 g, for 20 min to form GUVs.
 8. Resuspend the resulting pellet in 100 µL outer solution.
 9. For each condition:
-   - **−AHSL**: add 7.5 µL GUV solution into 22.5 µL outer solution.
-   - **+AHSL**: add 7.5 µL GUV solution into 22.2 µL outer solution plus 0.3 µL AHSL (500 µM).
-10. Distribute in triplicate 10 µL vols in 384-well glass-bottom plate.
+   - **−AHSL**: add 1 µL outer solution to 99 µL GUV solution.
+   - **+AHSL**: add 1 µL AHSL (500 µM) to 99 µL GUV solution.
+10. Distribute in triplicate 30 µL vols in 384-well glass-bottom plate.
 11. Image for 6 hrs at 37 °C.
 
 <!-- No build file exists for this day either, same gap as 2026-10-01,
@@ -976,7 +976,7 @@ corrected here — flagged for the author to confirm. -->
 # Results
 
 :::{note}
-The following data were collected by the authors during an intense 3-week collaboration at DevStudio held at Nucleus labs at b.next, San Francisco. To learn more about this collaboration see [here] and [here]. Whilst many experiments contain n=3 technical replicates, there was insufficient time to perform biological replicates across different days, such as in the final GUV experiment. Further work is planned to support the reproducibility of these results. 
+The following data were collected by the authors during an intense 3-week collaboration at DevStudio held at Nucleus labs at b.next, San Francisco. To learn more about this collaboration see [here](https://devnotes.nucleus.engineering/articles/devstudio/week2). Whilst many experiments contain n=3 technical replicates, there was insufficient time to perform biological replicates across different days. Further work is planned to support the reproducibility of these results. 
 :::
 
 ## EsaR titration fails to repress EsaO-mNG at 12 nM DNA

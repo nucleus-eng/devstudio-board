@@ -98,6 +98,7 @@ project:
       title: GUV Microscopy Analysis (2026-10-09)
   resources:
     - banner-devcells.webp
+    - custom.css
     - experiments/**
   bibliography:
     - references.bib
