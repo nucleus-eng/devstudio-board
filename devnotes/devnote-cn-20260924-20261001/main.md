@@ -1346,9 +1346,10 @@ cell-label year typo.
   third EsaO box to the sensor DNA. 
 - Furthermore, search the literature / perform random mutagenesis to determine
   whether EsaO mutations can promote increased EsaR binding.
-- Purchase / recombinantly purify EsaR protein. Add purified EsaR to cytosol
-  reactions containing sensor DNA in >100x excess in an attempt to achieve
-  maximal gene repression. Test in bulk reactions first and then in GUVs.
+- Purchase recombinantly purified EsaR protein (available from [Cusabio](https://www.cusabio.com/Recombinant-Protein/Recombinant-Transcriptional-activator-protein-esaR--esaR--12936539.html)). Add
+  purified EsaR to cytosol reactions containing sensor DNA in >100x excess in
+  an attempt to achieve maximal gene repression. Test in bulk reactions first
+  and then in GUVs.
 - Once optimised, test sensor DNA in the [London Node: colour-change module](:https://devnotes.nucleus.engineering/articles/01a12e6c-b511-7d30-aa95-002d386f751e) to produce a visual rather than fluorescence-based readout.
 
 ---
