@@ -25,15 +25,10 @@ the same placement used for this construct pair in mk-mb-devnote-4. -->
 
 **The source Doc names no authors anywhere.** Unlike this board's four
 other DevNotes from this team, there is no title heading or byline block
-in the Doc at all — it opens directly on "Abstract." The placeholder name
-and affiliation below, and the placeholder email (`temp@bnext.bio`,
-needed only because MyST requires a valid email format), follow the
-convention this board already uses for an unattributed DevNote. This Doc
-is very likely the same Mary Kelly / Madison Briggs series — it is a
-direct, same-folder continuation of `mk-mb-devnote-4`'s single-population
-design, referencing "the co-encapsulated design" and "the single-population
-format" as its own predecessor — but that is an inference, not something
-the source states. Confirm before publishing.
+in the Doc at all — it opens directly on "Abstract." Authorship (Mary
+Kelly and Madison Briggs, Northwestern University) was confirmed by Anton
+Molina, 2026-10-21, and `curvenote.yml` now carries it directly rather
+than a placeholder.
 
 **The source Doc gives no date anywhere in its text.** `curvenote.yml`
 uses the Drive file's own creation date, 2026-10-11, checked 2026-10-21.

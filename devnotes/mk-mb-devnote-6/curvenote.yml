@@ -11,20 +11,25 @@ project:
     explain -- unlike the earlier co-encapsulated design, where expression
     itself was sufficient to drive the readout.
   # The source Doc names no authors anywhere -- unlike this board's other
-  # four DevNotes from this team. Placeholder name/affiliation/email,
-  # flagged in the Open items admonition in main.md; confirm before
-  # publishing. This Doc is very likely the same Mary Kelly / Madison
-  # Briggs series (same Drive folder, direct continuation of
-  # mk-mb-devnote-4), but that is an inference, not stated in the source.
+  # four DevNotes from this team. Confirmed by Anton Molina, 2026-10-21:
+  # Mary Kelly and Madison Briggs, Northwestern University, matching this
+  # author pair's other DevNotes on this board.
   authors:
-    - name: "REVIEW: not given in source -- likely Mary Kelly / Madison Briggs"
-      email: temp@bnext.bio
+    - name: Mary D. Kelly, PhD
+      email: marykelly2026@u.northwestern.edu
+      corresponding: true
       affiliations:
         - affiliations-curvenote-generated-uid-0
       id: contributors-curvenote-generated-uid-0
+    - name: Madison Briggs
+      email: madisonbriggs2028@u.northwestern.edu
+      corresponding: true
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-1
   affiliations:
     - id: affiliations-curvenote-generated-uid-0
-      name: "REVIEW: not given in source -- likely Northwestern University"
+      name: Northwestern University
   # The source Doc gives no date anywhere in its text. 2026-10-11 is the
   # Drive file's own creation date, checked 2026-10-21.
   date: '2026-10-11'
