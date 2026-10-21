@@ -1,0 +1,58 @@
+{
+  "source": {
+    "doc": "Double Vesicle Lysis System Leveraging deGFP CFPE",
+    "url": "https://docs.google.com/document/d/1_iOQShy9GgeXlZnNVNlVYgMxIKNLkmq3wFapNrh9Qh4",
+    "drafted": "2026-10-21",
+    "note": "main.md is a verbatim carry of this Doc. Unlike this board's other four DevNotes from this team, the Doc has no title heading, no author byline, and no date anywhere in its own text. The Doc has no separate Results heading; its one, unnumbered figure sits inside Part 4 of the Protocol, carried in the same position here."
+  },
+  "figures": [
+    {
+      "filename": "figures/fig1-two-vesicle-kinetics.png",
+      "pattern": "static-png",
+      "section_context": "Protocol, Part 4",
+      "asset_chain_complete": false,
+      "extraction_method": "pandoc --extract-media",
+      "findings": [
+        "The source Doc's one figure, pasted as an image, captioned 'Figure.' with no number.",
+        "Checked against its own caption on 2026-10-21: three panels (deGFP 1000 nM TetR background, PLA 100 nM TetR, PLA 1000 nM TetR), legend aTc levels (0, 0.025, 0.1, 0.5 uM) match the Abstract/Overview/Conclusion's stated levels, not the Materials/plate-map's planned levels (0, 0.25, 1, 5 uM) -- see Open items in main.md.",
+        "No notebook, platemap, or raw instrument file is named anywhere in the source Doc."
+      ]
+    }
+  ],
+  "constructs": [
+    {
+      "name": "pOpen-TetO-PLA",
+      "sequence_file": "dna/pOpen-TetO-PLA.gb",
+      "verified": false,
+      "findings": [
+        "Reused verbatim from this board's mk-mb-devnote2 (dna/pOpen-TetO-PLA.gb), unmodified, now on main. That file's own provenance note still applies: built from an inline sequence in that DevNote's source Doc, not from a canonical nucleus-eng/DNA file."
+      ]
+    },
+    {
+      "name": "pOpen-TetO-deGFP",
+      "sequence_file": "dna/pOpen-TetO-deGFP.gb",
+      "verified": false,
+      "findings": [
+        "Reused verbatim from this board's devnote-mk-20260925-20260928 (dna/pOpen-TetO-deGFP.gb), unmodified, now on main. That file's own provenance note still applies: built from an inline sequence in that DevNote's source Doc, not from a canonical nucleus-eng/DNA file."
+      ]
+    },
+    {
+      "name": "TetR-His (MedChemExpress)",
+      "sequence_file": null,
+      "verified": false,
+      "findings": ["A purchased purified protein, not a construct built here. Used both as supplied and after a detergent-removal spin column, at 100 nM and 1000 nM."]
+    },
+    {
+      "name": "Cell-free TetR / Cell-free deGFP, overnight",
+      "sequence_file": null,
+      "verified": false,
+      "findings": ["In-house cell-free expressed TetR and its deGFP sham, supplied as 2.5 uL of a finished overnight reaction, not a purified or sequenced construct in its own right."]
+    },
+    {
+      "name": "beta-galactosidase (LacZ)",
+      "sequence_file": null,
+      "verified": false,
+      "findings": ["A purchased enzyme, encapsulated in its own reporter vesicle population, not a construct built here."]
+    }
+  ]
+}
