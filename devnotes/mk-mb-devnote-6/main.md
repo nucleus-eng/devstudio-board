@@ -23,20 +23,6 @@ the same placement used for this construct pair in mk-mb-devnote-4. -->
 :class: warning dropdown
 :name: flags-review
 
-**The source Doc names no authors anywhere.** Unlike this board's four
-other DevNotes from this team, there is no title heading or byline block
-in the Doc at all — it opens directly on "Abstract." Authorship (Mary
-Kelly and Madison Briggs, Northwestern University) was confirmed by Anton
-Molina, 2026-10-21, and `curvenote.yml` now carries it directly rather
-than a placeholder.
-
-**The source Doc gives no date anywhere in its text.** `curvenote.yml`
-uses the Drive file's own creation date, 2026-10-11, checked 2026-10-21.
-
-**The one figure in this Doc carries no number** — captioned "*Figure.*",
-not "*Figure 1.*", unlike every other DevNote in this series. Treated as
-Figure 1 here since it is the only one.
-
 **The planned aTc levels and the delivered aTc levels are stated
 differently in different parts of the Doc, and the Conclusion resolves
 why.** Materials ("Reagents, consumables and equipment") and the Part 4
@@ -56,14 +42,6 @@ resuspended to 100 uL and 10 uL were added to 25 uL of GUVs per condition
 was added to 50 uL total." Carried exactly as written; which volume is
 final-per-well versus final-per-batch is not fully clear from the text
 alone.
-
-**Both plasmid files are reused verbatim from this board's existing
-DevNotes, not built fresh here.** `dna/pOpen-TetO-PLA.gb` is taken from
-`mk-mb-devnote2`'s file of the same name; `dna/pOpen-TetO-deGFP.gb` is
-taken from `devnote-mk-20260925-20260928`'s file of the same name. Both
-carry the open items already recorded in those DevNotes — neither file is
-in the canonical `nucleus-eng/DNA` repo. Drive this devnote's own
-{ref}`seqviz-popen-teto-pla` and {ref}`seqviz-popen-teto-degfp`.
 ::: -->
 
 # Abstract
