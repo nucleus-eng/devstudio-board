@@ -1,0 +1,68 @@
+LOCUS       t7pro-esao-ls1-p        1350 bp    DNA     circular SYN 17-SEP-2026
+DEFINITION  synthetic circular DNA
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      synthetic DNA construct
+  ORGANISM  synthetic DNA construct
+REFERENCE   1  (bases 1 to 1350)
+  AUTHORS   .
+  TITLE     Direct Submission
+  JOURNAL   Exported Sep 17, 2026 from SnapGene 8.2.3
+            https://www.snapgene.com
+FEATURES             Location/Qualifiers
+     source          1..1350
+                     /mol_type="other DNA"
+                     /organism="synthetic DNA construct"
+     misc_feature    1..20
+                     /label=5' spacer
+     misc_feature    21..38
+                     /label=M13_Fwd
+     misc_feature    39..60
+                     /label=T7pro
+     misc_feature    61
+                     /label=+1
+     misc_feature    62..80
+                     /label=EsaO
+     misc_feature    81..153
+                     /label=LS1
+     CDS             151..1113
+                     /codon_start=1
+                     /label=PLA1
+                     /translation="MSMSLSFTSAIAPAAIQPPMVRTQPEPLSSSQPVEASATKAPVAT
+                     LSQNSLNAQSLLNTLVSEISAAAPAAANQGVTRGQQPQKGDYTLALLAKDVYSTGSQGV
+                     EGFNRLSADALLGAGIDPASLQDAASGFQAGIYTDNQQYVLAFAGTNDMRDWLSNVRQA
+                     TGYDDVQYNQAVSLAKSAKAAFGDALVIAGHSLGGGLAATAALATGTVAVTFNAAGVSD
+                     YTLNRMGIDPAAAKQDAQAGGIRRYSEQYDMLTGTQESTSLIPDAIGHKITLANNDTLS
+                     GIDDWRPSKHLDRSLTAHGIDKVISSMAEQKPWEAMANA"
+     misc_feature    1263..1309
+                     /label=T7 terminator
+     misc_feature    complement(1310..1330)
+                     /label=M13_Rev
+     misc_feature    1331..1350
+                     /label=3' spacer
+ORIGIN
+        1 gggaccatta cggaggcagt gtaaaacgac ggccagtgcc ggttaatacg actcactata
+       61 gcctgtacta tagtgcaggt ggagattgtg agcggataac aattcccctc tagaaataat
+      121 tttgtttaac tttaagaagg agatatacat atgagtatga gcctgtcgtt cactagcgcg
+      181 attgctcccg cggcaattca accgcccatg gttcgtactc aacctgaacc acttagtagc
+      241 tctcagccgg tagaggcttc ggcaaccaag gctcccgtcg ccaccttgtc ccaaaactct
+      301 ttgaacgctc aatcgttatt gaacactctg gttagcgaaa tatcagcagc ggcacccgca
+      361 gccgcgaatc aaggggtgac acgcggacaa cagccccaaa aaggtgatta tacattggcc
+      421 ctgttggcca aggacgtata cagtacgggg agccaagggg tagagggctt caacagactt
+      481 tcggccgatg ctttgttagg cgctgggata gacccggcaa gtttgcagga tgcagccagc
+      541 ggattccaag ctggaatcta cactgataac caacaatacg tgttagcgtt cgcgggtaca
+      601 aatgacatga gagactggct ttctaacgtc cgtcaagcca ctgggtatga cgacgtgcag
+      661 tataaccagg cagtgtcact tgcgaaaagc gcgaaggctg ctttcgggga tgcgttggta
+      721 atagcgggac acagtttggg tgggggatta gctgcaacag ctgctcttgc cacaggaaca
+      781 gttgctgtta cgttcaacgc ggcgggggta tcggattaca cattaaacag aatgggaatt
+      841 gatccagcag ctgccaagca ggatgcacag gcgggaggga tccggcgtta ttcggagcag
+      901 tatgacatgc ttacaggaac acaagagtcg actagtttga tcccggacgc gattggacat
+      961 aaaatcacac ttgccaataa tgatacgctg tcaggtatag acgactggcg gccatcaaag
+     1021 catttagacc gttcattgac ggcgcacggg atcgataaag tcatatccag catggcagaa
+     1081 cagaaaccct gggaggcgat ggccaatgca tgaggatccc gggaattctc gagtaaggtt
+     1141 aacctgcagg aggcctttaa ttaaggtggt gcggccgcgc tagcggtccc gggggatcga
+     1201 tccggctgct aacaaagccc gaaaggaagc tgagttggct gctgccaccg ctgagcaata
+     1261 actagcataa ccccttgggg cctctaaacg ggtcttgagg ggttttttgc atggtcatag
+     1321 ctgtttcctg cctgatgcat gagctagcag
+//

@@ -695,27 +695,13 @@ Discussion is where they belong and this heading comes out.
 
 <!-- # Review questions
 
-:::{danger} The two DNA constructs could not be verified
-:name: gap-constructs-unverified
-
-The methods name `T7-EsaO-mNG` and `T7-EsaO-PLA1`. Two GenBank files were
-linked on the source document on 2026-10-10,
-`t7pro-esao-ls1-mneongreen.gbk` and `t7pro-esao-ls1-pla1.gbk`. Neither is in
-`nucleus-eng/DNA`, so both need submitting there before this publishes.
-
-Verification could not be completed. Each file, as downloaded from Drive, is one
-byte smaller than Drive reports for it, and holds one base fewer than its own
-`LOCUS` line declares: 1349 against 1350 for the PLA1 file, 1097 against 1098
-for the mNeonGreen file. In each, one block of the sequence holds nine
-characters where every other block holds ten, and the file's own position
-numbers run one ahead from that point. Both files end correctly, so the missing
-byte is not a trailing newline. The defect is identical across two independent
-fetches, so re-fetching the same way will not resolve it.
-
-This may be a fault in the download path rather than in the files themselves,
-and the check cannot tell which. Open the originals and confirm them before
-either construct is cited as a sequence.
-::: -->
+Resolved 2026-10-22: `t7pro-esao-ls1-mneongreen.gbk` and
+`t7pro-esao-ls1-pla1.gbk` are now placed in `dna/`. Each file's `ORIGIN`
+sequence matches its own `LOCUS` length exactly. The one-byte-short defect
+reported here earlier is not present in these copies. See `dna/README.md`
+for the full cross-reference against this board's other DevNotes. Neither
+file is in `nucleus-eng/DNA` yet, so both still need submitting there before
+this publishes. -->
 
 <!-- # Resources
 
