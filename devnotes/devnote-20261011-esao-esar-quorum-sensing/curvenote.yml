@@ -1,10 +1,6 @@
 version: 1
 project:
   banner: banner-devcells.webp
-  # Candidate title from the platemap Experiment column:
-  # "EsaO-mNG / [EsaO]2-mNG EsaR titration +/- AHSL" and
-  # "EsaO-mNG / [EsaO]2-mNG DNA template titration +/- AHSL" — QC to confirm.
-  # No Specification table exists in any of the five source logs.
   title: 'Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation'
   description: >
     Over a 3-week DevStudio collaboration, we optimised the EsaR/EsaO
@@ -19,7 +15,21 @@ project:
   # contact-detail updates supplied directly by the author afterward.
   # The spelling "Charlie" follows the email the author supplied, which
   # corrected the "Chalie" first written in the Doc.
-  keywords: 
+  # Standardized across the corpus, 2026-10-22 (Anton Molina), against this
+  # DevNote's two siblings (devnote-20261011-luxr-biofilm-sensing-hydrogel
+  # and devnote-20261011-luxr-ahl-bulk-color-change), which share four of
+  # these five authors: Manuel Bibrowski's email here read `mb525@ic.ac.uk`,
+  # confirmed as `manuel.bibrowski25@imperial.ac.uk`, matching the other two
+  # DevNotes. Niall McIntyre's email here read `n.mcintyre@imperial.ac.uk`,
+  # confirmed as `niall.mcintyre16@imperial.ac.uk`. Julia Purrinos de
+  # Oliveira's name here read "Julia Purrinos De Oliveira" (capital "De")
+  # with email `jb421@ic.ac.uk`, confirmed as "Julia Purrinos de Oliveira"
+  # (lowercase "de") with email `j.purrinosdeoliveira@imperial.ac.uk`. Each
+  # author's ORCID, on record only here, is unaffected by this change.
+  # Jonah McDonald's King's College London affiliation here was already
+  # confirmed correct; the other two DevNotes read University College
+  # London for him and have been corrected to match this one instead.
+  keywords:
     - DevStudio
     - Developer cells 
     - Nucleus cytosol
@@ -34,7 +44,7 @@ project:
       id: contributors-curvenote-generated-uid-0
       orcid: 0000-0001-9208-7542
     - name: Manuel Bibrowski
-      email: mb525@ic.ac.uk
+      email: manuel.bibrowski25@imperial.ac.uk
       affiliations:
         - imperial
       id: contributors-curvenote-generated-uid-2
@@ -46,13 +56,13 @@ project:
       id: contributors-curvenote-generated-uid-1
       orcid: 0009-0003-3314-6874
     - name: Niall McIntyre
-      email: n.mcintyre@imperial.ac.uk
+      email: niall.mcintyre16@imperial.ac.uk
       affiliations:
         - imperial
       id: contributors-curvenote-generated-uid-3
       orcid: 0009-0004-7397-3812
-    - name: Julia Purrinos De Oliveira
-      email: jb421@ic.ac.uk
+    - name: Julia Purrinos de Oliveira
+      email: j.purrinosdeoliveira@imperial.ac.uk
       affiliations:
         - imperial
       id: contributors-curvenote-generated-uid-4
@@ -81,7 +91,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: devnote-cn-20260924-20261001.zip
+      filename: devnote-20261011-esao-esar-quorum-sensing.zip
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
     - ../../plugins/platemap/platemap.mjs
