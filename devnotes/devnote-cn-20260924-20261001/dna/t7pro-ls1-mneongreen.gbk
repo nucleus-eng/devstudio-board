@@ -1,0 +1,79 @@
+LOCUS       t7pro-ls1-mneong        1079 bp    DNA     circular SYN 17-SEP-2026
+DEFINITION  .
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      synthetic DNA construct
+  ORGANISM  synthetic DNA construct
+REFERENCE   1  (bases 1 to 1079)
+  AUTHORS   .
+  TITLE     Direct Submission
+  JOURNAL   Exported Sep 17, 2026 from SnapGene 8.2.3
+            https://www.snapgene.com
+FEATURES             Location/Qualifiers
+     source          1..1079
+                     /mol_type="other DNA"
+                     /organism="synthetic DNA construct"
+     source          21..38
+                     /mol_type="other DNA"
+                     /note="color: #ffffff"
+                     /organism="synthetic DNA construct"
+     misc_feature    1..20
+                     /label=5' spacer
+                     /note="color: #c6c9d1"
+     misc_feature    21..38
+                     /label=M13_Fwd
+                     /note="color: #a6acb3"
+     misc_feature    39..60
+                     /label=T7pro
+                     /note="color: #75c6a9"
+     misc_feature    61
+                     /label=+1
+                     /note="color: #84b0dc"
+     misc_feature    62..131
+                     /label=LS1
+                     /note="color: #b4abac"
+     misc_feature    89..131
+                     /label=epsilon enhancer
+                     /note="color: #93c5fd"
+     misc_feature    118..123
+                     /label=Strong RBS
+                     /note="color: #fcd34d"
+     CDS             132..842
+                     /codon_start=1
+                     /label=mNeonGreen
+                     /note="color: #b1ff67"
+                     /translation="MVSKGEEDNMASLPATHELHIFGSINGVDFDMVGQGTGNPNDGYE
+                     ELNLKSTKGDLQFSPWILVPHIGYGFHQYLPYPDGMSPFQAAMVDGSGYQVHRTMQFED
+                     GASLTVNYRYTYEGSHIKGEAQVKGTGFPADGPVMTNSLTAADWCRSKKTYPNDKTIIS
+                     TFKWSYTTGNGKRYRSTARTTYTFAKPMAANYLKNQPMYVFRKTELKHSKTELNFKEWQ
+                     KAFTDVMGMDELYK"
+     misc_feature    992..1038
+                     /label=T7 terminator
+                     /note="color: #c6c9d1"
+     misc_feature    complement(1039..1059)
+                     /label=M13_Rev
+                     /note="color: #c6c9d1; direction: LEFT"
+     misc_feature    1060..1079
+                     /label=3' spacer
+                     /note="color: #c6c9d1"
+ORIGIN
+        1 gggaccatta cggaggcagt gtaaaacgac ggccagtgcc ggttaatacg actcactata
+       61 gggagattgt gagcggataa caattcccct ctagaaataa ttttgtttaa ctttaagaag
+      121 gagatataca tatggtgagc aaaggcgaag aggataatat ggcaagcctg cctgcaacac
+      181 atgaactgca tatttttggt agcattaacg gcgtggattt tgatatggtt ggtcaaggca
+      241 ccggtaatcc gaatgatggt tatgaagaac tgaatctgaa aagcaccaaa ggcgatctgc
+      301 agtttagccc gtggattctg gttccgcata ttggttatgg ttttcatcag tatctgccgt
+      361 atccggatgg tatgagcccg tttcaggcag caatggttga tggtagcggt tatcaggttc
+      421 atcgtaccat gcagtttgaa gatggtgcaa gcctgaccgt taattatcgt tatacctatg
+      481 aaggcagcca cattaaaggt gaagcacagg ttaaaggtac aggttttccg gcagatggtc
+      541 cggttatgac caatagtctg accgcagcag attggtgtcg tagcaaaaaa acctatccga
+      601 acgataaaac catcatcagc accttcaaat ggtcatatac caccggcaat ggtaaacgtt
+      661 atcgtagcac cgcacgtacc acctatacct ttgcaaaacc gatggcagca aactatctga
+      721 aaaatcagcc gatgtatgtg tttcgcaaaa cggaactgaa acattccaaa accgagctga
+      781 actttaaaga atggcagaaa gcatttaccg atgtgatggg catggatgaa ctatacaaat
+      841 aaggatcccg ggaattctcg agtaaggtta acctgcagga ggcctttaat taaggtggtg
+      901 cggccgcgct agcggtcccg ggggatcgat ccggctgcta acaaagcccg aaaggaagct
+      961 gagttggctg ctgccaccgc tgagcaataa ctagcataac cccttggggc ctctaaacgg
+     1021 gtcttgaggg gttttttgca tggtcatagc tgtttcctgc ctgatgcatg agctagcag
+//
