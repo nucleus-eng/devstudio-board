@@ -23,17 +23,18 @@ the same placement used for this construct pair in mk-mb-devnote-4. -->
 :class: warning dropdown
 :name: flags-review
 
-**The planned aTc levels and the delivered aTc levels are stated
-differently in different parts of the Doc, and the Conclusion resolves
-why.** Materials ("Reagents, consumables and equipment") and the Part 4
-Plate layout table both give the four levels as 0, 0.25, 1 and 5 µM. The
-Abstract, Overview, the one figure's own legend, and the Conclusion all
-report 0, 0.025, 0.1 and 0.5 µM — a ten-fold difference at every level.
-The Conclusion states this directly: "The aTc series delivered here ran
-lower than the 0–5 µM range the plate was designed around." Both value
-sets are carried exactly as given in their respective locations; a reader
-relying on the Materials section or the plate map alone would get the
-planned concentrations, not the ones actually used.
+**Materials and the Part 4 Plate layout table give 0, 0.25, 1 and 5 µM;
+the Abstract, Overview, the figure legend and the Conclusion all give 0,
+0.025, 0.1 and 0.5 µM — roughly ten-fold lower at every level.** The
+likely explanation (Anton Molina, 2026-10-22): the first set is the aTc
+stock concentration, and the second is the final concentration after
+dilution into the well. Part 3 dispenses 20 µL of the vesicle/gel mixture
+per well, and Part 4 adds 2 µL of CPRG plus aTc on top, for a 22 µL well —
+an 11-fold dilution, close enough that 0.25/1/5 µM stock rounds to the
+reported 0.025/0.1/0.5 µM final (0.25 → 0.023, 1 → 0.091, 5 → 0.455). The
+Doc never states this explicitly, so it is not carried as fact in the
+body text, but it is consistent with the Conclusion's own statement that
+the delivered series ran lower than the plate was designed around.
 
 **Part 3 step 1's description of how the two populations were combined is
 hard to follow unambiguously.** "The reporter populations pellet was
