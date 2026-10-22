@@ -56,7 +56,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: devnote-op-20261001-luv-gel-pla.zip
+      filename: devnote-20261011-luv-gel-pla.zip
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
   toc:

@@ -105,9 +105,6 @@ Snapshot of the LUV pellet after 4 washes.
 
 ::::
 
-<!-- Both dropdowns above are per an @claude comment left in this file:
-"let's place the two different vesicle preps into drop down menus?" -->
-
 :::{attention} Four preparation values changed in the 2026-10-11 revision
 :name: gap-prep-values-changed
 
@@ -122,8 +119,13 @@ folded on 2026-10-09. The current values are carried above.
 | Inner solution DNA | no concentration stated | 10 ng/mL |
 | Construct names | T7-mNG, T7-PLA1 | T7-EsaO-mNG, T7-EsaO-PLA1 |
 
-Confirm the current values are the ones used, and say which runs they apply to.
-A protocol that changed across the two weeks of work is expected, and is a
+**Construct names confirmed by Anton Molina, 2026-10-22**: the constructs
+actually used were the current source's values, T7-EsaO-mNG and T7-EsaO-PLA1,
+not the earlier T7-mNG/T7-PLA1. The other three rows above are still
+unconfirmed. Confirm the sonication time and temperature, the pipetting
+count, and the inner solution DNA concentration are the current source's
+values and not the 2026-10-09 ones, and say which runs they apply to. A
+protocol that changed across the two weeks of work is expected, and is a
 different thing from a correction. Say which this is.
 :::
 
@@ -229,9 +231,6 @@ tbl-reagents. -->
 ::::
 
 :::::
-
-<!-- Tab-set per an @claude comment left in this file: "let's take ULGA,
-LGA, and PEG4Nb as three tab sets". -->
 
 <!-- :::{note} The PEG4Nb concentrations are settled; the ratio sentence beside them is not
 :name: gap-peg4nb-units
@@ -546,16 +545,6 @@ autofluorescence than ULGA and LGA, which gave lower background fluorescence.
 This reduces the signal-to-background ratio for GFP in PEG4Nb relative to the
 thermogels.
 
-<!-- RESOLVED in part on 2026-10-12. Two claims below are now wrong.
-First, the 404 claim: both stores are live; see
-`gap-zarr-stores-not-live` on viewers.md for the correction. Second, "no
-archival figure exists for this result": the four gel conditions now
-have one, above, rendered from the live stores with
-general/render-microscopy-fovs.py. E12 and G12, the solution condition
-and its control, still have no static figure. The JATS-export gap
-stays open regardless, since the interactive viewers still will not
-survive that conversion. -->
-
 <!-- :::{danger} The microscopy has no archival figure, and the viewers will not survive export
 :name: gap-microscopy-no-static
 
@@ -602,9 +591,6 @@ paths return 200, and a pixel chunk fetched directly from
 [Interactive viewers](./viewers.md) render against real data. See
 `gap-zarr-stores-not-live` there for the full correction.
 ::: -->
-
-<!-- RESOLVED in part: the "All three gels" claim below is stale. All six
-wells (E12, G12, E14, E15, E16, E21) have viewers on viewers.md now. -->
 
 <!-- :::{attention} Three claims in this section need their evidence named
 :name: gap-gfp-claims
@@ -709,74 +695,13 @@ Discussion is where they belong and this heading comes out.
 
 <!-- # Review questions
 
-<!-- Rebuilt on 2026-10-12 against the second revision of
-`log-devnote-draft.docx`. Items the revisions closed are recorded as closed
-rather than deleted, so a reviewer can see what moved. -->
-
-Closed by the two revisions of 2026-10-11 and 2026-10-12:
-
-- "[Paste the graph here]" and "[link to dataset URL here...]" are both filled.
-- PEG4Nb has numbered preparation steps, as ULGA and LGA already did.
-- The LGA transfer step is stated.
-- ULGA's formulation reference, previously "[insert link]", is given.
-- {numref}`fig-photo-luv-pellet` previously carried the placeholder caption
-  "[Caption]". It now has the caption the source gives it.
-- The Discussion was five sentence fragments. It is now three written
-  paragraphs.
-- Figure 5 was an empty heading. It is now microscopy, carried as two viewers.
-- The design list said four and listed two. It now says two and lists two. See
-  {ref}`gap-design-narrowed` for what that cost.
-- The PEG4Nb concentrations are settled. See {ref}`gap-peg4nb-units`.
-
-Still open, and each has its own flag above:
-
-- The Conclusion heading has no text.
-- The plasmid question is open in words: is T7-EsaO-mNG linear or a plasmid, is
-  T7-EsaO-PLA1 the same, and does either carry a tetO operator. Two sequence
-  files were linked on the source on 2026-10-10, and they answer identity, not
-  this. See {ref}`gap-constructs-unverified`.
-- Rows I and J, in {ref}`gap-rows-ij-conflict`, and whether that conflict
-  carries into the two new plate maps.
-- The PEG4Nb solvent and the plate format, in {ref}`gap-peg4nb-solvent`.
-- The microscopy has no archival figure, in {ref}`gap-microscopy-no-static`.
-- Three GFP claims need their evidence named, in {ref}`gap-gfp-claims`.
-- The pre-gel condition cannot be measured by this assay, in
-  {ref}`gap-prepeg-dropped`.
-
-:::{danger} The two DNA constructs could not be verified
-:name: gap-constructs-unverified
-
-The methods name `T7-EsaO-mNG` and `T7-EsaO-PLA1`. Two GenBank files were
-linked on the source document on 2026-10-10,
-`t7pro-esao-ls1-mneongreen.gbk` and `t7pro-esao-ls1-pla1.gbk`. Neither is in
-`nucleus-eng/DNA`, so both need submitting there before this publishes.
-
-Verification could not be completed. Each file, as downloaded from Drive, is one
-byte smaller than Drive reports for it, and holds one base fewer than its own
-`LOCUS` line declares: 1349 against 1350 for the PLA1 file, 1097 against 1098
-for the mNeonGreen file. In each, one block of the sequence holds nine
-characters where every other block holds ten, and the file's own position
-numbers run one ahead from that point. Both files end correctly, so the missing
-byte is not a trailing newline. The defect is identical across two independent
-fetches, so re-fetching the same way will not resolve it.
-
-This may be a fault in the download path rather than in the files themselves,
-and the check cannot tell which. Open the originals and confirm them before
-either construct is cited as a sequence.
-::: -->
-
-<!-- # Open questions
-
-:::{admonition}
-
-1. Are LUVs leaky?
-2. Can PLA lyse?
-3. Do only the gels lyse?
-
-::: -->
-
-<!-- Moved to the end of the page per an @claude comment left in this
-file: "maybe open questions come at the end?" -->
+Resolved 2026-10-22: `t7pro-esao-ls1-mneongreen.gbk` and
+`t7pro-esao-ls1-pla1.gbk` are now placed in `dna/`. Each file's `ORIGIN`
+sequence matches its own `LOCUS` length exactly. The one-byte-short defect
+reported here earlier is not present in these copies. See `dna/README.md`
+for the full cross-reference against this board's other DevNotes. Neither
+file is in `nucleus-eng/DNA` yet, so both still need submitting there before
+this publishes. -->
 
 <!-- # Resources
 

@@ -28,9 +28,9 @@ heading "# Results", one pasted figure, and the line
 The intro schematic from `log-devnote-draft.docx`, "Figure 1: Schematic
 representation of unilamellar vesicles contained in a hydrogel matrix", is in
 `main.md`'s own Overview rather than copied here. A figure's `:label:` must be unique across a built
-project, not only within one page. A second copy here would have
-collided with that one. Measured directly on 2026-10-09, while this file
-was still in `curvenote.yml`'s `toc`: `curvenote check` reported a
+project, not only within one page. A second copy here collides with that
+one. Measured directly on 2026-10-09, while this file
+was still in `curvenote.yml`'s `toc`. `curvenote check` reported a
 duplicate identifier for the same `:label:` on two pages.
 
 :::{danger} Unresolved before publication
@@ -50,15 +50,15 @@ data to the wrong experiment. This DevNote adopts none of the three, and
 names the data file behind its results figure as
 `20261009-113443-synergy2-OJMB-gfp-pla-guv-luv-gels-16UmL-LacZ.txt`, which
 carries `20261009`. That is nine days after the folder date. This DevNote now
-spans more than one run, so a single date may not be the right answer. If the
+spans more than one run, so a single date is probably not the right answer. If the
 work spans a range, say the range and say which figure belongs to which run.
 
 **A fifth date arrived on 2026-10-12.** The second revision adds microscopy
-served from paths carrying `2026-10-06`. The five values now in play are
-`20261001` from the Log folder, `20260930` from the three plate reader files,
-`2/10/2026` from the platemap, `20261009` from the results data file, and
-`2026-10-06` from the microscopy. This DevNote plainly covers more than one
-session, and the right answer is probably a range with each figure attributed
+served from paths carrying `2026-10-06`. Five values are now in play: `20261001`
+from the Log folder, `20260930` from the plate reader files, `2/10/2026` from
+the platemap, `20261009` from the results data file, `2026-10-06` from the
+microscopy. This DevNote plainly covers more than one
+session. The right answer is probably a range, with each figure attributed
 to its own run, not a single date.
 
 **Still open, review cycle v1, prompt 3.** The reviewer answered "Dates do
@@ -85,8 +85,8 @@ suffixed `OJ`. Neither is a stated name.
 
 **Authors settled, 2026-10-11.** The revised `log-devnote-draft.docx` states
 both authors, both emails and both affiliations on its own first page:
-Ojaswita Pant, PhD student, Northwestern University; Manuel Bibrowski, PhD
-student, Imperial College London. The affiliations are no longer read off an
+Ojaswita Pant, PhD student, Northwestern University, and Manuel Bibrowski,
+PhD student, Imperial College London. The affiliations are no longer read off an
 email domain, so that earlier flag is cleared. No ORCID is recorded for either
 author, and that is still open.
 
@@ -98,11 +98,10 @@ author, and that is still open.
 | Study of liposome behaviour in gels | `log-devnote-draft.docx` | 2026-10-09 |
 | Understanding Liposome Behaviour in Hydrogel Matrices | `log-devnote-draft.docx`, revised | 2026-10-11 |
 
-`curvenote.yml` now carries the third. It is adopted because the document
-states it as a title on its own line, which is a stated title in the source,
-and because it is the most recent authored statement. The review Doc that
-produced the first has since been renamed `[ignore]` in Drive. Confirm the
-adopted title.
+`curvenote.yml` now carries the third. The document states it as a title on
+its own line, and it is the most recent authored statement. Both reasons
+support adopting it. The review Doc that produced the first was later
+renamed `[ignore]` in Drive. Confirm the adopted title.
 
 **The document names a build file that does not match this DevNote's
 platemap.** It links a sheet named `build`, at
@@ -151,11 +150,11 @@ number, price and storage conditions for every reagent used.
 **Deferred, review cycle v1, prompt 8.** The reviewer answered "skip for
 now".
 
-**Answered in part, from `log-devnote-draft.docx`.** The document supplies
-vendor and storage information for the five reagents used to make the
-PEG4Nb gel, and for the one piece of equipment. It also supplies a catalog
-number for the equipment. It names no vendor, catalog number, price or storage
-condition for the lipid, the dye, the Optiprep, the ULGA, or the LGA. The ULGA and LGA chemicals are
+`log-devnote-draft.docx` answers this in part. It names vendor and storage
+for the five PEG4Nb gel reagents. It names a catalog number for the one
+piece of equipment too. It names no vendor, catalog number, price, or
+storage condition for the lipid, the dye, the Optiprep, the ULGA, or the LGA.
+The ULGA and LGA chemicals are
 named in {numref}`tbl-stock-ulga` and {numref}`tbl-stock-lga`, and carry no
 vendor information there either.
 :::
@@ -282,9 +281,9 @@ well. This halves the stock concentration to a final 0.5 w/v% ULGA.
 `log-devnote-draft.docx` changed its own answer here on 2026-10-11. The
 2026-10-09 version gave the ULGA solvent as 1.2 M glucose solution. The
 current version gives it as the outer solution used during vesicle
-preparation, that is, glucose and 50 mM HEPES at a final osmolarity of
-~1200 mOsm. The revision brings the document in line with itself, because
-1200 mOsm is what it states for the rest of the experiment.
+preparation instead: glucose and 50 mM HEPES, at a final osmolarity of
+~1200 mOsm. This brings the document in line with itself. 1200 mOsm is
+what it states for the rest of the experiment.
 
 It does not settle the disagreement with the sheet. 1057 Osm against
 ~1200 mOsm is still two numbers for one solution. Confirm which applies, or
@@ -635,10 +634,7 @@ reagents are folded into {numref}`tbl-reagents`. A build sheet, at
 this DevNote's own data. Drive URLs are not written as links here, per the
 rule above.
 
-The DevNote Drive folder is `devnote-OPxMB-20261001-luv-gel-pla`. Note that it
-carries both authors' initials while this DevNote's directory is named
-`devnote-op-20261001-luv-gel-pla`. The directory name is not changed here,
-because it is the path the open pull request already uses.
+The DevNote Drive folder is `devnote-OPxMB-20261001-luv-gel-pla`.
 
 These files in that folder were read on 2026-10-11 and are not yet copied into
 this DevNote. `devstudio-assemble-devnote-assets` owns that copy, and runs
@@ -651,11 +647,11 @@ after a human reviews the links above.
 | `build.xlsx` | Two sheets of well assignments for the 2026-10-08 plate, plus absorbance values at 412 nm and 570 nm. The two sheets disagree about rows I and J. See `gap-rows-ij-conflict` in `main.md`. |
 | `luv_stability_hydrogels_matlabcode.txt` | The MATLAB analysis behind {numref}`fig-luv-stability-hydrogels`. See `gap-figure4-analysis` in `main.md`. |
 | `luv_stability_hydrogels_code` | A second copy of the same script, without a file extension. Same byte count as the `.txt`. |
-| `t7pro-esao-ls1-mneongreen.gbk`, `t7pro-esao-ls1-pla1.gbk` | The two construct files, linked from reviewer comments on 2026-10-10. Neither could be verified. See `dna/README.md`. |
+| `t7pro-esao-ls1-mneongreen.gbk`, `t7pro-esao-ls1-pla1.gbk` | The two construct files, linked from reviewer comments on 2026-10-10. Placed in `dna/` 2026-10-22, after cross-referencing both against this board's other DevNotes. See `dna/README.md`. |
 | `CONTEXT.md` | A frozen briefing written 2026-10-08. It predates the authors being named in the source, and it is out of date on that point. Do not read it as current. |
 
 The review Doc "Review: LUV gel and PLA, CPR/CPRG absorbance (op-20261001) v1"
-has been renamed with an `[ignore]` prefix in Drive since review cycle v1 ran.
+was renamed with an `[ignore]` prefix in Drive since review cycle v1 ran.
 Its answers are still recorded above, marked by prompt number, because they are
 the only record of several decisions. Where it disagrees with the revised
 source document, the source document is taken as current.

@@ -22,7 +22,7 @@ features the Doc's own landmark column supports, and drives
 {ref}`seqviz-popen-teto-pla`. No canonical match exists in `nucleus-eng/DNA`
 for the full plasmid. The PLA1 CDS (bases 104 to 1075) translates identical,
 byte for byte, to the PLA1 CDS already in this board's
-`devnotes/devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk`, so the
+`devnotes/devnote-20261011-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk`, so the
 part is shared with a sibling DevNote, but the full plasmid itself has no
 file of record anywhere.
 ::: -->

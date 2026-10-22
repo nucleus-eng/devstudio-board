@@ -32,7 +32,7 @@
         "The full sequence is inline in main.md, carried from the source Doc.",
         "Landmarks measured against the inline sequence on 2026-10-11: T7 promoter at base 5, tetO operator at base 26, g10 leader and RBS at base 90, PLA1 CDS 104 to 1075 (972 nt, 323 codons plus stop), T7 terminator at base 1076.",
         "No file for this full plasmid exists in nucleus-eng/DNA. Its part-type directories (reporters, detectors, promoters, pores, emitters, control, assembly, PURE, RBS, terminators, energy) were listed on 2026-10-11 and none names a PLA1 or phospholipase construct.",
-        "MATCH AT THE PART LEVEL: the PLA1 CDS translates identical, byte for byte, to the PLA1 CDS in this board's devnotes/devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk (translation MSMSLSFTSAIAPAAIQPP...ANA, 323 aa). Same enzyme, different promoter context (EsaO/R quorum-sensing there, T7/tetO here). That file is also not yet in nucleus-eng/DNA.",
+        "MATCH AT THE PART LEVEL: the PLA1 CDS translates identical, byte for byte, to the PLA1 CDS in this board's devnotes/devnote-20261011-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk (translation MSMSLSFTSAIAPAAIQPP...ANA, 323 aa). Same enzyme, different promoter context (EsaO/R quorum-sensing there, T7/tetO here). That file is also not yet in nucleus-eng/DNA.",
         "REVIEW: submit dna/pOpen-TetO-PLA.gb (or a corrected version of it) to nucleus-eng/DNA, or confirm it is a duplicate of a file already pending submission from the luv-gel-pla devnote."
       ]
     },
