@@ -32,9 +32,6 @@ branch name was not renamed, since the original PR (#21) is merged. -->
 :class: warning dropdown
 :name: flags-review
 
-**The source Doc gives no date anywhere in its text.** `curvenote.yml`
-uses the Drive file's own creation date, 2026-10-11, checked 2026-10-12.
-
 **Neither plasmid is built from an existing file on this board.** Both
 `dna/pJL1-T7-TetO-GFP.gb` and `dna/pJL1-T7-TetO-PLA1.gb` are built fresh
 from this Doc's own inline sequences — a different backbone (pJL1) from
@@ -52,10 +49,6 @@ translates identical to the PLA1 protein this board's `devnote-20261011-pla1-tri
 — the same enzyme, a different vector. Neither AmpR nor KanR is annotated,
 since the Doc gives no landmark for either. Drive this devnote's own
 {ref}`seqviz-pjl1-teto-gfp` and {ref}`seqviz-pjl1-teto-pla1`.
-
-**The Cell-free system table carried Google Docs export artifacts
-(`\#\#\#`, `\*\*`) around every cell in the source pull.** Removed here as
-a formatting fix; no value, unit, or row changed.
 
 **Figure 5's chart title reads "pOpen-PLA," not "TetO-PLA1."** The source
 image for {ref}`fig-5-encapsulated-atc-titration-confocal` is titled

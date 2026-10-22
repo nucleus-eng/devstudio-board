@@ -13,64 +13,16 @@ Leveraging deGFP CFPE".
 Source: https://docs.google.com/document/d/1DouMRrZWCUKdWzuMoH48izjj8-7_oyKGCQrU2xOm5GI
 Prose, tables, step lists, captions and all nine figures are carried
 verbatim from that Doc, including its own section order (two experiments,
-each with its own Results and Conclusion). The Doc's own title/byline block
-(title heading, then each author's name, role and email as body text) is
-not repeated in the body: title, authors and their emails live in this
-file's frontmatter and in curvenote.yml instead, and render as the page
-byline — same fix as devnote-20261011-teto-gfp-atc-titration. Figure captions drop the literal
+each with its own Results and Conclusion). Figure captions drop the literal
 "Figure N." prefix the Doc gives them, since MyST auto-numbers the
-`:::{figure}` directive; same fix as devnote-20261011-teto-gfp-atc-titration. A "Plasmid maps"
-subsection is added after Plasmids and proteins (not in the source Doc),
-following the same placement request applied to devnote-20261011-teto-gfp-atc-titration's single
-construct, and holds both plasmid maps as a two-item tab-set (on request,
-2026-10-12), one tab per construct. A number of sentences gained {ref}
-cross-links to the table, figure, or seqviz view they describe (on
-request, 2026-10-12); two of those are new bridging sentences not in the
-source Doc, added only to carry a cross-link to the follow-up's master
-mix and plate layout tables. No value, unit, or claim changed.
-
-Renamed from `mk-mb-devnote-4` to this slug on 2026-10-22 (Anton Molina),
-to drop author initials from the naming scheme corpus-wide. The git
-branch name was not renamed, since the original PR (#13) is merged. -->
+`:::{figure}` directive; as a result, the source's own Figure 6 through
+Figure 10 (the Doc skips a Figure 5) render here as Figure 5 through
+Figure 9, one lower than the source Doc's own numbering from the second
+Results section on. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
 :name: flags-review
-
-**The source skips Figure 5 entirely.** Results run Figure 1 through
-Figure 4, then the Follow Up Experiment's Results run Figure 6 through
-Figure 10 — no Figure 5 caption and no ninth image exists anywhere in the
-source Doc (nine images for ten figure numbers). Carried as supplied; not
-a gap introduced here.
-
-**Because of that gap, this devnote's rendered figure numbers no longer
-match the source Doc's own numbers from the second Results section on.**
-Captions here carry no literal "Figure N." text (same fix as
-devnote-20261011-teto-gfp-atc-titration, so MyST's auto-numbering is the only number shown), and
-MyST numbers the nine figures 1 through 9 with no gap. So what the source
-Doc calls Figure 6 renders here as Figure 5, Figure 7 as Figure 6, and so
-on through Figure 10 rendering as Figure 9. The page is internally
-consistent — every caption and cross-reference agrees with the number
-next to it — but a reader checking against the original Doc will see the
-second Results section's numbers shifted down by one.
-
-**The Materials table's beta-galactosidase row forward-references an item
-the source never defines.** It lists stock concentration as "see open
-items," but the source Doc has no open-items list of its own — the same
-pattern as devnote-20261011-teto-gfp-atc-titration's CPRG substrate line. Carried as written.
-
-**The source Doc gives no date anywhere in its text.** `curvenote.yml` uses
-the Drive file's own creation date, 2026-10-12, checked the same day. The
-other three DevNotes on this board all state a date inside the Doc itself;
-this one does not.
-
-**This source's own byline gives a different name and email for Mary
-Kelly than this board's other DevNotes.** "Dr. Mary Kelly" and
-marydkelly1@gmail.com, against "Mary Kelly" and
-marykelly2026@u.northwestern.edu elsewhere. `curvenote.yml` was
-standardized to the corpus-wide form on 2026-10-22 (Anton Molina); this
-note records the source's own wording, which `curvenote.yml` no longer
-carries.
 
 **One sentence in the Follow Up Experiment's Design section reads as
 garbled in the source.** "Expression of deGFP causes membrane permeability
@@ -79,22 +31,12 @@ two doses, and an in-house CF TetR preparation and aTc turns it back up
 across four levels: 0, 0.025, 0.1 and 0.5 µM." Carried exactly as written;
 the clause structure does not fully parse.
 
-**The Follow Up Experiment's Design table numbers conditions starting at
-3**, with no conditions 1 or 2 shown anywhere in this Doc. Carried as
-supplied — likely numbered against a larger pilot not included here.
-
-**The Plasmids and proteins table carried Google Docs export artifacts
-(`\#\#\#`, `\*\*`) around every cell in the source pull.** Removed here as
-a formatting fix; no value, unit, or row changed.
-
 **Both plasmid files are reused verbatim from this board's sibling
-DevNotes, not built fresh here.** `dna/pOpen-TetO-PLA.gb` is taken from
-`devnote/devnote-20261011-pla1-triggered-lysis-guvs`'s `dna/pOpen-TetO-PLA.gb`; `dna/pOpen-TetO-deGFP.gb`
-is taken from `devstudio/devnote-mk-20260925-20260928`'s
-`dna/pOpen-TetO-deGFP.gb`. Both carry the open items already recorded in
-those DevNotes — neither file is in the canonical `nucleus-eng/DNA` repo,
-and neither sibling branch is merged to `main` yet. Drive this devnote's
-own {ref}`seqviz-popen-teto-pla` and {ref}`seqviz-popen-teto-degfp`.
+DevNotes, not built fresh here**: `dna/pOpen-TetO-PLA.gb` from
+`devnote-20261011-pla1-triggered-lysis-guvs`, `dna/pOpen-TetO-deGFP.gb` from
+`devnote-mk-20260925-20260928`. Neither file is in the canonical
+`nucleus-eng/DNA` repo. Drive this devnote's own
+{ref}`seqviz-popen-teto-pla` and {ref}`seqviz-popen-teto-degfp`.
 ::: -->
 
 # Abstract

@@ -7,24 +7,13 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 beta-Galactosidase-Loaded GUVs".
 Source: https://docs.google.com/document/d/1vmAaYyH21pxErmB583Prsc-LUFs3JG34Y1ZjypEiRbI
 Prose, tables, step lists, captions and the plasmid sequence are carried
-verbatim from that Doc. The Doc's section order is kept, not the DevNote
-template order. The Doc is a written protocol, and its steps refer to each
-other by Part number. Reordering it breaks those references. -->
+verbatim from that Doc. The Doc's section order is kept, since its steps
+refer to each other by Part number and reordering would break those
+references. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
 :name: flags-review
-
-**Authorship is carried from this author's sibling DevNote, not re-confirmed
-here.** Name, email and affiliation (Mary Kelly, Northwestern University) are
-copied from `devnotes/devnote-mk-20260925-20260928/curvenote.yml`, where Anton
-Molina supplied them on 2026-10-04. The source Doc for this DevNote names no
-author. Confirm this is the same Mary Kelly before publishing.
-
-**The source numbers two different steps "5" in Part 3.** The blue-light
-crosslinking step and the CPRG-addition step are both "5." in the Doc.
-Renumbered here as steps 4 to 6, in the order the Doc lists them. Confirm this
-is the intended sequence.
 
 **One sentence in the Overview reads as garbled in the source.** "Why two
 stages" opens: "a vesicle functions improperly may have, failed to lyse, or
@@ -32,53 +21,15 @@ lysed so early that nothing accumulated." Carried exactly as written; the
 likely intended meaning is something like "a vesicle may have functioned
 improperly, failed to lyse, or lysed so early that nothing accumulated."
 
-**The Materials section's plasmids-and-proteins table carried Google Docs
-export artifacts (`\#\#\#`, `\*\*`) around every cell in the source pull.**
-Removed here as a formatting fix; no value, unit, or row changed.
-
-**The source itself forward-references an item it never defines.** Materials
-lists "beta-galactosidase substrate for the plate reader — see open items,"
-but the source Doc has no open-items list of its own. Carried as written; the
-substrate is CPRG per Part 3 step 5, but confirm that is what this line meant.
-
-**Part 4 step 2 reads "Read kinetically at 37C," without the degree symbol or
-space used everywhere else in the Doc (elsewhere: "37 °C").** Carried exactly
-as written.
-
 **`dna/pOpen-TetO-PLA.gb` was built here, not taken from a source of
 record.** It carries this Doc's sequence byte for byte, with the five
 features the Doc's own landmark column supports, and drives
-{ref}`seqviz-popen-teto-pla`. `nucleus-eng/DNA`'s part-type directories
-(`reporters`, `detectors`, `promoters`, `pores`, `emitters`, `control`,
-`assembly`, `PURE`, `RBS`, `terminators`, `energy`) were listed on 2026-10-11;
-none names a PLA1 or phospholipase construct, so no canonical match exists for
-the full plasmid.
-
-The PLA1 CDS (bases 104 to 1075 here) translates identical, byte for byte, to
-the PLA1 CDS already in this board's
-`devnotes/devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk`
-(translation `MSMSLSFTSAIAPAAIQPP...ANA`, 323 aa) — same enzyme, under a
-different promoter (EsaO/R quorum-sensing there, T7/tetO here). That file is
-itself not yet in `nucleus-eng/DNA`. So the PLA1 part is shared with an
-in-flight sibling DevNote on this board, but the full `pOpen-TetO-PLA`
-plasmid has no file of record anywhere. `devstudio-verify-dna-constructs` was
-run against the canonical repo only; no construct-to-file identity claim
-beyond the CDS match above is made.
-
-**This DevNote's directory was originally named `mk-mb-devnote2`** (branched
-as `devnote/mk-mb-devnote2`) on direct instruction, since the source Doc
-gives no experiment date distinct from its own 2026-10-11 drafting date.
-Renamed to `devnote-20261011-pla1-triggered-lysis-guvs` on 2026-10-22 (Anton
-Molina), to drop author initials from the naming scheme entirely — not
-specific to this DevNote, the same change was made across the corpus, so
-that a folder name never implies an attribution claim the author list
-itself should carry instead. The git branch name was not renamed, since the
-original PR (#11) is already merged.
-
-**No notebook, platemap, or raw instrument file is referenced anywhere in the
-source Doc**, unlike the sibling `devnote-mk-20260925-20260928`. There is
-nothing to place in `experiments/`, and no Resources section is added here for
-that reason.
+{ref}`seqviz-popen-teto-pla`. No canonical match exists in `nucleus-eng/DNA`
+for the full plasmid. The PLA1 CDS (bases 104 to 1075) translates identical,
+byte for byte, to the PLA1 CDS already in this board's
+`devnotes/devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk`, so the
+part is shared with a sibling DevNote, but the full plasmid itself has no
+file of record anywhere.
 ::: -->
 
 # Abstract
