@@ -207,7 +207,7 @@ platemap: `MK-20260925-TetO GFP in Bulk with ATC.csv` (same folder; volumes matc
 notebook: `MK-20260925-platereader.ipynb` (same folder)
 stocks: `MK-Stocks.csv` (same folder)
 Not yet fetched into this devnote's own directory; say the word and these can
-be pulled in as `experiments/`, the way the sibling devnote-mk-20260925-20260928
+be pulled in as `experiments/`, the way the sibling devnote-20261011-tetr-atc-degfp-guv-sensor
 does it.
 -->
 

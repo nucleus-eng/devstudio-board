@@ -97,7 +97,7 @@
       "sequence_file": "dna/pOpen-TetO-deGFP.gb",
       "verified": false,
       "findings": [
-        "Reused verbatim from this board's devstudio/devnote-mk-20260925-20260928 (dna/pOpen-TetO-deGFP.gb), unmodified, not yet merged to main. That file's own provenance note still applies: built from an inline sequence in that DevNote's source Doc, not from a canonical nucleus-eng/DNA file.",
+        "Reused verbatim from this board's devnote-20261011-tetr-atc-degfp-guv-sensor (dna/pOpen-TetO-deGFP.gb), unmodified, now on main. That file's own provenance note still applies: built from an inline sequence in that DevNote's source Doc, not from a canonical nucleus-eng/DNA file.",
         "Named pOpen-deGFP in this Doc's Materials table and pOpen-TetO-deGFP in its Results captions; treated as the same construct."
       ]
     },

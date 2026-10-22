@@ -50,7 +50,7 @@
       "sequence_file": null,
       "verified": false,
       "findings": [
-        "Named in the Materials table as the non-lytic expression control. No sequence is given in the source Doc for this DevNote; a pOpen-TetO-deGFP sequence exists in the sibling devnotes/devnote-mk-20260925-20260928/dna/pOpen-TetO-deGFP.gb, but that construct carries a tetO operator this Materials table does not mention for pOpen-deGFP, so identity was not assumed."
+        "Named in the Materials table as the non-lytic expression control. No sequence is given in the source Doc for this DevNote; a pOpen-TetO-deGFP sequence exists in the sibling devnotes/devnote-20261011-tetr-atc-degfp-guv-sensor/dna/pOpen-TetO-deGFP.gb, but that construct carries a tetO operator this Materials table does not mention for pOpen-deGFP, so identity was not assumed."
       ]
     },
     {
