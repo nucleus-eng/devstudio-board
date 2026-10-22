@@ -13,9 +13,11 @@ project:
   # Both authors and emails are given directly in the source Doc,
   # 2026-10-12. Affiliation (Northwestern University) is inferred from the
   # shared @u.northwestern.edu email domain, matching this author's other
-  # DevNotes on this board.
+  # DevNotes on this board. Name standardized to "Mary Kelly" across the
+  # corpus on 2026-10-22 (Anton Molina); the source Doc's own byline reads
+  # "Mary D. Kelly, PhD".
   authors:
-    - name: Mary D. Kelly, PhD
+    - name: Mary Kelly
       email: marykelly2026@u.northwestern.edu
       corresponding: true
       affiliations:
@@ -44,7 +46,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: mk-mb-devnote-5.zip
+      filename: devnote-20261012-pla1-sensor-spatial-patterning.zip
   toc:
     - file: main.md
   plugins:

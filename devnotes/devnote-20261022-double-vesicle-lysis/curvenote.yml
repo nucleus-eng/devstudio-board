@@ -13,9 +13,10 @@ project:
   # The source Doc names no authors anywhere -- unlike this board's other
   # four DevNotes from this team. Confirmed by Anton Molina, 2026-10-21:
   # Mary Kelly and Madison Briggs, Northwestern University, matching this
-  # author pair's other DevNotes on this board.
+  # author pair's other DevNotes on this board. Name standardized to
+  # "Mary Kelly" across the corpus on 2026-10-22.
   authors:
-    - name: Mary D. Kelly, PhD
+    - name: Mary Kelly
       email: marykelly2026@u.northwestern.edu
       corresponding: true
       affiliations:
@@ -44,7 +45,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: mk-mb-devnote-6.zip
+      filename: devnote-20261022-double-vesicle-lysis.zip
   toc:
     - file: main.md
   plugins:

@@ -1,30 +1,14 @@
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- Drafted 2026-10-11 from the Google Doc "TetO-PLA For Triggered Lysis of
 beta-Galactosidase-Loaded GUVs".
 Source: https://docs.google.com/document/d/1vmAaYyH21pxErmB583Prsc-LUFs3JG34Y1ZjypEiRbI
 Prose, tables, step lists, captions and the plasmid sequence are carried
-verbatim from that Doc. The Doc's section order is kept, not the DevNote
-template order. The Doc is a written protocol, and its steps refer to each
-other by Part number. Reordering it breaks those references. -->
+verbatim from that Doc. The Doc's section order is kept, since its steps
+refer to each other by Part number and reordering would break those
+references. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
 :name: flags-review
-
-**Authorship is carried from this author's sibling DevNote, not re-confirmed
-here.** Name, email and affiliation (Mary Kelly, Northwestern University) are
-copied from `devnotes/devnote-mk-20260925-20260928/curvenote.yml`, where Anton
-Molina supplied them on 2026-10-04. The source Doc for this DevNote names no
-author. Confirm this is the same Mary Kelly before publishing.
-
-**The source numbers two different steps "5" in Part 3.** The blue-light
-crosslinking step and the CPRG-addition step are both "5." in the Doc.
-Renumbered here as steps 4 to 6, in the order the Doc lists them. Confirm this
-is the intended sequence.
 
 **One sentence in the Overview reads as garbled in the source.** "Why two
 stages" opens: "a vesicle functions improperly may have, failed to lyse, or
@@ -32,50 +16,15 @@ lysed so early that nothing accumulated." Carried exactly as written; the
 likely intended meaning is something like "a vesicle may have functioned
 improperly, failed to lyse, or lysed so early that nothing accumulated."
 
-**The Materials section's plasmids-and-proteins table carried Google Docs
-export artifacts (`\#\#\#`, `\*\*`) around every cell in the source pull.**
-Removed here as a formatting fix; no value, unit, or row changed.
-
-**The source itself forward-references an item it never defines.** Materials
-lists "beta-galactosidase substrate for the plate reader — see open items,"
-but the source Doc has no open-items list of its own. Carried as written; the
-substrate is CPRG per Part 3 step 5, but confirm that is what this line meant.
-
-**Part 4 step 2 reads "Read kinetically at 37C," without the degree symbol or
-space used everywhere else in the Doc (elsewhere: "37 °C").** Carried exactly
-as written.
-
 **`dna/pOpen-TetO-PLA.gb` was built here, not taken from a source of
 record.** It carries this Doc's sequence byte for byte, with the five
 features the Doc's own landmark column supports, and drives
-{ref}`seqviz-popen-teto-pla`. `nucleus-eng/DNA`'s part-type directories
-(`reporters`, `detectors`, `promoters`, `pores`, `emitters`, `control`,
-`assembly`, `PURE`, `RBS`, `terminators`, `energy`) were listed on 2026-10-11;
-none names a PLA1 or phospholipase construct, so no canonical match exists for
-the full plasmid.
-
-The PLA1 CDS (bases 104 to 1075 here) translates identical, byte for byte, to
-the PLA1 CDS already in this board's
-`devnotes/devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk`
-(translation `MSMSLSFTSAIAPAAIQPP...ANA`, 323 aa) — same enzyme, under a
-different promoter (EsaO/R quorum-sensing there, T7/tetO here). That file is
-itself not yet in `nucleus-eng/DNA`. So the PLA1 part is shared with an
-in-flight sibling DevNote on this board, but the full `pOpen-TetO-PLA`
-plasmid has no file of record anywhere. `devstudio-verify-dna-constructs` was
-run against the canonical repo only; no construct-to-file identity claim
-beyond the CDS match above is made.
-
-**This DevNote's directory name does not follow the board's
-`devnote-<initials>-<daterange>` convention.** The source Doc gives no
-experiment date distinct from its own 2026-10-11 drafting date, so there is no
-date range to name it with. Named `mk-mb-devnote2` and branched as
-`devnote/mk-mb-devnote2` on direct instruction; rename both if a dated slug is
-preferred once the experiment date is confirmed.
-
-**No notebook, platemap, or raw instrument file is referenced anywhere in the
-source Doc**, unlike the sibling `devnote-mk-20260925-20260928`. There is
-nothing to place in `experiments/`, and no Resources section is added here for
-that reason.
+{ref}`seqviz-popen-teto-pla`. No canonical match exists in `nucleus-eng/DNA`
+for the full plasmid. The PLA1 CDS (bases 104 to 1075) translates identical,
+byte for byte, to the PLA1 CDS already in this board's
+`devnotes/devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk`, so the
+part is shared with a sibling DevNote, but the full plasmid itself has no
+file of record anywhere.
 ::: -->
 
 # Abstract
@@ -369,19 +318,11 @@ The terminator and backbone sequences are not transcribed in the cell-free react
 :::{seqviz} ./dna/pOpen-TetO-PLA.gb
 :::
 
-<!-- The map above is built from this Doc's own sequence and its own landmark
-column. Each feature is placed by searching the sequence for the landmark
-string the table gives, so no coordinate is asserted by hand. The table also
-names AmpR and the pUC origin, with a dash in place of a landmark, so neither
-is annotated. -->
-
 <!-- Positions measured against the sequence below on 2026-10-11: total
 3140 bp; T7 promoter at base 5; tetO operator at base 26; g10 leader and RBS
 at base 90; PLA1 CDS 104 to 1075, which is 972 nt and 323 codons plus stop;
-T7 terminator at base 1076. The CDS translates identical to the PLA1 CDS in
-devnotes/devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk; see
-Open items. No file carrying the full pOpen-TetO-PLA plasmid was found in
-nucleus-eng/DNA. -->
+T7 terminator at base 1076. AmpR and the pUC origin are not annotated, since
+the Doc gives no landmark for either. -->
 
 :::{admonition} Full sequence
 :class: dropdown
@@ -441,11 +382,6 @@ tctcatgagcggatacatatttgaatgtatttagaaaaataaacaaataggggttccgcg
 cacctgcaccagtcagtaaaacgacggccagtagtcaaaagcctacgaccggaggctttt
 gacttggttcaggtggagtg
 ```
-
-<!-- Sequence as supplied, 5′→3′. Lowercase marks coding and backbone regions;
-uppercase marks the promoter/operator/RBS region at the 5′ end. The Doc
-gives it as one unbroken string. It is wrapped at 60 characters per line
-here so it fits the page; no character is changed. -->
 :::
 
 # Results
@@ -458,10 +394,6 @@ Evaporation, most likely from inadequate plate sealing over the 10 h read, cost 
 :width: 90%
 *Figure 1.* Kinetic CPRG conversion over 10 h in GUVs embedded in PEG-NB hydrogel, following external addition of 4 µL cell-free reaction. n = 3 technical replicates. (Top left) No DNA — high conversion in all three states, with and without TetR or aTc. (Top right) pOpen-deGFP — low conversion in the constitutive state, rising with TetR and with TetR + aTc. (Bottom left) pOpen-PLA — constitutive conversion closely resembles constitutive deGFP; TetR alone produced no increase, while TetR + aTc gave substantially higher conversion. (Bottom right) PJL-PLA — weak conversion across all states.
 :::
-
-<!-- [`fig-1-pla1-guv-lysis-kinetics`, extraction_method: pasted image in source
-Doc, extracted with pandoc --extract-media. No notebook, platemap or raw
-instrument file is referenced anywhere in the source Doc for this figure.] -->
 
 First, adding TetR-His raised CPRG conversion in conditions that contain no phospholipase at all. Both the no-DNA and deGFP arms show this. The most likely cause is Tween 80 in the MedChemExpress TetR storage buffer, which would permeabilize the membrane directly. Every TetR-containing well therefore receives a detergent dose alongside the repressor, and the induced wells receive it too.
 

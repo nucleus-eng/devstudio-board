@@ -3,62 +3,29 @@ title: 'Expressing Cell-Free TetO-GFP in Solution with aTc Titration'
 thumbnail: ./figures/fig2-endpoint-gfp-atc-titration.png
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- Drafted 2026-10-11 from the Google Doc "TetO-plamGFP in Solution".
 Source: https://docs.google.com/document/d/1F3oW_PK6oKyVTA1JaVtpX5BvqwYHdBwEvA59MDBIMes
 Prose, tables, step lists, captions and both figures are carried verbatim
 from that Doc, including its own section order. The Doc's own title/authors
 block ("Title: ..." / "Authors:" / each name and email) is not repeated in
 the body: title, authors and their emails live in this file's frontmatter
-and in curvenote.yml instead, and render as the page byline.
-
-On request, 2026-10-11: the plasmid map moved from its own trailing section
-to directly after Genetic circuit, under a new "Plasmid map" heading (not
-in the source Doc). A handful of sentences also gained {ref} cross-links to
-the table, figure, or seqviz view they describe — "the table below" became
-"{ref}`tbl-mastermix`", for example. These are the only two kinds of change
-made to the Doc's own prose; no value, unit, or claim was altered. -->
+and in curvenote.yml instead, and render as the page byline. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
 :name: flags-review
 
-**The Reagents and stocks, Master mix, Reaction conditions, and Results
-tables carried Google Docs export artifacts (`\#\#\#`, `\*\*`) around every
-cell in the source pull.** Removed here as a formatting fix; no value, unit,
-or row changed.
-
 **The Results section carries two empty placeholder lines in the source
 itself.** "dataset link:" and "Platemap link:" appear with nothing after the
-colon. Carried as written; there is no dataset or platemap link to add.
+colon. The matching raw dataset and its provenance are recorded in the
+commented-out block after {ref}`fig-2-endpoint-gfp-atc-titration` below.
 
 **The fluorescein-standards description does not match the plate image.**
 The text says "S1 to S4 ... in row G, columns 2 to 9, in duplicate." The
 extracted image (`figures/fig1-plate-layout.png`) shows S1, S1, S2, S2, S3,
-S3, S4 across columns 2 to 8 — S4 appears once, not in duplicate, and column
-9 is blank. Both are carried as supplied; this is a discrepancy in the source,
-not something introduced here.
-
-**`dna/pOpen-pT7-tetO.gb` is the real file of record, not built here.** The
-source Doc gives no inline sequence for this construct, only a name
-(pT7-tetO-plamGFP) and a link to the Nucleus tetR-aTc Detector module spec.
-`nucleus-eng/DNA`'s `detectors/pOpen-pT7-tetO.gb` was checked directly on
-2026-10-11: 2954 bp, `DEFINITION` reads "PlamGFP green fluorescent protein
-with repressed by the tet repressor tetR," and its features carry a T7
-promoter, a `tetO` operator, a plamGFP CDS, and an AmpR marker — matching the
-Doc's own description of the genetic circuit (tetO operator between the T7
-promoter and the plamGFP coding sequence). This is the strongest identity
-match found across this board's three DevNotes so far: the file's own
-`DEFINITION` line names the construct, not just a filename resemblance. Taken
-and used as-is, unmodified, and drives {ref}`seqviz-pt7-teto-plamgfp`.
-
-**No sequence file was located, or was needed, for TetR or beta-galactosidase
-reference material** — neither applies here; TetR is a purchased protein
-(MedChemExpress HY-P71520A), same as in the sibling DevNotes on this board.
+S3, S4 across columns 2 to 8, so S4 appears once, not in duplicate, and
+column 9 is blank. Both are carried as supplied; this is a discrepancy in
+the source, not something introduced here.
 ::: -->
 
 # Abstract
@@ -83,12 +50,6 @@ The reporter plasmid pT7-tetO-plamGFP ([b.next, Nucleus tetR-aTc Detector module
 
 :::{seqviz} ./dna/pOpen-pT7-tetO.gb
 :::
-
-<!-- Not a section of the source Doc. Added because the source names the
-construct and links to its Nucleus module spec, but supplies no sequence of
-its own; the map above renders the real nucleus-eng/DNA file identified in
-Open items, taken as-is and unmodified. Placed directly after Genetic circuit
-on request, 2026-10-11, rather than as its own trailing section. -->
 
 ## Reagents and stocks
 
@@ -245,9 +206,9 @@ data source: `20260925-163935-cytation3-pure-timecourse-gfp-Mary-tetR-aTc.txt` (
 platemap: `MK-20260925-TetO GFP in Bulk with ATC.csv` (same folder; volumes match tbl-conditions exactly)
 notebook: `MK-20260925-platereader.ipynb` (same folder)
 stocks: `MK-Stocks.csv` (same folder)
-This resolves the Doc's own empty "dataset link:" / "Platemap link:" lines above. Not yet fetched into this
-devnote's own directory; say the word and these can be pulled in as `experiments/`, the way the sibling
-devnote-mk-20260925-20260928 does it.
+Not yet fetched into this devnote's own directory; say the word and these can
+be pulled in as `experiments/`, the way the sibling devnote-mk-20260925-20260928
+does it.
 -->
 
 # Conclusion

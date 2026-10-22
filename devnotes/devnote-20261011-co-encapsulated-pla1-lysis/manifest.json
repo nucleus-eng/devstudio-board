@@ -88,7 +88,7 @@
       "sequence_file": "dna/pOpen-TetO-PLA.gb",
       "verified": false,
       "findings": [
-        "Reused verbatim from this board's devnote/mk-mb-devnote2 (dna/pOpen-TetO-PLA.gb), unmodified. That file's own provenance note still applies: built from an inline sequence in that DevNote's source Doc, not from a canonical nucleus-eng/DNA file, and its PLA1 CDS matches devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk at the part level.",
+        "Reused verbatim from this board's devnote/devnote-20261011-pla1-triggered-lysis-guvs (dna/pOpen-TetO-PLA.gb), unmodified. That file's own provenance note still applies: built from an inline sequence in that DevNote's source Doc, not from a canonical nucleus-eng/DNA file, and its PLA1 CDS matches devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk at the part level.",
         "Named pOpen-PLA in this Doc's Materials table and pOpen-TetO-PLA in its Results captions; treated as the same construct."
       ]
     },

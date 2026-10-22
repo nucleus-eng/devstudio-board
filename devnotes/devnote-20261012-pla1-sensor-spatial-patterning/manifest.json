@@ -34,7 +34,7 @@
       "verified": true,
       "findings": [
         "Built from the source Doc's own inline sequence. The Doc's construct table states this cassette sits on the reverse strand; confirmed by locating the promoter, tetO operator, RBS and CDS on the reverse complement of the given sequence, then converting coordinates back to the forward strand for the GenBank file (complement() locations).",
-        "CDS translates to 320 aa, matching the Doc's table exactly ('320 aa phospholipase A1'). Translation (MSMSLSFTSAIAPAAIQPP...ANA) is identical to the PLA1 protein this board's mk-mb-devnote2 and mk-mb-devnote-4 carry on the pOpen backbone -- the same enzyme, a different vector (pJL1 here, pOpen there).",
+        "CDS translates to 320 aa, matching the Doc's table exactly ('320 aa phospholipase A1'). Translation (MSMSLSFTSAIAPAAIQPP...ANA) is identical to the PLA1 protein this board's devnote-20261011-pla1-triggered-lysis-guvs and devnote-20261011-co-encapsulated-pla1-lysis carry on the pOpen backbone -- the same enzyme, a different vector (pJL1 here, pOpen there).",
         "Not the same file as either of those DevNotes' dna/pOpen-TetO-PLA.gb; this is a distinct plasmid."
       ]
     },

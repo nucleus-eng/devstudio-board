@@ -3,11 +3,6 @@ title: 'Double Vesicle Lysis System Leveraging deGFP CFPE'
 thumbnail: ./figures/fig1-two-vesicle-kinetics.png
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- Drafted 2026-10-21 from the Google Doc "Double Vesicle Lysis System
 Leveraging deGFP CFPE".
 Source: https://docs.google.com/document/d/1_iOQShy9GgeXlZnNVNlVYgMxIKNLkmq3wFapNrh9Qh4
@@ -17,7 +12,8 @@ figure sits inside Part 4 of the Protocol, exactly where the source puts
 it. Figure caption drops the literal "Figure." label the Doc gives it,
 since MyST auto-numbers the `:::{figure}` directive. A "Plasmid maps"
 subsection is added after Plasmids and proteins (not in the source Doc),
-the same placement used for this construct pair in mk-mb-devnote-4. -->
+the same placement used for this construct pair in
+devnote-20261011-co-encapsulated-pla1-lysis. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown

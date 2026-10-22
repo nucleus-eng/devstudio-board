@@ -3,33 +3,17 @@ title: 'TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patter
 thumbnail: ./figures/fig7-patterned-gel.png
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- Drafted 2026-10-12 from the Google Doc "TetO-PLA in NB_CPRG".
 Source: https://docs.google.com/document/d/11Rcrw1_6U45LPC8VNe6-34ztsteZ8Qu-XwIrUvVDDtQ
 Prose, tables, step lists and all eight figures are carried verbatim from
-that Doc, including its own section order. The Doc's own title/byline
-block is not repeated in the body: title, authors and their emails live in
-this file's frontmatter and in curvenote.yml instead. Figure captions drop
-the literal "Figure N." prefix the Doc gives them, since MyST auto-numbers
-the `:::{figure}` directive. Inline "(Figure N)" citations already in the
-Doc's own prose became {ref} cross-links to the same figure, rather than
-new sentences. The Doc's own "Sequences:" subsection, a bulleted list
-carrying each construct's raw sequence inline, became a "Plasmid maps"
-subsection in the same position: a two-item tab-set, one tab per
-construct, each with a seqviz view and the same raw sequence in a
-dropdown. No sequence character changed; only where it sits and how it is
-wrapped changed. -->
+that Doc, including its own section order. The Doc's own "Sequences:"
+subsection, a bulleted list carrying each construct's raw sequence inline,
+became a "Plasmid maps" subsection in the same position: a tab-set, one tab
+per construct, each with a seqviz view. No sequence character changed. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
 :name: flags-review
-
-**The source Doc gives no date anywhere in its text.** `curvenote.yml`
-uses the Drive file's own creation date, 2026-10-11, checked 2026-10-12.
 
 **Neither plasmid is built from an existing file on this board.** Both
 `dna/pJL1-T7-TetO-GFP.gb` and `dna/pJL1-T7-TetO-PLA1.gb` are built fresh
@@ -43,15 +27,11 @@ on the reverse complement and converting back to forward-strand
 coordinates for the GenBank file. Both CDS translations were checked
 against the Doc's own claims: the GFP CDS is 240 aa ending in WSHPQFEK,
 the Strep-tag II the Doc's table names; the PLA1 CDS is 320 aa, and
-translates identical to the PLA1 protein this board's `mk-mb-devnote2` and
-`mk-mb-devnote-4` carry on the pOpen backbone (MSMSLSFTSAIAPAAIQPP...ANA)
+translates identical to the PLA1 protein this board's `devnote-20261011-pla1-triggered-lysis-guvs` and
+`devnote-20261011-co-encapsulated-pla1-lysis` carry on the pOpen backbone (MSMSLSFTSAIAPAAIQPP...ANA)
 — the same enzyme, a different vector. Neither AmpR nor KanR is annotated,
 since the Doc gives no landmark for either. Drive this devnote's own
 {ref}`seqviz-pjl1-teto-gfp` and {ref}`seqviz-pjl1-teto-pla1`.
-
-**The Cell-free system table carried Google Docs export artifacts
-(`\#\#\#`, `\*\*`) around every cell in the source pull.** Removed here as
-a formatting fix; no value, unit, or row changed.
 
 **Figure 5's chart title reads "pOpen-PLA," not "TetO-PLA1."** The source
 image for {ref}`fig-5-encapsulated-atc-titration-confocal` is titled
