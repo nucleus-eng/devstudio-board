@@ -10,7 +10,7 @@ project:
     whether externally supplied PLA1 can lyse the membrane, and whether
     that lysis can be triggered on demand.
   # Name, email and affiliation carried from this author's sibling DevNote
-  # in this board, devnotes/devnote-mk-20260925-20260928/curvenote.yml,
+  # in this board, devnotes/devnote-20261011-tetr-atc-degfp-guv-sensor/curvenote.yml,
   # where they were supplied by Anton Molina on 2026-10-04. Not re-confirmed
   # for this DevNote specifically — see the Open items admonition in main.md.
   authors:

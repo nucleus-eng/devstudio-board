@@ -8,8 +8,7 @@ Source: https://docs.google.com/document/d/1oWYWO6-2OJEOMaWc-6dxgFCW8nUEhhw0ddNB
 Prose, tables, step lists, captions and the plasmid sequence are carried
 verbatim from that Doc. The Doc's section order is kept, not the DevNote
 template order. The Doc is a written protocol, and its steps refer to each
-other by Part number. Reordering it breaks those references.
-STYLE: non-standard section headings preserved per participant intent. -->
+other by Part number. Reordering it breaks those references. -->
 
 <!-- :::{admonition} Open items from the redraft
 :class: warning dropdown
@@ -20,8 +19,7 @@ carried the 28-condition aTc titration from
 `MK-20260925-tetO-plamGFP-titrate-atc` alongside the 2026-09-28 work. The
 source Doc covers only 2026-09-28: the encapsulation run and its matched bulk
 control. Carrying the Doc faithfully therefore drops the 2026-09-25 material.
-The directory is still named `devnote-mk-20260925-20260928`. Rename it to
-match, or say where the 2026-09-25 titration belongs.
+Say where the 2026-09-25 titration belongs, if anywhere.
 
 **The outer solution buffer concentration is flagged in the source.** The Doc
 states 800 µL of 1 M HEPES into 1000 µL total. It then says this gives 800 mM
@@ -67,11 +65,6 @@ origin annotations, which the Doc's table cannot supply. Do not use
 384-well plate with purple wells, dated 2026-10-05, after both experiments in
 this DevNote. The Doc does not mention it and nothing here links it. Say where
 it belongs or remove it.
-
-**Three composition sidecars are now unreferenced.** `experiments/` holds
-`composition-20260925.csv`, `composition-20260928.csv` and
-`composition-20260928-microscopy.csv`, written before this redraft. The Doc
-carries its own composition tables, so nothing points at them any more.
 ::: -->
 
 # Abstract
@@ -570,10 +563,6 @@ aataggggttccgcgcacctgcaccagtcagtaaaacgacggccagtagtcaaaagccta
 cgaccggaggcttttgacttggttcaggtggagtg
 ```
 
-<!-- Sequence as supplied, 5′→3′. Lowercase marks coding and backbone regions;
-uppercase marks the promoter/operator/RBS region at the 5′ end. The Doc
-gives it as one unbroken string. It is wrapped at 60 characters per line
-here so it fits the page; no character is changed. -->
 :::
 
 # Results
@@ -685,20 +674,9 @@ the highest dose tested.
 
 <!-- # Resources -->
 
-<!-- Not a section of the source Doc. Added so the assets the figures resolve
-through are linked from the DevNote. -->
-
 <!-- - Plate map, bulk: [`experiments/MK-20260928-platemap-nucleus-bulk.csv`](./experiments/MK-20260928-platemap-nucleus-bulk.csv)
 - Plate map, microscopy: [`experiments/20260928-MK-full-sensor-microscopy.csv`](./experiments/20260928-MK-full-sensor-microscopy.csv)
 - Analysis notebook, plate reader: [`experiments/MK-20260928-platereader.ipynb`](./experiments/MK-20260928-platereader.ipynb)
 - Analysis notebook, microscopy: [`experiments/MK-20260928-microscopy.ipynb`](./experiments/MK-20260928-microscopy.ipynb)
 - Microscopy image store: [the OME-Zarr plate on data.nucleus.engineering](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.zarr)
-- Microscopy per-object measurements: [the parquet beside that plate](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet)
-
-The raw plate reader file lands in `experiments/` during asset assembly, as
-`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`. -->
-
-<!-- The microscopy notebook lands in experiments/ as
-MK-20260928-microscopy.ipynb. Its Drive title is "MK-20260928- microscopy",
-with a space and no extension. Rename it on the way in, and keep the toc entry
-in curvenote.yml pointing at the renamed file. -->
+- Microscopy per-object measurements: [the parquet beside that plate](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet) -->

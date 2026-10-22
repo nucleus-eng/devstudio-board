@@ -33,7 +33,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: devnote-mk-20260925-20260928.zip
+      filename: devnote-20261011-tetr-atc-degfp-guv-sensor.zip
   toc:
     - file: main.md
     - file: experiments/MK-20260928-platereader.ipynb

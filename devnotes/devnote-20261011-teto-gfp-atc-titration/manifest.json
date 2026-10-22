@@ -49,7 +49,7 @@
         "The source Doc gives no inline sequence, only a construct name and a link to the Nucleus tetR-aTc Detector module spec (docs.nucleus.engineering/docs/modules/detector-tetr-atc/spec/).",
         "nucleus-eng/DNA detectors/pOpen-pT7-tetO.gb, checked directly on 2026-10-11: 2954 bp, DEFINITION line reads 'PlamGFP green fluorescent protein with repressed by the tet repressor tetR.' Features: T7 promoter, tetO operator, UTR1 RBS, plamGFP CDS (693 nt, 230 aa, translation starting MEIEDVIKRDMK...), T7hyb6 terminator, AmpR, pOpen backbone.",
         "This is an identity match on the file's own DEFINITION and feature labels, not a filename-resemblance guess. Taken and used as-is, unmodified, as dna/pOpen-pT7-tetO.gb.",
-        "Same plamGFP CDS considered and ruled out as a match for a different construct (pOpen-TetO-deGFP) during this board's devnote-mk-20260925-20260928 construct check on 2026-10-11 -- consistent with this file being specific to the plamGFP reporter, not deGFP."
+        "Same plamGFP CDS considered and ruled out as a match for a different construct (pOpen-TetO-deGFP) during this board's devnote-20261011-tetr-atc-degfp-guv-sensor construct check on 2026-10-11 -- consistent with this file being specific to the plamGFP reporter, not deGFP."
       ]
     },
     {

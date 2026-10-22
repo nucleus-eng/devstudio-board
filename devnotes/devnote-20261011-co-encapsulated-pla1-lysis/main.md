@@ -29,7 +29,7 @@ the clause structure does not fully parse.
 **Both plasmid files are reused verbatim from this board's sibling
 DevNotes, not built fresh here**: `dna/pOpen-TetO-PLA.gb` from
 `devnote-20261011-pla1-triggered-lysis-guvs`, `dna/pOpen-TetO-deGFP.gb` from
-`devnote-mk-20260925-20260928`. Neither file is in the canonical
+`devnote-20261011-tetr-atc-degfp-guv-sensor`. Neither file is in the canonical
 `nucleus-eng/DNA` repo. Drive this devnote's own
 {ref}`seqviz-popen-teto-pla` and {ref}`seqviz-popen-teto-degfp`.
 ::: -->
