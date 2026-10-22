@@ -119,8 +119,13 @@ folded on 2026-10-09. The current values are carried above.
 | Inner solution DNA | no concentration stated | 10 ng/mL |
 | Construct names | T7-mNG, T7-PLA1 | T7-EsaO-mNG, T7-EsaO-PLA1 |
 
-Confirm the current values are the ones used, and say which runs they apply to.
-A protocol that changed across the two weeks of work is expected, and is a
+**Construct names confirmed by Anton Molina, 2026-10-22**: the constructs
+actually used were the current source's values, T7-EsaO-mNG and T7-EsaO-PLA1,
+not the earlier T7-mNG/T7-PLA1. The other three rows above are still
+unconfirmed. Confirm the sonication time and temperature, the pipetting
+count, and the inner solution DNA concentration are the current source's
+values and not the 2026-10-09 ones, and say which runs they apply to. A
+protocol that changed across the two weeks of work is expected, and is a
 different thing from a correction. Say which this is.
 :::
 
