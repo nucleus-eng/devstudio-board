@@ -48,7 +48,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: mk-mb-devnote-4.zip
+      filename: devnote-20261011-co-encapsulated-pla1-lysis.zip
   toc:
     - file: main.md
   plugins:

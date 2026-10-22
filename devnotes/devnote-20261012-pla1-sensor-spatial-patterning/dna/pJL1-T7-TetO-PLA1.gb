@@ -16,8 +16,10 @@ COMMENT     Built 2026-10-12 from the source Doc's inline sequence. The
             sequence, as the Doc's own construct table states; features
             below are annotated with complement() locations against the
             Doc's sequence as supplied. CDS translates to 320 aa
-            (MSMSLSFTSAIAPAAIQPP...ANA), the same PLA1 protein as
-            mk-mb-devnote2 and mk-mb-devnote-4's pOpen-TetO-PLA, here on a
+            (MSMSLSFTSAIAPAAIQPP...ANA), the same PLA1 protein as the
+            pOpen-TetO-PLA carried by this board's
+            devnote-20261011-pla1-triggered-lysis-guvs and
+            devnote-20261011-co-encapsulated-pla1-lysis, here on a
             different (pJL1) backbone. The AmpR marker is not annotated,
             since the Doc gives no landmark for it.
 FEATURES             Location/Qualifiers

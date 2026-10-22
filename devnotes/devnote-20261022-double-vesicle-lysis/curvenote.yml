@@ -45,7 +45,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: mk-mb-devnote-6.zip
+      filename: devnote-20261022-double-vesicle-lysis.zip
   toc:
     - file: main.md
   plugins:

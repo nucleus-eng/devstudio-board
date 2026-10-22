@@ -65,12 +65,15 @@ plasmid has no file of record anywhere. `devstudio-verify-dna-constructs` was
 run against the canonical repo only; no construct-to-file identity claim
 beyond the CDS match above is made.
 
-**This DevNote's directory name does not follow the board's
-`devnote-<initials>-<daterange>` convention.** The source Doc gives no
-experiment date distinct from its own 2026-10-11 drafting date, so there is no
-date range to name it with. Named `mk-mb-devnote2` and branched as
-`devnote/mk-mb-devnote2` on direct instruction; rename both if a dated slug is
-preferred once the experiment date is confirmed.
+**This DevNote's directory was originally named `mk-mb-devnote2`** (branched
+as `devnote/mk-mb-devnote2`) on direct instruction, since the source Doc
+gives no experiment date distinct from its own 2026-10-11 drafting date.
+Renamed to `devnote-20261011-pla1-triggered-lysis-guvs` on 2026-10-22 (Anton
+Molina), to drop author initials from the naming scheme entirely — not
+specific to this DevNote, the same change was made across the corpus, so
+that a folder name never implies an attribution claim the author list
+itself should carry instead. The git branch name was not renamed, since the
+original PR (#11) is already merged.
 
 **No notebook, platemap, or raw instrument file is referenced anywhere in the
 source Doc**, unlike the sibling `devnote-mk-20260925-20260928`. There is

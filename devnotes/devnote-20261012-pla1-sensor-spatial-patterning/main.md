@@ -22,7 +22,11 @@ carrying each construct's raw sequence inline, became a "Plasmid maps"
 subsection in the same position: a two-item tab-set, one tab per
 construct, each with a seqviz view and the same raw sequence in a
 dropdown. No sequence character changed; only where it sits and how it is
-wrapped changed. -->
+wrapped changed.
+
+Renamed from `mk-mb-devnote-5` to this slug on 2026-10-22 (Anton Molina),
+to drop author initials from the naming scheme corpus-wide. The git
+branch name was not renamed, since the original PR (#21) is merged. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
@@ -43,8 +47,8 @@ on the reverse complement and converting back to forward-strand
 coordinates for the GenBank file. Both CDS translations were checked
 against the Doc's own claims: the GFP CDS is 240 aa ending in WSHPQFEK,
 the Strep-tag II the Doc's table names; the PLA1 CDS is 320 aa, and
-translates identical to the PLA1 protein this board's `mk-mb-devnote2` and
-`mk-mb-devnote-4` carry on the pOpen backbone (MSMSLSFTSAIAPAAIQPP...ANA)
+translates identical to the PLA1 protein this board's `devnote-20261011-pla1-triggered-lysis-guvs` and
+`devnote-20261011-co-encapsulated-pla1-lysis` carry on the pOpen backbone (MSMSLSFTSAIAPAAIQPP...ANA)
 — the same enzyme, a different vector. Neither AmpR nor KanR is annotated,
 since the Doc gives no landmark for either. Drive this devnote's own
 {ref}`seqviz-pjl1-teto-gfp` and {ref}`seqviz-pjl1-teto-pla1`.

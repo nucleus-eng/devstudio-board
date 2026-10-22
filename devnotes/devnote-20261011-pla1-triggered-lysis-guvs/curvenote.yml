@@ -35,7 +35,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: mk-mb-devnote2.zip
+      filename: devnote-20261011-pla1-triggered-lysis-guvs.zip
   toc:
     - file: main.md
   plugins:

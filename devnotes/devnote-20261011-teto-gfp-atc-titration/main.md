@@ -21,7 +21,11 @@ to directly after Genetic circuit, under a new "Plasmid map" heading (not
 in the source Doc). A handful of sentences also gained {ref} cross-links to
 the table, figure, or seqviz view they describe — "the table below" became
 "{ref}`tbl-mastermix`", for example. These are the only two kinds of change
-made to the Doc's own prose; no value, unit, or claim was altered. -->
+made to the Doc's own prose; no value, unit, or claim was altered.
+
+Renamed from `mk-mb-devnote-3` to this slug on 2026-10-22 (Anton Molina),
+to drop author initials from the naming scheme corpus-wide. The git
+branch name was not renamed, since the original PR (#12) is merged. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown

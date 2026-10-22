@@ -46,7 +46,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: mk-mb-devnote-5.zip
+      filename: devnote-20261012-pla1-sensor-spatial-patterning.zip
   toc:
     - file: main.md
   plugins:
