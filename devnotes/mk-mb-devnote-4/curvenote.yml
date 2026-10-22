@@ -10,15 +10,16 @@ project:
     confirms the effect is graded and controlled by expression level via
     TetR/aTc, independent of which protein is made.
   # Both authors and emails are given directly in the source Doc, 2026-10-12.
-  # Dr. Mary Kelly's email here (marydkelly1@gmail.com) differs from the
-  # marykelly2026@u.northwestern.edu used in her other DevNotes on this
-  # board — see the Open items admonition in main.md. Affiliation
-  # (Northwestern University) is inferred from the source Doc's own role
-  # lines ("Post Doctorate, Northwestern University" / "PhD Candidate,
-  # Northwestern University").
+  # Affiliation (Northwestern University) is inferred from the source Doc's
+  # own role lines ("Post Doctorate, Northwestern University" / "PhD
+  # Candidate, Northwestern University"). Name and email standardized
+  # across the corpus on 2026-10-22 (Anton Molina): the source Doc's own
+  # byline reads "Dr. Mary Kelly" with marydkelly1@gmail.com, which this
+  # DevNote carried until now — see Open items in main.md for the
+  # resolved discrepancy this used to document.
   authors:
-    - name: Dr. Mary Kelly
-      email: marydkelly1@gmail.com
+    - name: Mary Kelly
+      email: marykelly2026@u.northwestern.edu
       corresponding: true
       affiliations:
         - affiliations-curvenote-generated-uid-0

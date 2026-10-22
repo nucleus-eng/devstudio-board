@@ -60,11 +60,13 @@ the Drive file's own creation date, 2026-10-12, checked the same day. The
 other three DevNotes on this board all state a date inside the Doc itself;
 this one does not.
 
-**Dr. Mary Kelly's email differs from her other DevNotes on this board.**
-This source gives marydkelly1@gmail.com. `devnote-mk-20260925-20260928`,
-`mk-mb-devnote2` and `mk-mb-devnote-3` all give marykelly2026@u.northwestern.edu.
-Carried exactly as this Doc states it; confirm which address is current
-before publishing.
+**This source's own byline gives a different name and email for Mary
+Kelly than this board's other DevNotes.** "Dr. Mary Kelly" and
+marydkelly1@gmail.com, against "Mary Kelly" and
+marykelly2026@u.northwestern.edu elsewhere. `curvenote.yml` was
+standardized to the corpus-wide form on 2026-10-22 (Anton Molina); this
+note records the source's own wording, which `curvenote.yml` no longer
+carries.
 
 **One sentence in the Follow Up Experiment's Design section reads as
 garbled in the source.** "Expression of deGFP causes membrane permeability
