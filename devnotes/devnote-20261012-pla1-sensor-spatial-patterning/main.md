@@ -3,11 +3,6 @@ title: 'TetO-Regulated PLA1 Sensor in Vesicles: aTc Titration and Spatial Patter
 thumbnail: ./figures/fig7-patterned-gel.png
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- Drafted 2026-10-12 from the Google Doc "TetO-PLA in NB_CPRG".
 Source: https://docs.google.com/document/d/11Rcrw1_6U45LPC8VNe6-34ztsteZ8Qu-XwIrUvVDDtQ
 Prose, tables, step lists and all eight figures are carried verbatim from

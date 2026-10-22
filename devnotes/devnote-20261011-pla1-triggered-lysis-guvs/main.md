@@ -1,8 +1,3 @@
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- Drafted 2026-10-11 from the Google Doc "TetO-PLA For Triggered Lysis of
 beta-Galactosidase-Loaded GUVs".
 Source: https://docs.google.com/document/d/1vmAaYyH21pxErmB583Prsc-LUFs3JG34Y1ZjypEiRbI

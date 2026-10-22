@@ -3,11 +3,6 @@ title: 'Double Vesicle Lysis System Leveraging deGFP CFPE'
 thumbnail: ./figures/fig1-two-vesicle-kinetics.png
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- Drafted 2026-10-21 from the Google Doc "Double Vesicle Lysis System
 Leveraging deGFP CFPE".
 Source: https://docs.google.com/document/d/1_iOQShy9GgeXlZnNVNlVYgMxIKNLkmq3wFapNrh9Qh4

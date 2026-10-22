@@ -3,11 +3,6 @@ title: 'Co-Encapsulated Cell-Free PLA1 Expression in beta-Galactosidase GUVs'
 thumbnail: ./figures/fig8-endpoint-abs-15h.png
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- Drafted 2026-10-12 from the Google Doc "Single Vesicle Lysis System
 Leveraging deGFP CFPE".
 Source: https://docs.google.com/document/d/1DouMRrZWCUKdWzuMoH48izjj8-7_oyKGCQrU2xOm5GI

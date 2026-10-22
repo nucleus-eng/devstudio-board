@@ -3,11 +3,6 @@ title: 'Expressing Cell-Free TetO-GFP in Solution with aTc Titration'
 thumbnail: ./figures/fig2-endpoint-gfp-atc-titration.png
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- Drafted 2026-10-11 from the Google Doc "TetO-plamGFP in Solution".
 Source: https://docs.google.com/document/d/1F3oW_PK6oKyVTA1JaVtpX5BvqwYHdBwEvA59MDBIMes
 Prose, tables, step lists, captions and both figures are carried verbatim
