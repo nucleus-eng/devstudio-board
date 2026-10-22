@@ -43,7 +43,7 @@ used the pOpen backbone.
 
 **The Protocol cites "(OP DevNote)" and the Sources list cites "Ojaswita's
 devnote," neither linked.** Both likely point to this board's own
-`devnote-op-20261001-luv-gel-pla` (still an open draft PR), which covers
+`devnote-20261011-luv-gel-pla`, which covers
 PEG-4NB hydrogel preparation — the same gel chemistry this Doc's Protocol
 describes. Not linked here, since that identification is inferred, not
 stated in the source.
@@ -279,4 +279,4 @@ We should note that CF-TetR is added as a volume of cell-free material rather th
 - Lipids: POPC and cholesterol (ovine) 9:1, 0.1 mol% 18:1 Liss Rhodamine PE (Avanti)
 - CPRG, chlorophenol red-β-D-galactopyranoside, with purified β-galactosidase (Sigma-Aldrich)
 - Kelly, M. (2026). [Double emulsion optimization: inner solution, lipid concentration, and composition](https://devnotes.nucleus.engineering/articles/mk0407). Nucleus Developer Notes, mk0407 — GUV preparation protocol and outer solution formulation
-- Ojaswita's devnote — REVIEW: not linked in the source; likely this board's `devnote-op-20261001-luv-gel-pla`, see Open items
+- Ojaswita's devnote — REVIEW: not linked in the source; likely this board's `devnote-20261011-luv-gel-pla`, see Open items

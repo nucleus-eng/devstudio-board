@@ -14,7 +14,7 @@ COMMENT     Built 2026-10-11 from the source Doc's plasmid reference table.
             are annotated. The table also names AmpR (bla) and the pUC
             origin with no landmark, so neither is annotated here.
             The PLA1 CDS (104..1075) translates identical, byte for byte, to
-            the PLA1 CDS in this board's devnotes/devnote-op-20261001-luv-gel-pla/
+            the PLA1 CDS in this board's devnotes/devnote-20261011-luv-gel-pla/
             dna/t7pro-esao-ls1-pla1.gbk (translation MSMSLSFTSAIAPAAIQPP...
             ANA, 323 aa). That file is not yet in the canonical nucleus-eng/DNA
             repo, and neither is this one. No file for the full pOpen-TetO-PLA
@@ -36,7 +36,7 @@ FEATURES             Location/Qualifiers
                      /label="PLA1"
                      /codon_start=1
                      /note="phospholipase A1, 972 bp; identical CDS to
-                     devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk"
+                     devnote-20261011-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk"
      terminator      1076..1117
                      /label="T7 terminator"
 ORIGIN

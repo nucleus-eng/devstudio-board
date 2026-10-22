@@ -635,10 +635,7 @@ reagents are folded into {numref}`tbl-reagents`. A build sheet, at
 this DevNote's own data. Drive URLs are not written as links here, per the
 rule above.
 
-The DevNote Drive folder is `devnote-OPxMB-20261001-luv-gel-pla`. Note that it
-carries both authors' initials while this DevNote's directory is named
-`devnote-op-20261001-luv-gel-pla`. The directory name is not changed here,
-because it is the path the open pull request already uses.
+The DevNote Drive folder is `devnote-OPxMB-20261001-luv-gel-pla`.
 
 These files in that folder were read on 2026-10-11 and are not yet copied into
 this DevNote. `devstudio-assemble-devnote-assets` owns that copy, and runs
