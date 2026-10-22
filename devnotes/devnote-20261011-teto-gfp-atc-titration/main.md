@@ -211,9 +211,9 @@ data source: `20260925-163935-cytation3-pure-timecourse-gfp-Mary-tetR-aTc.txt` (
 platemap: `MK-20260925-TetO GFP in Bulk with ATC.csv` (same folder; volumes match tbl-conditions exactly)
 notebook: `MK-20260925-platereader.ipynb` (same folder)
 stocks: `MK-Stocks.csv` (same folder)
-This resolves the Doc's own empty "dataset link:" / "Platemap link:" lines above. Not yet fetched into this
-devnote's own directory; say the word and these can be pulled in as `experiments/`, the way the sibling
-devnote-mk-20260925-20260928 does it.
+Not yet fetched into this devnote's own directory; say the word and these can
+be pulled in as `experiments/`, the way the sibling devnote-mk-20260925-20260928
+does it.
 -->
 
 # Conclusion

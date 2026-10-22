@@ -18,11 +18,7 @@ it. Figure caption drops the literal "Figure." label the Doc gives it,
 since MyST auto-numbers the `:::{figure}` directive. A "Plasmid maps"
 subsection is added after Plasmids and proteins (not in the source Doc),
 the same placement used for this construct pair in
-devnote-20261011-co-encapsulated-pla1-lysis.
-
-Renamed from `mk-mb-devnote-6` to this slug on 2026-10-22 (Anton Molina),
-to drop author initials from the naming scheme corpus-wide. The git
-branch name was not renamed, since the original PR (#30) is merged. -->
+devnote-20261011-co-encapsulated-pla1-lysis. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown

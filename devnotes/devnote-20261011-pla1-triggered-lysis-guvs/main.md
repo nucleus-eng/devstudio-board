@@ -323,19 +323,11 @@ The terminator and backbone sequences are not transcribed in the cell-free react
 :::{seqviz} ./dna/pOpen-TetO-PLA.gb
 :::
 
-<!-- The map above is built from this Doc's own sequence and its own landmark
-column. Each feature is placed by searching the sequence for the landmark
-string the table gives, so no coordinate is asserted by hand. The table also
-names AmpR and the pUC origin, with a dash in place of a landmark, so neither
-is annotated. -->
-
 <!-- Positions measured against the sequence below on 2026-10-11: total
 3140 bp; T7 promoter at base 5; tetO operator at base 26; g10 leader and RBS
 at base 90; PLA1 CDS 104 to 1075, which is 972 nt and 323 codons plus stop;
-T7 terminator at base 1076. The CDS translates identical to the PLA1 CDS in
-devnotes/devnote-op-20261001-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk; see
-Open items. No file carrying the full pOpen-TetO-PLA plasmid was found in
-nucleus-eng/DNA. -->
+T7 terminator at base 1076. AmpR and the pUC origin are not annotated, since
+the Doc gives no landmark for either. -->
 
 :::{admonition} Full sequence
 :class: dropdown
@@ -395,11 +387,6 @@ tctcatgagcggatacatatttgaatgtatttagaaaaataaacaaataggggttccgcg
 cacctgcaccagtcagtaaaacgacggccagtagtcaaaagcctacgaccggaggctttt
 gacttggttcaggtggagtg
 ```
-
-<!-- Sequence as supplied, 5′→3′. Lowercase marks coding and backbone regions;
-uppercase marks the promoter/operator/RBS region at the 5′ end. The Doc
-gives it as one unbroken string. It is wrapped at 60 characters per line
-here so it fits the page; no character is changed. -->
 :::
 
 # Results
@@ -412,10 +399,6 @@ Evaporation, most likely from inadequate plate sealing over the 10 h read, cost 
 :width: 90%
 *Figure 1.* Kinetic CPRG conversion over 10 h in GUVs embedded in PEG-NB hydrogel, following external addition of 4 µL cell-free reaction. n = 3 technical replicates. (Top left) No DNA — high conversion in all three states, with and without TetR or aTc. (Top right) pOpen-deGFP — low conversion in the constitutive state, rising with TetR and with TetR + aTc. (Bottom left) pOpen-PLA — constitutive conversion closely resembles constitutive deGFP; TetR alone produced no increase, while TetR + aTc gave substantially higher conversion. (Bottom right) PJL-PLA — weak conversion across all states.
 :::
-
-<!-- [`fig-1-pla1-guv-lysis-kinetics`, extraction_method: pasted image in source
-Doc, extracted with pandoc --extract-media. No notebook, platemap or raw
-instrument file is referenced anywhere in the source Doc for this figure.] -->
 
 First, adding TetR-His raised CPRG conversion in conditions that contain no phospholipase at all. Both the no-DNA and deGFP arms show this. The most likely cause is Tween 80 in the MedChemExpress TetR storage buffer, which would permeabilize the membrane directly. Every TetR-containing well therefore receives a detergent dose alongside the repressor, and the induced wells receive it too.
 

@@ -11,22 +11,10 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 <!-- Drafted 2026-10-12 from the Google Doc "TetO-PLA in NB_CPRG".
 Source: https://docs.google.com/document/d/11Rcrw1_6U45LPC8VNe6-34ztsteZ8Qu-XwIrUvVDDtQ
 Prose, tables, step lists and all eight figures are carried verbatim from
-that Doc, including its own section order. The Doc's own title/byline
-block is not repeated in the body: title, authors and their emails live in
-this file's frontmatter and in curvenote.yml instead. Figure captions drop
-the literal "Figure N." prefix the Doc gives them, since MyST auto-numbers
-the `:::{figure}` directive. Inline "(Figure N)" citations already in the
-Doc's own prose became {ref} cross-links to the same figure, rather than
-new sentences. The Doc's own "Sequences:" subsection, a bulleted list
-carrying each construct's raw sequence inline, became a "Plasmid maps"
-subsection in the same position: a two-item tab-set, one tab per
-construct, each with a seqviz view and the same raw sequence in a
-dropdown. No sequence character changed; only where it sits and how it is
-wrapped changed.
-
-Renamed from `mk-mb-devnote-5` to this slug on 2026-10-22 (Anton Molina),
-to drop author initials from the naming scheme corpus-wide. The git
-branch name was not renamed, since the original PR (#21) is merged. -->
+that Doc, including its own section order. The Doc's own "Sequences:"
+subsection, a bulleted list carrying each construct's raw sequence inline,
+became a "Plasmid maps" subsection in the same position: a tab-set, one tab
+per construct, each with a seqviz view. No sequence character changed. -->
 
 <!-- :::{admonition} Open items from the draft
 :class: warning dropdown
