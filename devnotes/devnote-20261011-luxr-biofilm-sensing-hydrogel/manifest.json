@@ -141,7 +141,7 @@
       "zarr_url": null,
       "section_context": "Result 3 \u2014 detecting bacterially produced HSL in solution, condition: HSL sensing GUVs",
       "asset_chain_complete": false,
-      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. zarr-python direct read over HTTP, cropped and zoomed to a Vizarr view state (target, zoom) Anton supplied, channel 1 (GFP), timepoint 19, fixed window 30000-60000, 1080x1080 px output, scale bar computed from the store's own per-level pixel scale",
+      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-20261011-ph-sensor-in-solution's own script. zarr-python direct read over HTTP, cropped and zoomed to a Vizarr view state (target, zoom) Anton supplied, channel 1 (GFP), timepoint 19, fixed window 30000-60000, 1080x1080 px output, scale bar computed from the store's own per-level pixel scale",
       "findings": [
         "Representative well for the HSL sensing GUVs condition (C3, C4, C5): the triplicate's middle well, chosen because Anton's own Vizarr link named C4.",
         "No notebook exists for this figure. Generated 2026-10-11, confirmed by Anton: GFP only, window 30000-60000, crop and zoom from a Vizarr URL for well C4.",
@@ -159,7 +159,7 @@
       "zarr_url": null,
       "section_context": "Result 3 \u2014 detecting bacterially produced HSL in solution, condition: negative control",
       "asset_chain_complete": false,
-      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the negative control's middle well (C6, C7, C8).",
+      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-20261011-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the negative control's middle well (C6, C7, C8).",
       "findings": [
         "Representative well for the negative control condition (C6, C7, C8): the triplicate's middle well, for consistency with C4 and C10.",
         "No notebook exists for this figure. Generated 2026-10-11.",
@@ -178,7 +178,7 @@
       "zarr_url": null,
       "section_context": "Result 3 \u2014 detecting bacterially produced HSL in solution, condition: constitutive control",
       "asset_chain_complete": false,
-      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-swh-20260925-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the constitutive control's middle well (C9, C10, C11).",
+      "extraction_method": "general/render-microscopy-fovs.py, adapted from devnote-20261011-ph-sensor-in-solution's own script. Same crop, zoom, channel, timepoint and window as fov-c4.png, for the constitutive control's middle well (C9, C10, C11).",
       "findings": [
         "Representative well for the constitutive control condition (C9, C10, C11): the triplicate's middle well, for consistency with C4 and C7.",
         "Renamed from 'positive control' to 'constitutive control' on 2026-10-12 to match the Doc's current table wording; the comment thread itself still has Niall asking and Julia confirming 'positive control', unresolved against the body text.",
