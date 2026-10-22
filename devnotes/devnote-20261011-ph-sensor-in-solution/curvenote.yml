@@ -40,7 +40,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: devnote-swh-20260925-ph-sensor-in-solution.zip
+      filename: devnote-20261011-ph-sensor-in-solution.zip
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
   toc:

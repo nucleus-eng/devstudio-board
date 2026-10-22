@@ -2,7 +2,7 @@
 """Render one representative field of view per condition, cropped and zoomed
 to the view state Anton supplied from the bnext-bio Vizarr app.
 
-Adapted from devnote-swh-20260925-ph-sensor-in-solution/general/render-microscopy-fovs.py,
+Adapted from devnote-20261011-ph-sensor-in-solution/general/render-microscopy-fovs.py,
 same crop math: `target` is the centre in s0 pixels, `zoom` is log2 scale, so
 the visible width in s0 pixels is OUT_PX / 2**ZOOM. One store here, not four,
 so WELLS all point at the same zarr. One target and one zoom for every well,

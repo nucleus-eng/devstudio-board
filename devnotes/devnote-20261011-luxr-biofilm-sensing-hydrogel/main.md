@@ -367,7 +367,7 @@ entirely black, so it was not reused. A window was instead computed by
 pooling the three CROPPED wells' pixels (not the whole-well pixels, since the
 crop changes the local brightness distribution) and taking the 1st and 99.5th
 percentile (665 to 8301), the same pooled-percentile convention
-devnote-swh-20260925-ph-sensor-in-solution/general/render-microscopy-fovs.py
+devnote-20261011-ph-sensor-in-solution/general/render-microscopy-fovs.py
 uses, so the three panels stay directly comparable to each other at this
 crop.
 
@@ -715,7 +715,7 @@ crop and zoom as the other two panels.
 <!-- missing notebook -->
 
 <!-- All three rendered by general/render-microscopy-fovs.py, adapted from
-devnote-swh-20260925-ph-sensor-in-solution's own script of the same name.
+devnote-20261011-ph-sensor-in-solution's own script of the same name.
 One well per condition, the triplicate's middle well (C4, C7, C10), chosen
 because Anton's own Vizarr link named C4. One target and one zoom for all
 three, copied verbatim from that link, so every panel sits at the same pixel

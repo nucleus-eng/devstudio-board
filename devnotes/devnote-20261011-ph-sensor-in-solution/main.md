@@ -75,17 +75,7 @@ The pH-sensing developer cells detect acidic conditions (pH 6.0–6.5) using a p
 :::
 ::::
 
-<!-- Two entries were ambiguous in `DevCell_Materials_Tracker.xlsx`, which stocks two mineral oils and two Cy5 materials and does not say which were used. Both are now resolved by the author. -->
-
-<!-- The mineral oil is `M5904`. `M5310` was never used, although the tracker notes it is the higher quality one. -->
-
-<!-- The energy solution's magnesium salt is also worth a note: it calls for magnesium acetate tetrahydrate, Millipore Sigma `M5661`, and `DevCell_Materials_Tracker.xlsx` stocks magnesium glutamate at both nodes and no magnesium acetate at either one. -->
-
-<!-- Cy5 means `Sulfo-Cyanine5 carboxylic acid` throughout, used as a soluble dye encapsulated inside the GUVs. The lipid-conjugated `18:1 Cyanine 5 PC` was not used in this system. Rhod-PE is the only lipid fluorescence label. -->
-<!-- 
-Nine more entries are filled from sources outside `DevCell_Materials_Tracker.xlsx`: Mineral oil, Cy5, CPRG, the IDT duplex buffer and UPDI water from the "Chicago Module Integration Status" Doc's pH Sensor materials table and, for UPDI water, this DevNote's own LGA Gel Preparation materials list; the liposome extruder, its membrane filter and the low-gelling agarose from Avanti's and Sigma's own catalogs, cross-checked against `DevCell_Materials_Tracker.xlsx`'s "Mini Extruder Pro Kit" and "PC Membranes 0.4μm" entries and against this DevNote's own LGA materials list. SMix, PMix, Ribosomes and tRNA are marked `b.next` rather than left blank — these are made in-house, not purchased, the same way the Chicago Doc records its own Cytosol row. -->
-
-<!-- HEPES is filled from the Nucleus materials reference, `HEPES, Crystalline Powder`, Sigma-Aldrich `H3375-500G`, not confirmed against this experiment's own outer solution recipe. HCl is the 37% (concentrated) product the recipe actually calls for, Millipore Sigma `320331-500ML`, not the Nucleus reference's 1 N entry, which is a different product at a different concentration. The "Chicago Module Integration Status" Doc raises the outer solution's Tris base and HEPES sourcing as an open question for this same experiment and supplies no catalog number for either.
+<!-- HEPES is filled from the Nucleus materials reference, `HEPES, Crystalline Powder`, Sigma-Aldrich `H3375-500G`, not confirmed against this experiment's own outer solution recipe. The "Chicago Module Integration Status" Doc raises the outer solution's Tris base and HEPES sourcing as an open question for this same experiment and supplies no catalog number for either.
 
 Tris base stays blank. No Tris base entry of any kind exists in the Nucleus materials reference, searched directly and by every related term (Trizma, Tris-HCl); the reference's only Tris-named row is an unrelated electrophoresis gel product. -->
 
@@ -102,39 +92,21 @@ Tris base stays blank. No Tris base entry of any kind exists in the Nucleus mate
 | [Trigger_ssDNA#3](./dna/trigger-ssdna3.gb) | TATGCAAACAAGACAATACCACACAATTTTTTTTTT | Trigger strand, 36 bp. |
 :::
 
-<!-- The last two anneal 3:1 in IDT duplex buffer to form the construct listed as `pH-responsive:Trigger ssDNA (3:1) annealed construct` in {numref}`tbl-pla1-guv-is`, where the 25 µM stock concentration is that of the trigger strand. Both files verified: `pH-responsive_ssDNA#2` declares 49 bp and carries 49 bases, `Trigger_ssDNA#3` declares 36 bp and carries 36 bases. -->
-
 Annealing was performed in a thermocycler using the following protocol: 5 min at 95 °C, followed by stepwise cooling at 2 min per degree to the melting temperature of the construct (Tm = 52 °C), 30 min per degree from 52 °C to Tm − 10 °C (42 °C), and finally 2 min per degree until reaching 25 °C. The annealed construct was stored at −20 °C.
 
 <!-- `DevCell_Materials_Tracker.xlsx` records the function test for `T7-toehol9-PLA1` as "Done/Leaky". The pH 7.6 arm is the condition leakiness would contaminate, since it is meant to show no PLA1 activity. -->
-
-<!-- `pT7-toehold9-PLA1` is 1203 bp, too long to read as inline text, so it is shown as a sequence map. The two gate oligos stay inline above, because each is under 50 bases. -->
 
 (seqviz-pt7-toehold9-pla1)=
 :::{seqviz} https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb
 :height: 600px
 :::
 
-<!-- Sequence map of `pT7-toehold9-PLA1`. The file declares 1203 bp and carries 1203 bases, and its sequence matches `pT7-toehold9-PLA1-linear.gb` on `nucleus-eng/DNA` branch `devcells/devstudio-constructs`. -->
-
 # Protocols
 
-<!-- Section order follows the source log, which prepares the CPRG-LUVs first. The
-composition tables under Methods run in the other order. -->
-
-<!-- How the four packaging and processing steps below fit together. A simpler
-replacement for the previous version of this diagram, kept at
-[`general/overview.mmd`](./general/overview.mmd) in this DevNote.
-
-Click a step that has a protocol on this page to jump to it. P1 and P3 do.
-P2 and P4 do not, for two different reasons. P2, packing CPRG into a
-liposome, is implemented two ways on this page: CPRG-LUV preparation for
-pH Sensor Validation in Solution and Full Demo Attempt 1, and CPRG-SUV
-preparation from Full Demo Attempt 2 onward, so no single section is the
-one answer. P4, adding LacZ and raising the pH, has no protocol section at
-all. The LacZ enzyme and its basic buffer are named in the Overview and in
-Full Demo Attempt 1's prose, but nowhere given a composition, a volume or a
-procedure. -->
+<!-- P4 in the flowchart below, adding LacZ and raising the pH, has no protocol
+section on this page. The LacZ enzyme and its basic buffer are named in the
+Overview and in Full Demo Attempt 1's prose, but nowhere given a composition,
+a volume or a procedure. -->
 
 ```mermaid
 flowchart LR
@@ -180,11 +152,7 @@ flowchart LR
 ```
 
 <!-- :::{admonition}
-Two protocol questions are open.
-
-In CPRG-SUV preparation step 7, 15 µL from each of six tubes is 90 µL, not the 75 µL stated. Step 8 then adds 175 µL to reach 250 µL, which agrees with 75, so the tube count looks like the slip and five tubes would give 75. The LUV protocol says six tubes for 90 µL and adds 160 µL, which is self-consistent. Which is right for the SUV route?
-
-Attempt 4 is the one that worked, and the three changes that made it work carry no numbers: the starting volume was increased, more rounds of washing were done, and the gel went from 0.7% to 0.35%. Only the gel concentration is quantified. What was the new starting volume, and how many washes?
+Full Demo Attempt 3 is the one that worked, and the three changes that made it work carry no numbers in its prose below: the starting volume was increased, more rounds of washing were done, and the gel went from 0.7% to 0.35%. Only the gel concentration is quantified. What was the new starting volume, and how many washes?
 ::: -->
 
 ## CPRG-LUV preparation
@@ -243,12 +211,6 @@ Used from Full Demo Attempt 2 onward. The LUV route above was used for pH Sensor
 ## PLA1-GUV preparation
 
 The inverted emulsion method.
-
-<!-- Lipid volumes in step 1 are the 3 mL working scale, which is 1.5 µmol of
-total lipid. {numref}`tbl-pla1-guv-mb` states the same membrane at the 5 mL
-scale, which is 2.5 µmol. The mol% is identical. -->
-
-<!-- Step 1's volumes are a 3 mL scale, 1.5 µmol total lipid. {numref}`tbl-pla1-guv-mb` states the same membrane at a 5 mL scale, 2.5 µmol, same mol%. -->
 
 1. Combine three lipid stocks in a 20 mL glass vial. All three stocks are in chloroform.
     - 41.0 µL of 25 mg/mL POPC.
@@ -495,9 +457,7 @@ CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 6.3
 
 :::::
 
-<!-- This tab set has no JATS conversion, the same as the interactive viewers it stands in for, so it is not an archived record. The archive's only record of these four wells is the prose description under each one below. -->
-
-<!-- The channel colors above follow the viewer rather than the stores, whose omero block records Rhodamine as `FF0000` and Alexa Fluor 647 as `0000FF`. REVIEW: exposure, gain and laser power are recorded nowhere in the stores. The common stretch assumes they were matched across the four acquisitions. Add the settings to Measurement. -->
+<!-- REVIEW: exposure, gain and laser power are recorded nowhere in the stores. The common stretch assumes they were matched across the four acquisitions. Add the settings to Measurement. -->
 
 :::{figure} ./figures/color-change-ph-7.6-vs-6.3.png
 :label: fig-color-change
@@ -591,10 +551,3 @@ To explore a smartphone-readable output format, we tested the two-vesicle colori
 :width: 100%
 **QR-code patterned hydrogel test of the two-vesicle colorimetric system.** **(A)** Representative images of the patterned hydrogel at 0, 15, and 19 h under three conditions: no PLA1 vesicles, pH 7.6, and pH 6.3. A visible purple/pink color change was observed only at pH 6.3 after β-galactosidase addition, indicating activation of the pH-responsive two-vesicle system under acidic conditions. **(B)** Schematic illustration of the patterned hydrogel design and the colorimetric mechanism based on PLA1-mediated release of CPRG followed by its conversion to CPR.
 :::
-
-<!-- # Resources
-
-- Platemap: [`experiments/20260925-ph-lysis-cascade.csv`](./experiments/20260925-ph-lysis-cascade.csv)
-- Outer solution recipe: [`experiments/outer-solution-composition.csv`](./experiments/outer-solution-composition.csv)
-- Energy solution recipe: [`experiments/energy-solution-composition.csv`](./experiments/energy-solution-composition.csv)
-- DevNote(G) draft and comment thread: [main](https://docs.google.com/document/d/1f4rQCJdwHtDht3kGLfpVGrbQVsZVtNWFGH3SfVIQ1Hs/edit) -->

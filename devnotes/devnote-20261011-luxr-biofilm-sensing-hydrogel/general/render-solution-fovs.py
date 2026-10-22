@@ -20,7 +20,7 @@ freely:
    Instead, one window is computed by pooling the three CROPPED wells'
    pixels (not the whole-well pixels) and taking the 1st and 99.5th
    percentile, the same pooled-percentile convention
-   devnote-swh-20260925-ph-sensor-in-solution/general/render-microscopy-fovs.py
+   devnote-20261011-ph-sensor-in-solution/general/render-microscopy-fovs.py
    uses, so the three panels stay directly comparable to each other at this
    crop, which is not the same window as a whole-well version would need.
 """
