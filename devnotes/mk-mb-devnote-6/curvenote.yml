@@ -1,0 +1,58 @@
+version: 1
+project:
+  banner: banner-devcells.webp
+  # Title taken from the Drive file's own name, 2026-10-21: the source Doc
+  # has no title heading or byline block at all.
+  title: 'Double Vesicle Lysis System Leveraging deGFP CFPE'
+  description: >
+    Splitting a cell-free lysis assay's expression and reporter components
+    into two separately formed GUV populations, combined only in a shared
+    hydrogel, isolates a PLA1-specific signal that expression alone cannot
+    explain -- unlike the earlier co-encapsulated design, where expression
+    itself was sufficient to drive the readout.
+  # The source Doc names no authors anywhere -- unlike this board's other
+  # four DevNotes from this team. Confirmed by Anton Molina, 2026-10-21:
+  # Mary Kelly and Madison Briggs, Northwestern University, matching this
+  # author pair's other DevNotes on this board.
+  authors:
+    - name: Mary D. Kelly, PhD
+      email: marykelly2026@u.northwestern.edu
+      corresponding: true
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-0
+    - name: Madison Briggs
+      email: madisonbriggs2028@u.northwestern.edu
+      corresponding: true
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-1
+  affiliations:
+    - id: affiliations-curvenote-generated-uid-0
+      name: Northwestern University
+  # The source Doc gives no date anywhere in its text. 2026-10-11 is the
+  # Drive file's own creation date, checked 2026-10-21.
+  date: '2026-10-11'
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: CERN-OHL-P-2.0
+  thumbnail: figures/fig1-two-vesicle-kinetics.png
+  exports:
+    - format: meca
+      id: meca
+  downloads:
+    - id: meca
+      title: Computational Archive
+      filename: mk-mb-devnote-6.zip
+  toc:
+    - file: main.md
+  plugins:
+    - ../../plugins/seqviz/seqviz.mjs
+  resources:
+    - banner-devcells.webp
+    - figures/**
+    - dna/**
+  id: c5975f8d-457a-4ddf-88b1-44017db5273b
+site:
+  template: article-theme
