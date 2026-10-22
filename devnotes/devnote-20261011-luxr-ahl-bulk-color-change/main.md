@@ -21,58 +21,34 @@ colorchange-overnight.png. -->
 :class: warning dropdown
 :name: flags-review
 
-**The title is confirmed. The date is not.** Anton confirmed the title in
-chat, 2026-10-12, matching the Doc's own first line. No Specification
-table exists in the source Doc, and no date appears anywhere in it. See
-{ref}`gap-date` below.
+**The date is not confirmed.** See {ref}`gap-date` below.
 
 **The Reagents table names a plasmid that does not match the circuit in
-Protocol.** The table's reporter-plasmid row names "pT7-tetO-plamGFP
-reporter plasmid". It links to the `detector-tetr-atc` module spec, a
-tetR/aTc-induced GFP reporter. The Protocol section describes a different
-circuit. That circuit is LuxR-driven, uses a lux-box promoter, and
-expresses PLA1, not GFP, in response to AHL. No sequence file for either
-construct exists yet. See {ref}`gap-constructs` below. This is a blocking
-identity question, not a renaming or formatting issue.
+Protocol.** This is a blocking identity question, not a renaming or
+formatting issue. See {ref}`gap-constructs` below.
 
 **The source Doc flags its own missing data.** Its Results section ends
-with this sentence: "Plot of platereader is missing." That missing trace
-is the quantitative 570 nm kinetic absorbance data for
-{ref}`fig-colorchange`. The data was never produced, or it was lost before
-the author wrote this Doc. The two photographs in Results are a
-qualitative stand-in, not a replacement for that data.
+with the sentence "Plot of platereader is missing." See the admonition
+after {ref}`fig-colorchange` below.
 
 **No platemap, no notebook, and no raw instrument data exist in the
 supporting folder.** This gap applies to both figures. `asset_chain_complete`
 reads `false` for both entries in `manifest.json`.
 
-**Two uncertainty markers in the source table carry forward unresolved.**
-The first is a "Beta-Gal?" stock row with no concentration given. The
-second is a "CPRG" abstract mention the author tagged "(write long name)".
-That tag is the author's own reminder to spell out the reagent's full
-chemical name. The source never supplies that name, so it is not added
-here.
+**One uncertainty marker in the source table carries forward unresolved.**
+The Abstract's "CPRG" mention is tagged "(write long name)" by the author,
+a reminder to spell out the reagent's full chemical name. The source never
+supplies that name, so it is not added here.
 
 **The Sources list ends with two open items the author left unresolved.**
 The first reads: "Some citation on quorum sensing and AHSL LuxR in cell
 free?" The second reads: "Cite GFP devnote." The source Doc does not name
-that DevNote directly. One candidate is `devstudio/devnote-jpo-nm-202609`
-on this same board. That DevNote covers the same LuxR quorum-sensing
-system in a mNeonGreen GUV hydrogel. It also shares two authors with this
-Doc: Niall McIntyre and Julia Purrinos de Oliveira. This link is a
-candidate only. See Resources.
-
-**The source Doc uses two spellings for what appears to be one molecule,
-AHSL and AHL.** Both forms appear across the title, abstract, protocol,
-reagents, and results. Each instance is carried exactly as written in its
-own location. No spelling is normalized to match the other.
+that DevNote directly. One candidate is this board's
+`devnote-20261011-luxr-biofilm-sensing-hydrogel`, which covers the same
+LuxR quorum-sensing system in a mNeonGreen GUV hydrogel and shares two
+authors with this Doc: Niall McIntyre and Julia Purrinos de Oliveira. This
+link is a candidate only. See Resources.
 :::
-
-<!-- Title resolved, 2026-10-12: Anton confirmed "Implementing of a bulk
-color change module into bacterial quorum sensing" in chat, matching the
-Doc's own first line verbatim, including its phrasing. Thumbnail set to
-figures/colorchange-overnight.png (the last figure), per the same request.
--->
 
 (gap-date)=
 <!-- :::{admonition}
@@ -82,7 +58,6 @@ Please confirm the date. No date appears anywhere in the Doc.
 `curvenote.yml` currently carries the Drive file's own creation date,
 2026-10-12, as a placeholder.
 ::: -->
--->
 
 # Abstract
 
@@ -120,14 +95,6 @@ Reactions were run in b.next Nucleus Base Cytosol, a PURE-type reconstituted sys
 | CPRG | — | — | N/A | N/A | N/A | |
 | Beta-Gal | — | — | N/A | N/A | N/A | |
 :::
-
-<!-- :::{admonition}
-:name: gap-reagents-link
-
-The pT7-tetO-plamGFP row's Link points to a GFP reporter module spec that
-does not match this experiment's circuit — see {ref}`gap-constructs`. Kept
-here because it is the reagent the source table names; not corrected.
-::: -->
 
 The source table's own Stock and Notes columns carry concentrations that do not map to the schema above and are retained here rather than dropped:
 
@@ -346,7 +313,7 @@ not resolved:
 "Some citation on quorum sensing and AHSL LuxR in cell free?" — no citation
 was supplied.
 
-"Cite GFP devnote" — no specific DevNote is named. `devstudio/devnote-jpo-nm-202609`
+"Cite GFP devnote" — no specific DevNote is named. `devnote-20261011-luxr-biofilm-sensing-hydrogel`
 on this board (two shared authors, same LuxR quorum-sensing system,
 demonstrated by GFP) is a plausible candidate, but this is not stated in the
 source and is not assumed here. Please confirm which DevNote this refers to.

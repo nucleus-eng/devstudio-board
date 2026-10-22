@@ -44,52 +44,6 @@ highest prior dose)". -->
 :::{danger} Unresolved before publication
 :name: flags-blocking
 
-**Title and authors.** No source log carries a Specification table or an
-Authors table. `curvenote.yml` holds `[PLEASE FILL IN]` for both, with
-candidate text in comments. Three Log folders are prefixed `CN`, one is
-prefixed `MB` whose notebook names `JM-MB`, and the fifth,
-`CN-MB-20261007-EsaR_template_competition`, is prefixed jointly.
-
-**Answered in part, review cycle v2, prompt 1.** Three authors named, with
-emails: Charlie Newell, Jonah McDonald and Manuel Bibrowski. The Doc first
-wrote "Chalie"; the email the author then supplied reads `charlie`, so the
-DevNote uses Charlie.
-
-Each affiliation is inferred from the author's email domain, which is evidence
-rather than a statement by the author. Confirm University College London,
-King's College London and Imperial College London, and confirm the author
-order.
-
-The title is set, to "EsaO/R-deGFP AHL Detector". It was not supplied through
-the review Doc. It appeared in `curvenote.yml` in the working tree and was
-picked up by the asset-assembly commit.
-
-Two things on it. It spells the signal "AHL", while prompt 12 ruled that
-everything is written as AHSL, so the title and the body now disagree. And the
-candidate titles this DevNote recorded from the platemap were never adopted,
-which is correct, but nobody has confirmed this one against them.
-
-No ORCID is recorded for any author.
-
- RESOLVED 2026-10-11: the author re-labelled the producing cell
-(`#| label: fig-20260924-esao`) in `platereader.ipynb`
-(`CN-20260924_repressor_test`), and {numref}`fig-20260924-esao-titration`
-now sources directly from it via the `quarto-label` pattern. That cell's
-plot already contains both the single- and dual-operator panels in one
-image, so the formerly separate dual-operator figure (`fig-20260924-esao2`)
-was removed rather than also relabelled to a second producing cell — the
-same data shown twice would be redundant, not a second figure.
-
-Original flagged text, kept for provenance:
-
-**Two figures have no surviving producing cell.** {numref}`fig-20260924-esao`
-and {numref}`fig-20260924-esao2` were pasted into the 2026-09-24 log. The
-`platereader.ipynb` in `CN-20260924_repressor_test` loads the right data file
-and the right platemap. Its cell 15 plots the same 0, 1, 4 and 7 µL EsaR
-series. No cell in it produces the two-panel `EsaR/EsaO` figure that the log
-shows. The notebook was saved on 2026-09-26, after the figures were pasted.
-Restore those cells before publication.
-
 **Answered, review cycle v2, prompt 2, and deferred.** These figures will be
 rerun later against a subset of conditions that shows the DNA concentration is
 in excess relative to the repressor. Both stay `static-png` until then. 
@@ -108,26 +62,11 @@ are in the tree: `T7-EsaR(D91G)-T7term` in {ref}`seq-esar-d91g`,
 share one mNeonGreen coding sequence byte for byte, and both reporters'
 operator boxes are the same 19 bp.
 
-**Resolved, 2026-10-12.** The three PLA1 templates (`T7-PLA1-t7term`,
-`T7-\[EsaO\]-PLA1-T7term`, `T7-\[EsaO\]2-PLA1-t7term`) were dropped from
-{numref}`tbl-constructs` — they were prepared on 2026-09-23 but appear in no
-experiment in this DevNote, and chasing their sequences was not worth it for
-unused constructs. `T7-mNG-t7term`, the unrepressed control on all three CN
-days, was added back on 2026-10-18 once its source file was supplied, so
-{numref}`tbl-constructs` now carries four supplied and verified constructs.
-
 None of the four is in `nucleus-eng/DNA`, on `main` or on
 `devcells/devstudio-constructs`. The repo carries the neighbouring
 quorum-sensing family but nothing for EsaR or EsaO. These belong in that repo,
 and once they are there the DevNote can reference them by GitHub URL and carry
 no local copy.
-
- **Agarose gel image missing.** The 2026-09-24 log states that the
-constructs were run on an agarose gel and instructs "Ask Manuel for image". No
-gel image exists in any of the four Log folders.
-
-**Resolved, review cycle v2, prompt 4.** The agarose gel is not relevant to
-this DevNote and is not reported. 
 
 **No build file for 2026-10-01.** The file named `build` in that folder is a
 platemap. It holds `Well`, `Date`, `Experiment`, `Name` and `Type` and nothing
@@ -136,13 +75,6 @@ exists for this day.
 
 **Answered, review cycle v2, prompt 5, and deferred.** This will be addressed
 later. The volume table stands in the meantime.
-
-**Superseded, 2026-10-18.** A reaction composition table
-({numref}`tbl-composition-20261001`) was built by hand from the log's own
-stock concentrations and volumes, since no build file will be supplied. This
-also surfaced a transcription slip: the sensor DNA final concentration was
-stated as 0.1 nM but calculates to 0.5 nM from the logged 22 ng/µL stock,
-and has been corrected throughout.
 :::
 -->
 

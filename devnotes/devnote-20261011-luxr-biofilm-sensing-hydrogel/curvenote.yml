@@ -17,7 +17,17 @@ project:
   # Anton supplied on 2026-10-05. No Authors table exists in any source.
   # REVIEW: affiliations are read off each author's email domain, not stated
   # by any author.
-  # REVIEW: no ORCID is recorded for any author.
+  # REVIEW: no ORCID is recorded for Julia Purrinos de Oliveira, Niall
+  # McIntyre, or Manuel Bibrowski.
+  # Standardized across the corpus, 2026-10-22 (Anton Molina), after
+  # comparing this DevNote against its two siblings
+  # (devnote-20261011-luxr-ahl-bulk-color-change and
+  # devnote-20261011-esao-esar-quorum-sensing): Jonah McDonald's affiliation
+  # here read University College London (UCL), `jonah.mcdonald.24@ucl.ac.uk`;
+  # confirmed as King's College London (KCL), `Jonah.McDonald@kcl.ac.uk`,
+  # matching the EsaR DevNote. Charlie Newell's ORCID (0000-0001-9208-7542),
+  # on record only in the EsaR DevNote, is added here too, as a
+  # non-conflicting addition rather than a correction.
   authors:
     - name: Julia Purrinos de Oliveira
       email: j.purrinosdeoliveira@imperial.ac.uk
@@ -39,10 +49,11 @@ project:
       affiliations:
         - ucl
       id: contributors-curvenote-generated-uid-3
+      orcid: 0000-0001-9208-7542
     - name: Jonah McDonald
-      email: jonah.mcdonald.24@ucl.ac.uk
+      email: Jonah.McDonald@kcl.ac.uk
       affiliations:
-        - ucl
+        - kcl
       id: contributors-curvenote-generated-uid-4
   affiliations:
     - id: imperial
@@ -51,9 +62,12 @@ project:
     - id: ucl
       name: University College London
       country: United Kingdom
-  # Date assigned by Anton on 2026-10-05. The DevNote slug reads 202609, which
-  # is a month and disagrees with this value. See the blocking date flag in
-  # main.md.
+    - id: kcl
+      name: King's College London
+      country: United Kingdom
+  # Date assigned by Anton on 2026-10-05. See the blocking date flag in
+  # main.md: the source log folder reads 2026-10-06 and the Draft Doc names
+  # no date of its own, so this field is not yet confirmed.
   date: '2026-10-12'
   open_access: true
   license:
@@ -65,7 +79,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: devnote-jpo-nm-202609.zip
+      filename: devnote-20261011-luxr-biofilm-sensing-hydrogel.zip
   plugins:
     - ../../plugins/seqviz/seqviz.mjs
   toc:

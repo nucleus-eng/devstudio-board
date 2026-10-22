@@ -22,29 +22,6 @@ authors' own section.
 
 # Overview
 
-<!--
-:name: gap-overview
-
-Please fill in an overview of the demo.
-
-Answer, from the "Draft devnote" Doc, 2026-10-11: adopted verbatim below as a
-first pass, superseded 2026-10-12 by a second, authoritative pass. The first
-pass is kept here because the Doc itself still carries it, marked "Draft 1
-intro" and "***Ignore":
-
-> We present a GUV hydrogel device that can produce a fluorescent output in
-> response to 3-oxo-C6-HSL, the quorum sensing molecule found in bacterial
-> biofilms. The fluorescent biofilm-sensing hydrogel is made up of POPC giant
-> unilamellar vesicles (GUVs) embedded in an agarose hydrogel. The GUVs
-> contain cell-free E. coli lysate and the luxR-mNeonGreen plasmid which
-> expresses the fluorescent protein mNeonGreen in response to 3-oxo-C6-HSL.
-> mNeonGreen can then be detected using fluorescent microscopy or on a
-> platereader. The GUVs are made using inverted emulsion phase transfer and
-> mixed into ultra low gelling agarose (0.5% final concentration) on a 384
-> well plate. These gels are incubated at 37C on either a platereader or
-> microscope stage overnight for 16 hours.
--->
-
 We present a synthetic-cell based hydrogel device which can sense bacterial
 contamination through quorum sensor induced cell-free protein expression.
 POPC GUVs encapsulating the *E. coli* S30 lysate and the LuxR-mNeonGreen
@@ -88,77 +65,21 @@ phospholipid bilayer HSL crosses to enter the GUV.
 
 <!-- [`fig-overview-schematic`, file:`general/overview.png`, caption: (Bacterial supernatant carrying 3-oxo-C6-HSL diffuses into the LuxR-mNeonGreen GUV hydrogel. Inside one GUV, LuxR binds 3-oxo-C6-HSL and activates pLux-driven mNeonGreen expression. The inset shows the phospholipid bilayer HSL crosses to enter the GUV.)] -->
 
-<!-- A schematic, not a data figure: no notebook, no platemap, no data
-chain. Placed in general/ before the G stage, per
-devstudio-author-myst-content's schematic convention, and referenced by
-path rather than extracted from a Doc. Added 2026-10-11, kept as-is during
-the 2026-10-12 migration: the Doc's second [image] placeholder is a separate,
-still-open spot, not a replacement for this one.
-
-Re-extracted 2026-10-12: the image at this position in the Doc's own .docx
-export changed again between reads, this time adding a phospholipid bilayer
-inset on the right. Same core diagram, same file path, replaced in place
-rather than treated as a new figure. -->
-
-<!-- :::{danger} Unresolved before publication
-:name: flags-blocking -->
-
-<!-- No result was written and no data was in the tree. Resolved, 2026-10-11
-and again 2026-10-12: every result now carries real narrative and real data,
-migrated from the "Draft devnote" Doc in full. Still missing: a platemap, a
-notebook, and any build file for any result, so no composition table exists
-yet anywhere. -->
-
-<!-- Title and date were not sourced. Title resolved, 2026-10-11:
-"Fluorescent Biofilm-Sensing GUV Hydrogel". Changed again, 2026-10-12, by
-Anton directly, not from the Doc: "Bacterial Sensing in Hydrogel Embedded
-Synthetic Cells using LuxR Dependent Transcriptional Regulation". Date still
-open. -->
-
 <!-- :::{admonition}
 :name: gap-date
 
-The DevNote slug reads `202609`, the source log folder reads 2026-10-06, the
-chat-supplied date was 2026-10-12, and the Draft Doc names no date of its own.
-Please say which date belongs to this DevNote.
+The source log folder reads 2026-10-06, the chat-supplied date was
+2026-10-12, and the Draft Doc names no date of its own. Please say which
+date belongs to this DevNote.
 ::: -->
 
-<!-- The reporter disagreement is resolved: every Result names LuxR-mNeonGreen
-or constitutive mNeonGreen directly. -->
-
-<!-- Two plasmids needed confirming; resolved, 2026-10-11. Both files are in
-`dna/`, both lengths verified, both still referenced throughout the Doc as of
-2026-10-12: kept unchanged in Constructs below, including the seqviz tab-set.
-Not yet on nucleus-eng/DNA; flagged for submission there. -->
 <!-- 
 **The platemap is still missing for most results.** Two new platemap links
 appeared in the 2026-10-12 migration: a notebook/raw-data/platemap folder for
 Result 1, and a plate map Sheet for the solution half of Result 2. Neither the
 bulk-lysate platemap nor the gel platemap (if one exists) has been located
 yet. See each Result below.
-
-**No build file, so no composition table anywhere.** No build file is linked
-for any result. Each result needs its own `build-composition.csv`, written
-by `devstudio-build-to-composition` from a build file. See the flag in each
-result below.
-
-**The gel experiment's own results are not written yet.** The Doc's gels
-subsection of Result 2 has a full protocol, a real condition table, and
-twelve real microscopy store links, but no interpretive text: the authors
-left a bare `Results` heading followed by `***` where that text belongs.
-Carried as absent, not invented. This is also the one place in this DevNote
-that still needs a hands-on pass through microscopy data before it can be
-written, per Anton, 2026-10-12.
-
-**A stale gel figure was removed.** `figures/result2-gels-platereader.png`,
-titled "LuxR-mNeonGreen Sensor Gels with 10uM Purified AHL", previously sat
-under Result 2 with a flag that its own title disagreed with the text (10 µM
-vs 100 µM). The 2026-10-12 Doc explains why: 10 µM in gels showed no
-expression at all, so the real experiment moved to 100 µM, and this figure
-belongs to the earlier, abandoned attempt. The Doc itself marks the
-surrounding text `***Ignore`. Removed rather than kept and relabeled, since
-nothing in the current Doc still claims it.
-::: -->
+-->
 
 <!-- :::{admonition} Open review items
 :class: warning dropdown
@@ -173,16 +94,12 @@ transformation work and describes Niall's and Julia's work in the first
 person throughout. Decide whether that stays as narrative or moves to an
 acknowledgement.
 
-**A sentence in Result 1 is marked for a rewrite.** Niall tagged Charlie
-directly in the Doc, 2026-10-12: "Fix this up please", on the sentence
-explaining why HSL sensing requires two proteins. Carried as written; not
-rewritten here.
-
 **Where the general protocols live.** Still no published Nucleus protocol is
 linked from Methods below.
 
-**Author ORCIDs and order.** No source states either, and neither author has
-an ORCID on file.
+**Author ORCIDs and order.** Charlie Newell's ORCID is now on file (added
+2026-10-22, carried from this author's EsaR DevNote entry). The other four
+authors' ORCID and the author order remain unconfirmed.
 
 **Integration challenges and next steps, by name.** Anton asked, 2026-10-11,
 that Discussion or What's next explicitly cover integration challenges and
@@ -215,11 +132,11 @@ the Materials Reference once a build file exists and it fills in the rest.
 <!-- :::{admonition}
 :name: gap-constructs
 
-Resolved, 2026-10-11: both files are in `dna/` and rendered as sequence maps
-below, with both lengths verified. Still open: neither construct exists yet
-on `nucleus-eng/DNA`, so submission there is a separate, unresolved step.
-Both constructs are still referenced throughout the Doc as of 2026-10-12, by
-the same names, so nothing here changes.
+Both files are in `dna/` and rendered as sequence maps below, with both
+lengths verified against their GenBank `LOCUS` line (pUC-IDT-LuxR-mNG, 4671
+bp; pUC-IDT-constitutive_mNG, 3689 bp). Neither construct exists yet on
+`nucleus-eng/DNA`, branch `devcells/devstudio-constructs`, so submission
+there is a separate, unresolved step.
 ::: -->
 
 <!-- :::{table} DNA constructs. Both sequences are reproduced in full as sequence maps below; both lengths were verified against their GenBank `LOCUS` line. -->
@@ -233,13 +150,6 @@ the same names, so nothing here changes.
 | [pUC-IDT-LuxR-mNG](./dna/pUC-IDT-LuxR-mNG.gbk) | [Sequence map below](#seqviz-constructs) | BBa_J23101 (constitutive) drives LuxR; LuxR drives pLux; pLux drives mNeonGreen. The sensor construct for every Result. pUC-IDT-AMP GoldenGate backbone, 4671 bp. |
 | [pUC-IDT-constitutive_mNG](./dna/pUC-IDT-constitutive_mNG.gbk) | [Sequence map below](#seqviz-constructs) | BBa_J23101 drives mNeonGreen directly, no LuxR and no pLux. Constitutive expression control. pUC-IDT-AMP GoldenGate backbone, 3689 bp. |
 :::
-
-<!-- Neither construct exists yet on nucleus-eng/DNA, branch
-devcells/devstudio-constructs, swept 2026-10-11 before asking. Flag for
-submission there, per devstudio-verify-dna-constructs Step 2's benign case:
-present in this DevNote's own folder, not yet upstream. Re-confirmed
-2026-10-12: both names and both Drive links are unchanged in the Doc, so the
-seqviz tab-set below is retained exactly as built. -->
 
 (seqviz-constructs)=
 :::::{tab-set}
@@ -258,24 +168,9 @@ seqviz tab-set below is retained exactly as built. -->
 
 :::::
 
-<!-- Sequence maps, one tab per construct, per devstudio-author-myst-content's
-rule to group >= 2 related sequential items into a tab-set rather than stack
-them. Both files verified: pUC-IDT-LuxR-mNG declares 4671 bp and carries 4671
-bases, pUC-IDT-constitutive_mNG declares 3689 bp and carries 3689 bases.
-Neither is yet on nucleus-eng/DNA. -->
-
-<!-- A purchased purified protein belongs in tbl-reagents, not here. Only DNA
-built or ordered as a sequence goes in the table above. -->
-
 # Results
 
 ## Result 1 — LuxR-mNeonGreen sensor plasmid in bulk lysate
-
-<!--
-:name: gap-result-1
-
-Answer, from the "Draft devnote" Doc, migrated 2026-10-12: adopted verbatim below, replacing the 2026-10-11 pass.
--->
 
 To verify whether *E. coli* lysate and the LuxR-mNeonGreen plasmid can detect
 3-oxo-C6-HSL in bulk, a 12.5 µL bulk lysate fluorescence assay was conducted
@@ -324,15 +219,12 @@ combined lysate and sensor construct.
 <!-- :::{admonition}
 :name: gap-result-1-open-threads
 
-Three open threads sit on this paragraph in the Doc, unresolved as of
+Two open threads sit on this paragraph in the Doc, unresolved as of
 2026-10-12: Niall asks "where is this plot?" next to the limit-of-detection
 sentence, meaning a further plot is expected here and not yet added; Niall
-asks whether the lysate for this experiment was dissolved in water or outer
-solution; Julia answers elsewhere in the Doc that it is water, and this
-figure's legend has since been corrected to drop "(outer solution)"
-accordingly. Niall also offers to write a short paragraph on constitutive
-expression (higher signal, one protein, no dependence on HSL concentration)
-once confirmed; not yet written.
+also offers to write a short paragraph on constitutive expression (higher
+signal, one protein, no dependence on HSL concentration) once confirmed,
+not yet written.
 ::: -->
 
 :::{figure} ./figures/result1-bulk-lysate-platereader.png
@@ -348,13 +240,6 @@ negative control conditions in {numref}`tbl-bulk-lysate-conditions`.
 <!-- [`fig-result1-platereader`, platemap: none, data source: none, caption: (Fluorescence intensity over time for LuxR-mNeonGreen in bulk lysate, with and without 10 µM HSL, and constitutive mNeonGreen for comparison.)] -->
 
 <!-- missing notebook -->
-
-<!-- Extracted from the "Draft devnote" Doc's own .docx export,
-word/media/image2.png as of the 2026-10-12 export (the file at this
-relationship position changed between the 2026-10-11 and 2026-10-12 exports;
-re-extracted rather than reused). Supersedes the earlier two-trace figure,
-which carried an incorrect "Control (outer solution)" legend that Julia
-corrected in the Doc's own comment thread to "water". -->
 
 <!-- :::{danger} Missing build file
 :name: flags-build-result-1
@@ -376,13 +261,6 @@ The log directory for this result:
 <https://drive.google.com/drive/folders/1lK_ylF47jmR3pFxp-3bD9PqyszQyiTUX>. -->
 
 ## Result 2 — detecting purified HSL using lysate-based synthetic cells
-
-<!--
-:name: gap-result-2
-
-Answer, from the "Draft devnote" Doc, migrated 2026-10-12. The Doc asks
-Claude to give this result two subtitles, solution and gels; done below.
--->
 
 To demonstrate the ability of synthetic cells to detect HSL, lysate-based
 GUVs encapsulating the LuxR-mNeonGreen plasmid were resuspended in outer
@@ -425,18 +303,6 @@ the store
 [`Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr`](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr).
 Plate map:
 <https://docs.google.com/spreadsheets/d/17V5zdl5ebfRpTSc5XnVHenCmLCfFspMTcQ0KqSPfDu0/edit?gid=1906581583#gid=1906581583>.
-
-<!--
-:name: gap-solution-viewer
-
-No interactive viewer or static figure has been built for this store yet.
-Unlike the Result 3 store, this one has not had a crop, zoom or contrast
-decision made for it.
-
-Answer, 2026-10-12: three representative wells rendered below, one per
-condition, GFP channel only, at T = 17, the last of 18 frames, each cropped
-to the well's own center at about one field of view, per Anton.
--->
 
 :::::{tab-set}
 
@@ -568,14 +434,6 @@ once and should be repeated in future. The figure from that attempt
 than kept.
 ::: -->
 
-<!--
-Resolved, 2026-10-12, by Anton: this table originally named D3, D4, D5 "HSL
-sensing gels" and D6, D7, D8 "Negative control gels", disagreeing with the
-store filenames (J_N_-100uM_AHL_D*_gels for D3-D5, J_N_+100uM_AHL_D*_gels for
-D6-D8). Anton's correction matches the store filenames: the well clusters are
-unchanged, only the two labels swap. Treated as authoritative.
--->
-
 :::{table} Gel conditions, synthetic cells, HSL. Triplicates for each experiment; empty ULGA gels included to account for light scattering from vesicles.
 :label: tbl-gel-conditions
 :align: center
@@ -684,11 +542,8 @@ not resolved.
 ::: -->
 
 <!-- Twelve microscopy stores exist for this subsection, one per well, grouped by
-condition below. None has yet had a figure, crop, zoom or contrast decision
-made, and no interpretive results text has been written for this subsection
-at all: the Doc's own `Results` heading here is followed only by `***`. This
-whole subsection is the hands-on microscopy pass still to do, per Anton,
-2026-10-12. -->
+condition below. Only three (D6, D5, D11) have a figure, crop, zoom or
+contrast decision made. -->
 
 <!-- :::{admonition}
 :name: gap-gel-results-narrative
@@ -722,10 +577,6 @@ Empty ULGA gels (wells D12, D13, D14):
 - [`J_N_just_gel_2`](https://bnext-bio.github.io/vizarr/?source=https://data.nucleus.engineering/microscopy/nucleus-bnext-01/J_N_just_gel_2_2026-10-07_15-06-06.512744.zarr)
 - [`J_N_just_gel_3`](https://bnext-bio.github.io/vizarr/?source=https://data.nucleus.engineering/microscopy/nucleus-bnext-01/J_N_just_gel_3_2026-10-07_15-07-38.879378.zarr)
 
-<!-- The doc's naming for the +100uM wells literally reads "+100uM" in the
-Drive filenames even though the gel's stated final concentration is 100 µM in
-all three cases (D6, D7, D8); filenames carried verbatim, not corrected. -->
-
 <!-- :::{danger} Missing build file
 :name: flags-build-result-2
 
@@ -746,17 +597,6 @@ the gel run is at
 
 ## Result 3 — detecting bacterially produced HSL in solution
 
-<!--
-:name: gap-result-3
-
-Answer, from the "Draft devnote" Doc, migrated 2026-10-12: adopted verbatim below, with one new comparative sentence added since the 2026-10-11 pass.
-
-Strain corrected, 2026-10-12, per Anton: the Doc and the earlier migration
-both said DH5α; the real strain is NEB5α. Every mention in this result, the
-two tables, the three figure captions, and the Supernatant preparation
-protocol was changed.
--->
-
 To model bacterial sensing using GUVs, the LuxI plasmid was transformed into
 NEB5α *E. coli* (NEB5α w/ LuxI) to encode production of 3-oxo-C6-HSL, the
 small-molecule quorum sensor detected in the previous sections. The same
@@ -765,17 +605,6 @@ cells are capable of detecting bacterially produced HSL, implemented through
 resuspending the GUV pellet in bacterial supernatant. Control experiments
 were performed with the NEB5α strain without the LuxI plasmid (NEB5α ΔLuxI),
 which removes HSL from the supernatant.
-
-<!-- :::{admonition}
-:name: gap-constitutive-vs-positive-control-naming
-
-Niall asked, 2026-10-11, whether "positive control" is the right name for
-this condition; Julia replied "Yes I would say so" on 2026-10-11. The table
-text itself was separately edited to read "Constitutive control" everywhere
-by 2026-10-12. The comment thread and the document body now disagree.
-Migrated here as "Constitutive control", matching the current table text, not
-the comment thread's reply.
-::: -->
 
 :::{table} Three experimental conditions for HSL-induced mNeonGreen expression using bacterial supernatant in solution.
 :label: tbl-supernatant-conditions
@@ -892,10 +721,7 @@ because Anton's own Vizarr link named C4. One target and one zoom for all
 three, copied verbatim from that link, so every panel sits at the same pixel
 offset and scale. GFP channel only, T = 19, window 30000-60000 fixed rather
 than computed, per Anton's instruction. No notebook or platemap exists yet
-for this store, so asset_chain_complete is false in manifest.json.
-Captions and tab labels updated 2026-10-12: "Positive control" renamed
-"Constitutive control" to match the Doc's current table wording; see
-gap-constitutive-vs-positive-control-naming above. -->
+for this store, so asset_chain_complete is false in manifest.json. -->
 
 <!-- :::{admonition}
 :name: gap-fov-rendering

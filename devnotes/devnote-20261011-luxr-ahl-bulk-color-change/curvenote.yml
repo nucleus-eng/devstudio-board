@@ -12,9 +12,19 @@ project:
   # Authors and emails are given directly in the source Doc, 2026-10-12.
   # Affiliation for Niall McIntyre and Julia Purrinos de Oliveira is
   # confirmed Imperial College London, per their matching entries in
-  # devstudio/devnote-jpo-nm-202609. Affiliation for the other three authors
-  # is inferred from their email domain only (imperial.ac.uk, ucl.ac.uk) and
-  # is not otherwise confirmed in this source.
+  # devnote-20261011-luxr-biofilm-sensing-hydrogel. Affiliation for the
+  # other three authors is inferred from their email domain only
+  # (imperial.ac.uk, ucl.ac.uk) and is not otherwise confirmed in this
+  # source.
+  # Standardized across the corpus, 2026-10-22 (Anton Molina), after
+  # comparing this DevNote against its two siblings
+  # (devnote-20261011-luxr-biofilm-sensing-hydrogel and
+  # devnote-20261011-esao-esar-quorum-sensing): Jonah McDonald's affiliation
+  # here read University College London (UCL), `jonah.mcdonald.24@ucl.ac.uk`;
+  # confirmed as King's College London (KCL), `Jonah.McDonald@kcl.ac.uk`,
+  # matching the EsaR DevNote. Charlie Newell's ORCID (0000-0001-9208-7542),
+  # on record only in the EsaR DevNote, is added here too, as a
+  # non-conflicting addition rather than a correction.
   authors:
     - name: Manuel Bibrowski
       email: manuel.bibrowski25@imperial.ac.uk
@@ -26,10 +36,11 @@ project:
       affiliations:
         - ucl
       id: contributors-curvenote-generated-uid-1
+      orcid: 0000-0001-9208-7542
     - name: Jonah McDonald
-      email: jonah.mcdonald.24@ucl.ac.uk
+      email: Jonah.McDonald@kcl.ac.uk
       affiliations:
-        - ucl
+        - kcl
       id: contributors-curvenote-generated-uid-2
     - name: Niall McIntyre
       email: niall.mcintyre16@imperial.ac.uk
@@ -48,6 +59,9 @@ project:
     - id: ucl
       name: University College London
       country: United Kingdom
+    - id: kcl
+      name: King's College London
+      country: United Kingdom
   # The source Doc gives no date anywhere in its text. 2026-10-12 is the
   # Drive file's own creation date, checked 2026-10-12, not a date stated in
   # the document.
@@ -63,7 +77,7 @@ project:
   downloads:
     - id: meca
       title: Computational Archive
-      filename: devnote-luxr-ahl.zip
+      filename: devnote-20261011-luxr-ahl-bulk-color-change.zip
   toc:
     - file: main.md
   resources:
