@@ -118,7 +118,7 @@ Reactions were run in b.next Nucleus Base Cytosol, a PURE-type reconstituted sys
 | --- | --- | --- | --- | --- | --- | --- |
 | Small Molecule Mix (SMix) | Nucleus Small Molecule Mix (see [Make Small Molecule Mix](https://docs.nucleus.engineering/docs/processes/make-small-molecule-mix/main)) | b.next | N/A | N/A | N/A | [Make Small Molecule Mix](https://docs.nucleus.engineering/docs/processes/make-small-molecule-mix/main) |
 | tRNA | Nucleus Total tRNA (see [Make tRNAs](https://docs.nucleus.engineering/docs/processes/make-trna/main)) | b.next | N/A | N/A | -80 °C | [Make tRNAs](https://docs.nucleus.engineering/docs/processes/make-trna/main) |
-| Protein Mix (PMix) | Nucleus OnePot Protein Mix (see [Make OnePot Protein Mix](https://docs.nucleus.engineering/docs/processes/make-1pot/main)) | b.next | N/A | N/A | N/A | [Make OnePot Protein Mix](https://docs.nucleus.engineering/docs/processes/make-1pot/main) |
+| Protein Mix (PMix) | Nucleus Protein Mix, 36 PURE system proteins (see [Make Protein Mix](https://docs.nucleus.engineering/docs/processes/make-36pot/main)) | b.next | N/A | N/A | N/A | [Make Protein Mix](https://docs.nucleus.engineering/docs/processes/make-36pot/main) |
 | Ribosomes | Nucleus 70S ribosomes (see [Make Ribosomes](https://docs.nucleus.engineering/docs/processes/make-ribosomes/main)) | b.next | N/A | N/A | -80 °C | [Make Ribosomes](https://docs.nucleus.engineering/docs/processes/make-ribosomes/main) |
 | RNase Inhibitor, Murine (RIM) | RNase Inhibitor, Murine | New England Biolabs | M0314S | $87.00 | -25 °C to -15 °C | [NEB #M0314S](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
 | Optiprep | OptiPrep™ | STEMCELL Technologies | 07820 | $289.00 | Room temperature | [STEMCELL #07820](https://www.stemcell.com/products/optipreptm.html) |
@@ -146,9 +146,16 @@ glycerol stock, with its plasmid-level function test still "In progress...".
 This replaces the source Doc's "pT7-tetO-plamGFP reporter plasmid" name and
 its `detector-tetr-atc` link, which matched a different, tetR/aTc-induced GFP
 circuit (see the resolved flag below). No match was found in either source
-for Small Molecule Mix (SMix), Protein Mix (PMix) or Nuclease-free H₂O beyond
-what is shown; their Catalog No., Price and (for SMix/PMix) Storage Conditions
-stay N/A, flagged rather than guessed. -->
+for Small Molecule Mix (SMix) or Nuclease-free H₂O beyond what is shown;
+their Catalog No., Price and (for SMix) Storage Conditions stay N/A, flagged
+rather than guessed.
+
+PR review (jecalles, 2026-11-10): the Protein Mix row originally linked
+"Make OnePot Protein Mix" (`make-1pot`). That process makes a *different*,
+functionally-equivalent mix with uncontrolled molar ratios between its
+proteins. The [PMix module spec](https://docs.nucleus.engineering/docs/modules/pmix/spec/)
+names the default, controlled-ratio process as "Make Protein Mix"
+(`make-36pot`), which is what this DevNote's PMix row now links to. -->
 
 <!-- Reporter-plasmid identity, resolved 2026-11-10. The source Doc's
 Reagents table named a "pT7-tetO-plamGFP reporter plasmid" and linked it to
