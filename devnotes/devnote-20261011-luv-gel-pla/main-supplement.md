@@ -268,27 +268,14 @@ well. This halves the stock concentration to a final 40 mM PEG4Nb.
 :::
 
 The preparation steps from `log-devnote-draft.docx` are in `main.md`, in the
-ULGA tab of `## Hydrogel preparation`, and are not repeated here.
+ULGA tab of `## Hydrogel preparation`, and are not repeated here. That
+protocol targets a final osmolarity of ~1200 mOsm for the outer solution.
+Anton Molina confirmed both figures. The outer solution for this
+experiment's ULGA gel stock, given in {numref}`tbl-stock-ulga`, was
+measured at 1057 Osm.
 
 Mix 15 µL vesicle solution with 15 µL ULGA gel stock, then plate 30 µL per
 well. This halves the stock concentration to a final 0.5 w/v% ULGA.
-
-:::{attention} Solvent and osmolarity disagree between two sources
-:name: gap-ulga-solvent
-
-{numref}`tbl-stock-ulga` gives the outer solution as 1057 Osm glucose.
-
-`log-devnote-draft.docx` changed its own answer here on 2026-10-11. The
-2026-10-09 version gave the ULGA solvent as 1.2 M glucose solution. The
-current version gives it as the outer solution used during vesicle
-preparation instead: glucose and 50 mM HEPES, at a final osmolarity of
-~1200 mOsm. This brings the document in line with itself. 1200 mOsm is
-what it states for the rest of the experiment.
-
-It does not settle the disagreement with the sheet. 1057 Osm against
-~1200 mOsm is still two numbers for one solution. Confirm which applies, or
-whether each applies at a different step.
-:::
 
 ::::
 
@@ -305,31 +292,19 @@ whether each applies at a different step.
 :::
 
 The sheet carries one note beside this table: "dilute it down to 0.7%".
+Anton Molina confirmed that the 2.70% stock above does not apply to this
+experiment. The LGA stock was modified to 2.8 w/v%, dissolved in the outer
+solution used for vesicle preparation rather than UPDI water. That outer
+solution is glucose and 50 mM HEPES, at ~1200 mOsm, matching
+`log-devnote-draft.docx` and the protocol in `main.md`.
 
 The preparation steps from `log-devnote-draft.docx` are in `main.md`, in the
-LGA tab of `## Hydrogel preparation`, and are not repeated here.
+LGA tab of `## Hydrogel preparation`, and are not repeated here. The
+2026-10-11 revision added the LGA transfer step that main.md's LGA tab now
+states. An earlier reviewer asked about it.
 
 The document gives a final concentration of 0.7 w/v% LGA, from 7.5 µL
 stock plus 7.5 µL outer solution. This agrees with the sheet's own note.
-
-:::{attention} Stock concentration and solvent disagree between two sources
-:name: gap-lga-solvent
-
-{numref}`tbl-stock-lga` gives the stock as 2.70% in UPDI water.
-`log-devnote-draft.docx` gives 2.8 w/v%. The two concentrations round to the
-same figure.
-
-The solvent still disagrees, and the document changed its own answer on
-2026-10-11. The 2026-10-09 version said 1.2 M glucose solution. The current
-version says the outer solution used for vesicle preparation, glucose and
-50 mM HEPES at ~1200 mOsm. Either way it is not UPDI water. Confirm which
-solvent was used.
-
-One step was answered by the same revision. The 2026-10-09 version said only
-"Prepare vesicles in the sonicator bath and do the transfer there", which a
-reviewer had asked about. The current version states it: mix the LGA solution
-with the vesicles at 45 °C, then dispense into a well plate for gel formation.
-:::
 
 ::::
 
@@ -354,9 +329,9 @@ above come from that sheet. Their tabs are `PEG4Nb`, `ULGA-London` and
 **Answered in full, `log-devnote-draft.docx`.** The vesicle preparation for
 LUVs and GUVs is now in `## Vesicles`. The gel preparation steps and the
 stock-to-final-concentration figures are now in each tab of `## Gels`,
-alongside the stock tables already there. Two gels carry a flagged
-disagreement between the document and the `Gel formulations` sheet, in
-{ref}`gap-ulga-solvent` and {ref}`gap-lga-solvent`.
+alongside the stock tables already there. Two gels, ULGA and LGA, disagreed
+with the document on solvent, and LGA also disagreed on concentration.
+Anton Molina confirmed both, in their own tabs above.
 
 **Answered further, 2026-10-11.** The revision adds numbered preparation steps
 for PEG4Nb, which the earlier version did not have, and with them the
