@@ -273,7 +273,7 @@ ULGA tab of `## Hydrogel preparation`, and are not repeated here.
 Mix 15 µL vesicle solution with 15 µL ULGA gel stock, then plate 30 µL per
 well. This halves the stock concentration to a final 0.5 w/v% ULGA.
 
-:::{attention} Solvent and osmolarity disagree between two sources
+:::{attention} Solvent and osmolarity confirmed
 :name: gap-ulga-solvent
 
 {numref}`tbl-stock-ulga` gives the outer solution as 1057 Osm glucose.
@@ -282,12 +282,11 @@ well. This halves the stock concentration to a final 0.5 w/v% ULGA.
 2026-10-09 version gave the ULGA solvent as 1.2 M glucose solution. The
 current version gives it as the outer solution used during vesicle
 preparation instead: glucose and 50 mM HEPES, at a final osmolarity of
-~1200 mOsm. This brings the document in line with itself. 1200 mOsm is
-what it states for the rest of the experiment.
+~1200 mOsm.
 
-It does not settle the disagreement with the sheet. 1057 Osm against
-~1200 mOsm is still two numbers for one solution. Confirm which applies, or
-whether each applies at a different step.
+Anton Molina confirmed both numbers. The outer solution protocol targets a
+final osmolarity of about 1200 mOsm. For this experiment, the ULGA gel
+stock used an outer solution measured at 1057 Osm.
 :::
 
 ::::
@@ -312,18 +311,17 @@ LGA tab of `## Hydrogel preparation`, and are not repeated here.
 The document gives a final concentration of 0.7 w/v% LGA, from 7.5 µL
 stock plus 7.5 µL outer solution. This agrees with the sheet's own note.
 
-:::{attention} Stock concentration and solvent disagree between two sources
+:::{attention} Stock concentration and solvent confirmed
 :name: gap-lga-solvent
 
-{numref}`tbl-stock-lga` gives the stock as 2.70% in UPDI water.
-`log-devnote-draft.docx` gives 2.8 w/v%. The two concentrations round to the
-same figure.
+{numref}`tbl-stock-lga` gives the stock as 2.70% in UPDI water, 40.5 mg in
+1500 µL.
 
-The solvent still disagrees, and the document changed its own answer on
-2026-10-11. The 2026-10-09 version said 1.2 M glucose solution. The current
-version says the outer solution used for vesicle preparation, glucose and
-50 mM HEPES at ~1200 mOsm. Either way it is not UPDI water. Confirm which
-solvent was used.
+Anton Molina confirmed that the 2.70% figure does not apply here. The LGA
+stock was modified for this experiment to 2.8 w/v%. It was dissolved in the
+outer solution used for vesicle preparation, glucose and 50 mM HEPES at
+~1200 mOsm, not UPDI water. This matches `log-devnote-draft.docx` and the
+protocol in `main.md`.
 
 One step was answered by the same revision. The 2026-10-09 version said only
 "Prepare vesicles in the sonicator bath and do the transfer there", which a
