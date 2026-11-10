@@ -9,16 +9,27 @@ project:
     giant unilamellar vesicles loaded with beta-galactosidase to ask
     whether externally supplied PLA1 can lyse the membrane, and whether
     that lysis can be triggered on demand.
-  # Name, email and affiliation carried from this author's sibling DevNote
-  # in this board, devnotes/devnote-20261011-tetr-atc-degfp-guv-sensor/curvenote.yml,
+  # Mary Kelly: name, email and affiliation carried from this author's
+  # sibling DevNote in this board,
+  # devnotes/devnote-20261011-tetr-atc-degfp-guv-sensor/curvenote.yml,
   # where they were supplied by Anton Molina on 2026-10-04. Not re-confirmed
   # for this DevNote specifically — see the Open items admonition in main.md.
+  # Ojaswita Pant: added 2026-11-09 at Anton Molina's request. The PLA1 CDS
+  # in `dna/pOpen-TetO-PLA.gb` here is the same part as in her sibling
+  # DevNote, devnotes/devnote-20261011-luv-gel-pla. Her name, email and
+  # affiliation are carried from that DevNote's curvenote.yml, where she
+  # supplied them herself.
   authors:
     - name: Mary Kelly
       email: marykelly2026@u.northwestern.edu
       affiliations:
         - affiliations-curvenote-generated-uid-0
       id: contributors-curvenote-generated-uid-0
+    - name: Ojaswita Pant
+      email: ojaswitapant2029@u.northwestern.edu
+      affiliations:
+        - affiliations-curvenote-generated-uid-0
+      id: contributors-curvenote-generated-uid-1
   affiliations:
     - id: affiliations-curvenote-generated-uid-0
       name: Northwestern University
