@@ -21,6 +21,36 @@
         "cd '/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-cn-20260924-20261001' && exec curvenote start --port 3100"
       ],
       "port": 3100
+    },
+    {
+      "name": "curvenote-validation-nk",
+      "cwd": "/Users/antonmolina/Documents/code/devstudio-board/devnotes/20261013-validation-nk",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "cd '/Users/antonmolina/Documents/code/devstudio-board/devnotes/20261013-validation-nk' && exec curvenote start --port 3101"
+      ],
+      "port": 3101
+    },
+    {
+      "name": "curvenote-pre-release-theme-test",
+      "cwd": "/Users/antonmolina/Documents/code/devstudio-board/test/platemap-viewer",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "cd '/Users/antonmolina/Documents/code/devstudio-board/test/platemap-viewer' && exec curvenote start --port 3102"
+      ],
+      "port": 3102
+    },
+    {
+      "name": "curvenote-luxr-ahl",
+      "cwd": "/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-luxr-ahl",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "cd '/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-luxr-ahl' && exec curvenote start --port 3103"
+      ],
+      "port": 3103
     }
   ]
 }
