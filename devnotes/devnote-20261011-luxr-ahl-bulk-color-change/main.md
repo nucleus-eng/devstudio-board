@@ -28,18 +28,6 @@ colorchange-overnight.png. -->
 
 **The date is not confirmed.** See {ref}`gap-date` below.
 
-**The Reagents table's plasmid identity is now resolved, and its sequence
-file exists.** The source Doc named a "pT7-tetO-plamGFP reporter plasmid"
-and linked it to the `detector-tetr-atc` module, a tetR/aTc-induced GFP
-reporter, which did not match the LuxR-driven, PLA1-expressing circuit the
-Protocol section describes. `DevCell_Materials_Tracker.xlsx` (the Drive
-materials tracker) maps this DevNote to construct "pOpen-LuxR-PLA1", and
-`nucleus-eng/DNA` holds its real file, `dna/pOpen-LuxR-PLA1.gb`, now copied
-in and rendered under Protocol, Genetic circuit, Plasmid map. Its features
-(a `BBa_J23101` promoter driving `luxR`, a `Plux`/`lux box` promoter driving
-`PLA1`, the `pOpen` backbone) match that section's description directly.
-The Reagents table is updated to this plasmid.
-
 **The source Doc flags its own missing data.** Its Results section ends
 with the sentence "Plot of platereader is missing." See the admonition
 after {ref}`fig-colorchange` below.
@@ -48,13 +36,10 @@ after {ref}`fig-colorchange` below.
 supporting folder.** This gap applies to both figures. `asset_chain_complete`
 reads `false` for both entries in `manifest.json`.
 
-**One of two uncertainty markers in the source table is now resolved.**
-The Abstract's "CPRG (write long name)" tag was the author's own reminder
-to spell out the reagent's full chemical name. The source Doc never
-supplied it, but the Nucleus materials reference does: CPRG is
-Chlorophenol Red-β-D-galactopyranoside. The Abstract is updated with this
-name. The "Beta-Gal?" stock row, with no concentration given, carries
-forward unresolved; neither source names a concentration for it.
+**One uncertainty marker in the source table carries forward unresolved.**
+The "Beta-Gal?" stock row, with no concentration given, is the source
+Doc's own marker; neither source checked here names a concentration for
+it either.
 
 **The Sources list ends with two open items the author left unresolved.**
 The first reads: "Some citation on quorum sensing and AHSL LuxR in cell
@@ -121,17 +106,10 @@ instead. Second, https://docs.nucleus.engineering/guides/materials-reference/,
 which supplied the ribosome/tRNA/protein-mix process links, the Optiprep and
 Beta-Gal catalog data, and the AHSL and CPRG identities (both confirmed
 against the same catalog numbers the Drive spreadsheet already uses for those
-two reagents). The reporter-plasmid row is updated using the Drive
-spreadsheet: its "Sheet2" tab maps construct "pOpen-LuxR-PLA1" to DevNote
-"Bulk color change module" (this DevNote), and its "DNA Sequences" tab records
-"LuxR-PLA1" as cloned into the pOpen backbone by Golden Gate Assembly, held in
-glycerol stock, with its plasmid-level function test still "In progress...".
-This replaces the source Doc's "pT7-tetO-plamGFP reporter plasmid" name and
-its `detector-tetr-atc` link, which matched a different, tetR/aTc-induced GFP
-circuit (see the resolved flag below). No match was found in either source
-for Small Molecule Mix (SMix) or Nuclease-free H₂O beyond what is shown;
-their Catalog No., Price and (for SMix) Storage Conditions stay N/A, flagged
-rather than guessed.
+two reagents). The reporter-plasmid row's sourcing is explained just below.
+No match was found in either source for Small Molecule Mix (SMix) or
+Nuclease-free H₂O beyond what is shown; their Catalog No., Price and (for
+SMix) Storage Conditions stay N/A, flagged rather than guessed.
 
 PR review (jecalles, 2026-11-10): the Protein Mix row originally linked
 "Make OnePot Protein Mix" (`make-1pot`). That process makes a *different*,
