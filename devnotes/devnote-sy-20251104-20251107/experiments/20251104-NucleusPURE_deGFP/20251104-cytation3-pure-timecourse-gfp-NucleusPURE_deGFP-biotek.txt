@@ -1,0 +1,8 @@
+
+
+Software Version	3.16.10
+
+
+
+Experiment File Path:	C:\Users\bnext\Documents\Biotek\experiments\20251104-cytation3-pure-timecourse-gfp-NucleusPURE_deGFP.xpt
+Protocol File Path:	C:\Users\bnext\Documents\Biotek\protocols\cytation3_protocols\cytation3-pure-timecourse-gfp.prt
