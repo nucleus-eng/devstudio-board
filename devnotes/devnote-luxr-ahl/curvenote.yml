@@ -61,12 +61,9 @@ project:
     - format: meca
   toc:
     - file: main.md
-  plugins:
-    - ../../plugins/seqviz/seqviz.mjs
   resources:
     - banner-devcells.webp
     - figures/**
-    - dna/**
   id: 0157c077-839f-4132-90bc-61f57798c91e
 site:
   template: article-theme

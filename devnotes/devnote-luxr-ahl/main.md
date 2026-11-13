@@ -1,8 +1,3 @@
----
-title: 'Implementing of a bulk color change module into bacterial quorum sensing'
-thumbnail: ./figures/colorchange-overnight.png
----
-
 <!--
 Editing convention: a section marked `@claude please don't rewrite this section`,
 or commented out, is protected. Claude will not regenerate, reflow or reword it.
@@ -31,17 +26,14 @@ chat, 2026-10-12, matching the Doc's own first line. No Specification
 table exists in the source Doc, and no date appears anywhere in it. See
 {ref}`gap-date` below.
 
-**The Reagents table's plasmid identity is now resolved, and its sequence
-file exists.** The source Doc named a "pT7-tetO-plamGFP reporter plasmid"
-and linked it to the `detector-tetr-atc` module, a tetR/aTc-induced GFP
-reporter, which did not match the LuxR-driven, PLA1-expressing circuit the
-Protocol section describes. `DevCell_Materials_Tracker.xlsx` (the Drive
-materials tracker) maps this DevNote to construct "pOpen-LuxR-PLA1", and
-`nucleus-eng/DNA` holds its real file, `dna/pOpen-LuxR-PLA1.gb`, now copied
-in and rendered under Protocol, Genetic circuit, Plasmid map. Its features
-(a `BBa_J23101` promoter driving `luxR`, a `Plux`/`lux box` promoter driving
-`PLA1`, the `pOpen` backbone) match that section's description directly.
-The Reagents table is updated to this plasmid.
+**The Reagents table names a plasmid that does not match the circuit in
+Protocol.** The table's reporter-plasmid row names "pT7-tetO-plamGFP
+reporter plasmid". It links to the `detector-tetr-atc` module spec, a
+tetR/aTc-induced GFP reporter. The Protocol section describes a different
+circuit. That circuit is LuxR-driven, uses a lux-box promoter, and
+expresses PLA1, not GFP, in response to AHL. No sequence file for either
+construct exists yet. See {ref}`gap-constructs` below. This is a blocking
+identity question, not a renaming or formatting issue.
 
 **The source Doc flags its own missing data.** Its Results section ends
 with this sentence: "Plot of platereader is missing." That missing trace
@@ -54,13 +46,12 @@ qualitative stand-in, not a replacement for that data.
 supporting folder.** This gap applies to both figures. `asset_chain_complete`
 reads `false` for both entries in `manifest.json`.
 
-**One of two uncertainty markers in the source table is now resolved.**
-The Abstract's "CPRG (write long name)" tag was the author's own reminder
-to spell out the reagent's full chemical name. The source Doc never
-supplied it, but the Nucleus materials reference does: CPRG is
-Chlorophenol Red-β-D-galactopyranoside. The Abstract is updated with this
-name. The "Beta-Gal?" stock row, with no concentration given, carries
-forward unresolved; neither source names a concentration for it.
+**Two uncertainty markers in the source table carry forward unresolved.**
+The first is a "Beta-Gal?" stock row with no concentration given. The
+second is a "CPRG" abstract mention the author tagged "(write long name)".
+That tag is the author's own reminder to spell out the reagent's full
+chemical name. The source never supplies that name, so it is not added
+here.
 
 **The Sources list ends with two open items the author left unresolved.**
 The first reads: "Some citation on quorum sensing and AHSL LuxR in cell
@@ -91,10 +82,11 @@ Please confirm the date. No date appears anywhere in the Doc.
 `curvenote.yml` currently carries the Drive file's own creation date,
 2026-10-12, as a placeholder.
 ::: -->
+-->
 
 # Abstract
 
-It has previously been shown that developer cells can use the LuxR quorum sensing system to detect AHSL (C6) a diffusible molecule bacteria use to communicate with each other, to sense bacteria and report that. Demonstrated by GFP. Here we wish to extend this system, by using the genetic sensor module and implement a novel module for visible color change, based on the production of PLA1 that lyses storage compartments that result in the release of CPRG (Chlorophenol Red-β-D-galactopyranoside) which then can be cleaved into CPR by beta galactosidase which is in the outer solution.
+It has previously been shown that developer cells can use the LuxR quorum sensing system to detect AHSL (C6) a diffusible molecule bacteria use to communicate with each other, to sense bacteria and report that. Demonstrated by GFP. Here we wish to extend this system, by using the genetic sensor module and implement a novel module for visible color change, based on the production of PLA1 that lyses storage compartments that result in the release of CPRG (write long name) which then can be cleaved into CPR by beta galactosidase which is in the outer solution.
 
 # Overview
 
@@ -116,59 +108,26 @@ Reactions were run in b.next Nucleus Base Cytosol, a PURE-type reconstituted sys
 
 | Reagent | Product Name | Manufacturer | Catalog No. | Price | Storage Conditions | Link |
 | --- | --- | --- | --- | --- | --- | --- |
-| Small Molecule Mix (SMix) | Nucleus Small Molecule Mix (see [Make Small Molecule Mix](https://docs.nucleus.engineering/docs/processes/make-small-molecule-mix/main)) | b.next | N/A | N/A | N/A | [Make Small Molecule Mix](https://docs.nucleus.engineering/docs/processes/make-small-molecule-mix/main) |
-| tRNA | Nucleus Total tRNA (see [Make tRNAs](https://docs.nucleus.engineering/docs/processes/make-trna/main)) | b.next | N/A | N/A | -80 °C | [Make tRNAs](https://docs.nucleus.engineering/docs/processes/make-trna/main) |
-| Protein Mix (PMix) | Nucleus Protein Mix, 36 PURE system proteins (see [Make Protein Mix](https://docs.nucleus.engineering/docs/processes/make-36pot/main)) | b.next | N/A | N/A | N/A | [Make Protein Mix](https://docs.nucleus.engineering/docs/processes/make-36pot/main) |
-| Ribosomes | Nucleus 70S ribosomes (see [Make Ribosomes](https://docs.nucleus.engineering/docs/processes/make-ribosomes/main)) | b.next | N/A | N/A | -80 °C | [Make Ribosomes](https://docs.nucleus.engineering/docs/processes/make-ribosomes/main) |
-| RNase Inhibitor, Murine (RIM) | RNase Inhibitor, Murine | New England Biolabs | M0314S | $87.00 | -25 °C to -15 °C | [NEB #M0314S](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
-| Optiprep | OptiPrep™ | STEMCELL Technologies | 07820 | $289.00 | Room temperature | [STEMCELL #07820](https://www.stemcell.com/products/optipreptm.html) |
-| pOpen-LuxR-PLA1 reporter plasmid | LuxR-PLA1 insert in a pOpen backbone (Golden Gate Assembly) | b.next (in-house construct) | N/A | N/A | Glycerol stock | |
+| Small Molecule Mix (SMix) | Nucleus Base Cytosol component | — | N/A | N/A | N/A | |
+| tRNA | — | — | N/A | N/A | N/A | |
+| Protein Mix (PMix) | — | — | N/A | N/A | N/A | |
+| Ribosomes | — | — | N/A | N/A | N/A | |
+| RNase Inhibitor, Murine (RIM) | — | New England Biolabs | M0314L | N/A | N/A | [NEB #M0314L](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
+| Optiprep | — | — | N/A | N/A | N/A | |
+| pT7-tetO-plamGFP reporter plasmid | — | — | N/A | N/A | N/A | [detector-tetr-atc spec](https://docs.nucleus.engineering/docs/modules/detector-tetr-atc/spec/) |
 | Nuclease-free H₂O | — | — | N/A | N/A | N/A | |
-| AHSL | N-(3-Oxohexanoyl)-L-homoserine lactone | Sigma-Aldrich | K3007 | $40.70 (10 mg) / $590.00 (50 mg) | -20 °C | [Sigma-Aldrich #K3007](https://www.sigmaaldrich.com/US/en/product/aldrich/k3007) |
-| CPRG | Chlorophenol Red-β-D-galactopyranoside | Roche (via Sigma-Aldrich) | 10884308001 | $160.00 | -20 °C in water at 20 mg/mL | [Sigma-Aldrich #10884308001](https://www.sigmaaldrich.com/US/en/product/roche/10884308001) |
-| Beta-Gal | β-Galactosidase from Escherichia coli, Grade VIII, lyophilized powder, ≥500 units/mg protein | Sigma-Aldrich | G5635 | N/A | -20 °C | [Sigma-Aldrich #G5635](https://www.sigmaaldrich.com/US/en/product/sigma/g5635) |
+| AHSL | — | — | N/A | N/A | N/A | |
+| CPRG | — | — | N/A | N/A | N/A | |
+| Beta-Gal | — | — | N/A | N/A | N/A | |
 :::
 
-<!-- Materials pass, 2026-11-10: filled against two sources, in the order
-Anton asked for. First, the Drive spreadsheet `DevCell_Materials_Tracker.xlsx`
-(id 1S5AEJnl6sMWUU7Yof3lFIO8tpLtEgvEa) — its "Reagent Prep" tab (gid
-1064417783, the tab the given link opens to) is empty, so matches were taken
-from its "London Node", "Chicago Node", "DNA Sequences" and "Sheet2" tabs
-instead. Second, https://docs.nucleus.engineering/guides/materials-reference/,
-which supplied the ribosome/tRNA/protein-mix process links, the Optiprep and
-Beta-Gal catalog data, and the AHSL and CPRG identities (both confirmed
-against the same catalog numbers the Drive spreadsheet already uses for those
-two reagents). The reporter-plasmid row is updated using the Drive
-spreadsheet: its "Sheet2" tab maps construct "pOpen-LuxR-PLA1" to DevNote
-"Bulk color change module" (this DevNote), and its "DNA Sequences" tab records
-"LuxR-PLA1" as cloned into the pOpen backbone by Golden Gate Assembly, held in
-glycerol stock, with its plasmid-level function test still "In progress...".
-This replaces the source Doc's "pT7-tetO-plamGFP reporter plasmid" name and
-its `detector-tetr-atc` link, which matched a different, tetR/aTc-induced GFP
-circuit (see the resolved flag below). No match was found in either source
-for Small Molecule Mix (SMix) or Nuclease-free H₂O beyond what is shown;
-their Catalog No., Price and (for SMix) Storage Conditions stay N/A, flagged
-rather than guessed.
+<!-- :::{admonition}
+:name: gap-reagents-link
 
-PR review (jecalles, 2026-11-10): the Protein Mix row originally linked
-"Make OnePot Protein Mix" (`make-1pot`). That process makes a *different*,
-functionally-equivalent mix with uncontrolled molar ratios between its
-proteins. The [PMix module spec](https://docs.nucleus.engineering/docs/modules/pmix/spec/)
-names the default, controlled-ratio process as "Make Protein Mix"
-(`make-36pot`), which is what this DevNote's PMix row now links to. -->
-
-<!-- Reporter-plasmid identity, resolved 2026-11-10. The source Doc's
-Reagents table named a "pT7-tetO-plamGFP reporter plasmid" and linked it to
-the `detector-tetr-atc` module, a tetR/aTc-induced GFP reporter, which did
-not match the LuxR-driven, PLA1-expressing circuit the Protocol section
-describes; no sequence file existed yet for either, so this was a blocking
-identity question. `DevCell_Materials_Tracker.xlsx` maps this DevNote to
-construct "pOpen-LuxR-PLA1" (its "Sheet2" tab) and records it as cloned into
-the pOpen backbone by Golden Gate Assembly (its "DNA Sequences" tab). The
-real file, `dna/pOpen-LuxR-PLA1.gb`, now confirms this directly: see
-{ref}`Plasmid map <seqviz-popen-luxr-pla1>` under Protocol, Genetic circuit,
-for the feature-by-feature match and sourcing note. The Reagents table below
-is updated to this plasmid. -->
+The pT7-tetO-plamGFP row's Link points to a GFP reporter module spec that
+does not match this experiment's circuit — see {ref}`gap-constructs`. Kept
+here because it is the reagent the source table names; not corrected.
+::: -->
 
 The source table's own Stock and Notes columns carry concentrations that do not map to the schema above and are retained here rather than dropped:
 
@@ -182,9 +141,9 @@ The source table's own Stock and Notes columns carry concentrations that do not 
 | tRNA | working stock | |
 | Protein Mix (PMix) | working stock | |
 | Ribosomes | working stock | |
-| RNase Inhibitor, Murine (RIM) | working stock | [NEB #M0314S](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
+| RNase Inhibitor, Murine (RIM) | working stock | [NEB #M0314L](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine) |
 | Optiprep | | |
-| pOpen-LuxR-PLA1 reporter plasmid | 129.6 nM | Final concentration: 0 or 1 nM depending on sample |
+| pT7-tetO-plamGFP reporter plasmid | 129.6 nM | Final concentration: 0 or 1 nM depending on sample |
 | Nuclease-free H₂O | — | to volume |
 | AHSL | 80 mM in DMSO | Diluted in DI water for experiment |
 | CPRG | Dry powder | Dissolved in aqueous buffer |
@@ -194,38 +153,28 @@ The source table's own Stock and Notes columns carry concentrations that do not 
 <!-- The "Beta-Gal?" row's question mark is the source Doc's own uncertainty
 marker, carried as written, not resolved. -->
 
-<!-- RNase Inhibitor catalog number, 2026-11-10: the source Doc named pack
-size "M0314L". Both `DevCell_Materials_Tracker.xlsx` and the Nucleus
-materials reference name "M0314S" instead, same NEB product page. Set to
-M0314S below, matching both independent sources. -->
+<!-- # Constructs -->
+
+(gap-constructs)=
+<!-- :::{admonition}
+:name: gap-constructs
+
+No DNA sequence file was supplied for either construct this Doc names.
+The Reagents table's "pT7-tetO-plamGFP reporter plasmid" links to the
+`detector-tetr-atc` module (a tetR/aTc-induced GFP reporter), but the
+Protocol section below describes a different circuit: "The reporter
+plasmid, built in the pOpen backbone, constitutively expresses LuxR, which
+in the presence of AHL binds the lux box promoter and activates expression
+of PLA1." These two descriptions name different genetic programs. Please
+confirm which plasmid (or plasmids) were actually used, and supply its
+sequence file, before a Constructs table or sequence map can be added here.
+::: -->
 
 # Protocol
 
 ## Genetic circuit
 
 The reporter plasmid, built in the pOpen backbone, constitutively expresses LuxR, which in the presence of AHL binds the lux box promoter and activates expression of PLA1. PLA1 expression therefore occurs only when AHL is present.
-
-## Plasmid map
-
-(seqviz-popen-luxr-pla1)=
-:::{seqviz} ./dna/pOpen-LuxR-PLA1.gb
-:::
-
-<!-- `dna/pOpen-LuxR-PLA1.gb` is the real file of record, copied unmodified
-from `nucleus-eng/DNA`, path `effectors/detector-3oc6-hsl/pOpen-LuxR-PLA1.gb`
-(identical on branches `main` and `devcells/devstudio-constructs`), checked
-2026-11-10. It is 4175 bp, circular, and its features match the Genetic
-circuit paragraph above feature for feature: a `BBa_J23101` constitutive
-promoter driving a `luxR` CDS, a `Plux` promoter carrying the `lux box`
-element, a `PLA1` CDS downstream of it, and the `pOpen` backbone's own `ori`
-and `AmpR`. Its sibling file in the same directory, `LuxR-PLA1-linear.gb`
-(2237 bp), is the same cassette without the backbone; this DevNote's GUV
-route uses bacterial S30 lysate (S30 degrades linear DNA, no GamS), so the
-circular form here, not the linear one, is the correct file for this
-protocol. This also confirms the directory it is filed under,
-`detector-3oc6-hsl`: the AHSL reagent above (Sigma-Aldrich K3007,
-3-oxo-C6-HSL) is the molecule this circuit actually responds to, not generic
-C6-HSL as the Abstract's "(C6)" might suggest. -->
 
 # Methods
 
@@ -255,6 +204,8 @@ Snapshot of the LUV pellet after 4 washes.
 :::
 
 <!-- missing notebook -->
+
+[`fig-luv-pellet`, notebook:`none`, platemap:`none`, data source:`none`, caption: (Snapshot of the LUV pellet after 4 washes.)]
 
 Ions were added after formation of the vesicles and the cleanup as it affects stability and overall yield. The average pellet will be a lot smaller when using a solution with high ionic strength.
 
@@ -346,6 +297,10 @@ Bulk color change, 1 h incubation. Top row: DevCells induced with 5µM AHSL. Mid
 
 <!-- missing notebook -->
 
+[`fig-colorchange-1h`, notebook:`none`, platemap:`none`, data source:`none`, caption: (Bulk color change, 1 h incubation. Top row: DevCells induced with 5µM AHSL, Middle row DevCells not induced, Bottom row: LUVs alone induced with 5µM AHSL.)]
+
+[`fig-colorchange-overnight`, notebook:`none`, platemap:`none`, data source:`none`, caption: (Bulk color change, overnight incubation. Top row: DevCells induced with 5µM AHSL, Middle row DevCells not induced, Bottom row: LUVs alone induced with 5µM AHSL.)]
+
 <!-- :::{danger} Unresolved before publication
 :name: flags-missing-platereader -->
 
@@ -358,11 +313,29 @@ Key to making the colorchange module work sufficiently well is that the dye load
 
 CPRG absorbance could not be measured as the absorbance in the 412 channel was too strong.
 
+# Notes
+
+<!-- :::{admonition}
+:name: gap-notes
+
+Please fill in a Notes section. The source Doc has no Notes or failure-modes
+section of its own.
+::: -->
+
+# What's next
+
+<!-- :::{admonition}
+:name: gap-whats-next
+
+Please fill in what's next. The source Doc has no forward-looking section of
+its own beyond the dye-concentration point already carried into Results.
+::: -->
+
 # Resources
 
 - [Assemble Base Cytosol](https://docs.nucleus.engineering/docs/processes/assemble-base-cytosol/main) — Nucleus process, component names and reference composition
 - Yadav, S. (2025). First Nucleus Cytosol Testing: Evaluation of Nucleus Cytosol v0.5 Through deGFP Expression. [10.63765/fppr8928](https://doi.org/10.63765/fppr8928)
-- [RNase Inhibitor, Murine — NEB #M0314S](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine)
+- [RNase Inhibitor, Murine — NEB #M0314L](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine)
 
 <!-- :::{admonition}
 :name: gap-resources-citations
