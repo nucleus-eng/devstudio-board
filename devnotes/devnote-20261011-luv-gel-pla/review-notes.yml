@@ -1,0 +1,73 @@
+# Review and provenance notes, archived from this devnote's HTML comments.
+# The source file no longer marks where each one used to sit. 'section' is
+# the nearest heading above the comment in the original source, for
+# orientation only.
+
+main.md:
+- id: main-01
+  section: ''
+  text: |
+    Editing convention: a section marked `@claude please don't rewrite this section`,
+    or commented out, is protected. Claude will not regenerate, reflow or reword it.
+- id: main-02
+  section: ''
+  text: " This page stays close to `log-devnote-draft.docx`, re-read on 2026-10-12\nafter the authors revised it a second time. `main-supplement.md` holds the full\nanalysis chain for `OP-20261001`, every disagreement found between sources, and\nthe review history, so that page and this one do not restate each other. Title\nand authors live in `curvenote.yml`, as project frontmatter, and render on this\npage from there. They are not repeated here as body text. \n"
+main-supplement.md:
+- id: supp-01
+  section: ''
+  text: |
+    Editing convention: a section marked `@claude please don't rewrite this section`,
+    or commented out, is protected. Claude will not regenerate, reflow or reword it.
+- id: supp-02
+  section: Overview
+  text: " Overview supplied by the reviewer in review cycle v1, prompt 5, and\ncarried verbatim. The source log carries no overview. Its entire body is the\nheading \"# Results\", one pasted figure, and the line\n\"Analysis: https://colab.research.google.com/drive/1ebR3gcpx0j-HCuA4N5lDdILkSQ6BneoJ#scrollTo=5a08dde5\". \n"
+- id: supp-03
+  section: LUV-Gel
+  text: " The heading carries no date. The folder date, the data filenames\nand the platemap disagree. See the blocking date flag above. \n"
+- id: supp-04
+  section: LUV-Gel
+  text: |2
+     Resolved, review cycle v1, prompt 4. Answer: "Leave as is".
+
+    :::{attention} Composition table cannot be produced
+    :name: gap-composition
+
+    No `build-composition.csv` was found for `OP-20261001`, and the Log folder
+    holds no build spreadsheet to generate one from. Run
+    `devstudio-build-to-composition` on the build file for this experiment, then
+    insert the table here. Do not reconstruct it from the platemap. The platemap
+    names the conditions and does not give volumes or concentrations.
+    :::
+- id: supp-05
+  section: Results
+  text: |2
+     Results supplied by the reviewer in review cycle v1, prompt 7, and
+    carried verbatim as the three numbered statements they wrote. The source log
+    states no result.
+
+    :::{attention} Results narrative not recorded
+    :name: gap-results-prose
+
+    The source log states no result. Its Results section holds the figure below
+    and nothing else. Supply what the ratio shows, and say which conditions are
+    being compared against which control.
+    :::
+- id: supp-06
+  section: Results
+  text: " tbl-absorbance is transposed from the PLA-CPR/CPRG sheet, which lays the\nwells out across columns and the three reads down the rows. No value is\nchanged. The sheet gives no unit for either wavelength row. The notebook\nreads the values as absorbance. \n"
+- id: supp-07
+  section: Results
+  text: |2
+     Resolved, review cycle v1, prompt 10. Answer: "we are just using the
+    labeled figure". The two unlabeled figures stay out.
+
+    :::{attention} Two further figures exist and were not carried forward
+    :name: gap-figures-not-selected
+
+    The notebook draws two figures besides the one above, and the reviewer
+    selected neither on 2026-10-05. Cell 18 draws raw CPRG (412) and CPR (570)
+    absorbance by sample, one panel per data file. Cell 21 draws the absorbance
+    change from `luvgel02_data.txt` to `luvgel02PLA_data.txt`, which is day 2
+    after PLA addition minus day 2 before PLA addition. Neither cell carries a
+    `#| label:` tag. Add one to either cell to carry it into a later revision.
+    :::

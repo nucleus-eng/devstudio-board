@@ -3,63 +3,6 @@ title: 'Implementing of a bulk color change module into bacterial quorum sensing
 thumbnail: ./figures/colorchange-overnight.png
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
-<!-- Drafted 2026-10-12 from the Google Doc "DevNote Color Change.docx"
-(Drive id 1H_HKs-vO0Blq0_-j5dPGsJgNuphQ34H1), together with three supporting
-photographs from the same Drive folder (1T88O7efBfV3kbHOSqbnmY0_FNC_ViFY9):
-LUVpellet.png, 1h.png and overnight.png. The folder holds no other file.
-It holds no notebook, no platemap, no raw instrument data, no DNA sequence
-file, and no build file. Prose, tables and both figures are carried
-verbatim from the Doc. The content is restructured into this board's
-section order: Abstract, Overview, Materials, Protocol, Methods, Results.
-The Doc's own Reagents and stocks table sat under Protocol. It is moved to
-Materials below, to match this pipeline's standard schema. The three
-photographs are renamed from their generic Drive names (LUVpellet.png,
-1h.png, overnight.png) to luv-pellet.png, colorchange-1h.png and
-colorchange-overnight.png. -->
-
-<!-- :::{admonition} Open review items
-:class: warning dropdown
-:name: flags-review
-
-**The date is not confirmed.** See {ref}`gap-date` below.
-
-**The source Doc flags its own missing data.** Its Results section ends
-with the sentence "Plot of platereader is missing." See the admonition
-after {ref}`fig-colorchange` below.
-
-**No platemap, no notebook, and no raw instrument data exist in the
-supporting folder.** This gap applies to both figures. `asset_chain_complete`
-reads `false` for both entries in `manifest.json`.
-
-**One uncertainty marker in the source table carries forward unresolved.**
-The "Beta-Gal?" stock row, with no concentration given, is the source
-Doc's own marker; neither source checked here names a concentration for
-it either.
-
-**The Sources list ends with two open items the author left unresolved.**
-The first reads: "Some citation on quorum sensing and AHSL LuxR in cell
-free?" The second reads: "Cite GFP devnote." The source Doc does not name
-that DevNote directly. One candidate is this board's
-`devnote-20261011-luxr-biofilm-sensing-hydrogel`, which covers the same
-LuxR quorum-sensing system in a mNeonGreen GUV hydrogel and shares two
-authors with this Doc: Niall McIntyre and Julia Purrinos de Oliveira. This
-link is a candidate only. See Resources.
-:::
-
-(gap-date)=
-<!-- :::{admonition}
-:name: gap-date
-
-Please confirm the date. No date appears anywhere in the Doc.
-`curvenote.yml` currently carries the Drive file's own creation date,
-2026-10-12, as a placeholder.
-::: -->
-
 # Abstract
 
 It has previously been shown that developer cells can use the LuxR quorum sensing system to detect AHSL (C6) a diffusible molecule bacteria use to communicate with each other, to sense bacteria and report that. Demonstrated by GFP. Here we wish to extend this system, by using the genetic sensor module and implement a novel module for visible color change, based on the production of PLA1 that lyses storage compartments that result in the release of CPRG (Chlorophenol Red-β-D-galactopyranoside) which then can be cleaved into CPR by beta galactosidase which is in the outer solution.
@@ -69,10 +12,6 @@ It has previously been shown that developer cells can use the LuxR quorum sensin
 We made dye loaded LUVs that were stable over long time incubation without leaking dye, and induced GUV lysis by expression of PLA1 in GUVs containing bacterial 30S lysate. We induced the expression of PLA1 by addition of AHSL, allowing us to distinguish a visible by eye difference of the induced and the non-induced condition.
 
 # Materials
-
-<!-- REORDERED: moved from "Protocol", where the source Doc placed its
-"Reagents and stocks" subsection. Relocated to Materials per this board's
-standard section order; no value, unit or row changed. -->
 
 ## Reagents and stocks
 
@@ -97,40 +36,6 @@ Reactions were run in b.next Nucleus Base Cytosol, a PURE-type reconstituted sys
 | Beta-Gal | β-Galactosidase from Escherichia coli, Grade VIII, lyophilized powder, ≥500 units/mg protein | Sigma-Aldrich | G5635 | N/A | -20 °C | [Sigma-Aldrich #G5635](https://www.sigmaaldrich.com/US/en/product/sigma/g5635) |
 :::
 
-<!-- Materials pass, 2026-11-10: filled against two sources, in the order
-Anton asked for. First, the Drive spreadsheet `DevCell_Materials_Tracker.xlsx`
-(id 1S5AEJnl6sMWUU7Yof3lFIO8tpLtEgvEa) — its "Reagent Prep" tab (gid
-1064417783, the tab the given link opens to) is empty, so matches were taken
-from its "London Node", "Chicago Node", "DNA Sequences" and "Sheet2" tabs
-instead. Second, https://docs.nucleus.engineering/guides/materials-reference/,
-which supplied the ribosome/tRNA/protein-mix process links, the Optiprep and
-Beta-Gal catalog data, and the AHSL and CPRG identities (both confirmed
-against the same catalog numbers the Drive spreadsheet already uses for those
-two reagents). The reporter-plasmid row's sourcing is explained just below.
-No match was found in either source for Small Molecule Mix (SMix) or
-Nuclease-free H₂O beyond what is shown; their Catalog No., Price and (for
-SMix) Storage Conditions stay N/A, flagged rather than guessed.
-
-PR review (jecalles, 2026-11-10): the Protein Mix row originally linked
-"Make OnePot Protein Mix" (`make-1pot`). That process makes a *different*,
-functionally-equivalent mix with uncontrolled molar ratios between its
-proteins. The [PMix module spec](https://docs.nucleus.engineering/docs/modules/pmix/spec/)
-names the default, controlled-ratio process as "Make Protein Mix"
-(`make-36pot`), which is what this DevNote's PMix row now links to. -->
-
-<!-- Reporter-plasmid identity, resolved 2026-11-10. The source Doc's
-Reagents table named a "pT7-tetO-plamGFP reporter plasmid" and linked it to
-the `detector-tetr-atc` module, a tetR/aTc-induced GFP reporter, which did
-not match the LuxR-driven, PLA1-expressing circuit the Protocol section
-describes; no sequence file existed yet for either, so this was a blocking
-identity question. `DevCell_Materials_Tracker.xlsx` maps this DevNote to
-construct "pOpen-LuxR-PLA1" (its "Sheet2" tab) and records it as cloned into
-the pOpen backbone by Golden Gate Assembly (its "DNA Sequences" tab). The
-real file, `dna/pOpen-LuxR-PLA1.gb`, now confirms this directly: see
-{ref}`Plasmid map <seqviz-popen-luxr-pla1>` under Protocol, Genetic circuit,
-for the feature-by-feature match and sourcing note. The Reagents table below
-is updated to this plasmid. -->
-
 The source table's own Stock and Notes columns carry concentrations that do not map to the schema above and are retained here rather than dropped:
 
 :::{table} Reagents and stocks — stock concentrations and notes, as given in the source Doc.
@@ -152,14 +57,6 @@ The source table's own Stock and Notes columns carry concentrations that do not 
 | Beta-Gal? | | |
 :::
 
-<!-- The "Beta-Gal?" row's question mark is the source Doc's own uncertainty
-marker, carried as written, not resolved. -->
-
-<!-- RNase Inhibitor catalog number, 2026-11-10: the source Doc named pack
-size "M0314L". Both `DevCell_Materials_Tracker.xlsx` and the Nucleus
-materials reference name "M0314S" instead, same NEB product page. Set to
-M0314S below, matching both independent sources. -->
-
 # Protocol
 
 ## Genetic circuit
@@ -171,22 +68,6 @@ The reporter plasmid, built in the pOpen backbone, constitutively expresses LuxR
 (seqviz-popen-luxr-pla1)=
 :::{seqviz} ./dna/pOpen-LuxR-PLA1.gb
 :::
-
-<!-- `dna/pOpen-LuxR-PLA1.gb` is the real file of record, copied unmodified
-from `nucleus-eng/DNA`, path `effectors/detector-3oc6-hsl/pOpen-LuxR-PLA1.gb`
-(identical on branches `main` and `devcells/devstudio-constructs`), checked
-2026-11-10. It is 4175 bp, circular, and its features match the Genetic
-circuit paragraph above feature for feature: a `BBa_J23101` constitutive
-promoter driving a `luxR` CDS, a `Plux` promoter carrying the `lux box`
-element, a `PLA1` CDS downstream of it, and the `pOpen` backbone's own `ori`
-and `AmpR`. Its sibling file in the same directory, `LuxR-PLA1-linear.gb`
-(2237 bp), is the same cassette without the backbone; this DevNote's GUV
-route uses bacterial S30 lysate (S30 degrades linear DNA, no GamS), so the
-circular form here, not the linear one, is the correct file for this
-protocol. This also confirms the directory it is filed under,
-`detector-3oc6-hsl`: the AHSL reagent above (Sigma-Aldrich K3007,
-3-oxo-C6-HSL) is the molecule this circuit actually responds to, not generic
-C6-HSL as the Abstract's "(C6)" might suggest. -->
 
 # Methods
 
@@ -214,8 +95,6 @@ The final pellet was resuspended in a buffer containing 1mM CaCl2 and 50mM Hepes
 :width: 60%
 Snapshot of the LUV pellet after 4 washes.
 :::
-
-<!-- missing notebook -->
 
 Ions were added after formation of the vesicles and the cleanup as it affects stability and overall yield. The average pellet will be a lot smaller when using a solution with high ionic strength.
 
@@ -305,16 +184,6 @@ Bulk color change, 1 h incubation. Top row: DevCells induced with 5µM AHSL. Mid
 
 :::::
 
-<!-- missing notebook -->
-
-<!-- :::{danger} Unresolved before publication
-:name: flags-missing-platereader -->
-
-<!-- The source Doc states: "Plot of platereader is missing." The
-quantitative 570 nm kinetic absorbance trace referenced in Data acquisition
-and analysis above was never produced or was lost; only the two photographs
-above exist. ::: -->
-
 Key to making the colorchange module work sufficiently well is that the dye loaded vesicle concentration should exceed the amount of vesicles the DevCells are able to lyse, so the maximum CPR absorbance will not be reached and the conditions stay distinguishable.
 
 CPRG absorbance could not be measured as the absorbance in the 412 channel was too strong.
@@ -325,17 +194,3 @@ CPRG absorbance could not be measured as the absorbance in the 412 channel was t
 - Yadav, S. (2025). First Nucleus Cytosol Testing: Evaluation of Nucleus Cytosol v0.5 Through deGFP Expression. [10.63765/fppr8928](https://doi.org/10.63765/fppr8928)
 - [RNase Inhibitor, Murine — NEB #M0314S](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine)
 
-<!-- :::{admonition}
-:name: gap-resources-citations
-
-Two open items from the source Doc's own Sources list, carried as written,
-not resolved:
-
-"Some citation on quorum sensing and AHSL LuxR in cell free?" — no citation
-was supplied.
-
-"Cite GFP devnote" — no specific DevNote is named. `devnote-20261011-luxr-biofilm-sensing-hydrogel`
-on this board (two shared authors, same LuxR quorum-sensing system,
-demonstrated by GFP) is a plausible candidate, but this is not stated in the
-source and is not assumed here. Please confirm which DevNote this refers to.
-::: -->
