@@ -1,0 +1,10 @@
+Date,Experiment,Well,Name,Type,[Fluorescein] (uM),Rxn Volume (uL),Artifact ID,PMix ID,[PMix stock] (mg/mL),PMix Vol (uL),[Pmix] (mg/mL),Ribosome ID,[Ribosome stock] (uM),Ribosome Vol (uL),[Ribosome] (uM),SMS ID,[SMS stock] (x),SMS Vol (uL),[SMS] (x),tRNA ID,[tRNA stock] (ug/uL),tRNA Vol (uL),[tRNA] (ug/uL),DNA ID,[DNA stock] (ng/uL),DNA Vol (uL),[DNA] (ng/uL),RNase Inhib ID,[RNase Inhib stock] (U/mL),RNase Inhib Vol (uL),[RNase Inhib] (U/mL),Water Vol (uL)
+2026-10-05,20260922-platemap-tutorial,J3,Lysate_GUV_LuxR_mNG_10uM_HSL,Sample,0,50,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-10-05,20260922-platemap-tutorial,J4,Lysate_GUV_LuxR_mNG_10uM_HSL,Sample,0,50,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-10-05,20260922-platemap-tutorial,J5,Lysate_GUV_LuxR_mNG_10uM_HSL,Sample,0,50,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-10-05,20260922-platemap-tutorial,J6,Lysate_GUV_LuxR_mNG_no_HSL,Negative Control,0,50,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-10-05,20260922-platemap-tutorial,J7,Lysate_GUV_LuxR_mNG_no_HSL,Negative Control,0,50,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-10-05,20260922-platemap-tutorial,J8,Lysate_GUV_LuxR_mNG_no_HSL,Negative Control,0,50,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-10-05,20260922-platemap-tutorial,J9,Lysate_GUV_constiutive_mNG,Positive Control,0,50,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-10-05,20260922-platemap-tutorial,J10,Lysate_GUV_constiutive_mNG,Positive Control,0,50,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-10-05,20260922-platemap-tutorial,J11,Lysate_GUV_constiutive_mNG,Positive Control,0,50,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,54 @@
+# Review and provenance notes extracted from the interactive-viewer pages'
+# HTML comments. Each entry's id matches a pointer comment left in the
+# source file, e.g. <!-- review-notes.yml#gel-viewer-01 -->. 'section' is the
+# nearest heading above the comment in the source, for orientation only.
+
+2026-10-07-interactive-viewer.md:
+- id: gel-viewer-01
+  section: 2026-10-07 — Interactive viewer
+  text: |2
+     Implementation notes, not for the reader. These viewers do not survive JATS
+    conversion. The static figure on main.md is the archival record. Each viewer sets
+    "menuOpen": true, so the contrast sliders are visible without a click. Each viewer
+    also loads general/vizarr-viewer-patched.js, the same patched widget copy used on the
+    C-well page (2026-10-08-interactive-viewer.md). That copy exists because Vizarr's own
+    sliders render collapsed to 0x0 pixels under the unpatched widget inside a shadow
+    root.
+- id: gel-viewer-02
+  section: D10 — constitutive control gels
+  text: |2
+     Resolved, 2026-11-19, by Claude: the three stores below are named
+    `J_N_just_gel_1`, `J_N_just_gel_2` and `J_N_just_gel_3`. None names a well number. An
+    earlier pass paired them to D12, D13, D14 by list order on tbl-gel-conditions. Each
+    store's own OME-NGFF plate metadata (zarr.json,
+    attributes.ome.plate.wells[0].path) names its real well instead: gel_1 is D15, gel_2
+    is D16, gel_3 is D17. tbl-gel-conditions on the main page is corrected to match.
+2026-10-08-interactive-viewer.md:
+- id: c-viewer-01
+  section: 2026-10-08 — Interactive viewer
+  text: |2
+     Implementation notes, not for the reader. These viewers do not survive JATS
+    conversion. The static figure on main.md is the archival record. Each viewer is its
+    own widget, stacked rather than tabbed. The Vizarr widget creates its viewer on a
+    detached element with no width and never re-measures it. A hidden instance at page
+    mount renders blank for good. Each viewer sets "menuOpen": true, so the contrast
+    sliders are visible without a click. Each viewer loads
+    general/vizarr-viewer-patched.js, a patched copy of
+    curvenote.github.io/widgets/widgets/vizarr-viewer.js. The unpatched widget's sliders
+    render collapsed to 0x0 pixels. This happens under Material-UI's JSS runtime inside
+    the myst-anywidget wrapper's shadow root, confirmed directly in the browser.
+    `adoptedStyleSheets` does not fix it. It throws on a parsed style tag's own sheet, even
+    though the sheet is same-origin. The patched copy mirrors each document stylesheet
+    into one constructed `CSSStyleSheet` per source, and adopts those. When JSS inserts a
+    rule, it fires no event. The patched copy polls rule count every 400 ms instead, to
+    keep the stylesheets in sync.
+
+    Open question, not yet answered. Writing the GFP window (30000-60000) and T = 19
+    start into this store's own omero metadata makes every viewer open pre-set. This store
+    is live and shared, so other viewers of the same data see the same write. Confirm
+    before this write happens. State whether it goes on this store or on a separate copy
+    made for this DevNote.
+
+    Why the D wells are not on this page: Vizarr has no option to open a plate filtered to
+    a subset of wells. Opening a plate source renders every well in the store's own
+    metadata, with no way to select a subset.
