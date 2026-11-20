@@ -1,14 +1,6 @@
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
+<!-- review-notes.yml#main-01 -->
 
-<!-- This page stays close to `log-devnote-draft.docx`, re-read on 2026-10-12
-after the authors revised it a second time. `main-supplement.md` holds the full
-analysis chain for `OP-20261001`, every disagreement found between sources, and
-the review history, so that page and this one do not restate each other. Title
-and authors live in `curvenote.yml`, as project frontmatter, and render on this
-page from there. They are not repeated here as body text. -->
+<!-- review-notes.yml#main-02 -->
 
 # Abstract
 

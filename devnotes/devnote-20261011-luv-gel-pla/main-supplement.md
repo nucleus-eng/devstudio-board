@@ -1,7 +1,4 @@
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
+<!-- review-notes.yml#supp-01 -->
 
 # Supplement: source record and open gaps
 
@@ -20,10 +17,7 @@ read directly.
 We are trying to embed vesicle systems in hydrogels to study their yield,
 stability, and structural integrity in different polymer environments.
 
-<!-- Overview supplied by the reviewer in review cycle v1, prompt 5, and
-carried verbatim. The source log carries no overview. Its entire body is the
-heading "# Results", one pasted figure, and the line
-"Analysis: https://colab.research.google.com/drive/1ebR3gcpx0j-HCuA4N5lDdILkSQ6BneoJ#scrollTo=5a08dde5". -->
+<!-- review-notes.yml#supp-02 -->
 
 The intro schematic from `log-devnote-draft.docx`, "Figure 1: Schematic
 representation of unilamellar vesicles contained in a hydrogel matrix", is in
@@ -364,8 +358,7 @@ Please add a protocol for embedding vesicles in ULGA
 
 ## LUV-Gel
 
-<!-- The heading carries no date. The folder date, the data filenames
-and the platemap disagree. See the blocking date flag above. -->
+<!-- review-notes.yml#supp-03 -->
 
 This experiment has no composition table. The Log folder holds no build
 spreadsheet, and the reviewer closed the question in review cycle v1, prompt
@@ -415,18 +408,7 @@ plated at 30 µL per well, in duplicate.
 Open questions, as the document states them: are LUVs leaky, can PLA lyse,
 and do only the gels lyse.
 
-<!-- Resolved, review cycle v1, prompt 4. Answer: "Leave as is".
-
-:::{attention} Composition table cannot be produced
-:name: gap-composition
-
-No `build-composition.csv` was found for `OP-20261001`, and the Log folder
-holds no build spreadsheet to generate one from. Run
-`devstudio-build-to-composition` on the build file for this experiment, then
-insert the table here. Do not reconstruct it from the platemap. The platemap
-names the conditions and does not give volumes or concentrations.
-:::
--->
+<!-- review-notes.yml#supp-04 -->
 
 The platemap below is reproduced from the source, and is not a composition
 table. It assigns a condition to each well and nothing more.
@@ -470,18 +452,7 @@ Confirm whether the two describe the same result, or two different results
 from the same experiment.
 :::
 
-<!-- Results supplied by the reviewer in review cycle v1, prompt 7, and
-carried verbatim as the three numbered statements they wrote. The source log
-states no result.
-
-:::{attention} Results narrative not recorded
-:name: gap-results-prose
-
-The source log states no result. Its Results section holds the figure below
-and nothing else. Supply what the ratio shows, and say which conditions are
-being compared against which control.
-:::
--->
+<!-- review-notes.yml#supp-05 -->
 
 :::{figure} #op-20261001-fig1
 :label: fig-op-20261001-cpr-cprg-ratio
@@ -510,25 +481,9 @@ The absorbance values the ratio is calculated from are recorded in the
 | day 2 after PLA addition | 570 | 0.266 | 0.249 | 0.4 | 0.365 | 0.257 | 0.267 | 0.238 |
 :::
 
-<!-- tbl-absorbance is transposed from the PLA-CPR/CPRG sheet, which lays the
-wells out across columns and the three reads down the rows. No value is
-changed. The sheet gives no unit for either wavelength row. The notebook
-reads the values as absorbance. -->
+<!-- review-notes.yml#supp-06 -->
 
-<!-- Resolved, review cycle v1, prompt 10. Answer: "we are just using the
-labeled figure". The two unlabeled figures stay out.
-
-:::{attention} Two further figures exist and were not carried forward
-:name: gap-figures-not-selected
-
-The notebook draws two figures besides the one above, and the reviewer
-selected neither on 2026-10-05. Cell 18 draws raw CPRG (412) and CPR (570)
-absorbance by sample, one panel per data file. Cell 21 draws the absorbance
-change from `luvgel02_data.txt` to `luvgel02PLA_data.txt`, which is day 2
-after PLA addition minus day 2 before PLA addition. Neither cell carries a
-`#| label:` tag. Add one to either cell to carry it into a later revision.
-:::
--->
+<!-- review-notes.yml#supp-07 -->
 
 ## A second graph, from a second run
 

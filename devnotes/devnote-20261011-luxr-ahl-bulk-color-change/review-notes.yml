@@ -1,0 +1,53 @@
+# Review and provenance notes extracted from this devnote's HTML comments.
+# Each entry's id matches a pointer comment left in the source file, e.g.
+# <!-- review-notes.yml#main-05 -->. 'section' is the nearest heading above
+# the comment in the source, for orientation only.
+
+main.md:
+- id: main-01
+  section: ''
+  text: |
+    Editing convention: a section marked `@claude please don't rewrite this section`,
+    or commented out, is protected. Claude will not regenerate, reflow or reword it.
+- id: main-02
+  section: ''
+  text: " Drafted 2026-10-12 from the Google Doc \"DevNote Color Change.docx\"\n(Drive id 1H_HKs-vO0Blq0_-j5dPGsJgNuphQ34H1), together with three supporting\nphotographs from the same Drive folder (1T88O7efBfV3kbHOSqbnmY0_FNC_ViFY9):\nLUVpellet.png, 1h.png and overnight.png. The folder holds no other file.\nIt holds no notebook, no platemap, no raw instrument data, no DNA sequence\nfile, and no build file. Prose, tables and both figures are carried\nverbatim from the Doc. The content is restructured into this board's\nsection order: Abstract, Overview, Materials, Protocol, Methods, Results.\nThe Doc's own Reagents and stocks table sat under Protocol. It is moved to\nMaterials below, to match this pipeline's standard schema. The three\nphotographs are renamed from their generic Drive names (LUVpellet.png,\n1h.png, overnight.png) to luv-pellet.png, colorchange-1h.png and\ncolorchange-overnight.png. \n"
+- id: main-03
+  section: ''
+  text: " :::{admonition} Open review items\n:class: warning dropdown\n:name: flags-review\n\n**The date is not confirmed.** See {ref}`gap-date` below.\n\n**The source Doc flags its own missing data.** Its Results section ends\nwith the sentence \"Plot of platereader is missing.\" See the admonition\nafter {ref}`fig-colorchange` below.\n\n**No platemap, no notebook, and no raw instrument data exist in the\nsupporting folder.** This gap applies to both figures. `asset_chain_complete`\nreads `false` for both entries in `manifest.json`.\n\n**One uncertainty marker in the source table carries forward unresolved.**\nThe \"Beta-Gal?\" stock row, with no concentration given, is the source\nDoc's own marker; neither source checked here names a concentration for\nit either.\n\n**The Sources list ends with two open items the author left unresolved.**\nThe first reads: \"Some citation on quorum sensing and AHSL LuxR in cell\nfree?\" The second reads: \"Cite GFP devnote.\" The source Doc does not name\n\
+    that DevNote directly. One candidate is this board's\n`devnote-20261011-luxr-biofilm-sensing-hydrogel`, which covers the same\nLuxR quorum-sensing system in a mNeonGreen GUV hydrogel and shares two\nauthors with this Doc: Niall McIntyre and Julia Purrinos de Oliveira. This\nlink is a candidate only. See Resources.\n:::\n\n(gap-date)=\n<!-- :::{admonition}\n:name: gap-date\n\nPlease confirm the date. No date appears anywhere in the Doc.\n`curvenote.yml` currently carries the Drive file's own creation date,\n2026-10-12, as a placeholder.\n::: \n"
+- id: main-04
+  section: Materials
+  text: " REORDERED: moved from \"Protocol\", where the source Doc placed its\n\"Reagents and stocks\" subsection. Relocated to Materials per this board's\nstandard section order; no value, unit or row changed. \n"
+- id: main-05
+  section: Reagents and stocks
+  text: " Materials pass, 2026-11-10: filled against two sources, in the order\nAnton asked for. First, the Drive spreadsheet `DevCell_Materials_Tracker.xlsx`\n(id 1S5AEJnl6sMWUU7Yof3lFIO8tpLtEgvEa) — its \"Reagent Prep\" tab (gid\n1064417783, the tab the given link opens to) is empty, so matches were taken\nfrom its \"London Node\", \"Chicago Node\", \"DNA Sequences\" and \"Sheet2\" tabs\ninstead. Second, https://docs.nucleus.engineering/guides/materials-reference/,\nwhich supplied the ribosome/tRNA/protein-mix process links, the Optiprep and\nBeta-Gal catalog data, and the AHSL and CPRG identities (both confirmed\nagainst the same catalog numbers the Drive spreadsheet already uses for those\ntwo reagents). The reporter-plasmid row's sourcing is explained just below.\nNo match was found in either source for Small Molecule Mix (SMix) or\nNuclease-free H₂O beyond what is shown; their Catalog No., Price and (for\nSMix) Storage Conditions stay N/A, flagged rather than guessed.\n\nPR review\
+    \ (jecalles, 2026-11-10): the Protein Mix row originally linked\n\"Make OnePot Protein Mix\" (`make-1pot`). That process makes a *different*,\nfunctionally-equivalent mix with uncontrolled molar ratios between its\nproteins. The [PMix module spec](https://docs.nucleus.engineering/docs/modules/pmix/spec/)\nnames the default, controlled-ratio process as \"Make Protein Mix\"\n(`make-36pot`), which is what this DevNote's PMix row now links to. \n"
+- id: main-06
+  section: Reagents and stocks
+  text: " Reporter-plasmid identity, resolved 2026-11-10. The source Doc's\nReagents table named a \"pT7-tetO-plamGFP reporter plasmid\" and linked it to\nthe `detector-tetr-atc` module, a tetR/aTc-induced GFP reporter, which did\nnot match the LuxR-driven, PLA1-expressing circuit the Protocol section\ndescribes; no sequence file existed yet for either, so this was a blocking\nidentity question. `DevCell_Materials_Tracker.xlsx` maps this DevNote to\nconstruct \"pOpen-LuxR-PLA1\" (its \"Sheet2\" tab) and records it as cloned into\nthe pOpen backbone by Golden Gate Assembly (its \"DNA Sequences\" tab). The\nreal file, `dna/pOpen-LuxR-PLA1.gb`, now confirms this directly: see\n{ref}`Plasmid map <seqviz-popen-luxr-pla1>` under Protocol, Genetic circuit,\nfor the feature-by-feature match and sourcing note. The Reagents table below\nis updated to this plasmid. \n"
+- id: main-07
+  section: Reagents and stocks
+  text: " The \"Beta-Gal?\" row's question mark is the source Doc's own uncertainty\nmarker, carried as written, not resolved. \n"
+- id: main-08
+  section: Reagents and stocks
+  text: " RNase Inhibitor catalog number, 2026-11-10: the source Doc named pack\nsize \"M0314L\". Both `DevCell_Materials_Tracker.xlsx` and the Nucleus\nmaterials reference name \"M0314S\" instead, same NEB product page. Set to\nM0314S below, matching both independent sources. \n"
+- id: main-09
+  section: Plasmid map
+  text: " `dna/pOpen-LuxR-PLA1.gb` is the real file of record, copied unmodified\nfrom `nucleus-eng/DNA`, path `effectors/detector-3oc6-hsl/pOpen-LuxR-PLA1.gb`\n(identical on branches `main` and `devcells/devstudio-constructs`), checked\n2026-11-10. It is 4175 bp, circular, and its features match the Genetic\ncircuit paragraph above feature for feature: a `BBa_J23101` constitutive\npromoter driving a `luxR` CDS, a `Plux` promoter carrying the `lux box`\nelement, a `PLA1` CDS downstream of it, and the `pOpen` backbone's own `ori`\nand `AmpR`. Its sibling file in the same directory, `LuxR-PLA1-linear.gb`\n(2237 bp), is the same cassette without the backbone; this DevNote's GUV\nroute uses bacterial S30 lysate (S30 degrades linear DNA, no GamS), so the\ncircular form here, not the linear one, is the correct file for this\nprotocol. This also confirms the directory it is filed under,\n`detector-3oc6-hsl`: the AHSL reagent above (Sigma-Aldrich K3007,\n3-oxo-C6-HSL) is the molecule this circuit\
+    \ actually responds to, not generic\nC6-HSL as the Abstract's \"(C6)\" might suggest. \n"
+- id: main-10
+  section: Clean-up by centrifugation
+  text: " missing notebook \n"
+- id: main-11
+  section: Results
+  text: " missing notebook \n"
+- id: main-12
+  section: Results
+  text: " :::{danger} Unresolved before publication\n:name: flags-missing-platereader \n"
+- id: main-13
+  section: Results
+  text: " The source Doc states: \"Plot of platereader is missing.\" The\nquantitative 570 nm kinetic absorbance trace referenced in Data acquisition\nand analysis above was never produced or was lost; only the two photographs\nabove exist. ::: \n"
+- id: main-14
+  section: Resources
+  text: " :::{admonition}\n:name: gap-resources-citations\n\nTwo open items from the source Doc's own Sources list, carried as written,\nnot resolved:\n\n\"Some citation on quorum sensing and AHSL LuxR in cell free?\" — no citation\nwas supplied.\n\n\"Cite GFP devnote\" — no specific DevNote is named. `devnote-20261011-luxr-biofilm-sensing-hydrogel`\non this board (two shared authors, same LuxR quorum-sensing system,\ndemonstrated by GFP) is a plausible candidate, but this is not stated in the\nsource and is not assumed here. Please confirm which DevNote this refers to.\n::: \n"
