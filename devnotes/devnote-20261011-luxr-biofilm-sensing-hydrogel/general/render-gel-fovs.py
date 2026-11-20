@@ -76,6 +76,7 @@ def main():
     font_path = os.path.join(matplotlib.get_data_path(), 'fonts', 'ttf', 'DejaVuSans.ttf')
     bar_px = round(BAR_UM / UM_PER_PX)
 
+    panels = []
     for label, well, store, path in WELLS:
         arr = zarr.open_group(f'{BASE}/{store}.zarr/{path}', mode='r')['s0']
         full = np.asarray(arr[T, GFP_CHANNEL, Z, :, :]).astype(np.float32)
@@ -101,6 +102,22 @@ def main():
         path_out = f'{OUTDIR}/gel-{well.lower()}.png'
         img.save(path_out)
         print(f'  -> {path_out} {img.size}')
+        panels.append(img)
+
+    # One stitched image, left to right in WELLS order, each panel already
+    # labeled with its own well ID and scale bar. A single image lets the
+    # devnote use one plain figure with one caption, instead of three
+    # subfigures the theme cannot lay out in a row with a full-width caption.
+    gap = max(4, int(panels[0].width * 0.01))
+    stitched = Image.new('RGB', (sum(p.width for p in panels) + gap * (len(panels) - 1),
+                                  panels[0].height), color=(0, 0, 0))
+    x = 0
+    for p in panels:
+        stitched.paste(p, (x, 0))
+        x += p.width + gap
+    stitched_path = f'{OUTDIR}/gel-wells.png'
+    stitched.save(stitched_path)
+    print(f'  -> {stitched_path} {stitched.size}')
 
 
 if __name__ == '__main__':

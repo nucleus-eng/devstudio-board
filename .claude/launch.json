@@ -21,6 +21,16 @@
         "cd '/Users/charlie/Documents/Projects/20251124-DevCells/devstudio-board/devnotes/devnote-cn-20260924-20261001' && exec curvenote start --port 3100"
       ],
       "port": 3100
+    },
+    {
+      "name": "curvenote-luxr-biofilm-sensing-hydrogel",
+      "cwd": "/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-20261011-luxr-biofilm-sensing-hydrogel",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "cd '/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-20261011-luxr-biofilm-sensing-hydrogel' && exec curvenote start --port 3101"
+      ],
+      "port": 3101
     }
   ]
 }
