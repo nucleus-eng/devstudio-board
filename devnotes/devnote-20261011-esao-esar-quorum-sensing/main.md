@@ -1,3 +1,10 @@
+---
+title: 'Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation'
+---
+
+<!-- This page's own frontmatter title is required so MyST does not fall back
+to this page's first heading ("Abstract") as the page title: without it, the
+project title from `curvenote.yml` never renders. -->
 
 # Abstract
 
