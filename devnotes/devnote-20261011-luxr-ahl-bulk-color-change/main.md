@@ -3,12 +3,6 @@ title: 'Implementing of a bulk color change module into bacterial quorum sensing
 thumbnail: ./figures/colorchange-overnight.png
 ---
 
-<!-- review-notes.yml#main-01 -->
-
-<!-- review-notes.yml#main-02 -->
-
-<!-- review-notes.yml#main-03 -->
-
 # Abstract
 
 It has previously been shown that developer cells can use the LuxR quorum sensing system to detect AHSL (C6) a diffusible molecule bacteria use to communicate with each other, to sense bacteria and report that. Demonstrated by GFP. Here we wish to extend this system, by using the genetic sensor module and implement a novel module for visible color change, based on the production of PLA1 that lyses storage compartments that result in the release of CPRG (Chlorophenol Red-β-D-galactopyranoside) which then can be cleaved into CPR by beta galactosidase which is in the outer solution.
@@ -18,8 +12,6 @@ It has previously been shown that developer cells can use the LuxR quorum sensin
 We made dye loaded LUVs that were stable over long time incubation without leaking dye, and induced GUV lysis by expression of PLA1 in GUVs containing bacterial 30S lysate. We induced the expression of PLA1 by addition of AHSL, allowing us to distinguish a visible by eye difference of the induced and the non-induced condition.
 
 # Materials
-
-<!-- review-notes.yml#main-04 -->
 
 ## Reagents and stocks
 
@@ -44,10 +36,6 @@ Reactions were run in b.next Nucleus Base Cytosol, a PURE-type reconstituted sys
 | Beta-Gal | β-Galactosidase from Escherichia coli, Grade VIII, lyophilized powder, ≥500 units/mg protein | Sigma-Aldrich | G5635 | N/A | -20 °C | [Sigma-Aldrich #G5635](https://www.sigmaaldrich.com/US/en/product/sigma/g5635) |
 :::
 
-<!-- review-notes.yml#main-05 -->
-
-<!-- review-notes.yml#main-06 -->
-
 The source table's own Stock and Notes columns carry concentrations that do not map to the schema above and are retained here rather than dropped:
 
 :::{table} Reagents and stocks — stock concentrations and notes, as given in the source Doc.
@@ -69,10 +57,6 @@ The source table's own Stock and Notes columns carry concentrations that do not 
 | Beta-Gal? | | |
 :::
 
-<!-- review-notes.yml#main-07 -->
-
-<!-- review-notes.yml#main-08 -->
-
 # Protocol
 
 ## Genetic circuit
@@ -84,8 +68,6 @@ The reporter plasmid, built in the pOpen backbone, constitutively expresses LuxR
 (seqviz-popen-luxr-pla1)=
 :::{seqviz} ./dna/pOpen-LuxR-PLA1.gb
 :::
-
-<!-- review-notes.yml#main-09 -->
 
 # Methods
 
@@ -113,8 +95,6 @@ The final pellet was resuspended in a buffer containing 1mM CaCl2 and 50mM Hepes
 :width: 60%
 Snapshot of the LUV pellet after 4 washes.
 :::
-
-<!-- review-notes.yml#main-10 -->
 
 Ions were added after formation of the vesicles and the cleanup as it affects stability and overall yield. The average pellet will be a lot smaller when using a solution with high ionic strength.
 
@@ -204,12 +184,6 @@ Bulk color change, 1 h incubation. Top row: DevCells induced with 5µM AHSL. Mid
 
 :::::
 
-<!-- review-notes.yml#main-11 -->
-
-<!-- review-notes.yml#main-12 -->
-
-<!-- review-notes.yml#main-13 -->
-
 Key to making the colorchange module work sufficiently well is that the dye loaded vesicle concentration should exceed the amount of vesicles the DevCells are able to lyse, so the maximum CPR absorbance will not be reached and the conditions stay distinguishable.
 
 CPRG absorbance could not be measured as the absorbance in the 412 channel was too strong.
@@ -220,4 +194,3 @@ CPRG absorbance could not be measured as the absorbance in the 412 channel was t
 - Yadav, S. (2025). First Nucleus Cytosol Testing: Evaluation of Nucleus Cytosol v0.5 Through deGFP Expression. [10.63765/fppr8928](https://doi.org/10.63765/fppr8928)
 - [RNase Inhibitor, Murine — NEB #M0314S](https://www.neb.com/en-us/products/m0314-rnase-inhibitor-murine)
 
-<!-- review-notes.yml#main-14 -->

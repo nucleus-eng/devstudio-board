@@ -1,7 +1,7 @@
-# Review and provenance notes extracted from this devnote's HTML comments.
-# Each entry's id matches a pointer comment left in the source file, e.g.
-# <!-- review-notes.yml#main-05 -->. 'section' is the nearest heading above
-# the comment in the source, for orientation only.
+# Review and provenance notes, archived from this devnote's HTML comments.
+# The source file no longer marks where each one used to sit. 'section' is
+# the nearest heading above the comment in the original source, for
+# orientation only.
 
 main.md:
 - id: main-01

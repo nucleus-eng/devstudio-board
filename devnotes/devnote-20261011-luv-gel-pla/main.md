@@ -1,6 +1,4 @@
-<!-- review-notes.yml#main-01 -->
 
-<!-- review-notes.yml#main-02 -->
 
 # Abstract
 

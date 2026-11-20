@@ -1,4 +1,3 @@
-<!-- review-notes.yml#supp-01 -->
 
 # Supplement: source record and open gaps
 
@@ -16,8 +15,6 @@ read directly.
 
 We are trying to embed vesicle systems in hydrogels to study their yield,
 stability, and structural integrity in different polymer environments.
-
-<!-- review-notes.yml#supp-02 -->
 
 The intro schematic from `log-devnote-draft.docx`, "Figure 1: Schematic
 representation of unilamellar vesicles contained in a hydrogel matrix", is in
@@ -358,8 +355,6 @@ Please add a protocol for embedding vesicles in ULGA
 
 ## LUV-Gel
 
-<!-- review-notes.yml#supp-03 -->
-
 This experiment has no composition table. The Log folder holds no build
 spreadsheet, and the reviewer closed the question in review cycle v1, prompt
 4, with "Leave as is".
@@ -408,8 +403,6 @@ plated at 30 µL per well, in duplicate.
 Open questions, as the document states them: are LUVs leaky, can PLA lyse,
 and do only the gels lyse.
 
-<!-- review-notes.yml#supp-04 -->
-
 The platemap below is reproduced from the source, and is not a composition
 table. It assigns a condition to each well and nothing more.
 
@@ -452,8 +445,6 @@ Confirm whether the two describe the same result, or two different results
 from the same experiment.
 :::
 
-<!-- review-notes.yml#supp-05 -->
-
 :::{figure} #op-20261001-fig1
 :label: fig-op-20261001-cpr-cprg-ratio
 :align: center
@@ -480,10 +471,6 @@ The absorbance values the ratio is calculated from are recorded in the
 | day 2 after PLA addition | 412 | 0.372 | 0.285 | 0.476 | 0.4 | 0.248 | 0.356 | 0.305 |
 | day 2 after PLA addition | 570 | 0.266 | 0.249 | 0.4 | 0.365 | 0.257 | 0.267 | 0.238 |
 :::
-
-<!-- review-notes.yml#supp-06 -->
-
-<!-- review-notes.yml#supp-07 -->
 
 ## A second graph, from a second run
 
