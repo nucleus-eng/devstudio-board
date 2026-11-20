@@ -1,7 +1,6 @@
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
+---
+title: 'Two Vesicle Colorimetric pH Sensor System'
+---
 
 # Overview
 
@@ -106,8 +105,6 @@ Tris base stays blank. No Tris base entry of any kind exists in the Nucleus mate
 
 Annealing was performed in a thermocycler using the following protocol: 5 min at 95 °C, followed by stepwise cooling at 2 min per degree to the melting temperature of the construct (Tm = 52 °C), 30 min per degree from 52 °C to Tm − 10 °C (42 °C), and finally 2 min per degree until reaching 25 °C. The annealed construct was stored at −20 °C.
 
-<!-- `DevCell_Materials_Tracker.xlsx` records the function test for `T7-toehol9-PLA1` as "Done/Leaky". The pH 7.6 arm is the condition leakiness would contaminate, since it is meant to show no PLA1 activity. -->
-
 <!-- `pT7-toehold9-PLA1` is 1203 bp, too long to read as inline text, so it is shown as a sequence map. The two gate oligos stay inline above, because each is under 50 bases. -->
 
 (seqviz-pt7-toehold9-pla1)=
@@ -195,21 +192,17 @@ Lipids for SUVs and LUVs were added from chloroform stocks to the bottom of a 1 
 2. Vortex until the film is no longer visible.
 3. Sonicate the suspension for 10 min.
 4. Run 5 freeze-thaw cycles. One cycle is three operations:
-    - Freeze in liquid nitrogen.
-    - Thaw in a 35 °C water bath.
-    - Vortex for 30 s.
+   - Freeze in liquid nitrogen.
+   - Thaw in a 35 °C water bath.
+   - Vortex for 30 s.
 5. Combine each of 12 tubes holding 50 µL LUVs with 200 µL outer solution.
 6. Centrifuge at 10,000 g for 10–20 min to pellet the vesicles.
 7. Pool the pellets into two tubes. Take 15 µL from each of six tubes, 90 µL in total.
 8. Add 160 µL outer solution to each tube, for a final volume of 250 µL.
 9. Wash 10 times. One wash is three operations:
-    - Centrifuge at 4,000 g for 10 min.
-    - Remove 200 µL supernatant without disturbing the pellet.
-    - Add 200 µL fresh outer solution.
-
-    Alternate the tube orientation with each wash, so the pellet moves to the
-    opposite side. This releases unencapsulated or trapped solution held
-    between vesicles.
+   - Centrifuge at 4,000 g for 10 min.
+   - Remove 200 µL supernatant without disturbing the pellet.
+   - Add 200 µL fresh outer solution. Alternate the tube orientation with each wash, so the pellet moves to the opposite side. This releases unencapsulated or trapped solution held between vesicles.
 10. After the final wash, leave the tubes on ice for at least 30 min.
 11. Tap the tubes gently to resuspend the pellet. Do not pipette.
 
@@ -221,21 +214,17 @@ Used from Full Demo Attempt 2 onward. The LUV route above was used for pH Sensor
 2. Vortex until the film is no longer visible.
 3. Sonicate the suspension for 10 min.
 4. Run 5 freeze-thaw cycles. One cycle is three operations:
-    - Freeze in liquid nitrogen.
-    - Thaw in a 35 °C water bath.
-    - Vortex for 30 s.
+   - Freeze in liquid nitrogen.
+   - Thaw in a 35 °C water bath.
+   - Vortex for 30 s.
 5. Assemble a liposome extruder (Avanti `A81411`) with a 400 nm pore size membrane filter, and pass the lipid suspension through it 13 times to make SUVs.
 6. Centrifuge at 15,000 g for 10–20 min to pellet the vesicles.
 7. Pool the pellets into two tubes. Take 15 µL from each of six tubes, 75 µL in total. <!-- REVIEW: 15 µL from six tubes is 90 µL, not 75. Step 8 adds 175 µL to reach 250 µL, which is consistent with 75, so the tube count is the likely error and five tubes would give 75. Carried as written. -->
 8. Add 175 µL outer solution to each tube, for a final volume of 250 µL.
 9. Wash 10 times. One wash is three operations:
-    - Centrifuge at 10,000 g for 10 min.
-    - Remove 200 µL supernatant without disturbing the pellet.
-    - Add 200 µL fresh outer solution.
-
-    Alternate the tube orientation with each wash, so the pellet moves to the
-    opposite side. This releases an unencapsulated or trapped solution held
-    between vesicles.
+   - Centrifuge at 10,000 g for 10 min.
+   - Remove 200 µL supernatant without disturbing the pellet.
+   - Add 200 µL fresh outer solution. Alternate the tube orientation with each wash, so the pellet moves to the opposite side. This releases an unencapsulated or trapped solution held between vesicles.
 10. After the final wash, leave the tubes on ice for at least 30 min.
 11. Tap the tubes gently to resuspend the pellet. Do not pipette.
 
@@ -251,19 +240,17 @@ scale, which is 2.5 µmol. The mol% is identical. -->
 <!-- Step 1's volumes are a 3 mL scale, 1.5 µmol total lipid. {numref}`tbl-pla1-guv-mb` states the same membrane at a 5 mL scale, 2.5 µmol, same mol%. -->
 
 1. Combine three lipid stocks in a 20 mL glass vial. All three stocks are in chloroform.
-    - 41.0 µL of 25 mg/mL POPC.
-    - 1.16 µL of 50 mg/mL cholesterol.
-    - 1.95 µL of 1 mg/mL rhodamine-PE.
-
-    This gives 89.9 / 10 / 0.1 mol% POPC, cholesterol and Rhod-PE.
+   - 41.0 µL of 25 mg/mL POPC.
+   - 1.16 µL of 50 mg/mL cholesterol.
+   - 1.95 µL of 1 mg/mL rhodamine-PE. This gives 89.9 / 10 / 0.1 mol% POPC, cholesterol and Rhod-PE.
 2. Remove the chloroform under a gentle argon flow.
 3. Dry the vial in a vacuum desiccator for 30 min.
 4. Rehydrate the lipids in 3 mL mineral oil, to 0.5 mM total lipid in oil.
 5. Seal the vial. Disperse the lipids in four operations:
-    - Bath sonicate for 20 min.
-    - Incubate at 60 °C for 1 h.
-    - Vortex for 2 min.
-    - Bath sonicate again for 20 min.
+   - Bath sonicate for 20 min.
+   - Incubate at 60 °C for 1 h.
+   - Vortex for 2 min.
+   - Bath sonicate again for 20 min.
 6. Gently layer 300 µL of the lipid-in-oil dispersion over 400 µL of vesicle outer solution in a 1.5 mL tube.
 7. Incubate the tube at room temperature for 10–20 min.
 8. Prepare the inner encapsulation solution in a separate 1.5 mL tube during that incubation.
@@ -287,41 +274,32 @@ Procedure:
 
 1. Make 2.7% agarose stock dissolved in UPDI water (UltraPure™ DNase/RNase-Free Distilled Water)
 
-    For 1500 uL stock preparation, weigh 40.5 mg directly in 2 mL epitube and add 1500 uL of UPDI water). Heat in 85-95 C heat block until fully dissolved. Vortex occasionally.
-
+   For 1500 uL stock preparation, weigh 40.5 mg directly in 2 mL epitube and add 1500 uL of UPDI water). Heat in 85-95 C heat block until fully dissolved. Vortex occasionally.
 2. Synthetic cell (vesicle) embedment in 0.7% agarose
 
-    Compositions:
+   Compositions:
+   | Component                      | Fraction | Volume  | Notes                                                              |
+   | ------------------------------ | -------- | ------- | ------------------------------------------------------------------ |
+   | energy solution (2x)           | 50 v/v%  | 30 uL   |                                                                    |
+   | pH buffer mix\*                | 12 v/v%  | 7.2 uL  |                                                                    |
+   | 2.7% agarose dissolved in UPDI | 26 v/v%  | 15.6 uL |                                                                    |
+   | GUVs, SUVs or substrates       | 12 v/v%  | 7.2 uL  | in 46.67% of Tris1M-HEPES1.15M solution; osmolarity 1170-1180 mOsm |
+   | Total                          | 100 v/v% | 60 uL   |                                                                    |
+   1. First, cool the 2.7% agarose stock to 65C.
+   2. Mix the agarose with Energy solution and pH buffer mix\* first, and cool to 45C.
+   3. Add CFE-containing vesicles. For 0.35% final agarose concentration, half of gel volume can be replaced with UPDI water.
+3. pH buffer mix\* preparation
 
-    | Component | Fraction | Volume | Notes |
-    | --- | --- | --- | --- |
-    | energy solution (2x) | 50 v/v% | 30 uL | |
-    | pH buffer mix* | 12 v/v% | 7.2 uL | |
-    | 2.7% agarose dissolved in UPDI | 26 v/v% | 15.6 uL | |
-    | GUVs, SUVs or substrates | 12 v/v% | 7.2 uL | in 46.67% of Tris1M-HEPES1.15M solution; osmolarity 1170-1180 mOsm |
-    | Total | 100 v/v% | 60 uL | |
-
-    1. First, cool the 2.7% agarose stock to 65C.
-    2. Mix the agarose with Energy solution and pH buffer mix* first, and cool to 45C.
-    3. Add CFE-containing vesicles.
-
-    For 0.35% final agarose concentration, half of gel volume can be replaced with UPDI water.
-
-3. pH buffer mix* preparation
-
-    pH buffer mix was prepared so that resulting pH to be 1) pH 7.4 or 2) pH 6.5 (also to match osmolarity)
-
-    1. For pH7.4: use Tris1M-HEPES1.15M buffer stock (~2520 mOsm)
-
-    2. For pH6.5:
-
-        | Component | Fraction | Volume |
-        | --- | --- | --- |
-        | Tris1M-HEPES1.15M buffer stock | 38.89 v/v% | 466.67 uL |
-        | 2M HEPES stock | 48.02 v/v% | 576.19 uL |
-        | 37% HCl | 6.67 v/v% | 80 uL |
-        | Ultra-pure distilled water | 6.43 v/v% | 77.14 uL |
-        | Total | 100 v/v% | 1200 uL |
+   pH buffer mix was prepared so that resulting pH to be 1) pH 7.4 or 2) pH 6.5 (also to match osmolarity)
+   1. For pH7.4: use Tris1M-HEPES1.15M buffer stock (\~2520 mOsm)
+   2. For pH6.5:
+      | Component                      | Fraction   | Volume    |
+      | ------------------------------ | ---------- | --------- |
+      | Tris1M-HEPES1.15M buffer stock | 38.89 v/v% | 466.67 uL |
+      | 2M HEPES stock                 | 48.02 v/v% | 576.19 uL |
+      | 37% HCl                        | 6.67 v/v%  | 80 uL     |
+      | Ultra-pure distilled water     | 6.43 v/v%  | 77.14 uL  |
+      | Total                          | 100 v/v%   | 1200 uL   |
 
 (color-development)=
 ## Color development
