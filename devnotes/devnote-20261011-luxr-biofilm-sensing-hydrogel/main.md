@@ -23,16 +23,9 @@ The Doc is authoritative: where this file and the Doc disagree, the Doc wins.
 Results come before Methods, Result 2 splits into two subsections (solution,
 gels) per the Doc's own authors' instruction, and Discussion points is the
 authors' own section.
-
-Review and provenance notes, 2026-11-19: every other HTML comment in this
-file and in the interactive-viewer pages lives in ./review-notes.yml
-instead, to keep this source readable. A one-line pointer comment, e.g.
-`<!-- review-notes.yml#main-NN -->`, marks where each note used to sit.
 -->
 
 # Overview
-
-<!-- review-notes.yml#main-02 -->
 
 We present a synthetic-cell based hydrogel device which can sense bacterial
 contamination through quorum sensor induced cell-free protein expression.
@@ -48,12 +41,6 @@ cells. A mixture of fluorescence microscopy, Z-stack fluorescence microscopy
 and fluorescence well plate assays were used to verify HSL induced cell-free
 protein expression in bulk lysate and vesicles.
 
-
-<!-- review-notes.yml#main-03 -->
-
-
-<!-- review-notes.yml#main-04 -->
-
 :::{figure} ./general/overview.png
 :label: fig-overview-schematic
 :align: center
@@ -64,32 +51,7 @@ and activates pLux, driving mNeonGreen expression. The inset shows the
 phospholipid bilayer HSL crosses to enter the GUV.
 :::
 
-<!-- review-notes.yml#main-05 -->
-
-<!-- review-notes.yml#main-06 -->
-
-<!-- review-notes.yml#main-07 -->
-
-<!-- review-notes.yml#main-08 -->
-
-<!-- review-notes.yml#main-09 -->
-
-<!-- review-notes.yml#main-10 -->
-
-<!-- review-notes.yml#main-11 -->
-
-<!-- review-notes.yml#main-12 -->
-<!-- review-notes.yml#main-13 -->
-
-<!-- review-notes.yml#main-14 -->
-
-<!-- review-notes.yml#main-15 -->
-
 # Constructs
-
-<!-- review-notes.yml#main-16 -->
-
-<!-- review-notes.yml#main-17 -->
 
 :::{table}
 :label: tbl-constructs
@@ -100,8 +62,6 @@ phospholipid bilayer HSL crosses to enter the GUV.
 | [pUC-IDT-LuxR-mNG](./dna/pUC-IDT-LuxR-mNG.gbk) | [Sequence map below](#seqviz-constructs) | BBa_J23101 (constitutive) drives LuxR; LuxR drives pLux; pLux drives mNeonGreen. The sensor construct for every Result. pUC-IDT-AMP GoldenGate backbone, 4671 bp. |
 | [pUC-IDT-constitutive_mNG](./dna/pUC-IDT-constitutive_mNG.gbk) | [Sequence map below](#seqviz-constructs) | BBa_J23101 drives mNeonGreen directly, no LuxR and no pLux. Constitutive expression control. pUC-IDT-AMP GoldenGate backbone, 3689 bp. |
 :::
-
-<!-- review-notes.yml#main-18 -->
 
 (seqviz-constructs)=
 :::::{tab-set}
@@ -120,15 +80,9 @@ phospholipid bilayer HSL crosses to enter the GUV.
 
 :::::
 
-<!-- review-notes.yml#main-19 -->
-
-<!-- review-notes.yml#main-20 -->
-
 # Results
 
 ## Result 1 — LuxR-mNeonGreen sensor plasmid in bulk lysate
-
-<!-- review-notes.yml#main-21 -->
 
 To verify whether *E. coli* lysate and the LuxR-mNeonGreen plasmid can detect
 3-oxo-C6-HSL in bulk, a 12.5 µL bulk lysate fluorescence assay was conducted
@@ -139,8 +93,6 @@ situated adjacent to the RNA polymerase promoter sequence. The activated LuxR
 recruits the σ70 subunit of RNA polymerase, activating transcription. The
 constitutive mNeonGreen plasmid does not contain the Lux box, so RNA
 polymerase does not require activated LuxR for protein expression.
-
-<!-- review-notes.yml#main-22 -->
 
 Similar cell-free biosensors for bacterial detection using quorum sensing
 have been developed in lysate-based systems with the LasR transcription
@@ -167,8 +119,6 @@ expression than the HSL induced reaction. Future experiments will focus on
 lowering the HSL concentration to find the limit of detection for the
 combined lysate and sensor construct.
 
-<!-- review-notes.yml#main-23 -->
-
 :::{figure} ./figures/result1-bulk-lysate-platereader.png
 :label: fig-result1-platereader
 :align: center
@@ -179,19 +129,7 @@ mNeonGreen plasmid. + 10 µM and − 10 µM HSL refer to the HSL sensing and
 negative control conditions in {numref}`tbl-bulk-lysate-conditions`.
 :::
 
-<!-- review-notes.yml#main-24 -->
-
-<!-- review-notes.yml#main-25 -->
-
-<!-- review-notes.yml#main-26 -->
-
-<!-- review-notes.yml#main-27 -->
-
-<!-- review-notes.yml#main-28 -->
-
 ## Result 2 — detecting purified HSL using lysate-based synthetic cells
-
-<!-- review-notes.yml#main-29 -->
 
 To demonstrate the ability of synthetic cells to detect HSL, lysate-based
 GUVs encapsulating the LuxR-mNeonGreen plasmid were resuspended in outer
@@ -229,8 +167,6 @@ Lysate GUVs preparation.
 | Constitutive control | Constitutive mNeonGreen | Outer solution | J9, J10, J11 |
 :::
 
-<!-- review-notes.yml#main-30 -->
-
 :::{figure} ./figures/solution-wells.png
 :label: fig-solution-wells
 :align: center
@@ -244,12 +180,6 @@ plate map
 T = 17 (endpoint), GFP channel only, center crop, about one field of view,
 for each well.
 :::
-
-<!-- review-notes.yml#main-31 -->
-
-<!-- review-notes.yml#main-32 -->
-
-<!-- review-notes.yml#main-33 -->
 
 From the endpoint microscopy data, the HSL sensing GUVs have increased
 fluorescence output compared to the negative control without HSL. This shows
@@ -291,10 +221,6 @@ gel after 16 hours. After gelling, 10 µL of stock HSL is added to the top of
 the gel, corresponding to a final concentration of 100 µM; 10 µL of outer
 solution was added to the top of gels for experiments without HSL.
 
-<!-- review-notes.yml#main-34 -->
-
-<!-- review-notes.yml#main-35 -->
-
 :::{table} Gel conditions, synthetic cells, HSL. Triplicates for each experiment; empty ULGA gels included to account for light scattering from vesicles.
 :label: tbl-gel-conditions
 :align: center
@@ -306,10 +232,6 @@ solution was added to the top of gels for experiments without HSL.
 | Constitutive control gels | Constitutive mNeonGreen | D9, D10, D11 |
 | Empty ULGA gels | N/A | D15, D16, D17 |
 :::
-
-<!-- review-notes.yml#main-36 -->
-
-<!-- review-notes.yml#main-37 -->
 
 :::{figure} ./figures/gel-wells.png
 :label: fig-gel-wells
@@ -327,31 +249,13 @@ z = 50 of 101, GFP channel only, contrast windowed 4526 to 12204, center
 crop, about one field of view, for each well.
 :::
 
-<!-- review-notes.yml#main-38 -->
-
-<!-- review-notes.yml#main-39 -->
-
-<!-- review-notes.yml#main-40 -->
-
-<!-- review-notes.yml#main-41 -->
-
-<!-- review-notes.yml#main-42 -->
-
-<!-- review-notes.yml#main-43 -->
-
 The empty ULGA gels condition (D15, D16, D17) has no figure of its own, but
 each of its three wells has its own interactive viewer:
 [D15](./2026-10-07-interactive-viewer.md#d15-empty-ulga-gel),
 [D16](./2026-10-07-interactive-viewer.md#d16-empty-ulga-gel),
 [D17](./2026-10-07-interactive-viewer.md#d17-empty-ulga-gel).
 
-<!-- review-notes.yml#main-44 -->
-
-<!-- review-notes.yml#main-45 -->
-
 ## Result 3 — detecting bacterially produced HSL in solution
-
-<!-- review-notes.yml#main-46 -->
 
 To model bacterial sensing using GUVs, the LuxI plasmid was transformed into
 NEB5α *E. coli* (NEB5α w/ LuxI) to encode production of 3-oxo-C6-HSL, the
@@ -361,8 +265,6 @@ cells are capable of detecting bacterially produced HSL, implemented through
 resuspending the GUV pellet in bacterial supernatant. Control experiments
 were performed with the NEB5α strain without the LuxI plasmid (NEB5α ΔLuxI),
 which removes HSL from the supernatant.
-
-<!-- review-notes.yml#main-47 -->
 
 :::{table} Three experimental conditions for HSL-induced mNeonGreen expression using bacterial supernatant in solution.
 :label: tbl-supernatant-conditions
@@ -443,22 +345,8 @@ T = 19, GFP channel only, contrast windowed 30000 to 60000, 659 µm field of
 view, each panel cropped and zoomed to the same Vizarr view state.
 :::
 
-<!-- review-notes.yml#main-48 -->
-
-<!-- review-notes.yml#main-49 -->
-
-<!-- review-notes.yml#main-50 -->
-
-<!-- review-notes.yml#main-51 -->
-
-<!-- review-notes.yml#main-52 -->
-
-<!-- review-notes.yml#main-53 -->
-
 (sec-methods)=
 # Methods
-
-<!-- review-notes.yml#main-54 -->
 
 ## Bulk lysate (12.5 µL reaction)
 
@@ -546,12 +434,6 @@ Inoculate 5 mL LB (ampicillin) with the NEB5α strain carrying the LuxI
 producing plasmid. Incubate overnight at 37 °C. Centrifuge for 15 minutes.
 Pipette the supernatant into a separate tube. Sterile filter the supernatant
 with a 0.22 µm filter. Store at −20 °C until use.
-
-<!-- review-notes.yml#main-55 -->
-
-<!-- review-notes.yml#main-56 -->
-
-<!-- review-notes.yml#main-57 -->
 
 # Summary
 
