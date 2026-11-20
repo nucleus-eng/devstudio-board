@@ -15,13 +15,7 @@ Each viewer below opens at whatever contrast window and Z plane the store's own
 `omero` metadata carries. The static figures on the main page use a fixed GFP
 window instead, 4526 to 12204 at z = 50.
 
-<!-- Implementation notes, not for the reader. These viewers do not survive JATS
-conversion. The static figure on main.md is the archival record. Each viewer sets
-"menuOpen": true, so the contrast sliders are visible without a click. Each viewer
-also loads general/vizarr-viewer-patched.js, the same patched widget copy used on the
-C-well page (2026-10-08-interactive-viewer.md). That copy exists because Vizarr's own
-sliders render collapsed to 0x0 pixels under the unpatched widget inside a shadow
-root. -->
+<!-- review-notes.yml#gel-viewer-01 -->
 
 ## D7 — HSL sensing gels
 
@@ -63,12 +57,7 @@ D10's store covers a bigger area than the other two, measured that way because o
 large air bubble. This viewer opens the well exactly as the store has it, with no
 crop or re-measurement.
 
-<!-- Resolved, 2026-11-19, by Claude: the three stores below are named
-`J_N_just_gel_1`, `J_N_just_gel_2` and `J_N_just_gel_3`. None names a well number. An
-earlier pass paired them to D12, D13, D14 by list order on tbl-gel-conditions. Each
-store's own OME-NGFF plate metadata (zarr.json,
-attributes.ome.plate.wells[0].path) names its real well instead: gel_1 is D15, gel_2
-is D16, gel_3 is D17. tbl-gel-conditions on the main page is corrected to match. -->
+<!-- review-notes.yml#gel-viewer-02 -->
 
 ## D15 — empty ULGA gel
 
