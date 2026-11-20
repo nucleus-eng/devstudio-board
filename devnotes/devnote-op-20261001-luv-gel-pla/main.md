@@ -1,3 +1,7 @@
+---
+title: 'Understanding Liposome Behaviour in Hydrogel Matrices'
+---
+
 <!--
 Editing convention: a section marked `@claude please don't rewrite this section`,
 or commented out, is protected. Claude will not regenerate, reflow or reword it.
@@ -6,9 +10,12 @@ or commented out, is protected. Claude will not regenerate, reflow or reword it.
 <!-- This page stays close to `log-devnote-draft.docx`, re-read on 2026-10-12
 after the authors revised it a second time. `main-supplement.md` holds the full
 analysis chain for `OP-20261001`, every disagreement found between sources, and
-the review history, so that page and this one do not restate each other. Title
-and authors live in `curvenote.yml`, as project frontmatter, and render on this
-page from there. They are not repeated here as body text. -->
+the review history, so that page and this one do not restate each other.
+Authors live in `curvenote.yml`, as project frontmatter, and render on this
+page from there. They are not repeated here as body text. The title is
+repeated above, in this page's own frontmatter: without it, MyST falls back to
+this page's first heading ("Abstract") as the page title, and the project
+title from `curvenote.yml` never renders. -->
 
 # Abstract
 
