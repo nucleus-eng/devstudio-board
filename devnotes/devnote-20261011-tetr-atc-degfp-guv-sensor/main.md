@@ -1,7 +1,15 @@
+---
+title: 'GUV Encapsulation of a TetR/aTc-Inducible deGFP Cell-Free Sensor'
+---
+
 <!--
 Editing convention: a section marked `@claude please don't rewrite this section`,
 or commented out, is protected. Claude will not regenerate, reflow or reword it.
 -->
+
+<!-- This page's own frontmatter title is required so MyST does not fall back
+to this page's first heading ("Abstract") as the page title: without it, the
+project title from `curvenote.yml` never renders. -->
 
 <!-- Redrafted 2026-10-11 from the Google Doc "TetO-deGFP Encapsulated".
 Source: https://docs.google.com/document/d/1oWYWO6-2OJEOMaWc-6dxgFCW8nUEhhw0ddNB8TZ9AXE

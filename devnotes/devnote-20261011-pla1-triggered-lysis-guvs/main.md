@@ -1,3 +1,11 @@
+---
+title: 'Triggered Lysis of beta-Galactosidase-Loaded GUVs by Cell-Free Expressed Phospholipase A1'
+---
+
+<!-- This page's own frontmatter title is required so MyST does not fall back
+to this page's first heading as the page title: without it, the project
+title from `curvenote.yml` never renders. -->
+
 <!-- Drafted 2026-10-11 from the Google Doc "TetO-PLA For Triggered Lysis of
 beta-Galactosidase-Loaded GUVs".
 Source: https://docs.google.com/document/d/1vmAaYyH21pxErmB583Prsc-LUFs3JG34Y1ZjypEiRbI

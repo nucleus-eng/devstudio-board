@@ -1,7 +1,15 @@
+---
+title: 'Two Vesicle Colorimetric pH Sensor System'
+---
+
 <!--
 Editing convention: a section marked `@claude please don't rewrite this section`,
 or commented out, is protected. Claude will not regenerate, reflow or reword it.
 -->
+
+<!-- This page's own frontmatter title is required so MyST does not fall back
+to this page's first heading ("Overview") as the page title: without it, the
+project title from `curvenote.yml` never renders. -->
 
 # Overview
 
