@@ -3,28 +3,6 @@ title: 'Bacterial Sensing in Hydrogel Embedded Synthetic Cells using LuxR Depend
 thumbnail: ./figures/fov-c4.png
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
-
-Label convention. Every admonition carries a `:name:`, because
-devstudio-devnote-g-to-devnote-m matches a reviewer's reply to an admonition
-by that label. An unlabeled admonition cannot be answered. A `flags-` or
-`gap-` label is a question for the reviewer. A `scope-` label is context, not
-a question.
-
-This file uses no `[PLEASE FILL IN]`. Every gap is a labeled admonition, so
-every gap is answerable. A table cell cannot hold an admonition, so an unknown
-cell reads an em dash and the labeled admonition sits above its table.
-
-Structure. This file follows the "Draft devnote" Doc, Drive id
-1TTuVHZ0Usc0HCjXA6OAVhx5ZKViIi1gN1NrQUtLWx1E, migrated in full on 2026-10-12.
-The Doc is authoritative: where this file and the Doc disagree, the Doc wins.
-Results come before Methods, Result 2 splits into two subsections (solution,
-gels) per the Doc's own authors' instruction, and Discussion points is the
-authors' own section.
--->
-
 # Overview
 
 We present a synthetic-cell based hydrogel device which can sense bacterial
