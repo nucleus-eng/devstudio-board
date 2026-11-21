@@ -2,11 +2,6 @@
 title: 'Two Vesicle Colorimetric pH Sensor System'
 ---
 
-<!--
-Editing convention: a section marked `@claude please don't rewrite this section`,
-or commented out, is protected. Claude will not regenerate, reflow or reword it.
--->
-
 <!-- This page's own frontmatter title is required so MyST does not fall back
 to this page's first heading ("Overview") as the page title: without it, the
 project title from `curvenote.yml` never renders. -->
@@ -83,10 +78,6 @@ The pH-sensing developer cells detect acidic conditions (pH 6.0–6.5) using a p
 :::
 ::::
 
-<!-- HEPES is filled from the Nucleus materials reference, `HEPES, Crystalline Powder`, Sigma-Aldrich `H3375-500G`, not confirmed against this experiment's own outer solution recipe. The "Chicago Module Integration Status" Doc raises the outer solution's Tris base and HEPES sourcing as an open question for this same experiment and supplies no catalog number for either.
-
-Tris base stays blank. No Tris base entry of any kind exists in the Nucleus materials reference, searched directly and by every related term (Trizma, Tris-HCl); the reference's only Tris-named row is an unrelated electrophoresis gel product. -->
-
 # Constructs
 
 :::{table} DNA constructs. Sequences are reproduced in full; both oligo lengths were verified against their GenBank `LOCUS` line.
@@ -102,19 +93,12 @@ Tris base stays blank. No Tris base entry of any kind exists in the Nucleus mate
 
 Annealing was performed in a thermocycler using the following protocol: 5 min at 95 °C, followed by stepwise cooling at 2 min per degree to the melting temperature of the construct (Tm = 52 °C), 30 min per degree from 52 °C to Tm − 10 °C (42 °C), and finally 2 min per degree until reaching 25 °C. The annealed construct was stored at −20 °C.
 
-<!-- `DevCell_Materials_Tracker.xlsx` records the function test for `T7-toehol9-PLA1` as "Done/Leaky". The pH 7.6 arm is the condition leakiness would contaminate, since it is meant to show no PLA1 activity. -->
-
 (seqviz-pt7-toehold9-pla1)=
 :::{seqviz} https://github.com/nucleus-eng/DNA/blob/devcells/devstudio-constructs/effectors/detector-ph/pT7-toehold9-PLA1-linear.gb
 :height: 600px
 :::
 
 # Protocols
-
-<!-- P4 in the flowchart below, adding LacZ and raising the pH, has no protocol
-section on this page. The LacZ enzyme and its basic buffer are named in the
-Overview and in Full Demo Attempt 1's prose, but nowhere given a composition,
-a volume or a procedure. -->
 
 ```mermaid
 flowchart LR
@@ -159,10 +143,6 @@ flowchart LR
     class P1,P2,P3,P4 process;
 ```
 
-<!-- :::{admonition}
-Full Demo Attempt 3 is the one that worked, and the three changes that made it work carry no numbers in its prose below: the starting volume was increased, more rounds of washing were done, and the gel went from 0.7% to 0.35%. Only the gel concentration is quantified. What was the new starting volume, and how many washes?
-::: -->
-
 ## CPRG-LUV preparation
 
 Lipids for SUVs and LUVs were added from chloroform stocks to the bottom of a 1 mL glass vial and dried under argon/N₂ gas. They were then dried under vacuum for 20 min, and the inner solution was added directly to the lipid film. The process is the same as for GUVs up to the film-drying step. After that, it differs: for GUVs, mineral oil is added, whereas for SUVs and LUVs the inner solution is added directly to the film.
@@ -202,7 +182,7 @@ Used from Full Demo Attempt 2 onward. The LUV route above was used for pH Sensor
     - Vortex for 30 s.
 5. Assemble a liposome extruder (Avanti `A81411`) with a 400 nm pore size membrane filter, and pass the lipid suspension through it 13 times to make SUVs.
 6. Centrifuge at 15,000 g for 10–20 min to pellet the vesicles.
-7. Pool the pellets into two tubes. Take 15 µL from each of six tubes, 75 µL in total. <!-- REVIEW: 15 µL from six tubes is 90 µL, not 75. Step 8 adds 175 µL to reach 250 µL, which is consistent with 75, so the tube count is the likely error and five tubes would give 75. Carried as written. -->
+7. Pool the pellets into two tubes. Take 15 µL from each of six tubes, 75 µL in total.
 8. Add 175 µL outer solution to each tube, for a final volume of 250 µL.
 9. Wash 10 times. One wash is three operations:
     - Centrifuge at 10,000 g for 10 min.
@@ -380,11 +360,7 @@ Source note, carried verbatim: "dried and taken up in 3 mL mineral oil to 0.5 mM
 ::::
 :::::
 
-<!-- Both populations carry the same membrane, 89.9 / 10 / 0.1 mol% POPC, cholesterol and Rhod-PE, so the Rhodamine channel does not distinguish them. Cy5 is in the PLA1-GUV inner solution only. -->
-
 ## Outer solution
-
-<!-- The whole 60 µL well. The first three rows are the 52.8 µL the build sheet records as one number under "Energy Solution". The fourth row is the 7.2 µL vesicle slot, which {numref}`tbl-conditions` splits into outer solution, PLA1-GUV and CPRG-LUV. The pH 7.6 arm takes the Tris-HEPES buffer stock directly; the pH 6.3 arm takes a separate buffer mix. -->
 
 :::{table} Outer solution, both pH arms. Full recipe including the pH 6.3 buffer mix: [`experiments/outer-solution-composition.csv`](./experiments/outer-solution-composition.csv).
 :label: tbl-outer-solution
@@ -407,14 +383,6 @@ The osmolarity of the Tris1M-HEPES1.15M stock (1 M Tris, 1.15 M HEPES, pH 8), ap
 ## Gel
 
 The gel composition is already given: [LGA Gel Preparation](#lga-gel-preparation)'s step 2 table, under Protocols. The demo used a total volume of 7.2 µL, composed of: 3 µL of PLA1-expressing vesicles (prepared in 1175 mOsm/kg solution, pH 8), 3 µL of CPRG-loaded SUVs/LUVs (prepared in 1175 mOsm/kg solution, pH 8), and 1.2 µL of 1175 mOsm/kg solution, pH 8. 
-
-<!-- REVIEW: this reads as the gel-based Full Demo's target ratio, not a match for any single row in tbl-conditions (e.g. E4 is 3 + 2.1 + 2.1 µL), and pH Sensor Validation in Solution (D4/D5: 1 + 0 + 6.2 µL) looks different again. Confirm with SH whether this 3:3:1.2 ratio is specific to the gel-based Full Demo attempts, and whether the solution-only validation used a different ratio on purpose. -->
-
-<!-- ## Measurement
-
-Two channels were acquired. The channel labelled `Alexa Fluor 647` in the acquisition metadata reports the Cy5 signal, because the microscope names the wavelength by a representative fluorophore; the reagent in the composition is Cy5. The channel labelled `Rhodamine` reports Rhod-PE in the vesicle membranes. Data are OME-Zarr version 0.5, one well per store, with a z-stack at 1.5 µm spacing and 0.333 µm pixels.
-
-The `Alexa Fluor 647` channel reports Cy5, and `Rhodamine` reports Rhod-PE. Each well is a single OME-Zarr store, one plane, not a z-stack. -->
 
 # Results
 
@@ -465,8 +433,6 @@ CPRG-loaded vesicles co-incubated with PLA1-expressing synthetic cells at pH 6.3
 
 :::::
 
-<!-- REVIEW: exposure, gain and laser power are recorded nowhere in the stores. The common stretch assumes they were matched across the four acquisitions. Add the settings to Measurement. -->
-
 :::{figure} ./figures/color-change-ph-7.6-vs-6.3.png
 :label: fig-color-change
 :align: center
@@ -498,16 +464,6 @@ pH-responsive synthetic cell-mediated visible color change via a two-vesicle sys
 | H4 | pH 7.6 arm, PLA1-GUV, no energy solution mix | Control | 7.6 | 0 | 59 | 1 | 0 | 60 | no |
 :::
 ::::
-
-<!-- ::::{admonition} Known limitations in this plate layout
-:class: dropdown
-
-**Five of nine wells have no recorded outcome.** `F4`, `F5`, `G4`, `G5` and `H4` are retained above marked "no", so the entire CPRG-LUV-only control arm is unreported.
-
-**The GUV dose is not matched between sample and control.** Rows `E` and `F` take 3 µL of PLA1-GUVs; row `D`, the GUV-only control, takes 1 µL, so row `D` does not isolate the effect of the CPRG-LUVs. The CPRG-LUV dose is matched at 2.1 µL throughout.
-
-**`H4` receives no pH buffer.** It takes 0 µL of the energy solution mix, which carries the pH-setting buffer. Its recorded pH of 7.6 comes from the build sheet's column header, not from anything added to the well.
-:::: -->
 
 These four wells are also shown as interactive viewers on [Interactive viewers](./viewers.md).
 

@@ -1,0 +1,74 @@
+# Review and provenance notes, archived from this devnote's HTML comments.
+# The source file no longer marks where each one used to sit. 'section' is
+# the nearest heading above the comment in the original source, for
+# orientation only.
+
+main.md:
+- id: main-01
+  section: ''
+  text: |
+    Editing convention: a section marked `@claude please don't rewrite this section`,
+    or commented out, is protected. Claude will not regenerate, reflow or reword it.
+- id: main-02
+  section: 'Reagents'
+  text: |
+    HEPES is filled from the Nucleus materials reference, `HEPES, Crystalline Powder`, Sigma-Aldrich `H3375-500G`, not confirmed against this experiment's own outer solution recipe. The "Chicago Module Integration Status" Doc raises the outer solution's Tris base and HEPES sourcing as an open question for this same experiment and supplies no catalog number for either.
+
+    Tris base stays blank. No Tris base entry of any kind exists in the Nucleus materials reference, searched directly and by every related term (Trizma, Tris-HCl); the reference's only Tris-named row is an unrelated electrophoresis gel product.
+- id: main-03
+  section: 'Constructs'
+  text: |
+    `DevCell_Materials_Tracker.xlsx` records the function test for `T7-toehol9-PLA1` as "Done/Leaky". The pH 7.6 arm is the condition leakiness would contaminate, since it is meant to show no PLA1 activity.
+- id: main-04
+  section: 'Protocols'
+  text: |
+    P4 in the flowchart below, adding LacZ and raising the pH, has no protocol
+    section on this page. The LacZ enzyme and its basic buffer are named in the
+    Overview and in Full Demo Attempt 1's prose, but nowhere given a composition,
+    a volume or a procedure.
+- id: main-05
+  section: 'Protocols'
+  text: |
+    :::{admonition}
+    Full Demo Attempt 3 is the one that worked, and the three changes that made it work carry no numbers in its prose below: the starting volume was increased, more rounds of washing were done, and the gel went from 0.7% to 0.35%. Only the gel concentration is quantified. What was the new starting volume, and how many washes?
+    :::
+- id: main-06
+  section: 'CPRG-SUV preparation'
+  text: |
+    REVIEW: 15 µL from six tubes is 90 µL, not 75. Step 8 adds 175 µL to reach 250 µL, which is consistent with 75, so the tube count is the likely error and five tubes would give 75. Carried as written.
+- id: main-07
+  section: 'CPRG-loaded LUVs'
+  text: |
+    Both populations carry the same membrane, 89.9 / 10 / 0.1 mol% POPC, cholesterol and Rhod-PE, so the Rhodamine channel does not distinguish them. Cy5 is in the PLA1-GUV inner solution only.
+- id: main-08
+  section: 'Outer solution'
+  text: |
+    The whole 60 µL well. The first three rows are the 52.8 µL the build sheet records as one number under "Energy Solution". The fourth row is the 7.2 µL vesicle slot, which {numref}`tbl-conditions` splits into outer solution, PLA1-GUV and CPRG-LUV. The pH 7.6 arm takes the Tris-HEPES buffer stock directly; the pH 6.3 arm takes a separate buffer mix.
+- id: main-09
+  section: 'Gel'
+  text: |
+    REVIEW: this reads as the gel-based Full Demo's target ratio, not a match for any single row in tbl-conditions (e.g. E4 is 3 + 2.1 + 2.1 µL), and pH Sensor Validation in Solution (D4/D5: 1 + 0 + 6.2 µL) looks different again. Confirm with SH whether this 3:3:1.2 ratio is specific to the gel-based Full Demo attempts, and whether the solution-only validation used a different ratio on purpose.
+- id: main-10
+  section: 'Gel'
+  text: |
+    ## Measurement
+
+    Two channels were acquired. The channel labelled `Alexa Fluor 647` in the acquisition metadata reports the Cy5 signal, because the microscope names the wavelength by a representative fluorophore; the reagent in the composition is Cy5. The channel labelled `Rhodamine` reports Rhod-PE in the vesicle membranes. Data are OME-Zarr version 0.5, one well per store, with a z-stack at 1.5 µm spacing and 0.333 µm pixels.
+
+    The `Alexa Fluor 647` channel reports Cy5, and `Rhodamine` reports Rhod-PE. Each well is a single OME-Zarr store, one plane, not a z-stack.
+- id: main-11
+  section: 'pH Sensor Validation in Solution'
+  text: |
+    REVIEW: exposure, gain and laser power are recorded nowhere in the stores. The common stretch assumes they were matched across the four acquisitions. Add the settings to Measurement.
+- id: main-12
+  section: 'Conditions'
+  text: |
+    ::::{admonition} Known limitations in this plate layout
+    :class: dropdown
+
+    **Five of nine wells have no recorded outcome.** `F4`, `F5`, `G4`, `G5` and `H4` are retained above marked "no", so the entire CPRG-LUV-only control arm is unreported.
+
+    **The GUV dose is not matched between sample and control.** Rows `E` and `F` take 3 µL of PLA1-GUVs; row `D`, the GUV-only control, takes 1 µL, so row `D` does not isolate the effect of the CPRG-LUVs. The CPRG-LUV dose is matched at 2.1 µL throughout.
+
+    **`H4` receives no pH buffer.** It takes 0 µL of the energy solution mix, which carries the pH-setting buffer. Its recorded pH of 7.6 comes from the build sheet's column header, not from anything added to the well.
+    ::::
