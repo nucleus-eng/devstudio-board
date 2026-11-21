@@ -3,37 +3,6 @@ title: 'Co-Encapsulated Cell-Free PLA1 Expression in beta-Galactosidase GUVs'
 thumbnail: ./figures/fig8-endpoint-abs-15h.png
 ---
 
-<!-- Drafted 2026-10-12 from the Google Doc "Single Vesicle Lysis System
-Leveraging deGFP CFPE".
-Source: https://docs.google.com/document/d/1DouMRrZWCUKdWzuMoH48izjj8-7_oyKGCQrU2xOm5GI
-Prose, tables, step lists, captions and all nine figures are carried
-verbatim from that Doc, including its own section order (two experiments,
-each with its own Results and Conclusion). Figure captions drop the literal
-"Figure N." prefix the Doc gives them, since MyST auto-numbers the
-`:::{figure}` directive; as a result, the source's own Figure 6 through
-Figure 10 (the Doc skips a Figure 5) render here as Figure 5 through
-Figure 9, one lower than the source Doc's own numbering from the second
-Results section on. -->
-
-<!-- :::{admonition} Open items from the draft
-:class: warning dropdown
-:name: flags-review
-
-**One sentence in the Follow Up Experiment's Design section reads as
-garbled in the source.** "Expression of deGFP causes membrane permeability
-and TetR turns down expression. We used detergent-removed purified TetR at
-two doses, and an in-house CF TetR preparation and aTc turns it back up
-across four levels: 0, 0.025, 0.1 and 0.5 µM." Carried exactly as written;
-the clause structure does not fully parse.
-
-**Both plasmid files are reused verbatim from this board's sibling
-DevNotes, not built fresh here**: `dna/pOpen-TetO-PLA.gb` from
-`devnote-20261011-pla1-triggered-lysis-guvs`, `dna/pOpen-TetO-deGFP.gb` from
-`devnote-20261011-tetr-atc-degfp-guv-sensor`. Neither file is in the canonical
-`nucleus-eng/DNA` repo. Drive this devnote's own
-{ref}`seqviz-popen-teto-pla` and {ref}`seqviz-popen-teto-degfp`.
-::: -->
-
 # Abstract
 
 This experiment moves PLA1 expression inside the vesicle. Rather than expressing phospholipase in bulk and delivering it to the outside of pre-formed GUVs, the complete cell-free reaction is co-encapsulated with β-galactosidase, so that transcription, translation and any resulting membrane damage all occur within the compartment. Lysis is read as CPRG conversion by β-galactosidase escaping into the external volume.
