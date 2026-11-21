@@ -3,31 +3,6 @@ title: 'Expressing Cell-Free TetO-GFP in Solution with aTc Titration'
 thumbnail: ./figures/fig2-endpoint-gfp-atc-titration.png
 ---
 
-<!-- Drafted 2026-10-11 from the Google Doc "TetO-plamGFP in Solution".
-Source: https://docs.google.com/document/d/1F3oW_PK6oKyVTA1JaVtpX5BvqwYHdBwEvA59MDBIMes
-Prose, tables, step lists, captions and both figures are carried verbatim
-from that Doc, including its own section order. The Doc's own title/authors
-block ("Title: ..." / "Authors:" / each name and email) is not repeated in
-the body: title, authors and their emails live in this file's frontmatter
-and in curvenote.yml instead, and render as the page byline. -->
-
-<!-- :::{admonition} Open items from the draft
-:class: warning dropdown
-:name: flags-review
-
-**The Results section carries two empty placeholder lines in the source
-itself.** "dataset link:" and "Platemap link:" appear with nothing after the
-colon. The matching raw dataset and its provenance are recorded in the
-commented-out block after {ref}`fig-2-endpoint-gfp-atc-titration` below.
-
-**The fluorescein-standards description does not match the plate image.**
-The text says "S1 to S4 ... in row G, columns 2 to 9, in duplicate." The
-extracted image (`figures/fig1-plate-layout.png`) shows S1, S1, S2, S2, S3,
-S3, S4 across columns 2 to 8, so S4 appears once, not in duplicate, and
-column 9 is blank. Both are carried as supplied; this is a discrepancy in
-the source, not something introduced here.
-::: -->
-
 # Abstract
 
 TetR-based repression is a common building block for cell-free genetic circuits, but its dynamic range and its sensitivity to inducer depend on the extract and on the repressor concentration used. We measured repression of the pT7-tetO-plamGFP reporter by purified TetR in bulk cell-free reactions, and the relief of that repression across a seven-point anhydrotetracycline (aTc) titration. Reporter plasmid at 1 nM was expressed with 0, 500 or 1000 nM TetR at aTc concentrations from 0 to 10 µM, in triplicate, with GFP fluorescence followed for 6 h at 37 °C. Both repressor concentrations held expression near background in the absence of inducer and recovered to the unrepressed level by 5 µM aTc, but the 1000 nM condition needed roughly twice as much aTc as the 500 nM condition to reach the same point, so the amount of TetR sets where the switch threshold sits rather than whether the switch works.
@@ -193,23 +168,6 @@ Platemap link:
 :width: 90%
 Endpoint GFP expression across an aTc titration at three TetR concentrations. Bulk cell-free reactions containing 1 nM pT7-tetO-plamGFP and 0, 500 or 1000 nM purified TetR were induced with anhydrotetracycline at 0–10 µM final and read for 6 h at 37 °C. Points are fluorescence at the 6 h endpoint (ex 485 nm, em 528 nm, gain 75), mean ± SD of three wells per condition, with error bars smaller than the symbols in most cases. The −DNA control is a no-template reaction at the matching aTc concentration.
 :::
-
-<!--
-[`fig-2-endpoint-gfp-atc-titration`, suspected source, not yet pulled in, confirmed by matching reader/settings
-against main.md's Data acquisition and analysis section on 2026-10-12 (Cytation3, serial 130723A, 37 C with
-0 C gradient, 6 h kinetic at 5 min intervals, 73 reads, ex 485/em 528, gain 75, xenon flash high, 100 ms delay,
-10 measurements/point, 10.75 mm read height — all match exactly) and by its plate map (SPL1-28 across rows B-E
-in triplicate, SPL29-32 in row G at 2 wells each, columns 2-9 — matches the Doc's text, not the figure image):
-drive_folder: `https://drive.google.com/drive/folders/1eTAKVgISkJMnFdNtYcdUOS-P2CBdr0Cf` (MK-20260925-tetO-plamGFP/deGFP-in-bulk-and-encapsulated)
-log: `log-MK-20260925` (Google Doc, same folder)
-data source: `20260925-163935-cytation3-pure-timecourse-gfp-Mary-tetR-aTc.txt` (raw Cytation3 export, same folder)
-platemap: `MK-20260925-TetO GFP in Bulk with ATC.csv` (same folder; volumes match tbl-conditions exactly)
-notebook: `MK-20260925-platereader.ipynb` (same folder)
-stocks: `MK-Stocks.csv` (same folder)
-Not yet fetched into this devnote's own directory; say the word and these can
-be pulled in as `experiments/`, the way the sibling devnote-20261011-tetr-atc-degfp-guv-sensor
-does it.
--->
 
 # Conclusion
 
