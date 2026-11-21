@@ -1,0 +1,163 @@
+# Review and provenance notes, archived from this devnote's HTML comments.
+# The source file no longer marks where each one used to sit. 'section' is
+# the nearest heading above the comment in the original source, for
+# orientation only.
+
+main.md:
+- id: main-01
+  section: ''
+  text: |
+    Editing convention: a section marked `@claude please don't rewrite this section`,
+    or commented out, is protected. Claude will not regenerate, reflow or reword it.
+- id: main-02
+  section: ''
+  text: |
+    Redrafted 2026-10-11 from the Google Doc "TetO-deGFP Encapsulated".
+    Source: https://docs.google.com/document/d/1oWYWO6-2OJEOMaWc-6dxgFCW8nUEhhw0ddNB8TZ9AXE
+    Prose, tables, step lists, captions and the plasmid sequence are carried
+    verbatim from that Doc. The Doc's section order is kept, not the DevNote
+    template order. The Doc is a written protocol, and its steps refer to each
+    other by Part number. Reordering it breaks those references.
+- id: main-03
+  section: ''
+  text: |
+    :::{admonition} Open items from the redraft
+    :class: warning dropdown
+    :name: flags-review
+
+    **The 2026-09-25 experiment is no longer in this DevNote.** Earlier drafts
+    carried the 28-condition aTc titration from
+    `MK-20260925-tetO-plamGFP-titrate-atc` alongside the 2026-09-28 work. The
+    source Doc covers only 2026-09-28: the encapsulation run and its matched bulk
+    control. Carrying the Doc faithfully therefore drops the 2026-09-25 material.
+    Say where the 2026-09-25 titration belongs, if anywhere.
+
+    **The outer solution buffer concentration is flagged in the source.** The Doc
+    states 800 µL of 1 M HEPES into 1000 µL total. It then says this gives 800 mM
+    HEPES, far above a normal buffer concentration. The Doc raises the problem
+    itself and does not resolve it. Both the table and the warning are carried
+    verbatim. Resolve this before anyone runs the protocol.
+
+    **Figure 3's caption and the Materials section disagree about the membrane
+    dye.** The caption reads "Membrane labeled with Cy5.5-PE". Every other mention
+    in the Doc, including the abstract, the overview and the lipid tables, reads
+    18:1 Liss Rhod PE at 0.1 mol%. Both are carried as written.
+
+    **The plasmid file was built here, not taken from a source of record.**
+    `dna/pOpen-TetO-deGFP.gb` carries this Doc's sequence byte for byte. It has the
+    five features the Doc's own landmark column supports, and it drives
+    {ref}`seqviz-popen-teto-degfp`. It is not an authoritative file.
+    `devstudio-verify-dna-constructs` was not run against it, so no
+    construct-to-file identity claim is made. Two candidate files in
+    `nucleus-eng/DNA` were compared against the sequence on 2026-10-11.
+
+    `detectors/pOpen-pT7-tetO.gb` is not this construct. It is 2954 bp against the
+    Doc's 2855, and its coding sequence is plamGFP: 693 nt, 230 amino acids,
+    beginning MEIEDVIKRDMK. The Doc's coding sequence is deGFP: 678 nt, 225 amino
+    acids, beginning MELFTGVVPILV. The two proteins share 7.6 percent of their
+    residues, which is the background two GFP-family proteins share. That file also
+    uses the UTR1 ribosome binding site and a T7hyb6 terminator, where the Doc uses
+    the T7 g10 leader and a different terminator.
+
+    `reporters/pOpen-deGFP.gbk` is the closest match. It is 2812 bp, exactly 43 bp
+    shorter than the Doc's sequence. Of 23 sampled 120-nucleotide windows of the
+    Doc, 22 appear in it verbatim. The one window that does not is bases 1 to 120,
+    which holds the promoter, the operator and the ribosome binding site. That file
+    carries the T7 promoter and the deGFP coding sequence but no `tetO` operator.
+    The Doc's plasmid reads as that file with the 43 bp operator region inserted
+    between the promoter and the ribosome binding site.
+
+    When a file of record exists, replace `dna/pOpen-TetO-deGFP.gb`. One built from
+    `reporters/pOpen-deGFP.gbk` plus that 43 bp insertion also carries its AmpR and
+    origin annotations, which the Doc's table cannot supply. Do not use
+    `detectors/pOpen-pT7-tetO.gb`.
+
+    **`figures/mk-20261005.jpeg` is not referenced.** It is a photograph of a
+    384-well plate with purple wells, dated 2026-10-05, after both experiments in
+    this DevNote. The Doc does not mention it and nothing here links it. Say where
+    it belongs or remove it.
+    :::
+- id: main-04
+  section: 'Materials'
+  text: |
+    Vendor and catalog columns are left for you to fill from what is actually on
+    the shelf; the concentrations below are the ones this run used.
+- id: main-05
+  section: 'Plasmid reference — pOpen-TetO-deGFP'
+  text: |
+    The map above is built from this Doc's own sequence and its own landmark
+    column. Each feature is placed by searching the sequence for the landmark
+    string the table gives, so no coordinate is asserted by hand. The table also
+    names AmpR and the pUC origin, with a dash in place of a landmark, so neither
+    is annotated.
+- id: main-06
+  section: 'Plasmid reference — pOpen-TetO-deGFP'
+  text: |
+    Positions measured against the sequence below on 2026-10-11: total
+    2855 bp; T7 promoter at base 5; tetO operator at base 26; g10 leader and RBS at
+    base 90; deGFP CDS 104 to 781, which is 678 nt and 225 codons, consistent with
+    the "~700 bp" the table states; T7 terminator at base 791. No sequence file was
+    compared against, because none carrying this construct exists in the
+    repository.
+- id: main-07
+  section: 'Results'
+  text: |
+    [`fig-1-bulk-kinetics`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb`, platemap:`MK-20260928-platemap-nucleus-bulk.csv`, data source:`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`, caption: (Kinetics of deGFP expression from pOpen-TetO-deGFP in bulk PURE reactions.)]
+- id: main-08
+  section: 'Results'
+  text: |
+    [`fig-2-bulk-endpoint`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928-platereader.ipynb`, platemap:`MK-20260928-platemap-nucleus-bulk.csv`, data source:`20260928-175538-synergy2-pure-timecourse-gfp-mk-teto-degfp-bulk-atc.txt`, caption: (Endpoint deGFP fluorescence at 6 h, from the kinetic run in Figure 1.)]
+- id: main-09
+  section: 'Results'
+  text: |
+    Figures 1 and 2 are pasted images in the source Doc, extracted with pandoc
+    --extract-media. Neither carries a #| label: in the plate reader notebook. The
+    notebook's only label, mk-20260928, is on its final cell, kinetics.plot_summary.
+    REVIEW: add #| label: to the producing cells to switch both to the
+    quarto-label pattern.
+- id: main-10
+  section: 'Results'
+  text: |
+    [zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.zarr`, caption: (Images of GUVs over 4 h. Membrane labeled with Cy5.5-PE; deGFP in the GFP channel. Left two columns, GUVs in PEG-NB hydrogel; right two columns, duplicate samples in solution.)]
+- id: main-11
+  section: 'Results'
+  text: |
+    The source Doc carries a link to
+    https://bnext-bio.github.io/vizarr/?source=<this store>&viewState={...} with the
+    instruction "Import microscope data for a figure here". The viewer above takes
+    the store URL from that link. The viewState is not carried, because the widget
+    does not forward it.
+
+    The viewer points at the plate root rather than deep-linking one well, by
+    decision on 2026-10-11. Figure 3's caption describes the whole montage, left
+    two columns in gel and right two in solution, so the full plate is what the
+    caption is written against.
+
+    The widget can also set channel colors and contrast limits per viewer, which
+    this one does not use. This store carries GFP 00FF00 and Alexa Fluor 647
+    0000FF, both windowed across the full 16-bit range. Values chosen to show the
+    result would go in the block above as colors and contrast_limits.
+
+    A viewer does not survive JATS conversion, so an archival static figure is
+    still needed for this panel.
+- id: main-12
+  section: 'Results'
+  text: |
+    [`fig-4-lumen-degfp`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy`, platemap:`20260928-MK-full-sensor-microscopy.csv`, data source:`deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet`, caption: (Lumen deGFP fluorescence in solution-phase GUVs over 4 h.)]
+- id: main-13
+  section: 'Results'
+  text: |
+    [`fig-5-background-subtracted`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy`, platemap:`20260928-MK-full-sensor-microscopy.csv`, data source:`deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet`, caption: (Background-subtracted quantification of Figure 4.)]
+- id: main-14
+  section: 'Conclusion'
+  text: |
+    # Resources
+- id: main-15
+  section: 'Conclusion'
+  text: |
+    - Plate map, bulk: [`experiments/MK-20260928-platemap-nucleus-bulk.csv`](./experiments/MK-20260928-platemap-nucleus-bulk.csv)
+    - Plate map, microscopy: [`experiments/20260928-MK-full-sensor-microscopy.csv`](./experiments/20260928-MK-full-sensor-microscopy.csv)
+    - Analysis notebook, plate reader: [`experiments/MK-20260928-platereader.ipynb`](./experiments/MK-20260928-platereader.ipynb)
+    - Analysis notebook, microscopy: [`experiments/MK-20260928-microscopy.ipynb`](./experiments/MK-20260928-microscopy.ipynb)
+    - Microscopy image store: [the OME-Zarr plate on data.nucleus.engineering](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.zarr)
+    - Microscopy per-object measurements: [the parquet beside that plate](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet)
