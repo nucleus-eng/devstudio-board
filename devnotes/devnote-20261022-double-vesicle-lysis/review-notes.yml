@@ -1,0 +1,48 @@
+# Review and provenance notes, archived from this devnote's HTML comments.
+# The source file no longer marks where each one used to sit. 'section' is
+# the nearest heading above the comment in the original source, for
+# orientation only.
+
+main.md:
+- id: main-01
+  section: ''
+  text: |
+    Drafted 2026-10-21 from the Google Doc "Double Vesicle Lysis System
+    Leveraging deGFP CFPE".
+    Source: https://docs.google.com/document/d/1_iOQShy9GgeXlZnNVNlVYgMxIKNLkmq3wFapNrh9Qh4
+    Prose, tables and step lists are carried verbatim from that Doc, including
+    its own section order. The Doc has no separate Results heading; its one
+    figure sits inside Part 4 of the Protocol, exactly where the source puts
+    it. Figure caption drops the literal "Figure." label the Doc gives it,
+    since MyST auto-numbers the `:::{figure}` directive. A "Plasmid maps"
+    subsection is added after Plasmids and proteins (not in the source Doc),
+    the same placement used for this construct pair in
+    devnote-20261011-co-encapsulated-pla1-lysis.
+- id: main-02
+  section: ''
+  text: |
+    :::{admonition} Open items from the draft
+    :class: warning dropdown
+    :name: flags-review
+
+    **Materials and the Part 4 Plate layout table give 0, 0.25, 1 and 5 µM;
+    the Abstract, Overview, the figure legend and the Conclusion all give 0,
+    0.025, 0.1 and 0.5 µM — roughly ten-fold lower at every level.** The
+    likely explanation (Anton Molina, 2026-10-22): the first set is the aTc
+    stock concentration, and the second is the final concentration after
+    dilution into the well. Part 3 dispenses 20 µL of the vesicle/gel mixture
+    per well, and Part 4 adds 2 µL of CPRG plus aTc on top, for a 22 µL well —
+    an 11-fold dilution, close enough that 0.25/1/5 µM stock rounds to the
+    reported 0.025/0.1/0.5 µM final (0.25 → 0.023, 1 → 0.091, 5 → 0.455). The
+    Doc never states this explicitly, so it is not carried as fact in the
+    body text, but it is consistent with the Conclusion's own statement that
+    the delivered series ran lower than the plate was designed around.
+
+    **Part 3 step 1's description of how the two populations were combined is
+    hard to follow unambiguously.** "The reporter populations pellet was
+    resuspended to 100 uL and 10 uL were added to 25 uL of GUVs per condition
+    (cell free GUV pellets were resuspended to 50 uL). Then the outer solution
+    was added to 50 uL total." Carried exactly as written; which volume is
+    final-per-well versus final-per-batch is not fully clear from the text
+    alone.
+    :::
