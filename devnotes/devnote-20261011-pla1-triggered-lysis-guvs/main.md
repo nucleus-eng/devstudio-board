@@ -6,35 +6,6 @@ title: 'Triggered Lysis of beta-Galactosidase-Loaded GUVs by Cell-Free Expressed
 to this page's first heading as the page title: without it, the project
 title from `curvenote.yml` never renders. -->
 
-<!-- Drafted 2026-10-11 from the Google Doc "TetO-PLA For Triggered Lysis of
-beta-Galactosidase-Loaded GUVs".
-Source: https://docs.google.com/document/d/1vmAaYyH21pxErmB583Prsc-LUFs3JG34Y1ZjypEiRbI
-Prose, tables, step lists, captions and the plasmid sequence are carried
-verbatim from that Doc. The Doc's section order is kept, since its steps
-refer to each other by Part number and reordering would break those
-references. -->
-
-<!-- :::{admonition} Open items from the draft
-:class: warning dropdown
-:name: flags-review
-
-**One sentence in the Overview reads as garbled in the source.** "Why two
-stages" opens: "a vesicle functions improperly may have, failed to lyse, or
-lysed so early that nothing accumulated." Carried exactly as written; the
-likely intended meaning is something like "a vesicle may have functioned
-improperly, failed to lyse, or lysed so early that nothing accumulated."
-
-**`dna/pOpen-TetO-PLA.gb` was built here, not taken from a source of
-record.** It carries this Doc's sequence byte for byte, with the five
-features the Doc's own landmark column supports, and drives
-{ref}`seqviz-popen-teto-pla`. No canonical match exists in `nucleus-eng/DNA`
-for the full plasmid. The PLA1 CDS (bases 104 to 1075) translates identical,
-byte for byte, to the PLA1 CDS already in this board's
-`devnotes/devnote-20261011-luv-gel-pla/dna/t7pro-esao-ls1-pla1.gbk`, so the
-part is shared with a sibling DevNote, but the full plasmid itself has no
-file of record anywhere.
-::: -->
-
 # Abstract
 
 We ask whether phospholipase A1 (PLA1) produced in a cell-free reaction can lyse giant unilamellar vesicles (GUVs) when supplied from the outside, and whether that lytic activity can be placed under TetR/anhydrotetracycline (aTc) control. The assay is deliberately split into two stages so that expression and lysis are measured independently: PLA1 is expressed first, in bulk, and only then delivered to pre-formed vesicles.
@@ -325,12 +296,6 @@ The terminator and backbone sequences are not transcribed in the cell-free react
 
 :::{seqviz} ./dna/pOpen-TetO-PLA.gb
 :::
-
-<!-- Positions measured against the sequence below on 2026-10-11: total
-3140 bp; T7 promoter at base 5; tetO operator at base 26; g10 leader and RBS
-at base 90; PLA1 CDS 104 to 1075, which is 972 nt and 323 codons plus stop;
-T7 terminator at base 1076. AmpR and the pUC origin are not annotated, since
-the Doc gives no landmark for either. -->
 
 :::{admonition} Full sequence
 :class: dropdown
