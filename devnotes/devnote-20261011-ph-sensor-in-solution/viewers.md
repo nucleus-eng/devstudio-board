@@ -4,8 +4,7 @@ Per-well microscopy for pH Sensor Validation in Solution, as interactive viewers
 The well descriptions are in the tab-set captions on [the main page](./main.md), under Results.
 
 Each viewer opens with the same color and contrast stretch as the static figures on
-[the main page](./main.md): Rhodamine (`FFDC3C`) at 2410–50690, Alexa Fluor 647
-(`FF3C28`) at 1904–30863.
+[the main page](./main.md).
 
 ## D4 — pH 7.6, PLA1-GUV only
 :::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
