@@ -148,16 +148,3 @@ main.md:
   section: 'Results'
   text: |
     [`fig-5-background-subtracted`, notebook:`MK- 20260928-tetO-R-deGFP-CellsAndWells/MK-20260928- microscopy`, platemap:`20260928-MK-full-sensor-microscopy.csv`, data source:`deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet`, caption: (Background-subtracted quantification of Figure 4.)]
-- id: main-14
-  section: 'Conclusion'
-  text: |
-    # Resources
-- id: main-15
-  section: 'Conclusion'
-  text: |
-    - Plate map, bulk: [`experiments/MK-20260928-platemap-nucleus-bulk.csv`](./experiments/MK-20260928-platemap-nucleus-bulk.csv)
-    - Plate map, microscopy: [`experiments/20260928-MK-full-sensor-microscopy.csv`](./experiments/20260928-MK-full-sensor-microscopy.csv)
-    - Analysis notebook, plate reader: [`experiments/MK-20260928-platereader.ipynb`](./experiments/MK-20260928-platereader.ipynb)
-    - Analysis notebook, microscopy: [`experiments/MK-20260928-microscopy.ipynb`](./experiments/MK-20260928-microscopy.ipynb)
-    - Microscopy image store: [the OME-Zarr plate on data.nucleus.engineering](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.zarr)
-    - Microscopy per-object measurements: [the parquet beside that plate](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet)

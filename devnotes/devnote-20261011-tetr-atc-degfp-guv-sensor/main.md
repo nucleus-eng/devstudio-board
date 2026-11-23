@@ -553,3 +553,22 @@ deGFP expressed robustly in bulk PURE and after encapsulation in GUVs. TetR
 repressed the sensor effectively in both formats — 9.8-fold in bulk — and aTc
 relieved repression in both. In GUVs, induction increased with aTc up to 1 µM,
 the highest dose tested.
+
+---
+
+# Resources
+
+Platemaps.
+
+- [`experiments/MK-20260928-platemap-nucleus-bulk.csv`](./experiments/MK-20260928-platemap-nucleus-bulk.csv)
+- [`experiments/20260928-MK-full-sensor-microscopy.csv`](./experiments/20260928-MK-full-sensor-microscopy.csv)
+
+Analysis notebooks.
+
+- [`experiments/MK-20260928-platereader.ipynb`](./experiments/MK-20260928-platereader.ipynb)
+- [`experiments/MK-20260928-microscopy.ipynb`](./experiments/MK-20260928-microscopy.ipynb)
+
+Microscopy data, hosted on data.nucleus.engineering.
+
+- [`deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.zarr`](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.zarr)
+- [`deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet`](https://data.nucleus.engineering/microscopy/nucleus-bnext-01/deGFP-GUV-PegNB-Soln_2026-09-28_17-44-06.899443.parquet)
