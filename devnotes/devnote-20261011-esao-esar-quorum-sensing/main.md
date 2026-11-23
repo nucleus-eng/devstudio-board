@@ -2,10 +2,6 @@
 title: 'Quorum Sensing in Nucleus Cytosol using EsaO/EsaR Transcriptional Regulation'
 ---
 
-<!-- This page's own frontmatter title is required so MyST does not fall back
-to this page's first heading ("Abstract") as the page title: without it, the
-project title from `curvenote.yml` never renders. -->
-
 # Abstract
 
 Over an intense 3-week collaboration at DevStudio, we set out to build developer cells that sense a bacterial-derived acyl-homoserine lactone signal. We leveraged EsaR/EsaO transcriptional regulation, an established quorum-sensing system {cite}`shong2013,minogue2002` in which the EsaR repressor blocks transcription until its signal is present. Previous implementations of this system in PURE co-expressed EsaR alongside the sensor construct, allowing early unrepressed transcription before EsaR accumulated {cite}`tang2018,chizzolini2017`. We improved this by pre-expressing EsaR separately before use and by adding a second EsaO operator to deepen repression. EsaR is first expressed in Nucleus cytosol, then added to the sensor reaction afterward, keeping the EsaO operator sites occupied from the start. We optimised repression by exploring several reaction conditions such as EsaR template competition and lower reaction temperatures, with the best condition reaching a 5.8-fold change between 'on' and 'off' states. We then encapsulated the sensor inside GUVs, producing developer cells that successfully detected exogenously added AHSL. We present these developer cells as a starting point for the construction of a synthetic cell device capable of sensing contaminated surfaces.
