@@ -4,9 +4,6 @@ Per-well microscopy for GFP expression in hydrogels, as interactive
 viewers. The well descriptions are on [the main page](./main.md), under
 Results.
 
-Each viewer opens at the store's own default contrast and timepoint. The
-static figures on the main page use their own per-group stretch instead.
-
 ## E12 — GFP-GUVs+LUVs in solution
 
 :::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
