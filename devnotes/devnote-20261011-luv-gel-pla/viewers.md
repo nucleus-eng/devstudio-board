@@ -16,8 +16,6 @@ Results.
 }
 :::
 
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/E/12/0`, caption: (GFP-GUVs+LUVs in solution, well E12.)]
-
 ## G12 — outer-solution-only control
 
 :::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
@@ -29,8 +27,6 @@ Results.
     "menuOpen": true
 }
 :::
-
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB_2026-10-06_12-23-15.511547.zarr/G/12/0`, caption: (Outer-solution-only control, well G12.)]
 
 ## E14 — GFP-GUVs+LUVs in PEG4Nb pre-gel
 
@@ -44,8 +40,6 @@ Results.
 }
 :::
 
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/14/0`, caption: (GFP-GUVs+LUVs in PEG4Nb pre-gel, well E14.)]
-
 ## E15 — GFP-GUVs+LUVs in ULGA, z-stack
 
 :::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
@@ -57,8 +51,6 @@ Results.
     "menuOpen": true
 }
 :::
-
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/15/0`, caption: (GFP-GUVs+LUVs in ULGA, well E15, z-stack.)]
 
 ## E16 — GFP-GUVs+LUVs in LGA
 
@@ -72,8 +64,6 @@ Results.
 }
 :::
 
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/16/0`, caption: (GFP-GUVs+LUVs in LGA, well E16.)]
-
 ## E21 — GFP-GUVs+LUVs in PEG4Nb gel
 
 :::{anywidget} ../../plugins/vizarr/vizarr-viewer.mjs
@@ -86,4 +76,3 @@ Results.
 }
 :::
 
-[zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr/E/21/0`, caption: (GFP-GUVs+LUVs in PEG4Nb gel, well E21.)]
