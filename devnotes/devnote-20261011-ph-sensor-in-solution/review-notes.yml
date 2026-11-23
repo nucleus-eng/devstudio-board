@@ -72,3 +72,37 @@ main.md:
 
     **`H4` receives no pH buffer.** It takes 0 µL of the energy solution mix, which carries the pH-setting buffer. Its recorded pH of 7.6 comes from the build sheet's column header, not from anything added to the well.
     ::::
+viewers.md:
+- id: viewer-01
+  section: 'Interactive viewers'
+  text: |
+    Implementation notes, not for the reader. The viewers are stacked rather than
+    tabbed: the Vizarr widget creates its viewer on a detached element with no
+    width and never re-measures, so any instance hidden when the page mounts
+    renders blank permanently. Each viewer sets "menuOpen": true, because the
+    widget starts its sidebar closed by default and that sidebar holds the
+    per-channel contrast sliders a reader needs.
+
+    Each viewer also sets colors and contrast_limits, one entry per channel in
+    the store's own order: Rhodamine first, then Alexa Fluor 647. These are an
+    authoring choice, not a correction. They are the values
+    figures/fov-render-params.json records for the static figures on main.md:
+    the 1.0 to 99.5 percentile stretch picked to show the phenomenon this
+    DevNote reports. What the stores carry natively is not a better answer
+    these keys override: each one says FF0000 and 0000FF across a window of 0
+    to 65535, the full 16-bit range the acquisition wrote, and a viewer without
+    these keys opens almost black as a result. Vizarr will not take color/window
+    values from its own image config either; it reads them from the store's
+    omero metadata whenever that block exists, and ignores what it is handed,
+    so the widget applies these values to that metadata on its way in.
+
+    The viewers point at ../../plugins/vizarr/vizarr-viewer.mjs rather than the
+    widget on curvenote.github.io. myst-theme mounts an anywidget inside a
+    shadow root; the style tags Material-UI and vizarr inject into
+    document.head do not cross that boundary, so the upstream widget renders
+    with labels, zero-sized sliders and no stacking of its own. The local copy
+    mirrors those styles into the shadow root.
+
+    These viewers do not survive JATS conversion, and neither does the tab set
+    of the same four wells on main.md. The archived record of this result is
+    the prose description under each well, not an image.
