@@ -1,5 +1,5 @@
 ---
-title: 'Implementing of a bulk color change module into bacterial quorum sensing'
+title: 'Implementation of a bulk color change module into bacterial quorum sensing'
 thumbnail: ./figures/colorchange-overnight.png
 ---
 

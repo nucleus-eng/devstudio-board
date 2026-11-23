@@ -3,7 +3,7 @@ project:
   banner: banner-devcells.webp
   # Title confirmed by Anton in chat, 2026-10-12. Matches the Doc's own
   # first line; no Specification table exists in the source.
-  title: 'Implementing of a bulk color change module into bacterial quorum sensing'
+  title: 'Implementation of a bulk color change module into bacterial quorum sensing'
   description: >
     A LuxR/lux-box circuit expresses PLA1 in response to AHL, lysing
     dye-loaded storage vesicles inside GUVs and releasing CPRG for cleavage
