@@ -2,10 +2,6 @@
 title: 'Two Vesicle Colorimetric pH Sensor System'
 ---
 
-<!-- This page's own frontmatter title is required so MyST does not fall back
-to this page's first heading ("Overview") as the page title: without it, the
-project title from `curvenote.yml` never renders. -->
-
 # Overview
 
 The pH-sensing developer cells detect acidic conditions (pH 6.0–6.5) using a pH-responsive ssDNA system [](https://doi.org/10.1101/2025.11.16.688650). Acidification releases a trigger ssDNA, which activates a toehold switch RNA and induces expression of the protein of interest. To generate a visible colorimetric output, a two-vesicle population system is used. Upon sensing acidic pH, the sensor cells express phospholipase A1 (PLA1), which disrupts neighboring CPRG-loaded vesicles and releases CPRG into the surrounding solution. External β-galactosidase then converts the yellow CPRG substrate into purple CPR, producing a visible color change.

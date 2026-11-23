@@ -2,10 +2,6 @@
 title: 'Triggered Lysis of beta-Galactosidase-Loaded GUVs by Cell-Free Expressed Phospholipase A1'
 ---
 
-<!-- This page's own frontmatter title is required so MyST does not fall back
-to this page's first heading as the page title: without it, the project
-title from `curvenote.yml` never renders. -->
-
 # Abstract
 
 We ask whether phospholipase A1 (PLA1) produced in a cell-free reaction can lyse giant unilamellar vesicles (GUVs) when supplied from the outside, and whether that lytic activity can be placed under TetR/anhydrotetracycline (aTc) control. The assay is deliberately split into two stages so that expression and lysis are measured independently: PLA1 is expressed first, in bulk, and only then delivered to pre-formed vesicles.

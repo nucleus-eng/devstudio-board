@@ -2,10 +2,6 @@
 title: 'Understanding Liposome Behaviour in Hydrogel Matrices'
 ---
 
-<!-- This page's own frontmatter title is required so MyST does not fall back
-to this page's first heading ("Abstract") as the page title: without it, the
-project title from `curvenote.yml` never renders. -->
-
 # Abstract
 
 Vesicle-based synthetic cells and cell-free expression systems have so far been
