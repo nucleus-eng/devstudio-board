@@ -178,8 +178,6 @@ and is initially yellow. CPR is the coloured product, red to pink-purple
 depending on conditions.
 :::
 
-Plate map: `15-QRtbOExMxpLzzK5mwe1lvsUzQgJlNAuqf9PWi7KRs`.
-
 **Plating conditions**
 
 - Vesicles in outer solution only, no gel, serve as the reference control.
@@ -225,9 +223,7 @@ are descriptive and not statistically tested.
 
 ## GFP-expressing GUVs
 
-Plate map 2: `15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug`.
-
-Wells, as the source lists them:
+The following conditions were tested per well:
 
 - E12: GFP-GUVs+LUVs in solution and G12 is control
 - E15: GFP-GUVs+LUVs in ULGA and G15 is control
@@ -239,31 +235,16 @@ All four GFP-GUV gel conditions are shown as interactive viewers,
 deep-linked by well, on [Interactive viewers](./viewers.md). So are the
 solution condition and its control: E12, G12, E14, E15, E16 and E21.
 
-Archival figures for the four gel conditions, one field of view each, are
-below, stitched into one image with each well's label as its panel
-header. Each panel is a single z-plane, a centre crop covering 1/9 of
-the field's area. Brightfield is blended in at low weight for the gel
-matrix as context.
-
 GFP contrast is grouped where the two wells' signal levels allow it, and
-kept per-well otherwise. The PEG4Nb pre-gel and gel wells (E14, E21)
-share one stretch, 11864 to 20155 counts, since their GFP medians are
-close. ULGA and LGA (E15, E16) do not share a window. E15's whole GFP
-distribution sits close to E16's ceiling. Pooling the two, even with the
-high percentile raised to 99.99, left E15 a near-uniform wash and E16
-almost dark. E15 is stretched at 8405 to 11247 counts, and E16 at 4158
-to 7020 counts, each its own 50th-to-99.9th percentile. See
-`general/render-microscopy-fovs.py` and `figures/fov-render-params.json`
-for the full method.
+kept per-well otherwise.
 
 :::{figure} ./figures/fov-composite.png
 :label: fig-fov-composite
 :align: center
 :width: 85%
 GFP-GUVs+LUVs across the four gel conditions, one field of view each.
-PEG4Nb pre-gel (E14) and PEG4Nb gel (E21) share a GFP stretch of 11864
-to 20155 counts. ULGA (E15) is stretched at 8405 to 11247 counts, and
-LGA (E16) at 4158 to 7020 counts, each on its own. The two wells' GFP
+PEG4Nb pre-gel (E14) and PEG4Nb gel (E21) share a GFP stretch. ULGA
+(E15) and LGA (E16) are each stretched on their own; the two wells' GFP
 levels do not share a usable common window. Brightfield is blended in
 at 25% weight as gel-matrix context.
 :::
