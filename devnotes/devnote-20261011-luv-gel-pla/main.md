@@ -178,8 +178,6 @@ and is initially yellow. CPR is the coloured product, red to pink-purple
 depending on conditions.
 :::
 
-Plate map: `15-QRtbOExMxpLzzK5mwe1lvsUzQgJlNAuqf9PWi7KRs`.
-
 **Plating conditions**
 
 - Vesicles in outer solution only, no gel, serve as the reference control.
@@ -225,8 +223,6 @@ are descriptive and not statistically tested.
 
 ## GFP-expressing GUVs
 
-Plate map 2: `15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug`.
-
 Wells, as the source lists them:
 
 - E12: GFP-GUVs+LUVs in solution and G12 is control
@@ -246,15 +242,9 @@ the field's area. Brightfield is blended in at low weight for the gel
 matrix as context.
 
 GFP contrast is grouped where the two wells' signal levels allow it, and
-kept per-well otherwise. The PEG4Nb pre-gel and gel wells (E14, E21)
-share one stretch, 11864 to 20155 counts, since their GFP medians are
-close. ULGA and LGA (E15, E16) do not share a window. E15's whole GFP
-distribution sits close to E16's ceiling. Pooling the two, even with the
-high percentile raised to 99.99, left E15 a near-uniform wash and E16
-almost dark. E15 is stretched at 8405 to 11247 counts, and E16 at 4158
-to 7020 counts, each its own 50th-to-99.9th percentile. See
-`general/render-microscopy-fovs.py` and `figures/fov-render-params.json`
-for the full method.
+kept per-well otherwise; see the figure caption below for the stretch
+used per well, and `general/render-microscopy-fovs.py` with
+`figures/fov-render-params.json` for the full method.
 
 :::{figure} ./figures/fov-composite.png
 :label: fig-fov-composite
