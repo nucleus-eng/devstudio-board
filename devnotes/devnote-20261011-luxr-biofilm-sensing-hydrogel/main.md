@@ -304,8 +304,7 @@ dependency on HSL entering the cell and activating mNeonGreen expression.
 
 The three conditions are shown as interactive viewers, one well per
 condition, on
-[2026-10-08 — Interactive viewer](./2026-10-08-interactive-viewer.md). That
-page carries the open questions on contrast and timepoint.
+[2026-10-08 — Interactive viewer](./2026-10-08-interactive-viewer.md).
 
 :::{figure} ./figures/fov-wells.png
 :label: fig-fov-wells
