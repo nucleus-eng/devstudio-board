@@ -312,7 +312,7 @@ centrifugation.
 **Check this before running.** As written, 800 µL of 1 M HEPES gives 800 mM
 HEPES, which is far above a normal buffer concentration and would badly
 overshoot the inner solution osmolarity. The likely intent is a lower HEPES
-stock or a much smaller HEPES volume with water to 1000 µL. See open items.
+stock or a much smaller HEPES volume with water to 1000 µL.
 
 Prepare ~200 µL outer solution per condition: 100 µL as the receiving layer and
 100 µL for resuspension. Match the outer osmolarity to the inner solution; a
