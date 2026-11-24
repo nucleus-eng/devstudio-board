@@ -31,6 +31,8 @@ project:
   # Order changed 2026-11-24 per Julia's comment: Niall and Julia are
   # co-first authors (Niall wrote most of the devnote and ran much of the
   # experimental work), listed alphabetically between the two below.
+  # Remaining authors also reordered 2026-11-24 to be alphabetical by last
+  # name within that tier: Bibrowski, McDonald, Newell.
   authors:
     - name: Niall McIntyre
       email: niall.mcintyre16@imperial.ac.uk
@@ -49,17 +51,17 @@ project:
       affiliations:
         - imperial
       id: contributors-curvenote-generated-uid-2
+    - name: Jonah McDonald
+      email: Jonah.McDonald@kcl.ac.uk
+      affiliations:
+        - kcl
+      id: contributors-curvenote-generated-uid-4
     - name: Charlie Newell
       email: charlie.newell.21@ucl.ac.uk
       affiliations:
         - ucl
       id: contributors-curvenote-generated-uid-3
       orcid: 0000-0001-9208-7542
-    - name: Jonah McDonald
-      email: Jonah.McDonald@kcl.ac.uk
-      affiliations:
-        - kcl
-      id: contributors-curvenote-generated-uid-4
   affiliations:
     - id: imperial
       name: Imperial College London
