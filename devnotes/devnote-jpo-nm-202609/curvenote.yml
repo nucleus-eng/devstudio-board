@@ -15,20 +15,25 @@ project:
     3-oxo-C6-HSL from purified standard or bacterial supernatant.
   # Author list supplied by Anton, 2026-10-12, replacing the two-author list
   # Anton supplied on 2026-10-05. No Authors table exists in any source.
+  # Order changed 2026-11-24 per Julia's comment: Niall and Julia are
+  # co-first authors (Niall wrote most of the devnote and ran much of the
+  # experimental work), listed alphabetically between the two below.
   # REVIEW: affiliations are read off each author's email domain, not stated
   # by any author.
   # REVIEW: no ORCID is recorded for any author.
   authors:
-    - name: Julia Purrinos de Oliveira
-      email: j.purrinosdeoliveira@imperial.ac.uk
-      affiliations:
-        - imperial
-      id: contributors-curvenote-generated-uid-0
     - name: Niall McIntyre
       email: niall.mcintyre16@imperial.ac.uk
       affiliations:
         - imperial
+      equal_contributor: true
       id: contributors-curvenote-generated-uid-1
+    - name: Julia Purrinos de Oliveira
+      email: j.purrinosdeoliveira@imperial.ac.uk
+      affiliations:
+        - imperial
+      equal_contributor: true
+      id: contributors-curvenote-generated-uid-0
     - name: Manuel Bibrowski
       email: manuel.bibrowski25@imperial.ac.uk
       affiliations:

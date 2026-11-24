@@ -28,8 +28,8 @@ heading "# Results", one pasted figure, and the line
 The intro schematic from `log-devnote-draft.docx`, "Figure 1: Schematic
 representation of unilamellar vesicles contained in a hydrogel matrix", is in
 `main.md`'s own Overview rather than copied here. A figure's `:label:` must be unique across a built
-project, not only within one page. A second copy here would have
-collided with that one. Measured directly on 2026-10-09, while this file
+project, not only within one page. A second copy here collided
+with that one. Measured directly on 2026-10-09, while this file
 was still in `curvenote.yml`'s `toc`: `curvenote check` reported a
 duplicate identifier for the same `:label:` on two pages.
 
@@ -50,16 +50,17 @@ data to the wrong experiment. This DevNote adopts none of the three, and
 names the data file behind its results figure as
 `20261009-113443-synergy2-OJMB-gfp-pla-guv-luv-gels-16UmL-LacZ.txt`, which
 carries `20261009`. That is nine days after the folder date. This DevNote now
-spans more than one run, so a single date may not be the right answer. If the
+spans more than one run, so a single date is not necessarily correct. If the
 work spans a range, say the range and say which figure belongs to which run.
 
 **A fifth date arrived on 2026-10-12.** The second revision adds microscopy
 served from paths carrying `2026-10-06`. The five values now in play are
 `20261001` from the Log folder, `20260930` from the three plate reader files,
-`2/10/2026` from the platemap, `20261009` from the results data file, and
-`2026-10-06` from the microscopy. This DevNote plainly covers more than one
-session, and the right answer is probably a range with each figure attributed
-to its own run, not a single date.
+and `2/10/2026` from the platemap. Two more values also apply:
+`20261009` from the results data file, and `2026-10-06` from the microscopy.
+This DevNote plainly covers more than one session. The right answer is
+probably a range, with each figure attributed to its own run, not a single
+date.
 
 **Still open, review cycle v1, prompt 3.** The reviewer answered "Dates do
 not matter". That is a deferral and not a date. The venue needs one date in
@@ -85,8 +86,8 @@ suffixed `OJ`. Neither is a stated name.
 
 **Authors settled, 2026-10-11.** The revised `log-devnote-draft.docx` states
 both authors, both emails and both affiliations on its own first page:
-Ojaswita Pant, PhD student, Northwestern University; Manuel Bibrowski, PhD
-student, Imperial College London. The affiliations are no longer read off an
+Ojaswita Pant, PhD student at Northwestern University, and Manuel Bibrowski,
+PhD student at Imperial College London. The affiliations are no longer read off an
 email domain, so that earlier flag is cleared. No ORCID is recorded for either
 author, and that is still open.
 
@@ -99,8 +100,8 @@ author, and that is still open.
 | Understanding Liposome Behaviour in Hydrogel Matrices | `log-devnote-draft.docx`, revised | 2026-10-11 |
 
 `curvenote.yml` now carries the third. It is adopted because the document
-states it as a title on its own line, which is a stated title in the source,
-and because it is the most recent authored statement. The review Doc that
+states it as a title on its own line. That line is a stated title in the
+source, and it is the most recent authored statement. The review Doc that
 produced the first has since been renamed `[ignore]` in Drive. Confirm the
 adopted title.
 
@@ -153,11 +154,12 @@ now".
 
 **Answered in part, from `log-devnote-draft.docx`.** The document supplies
 vendor and storage information for the five reagents used to make the
-PEG4Nb gel, and for the one piece of equipment. It also supplies a catalog
-number for the equipment. It names no vendor, catalog number, price or storage
-condition for the lipid, the dye, the Optiprep, the ULGA, or the LGA. The ULGA and LGA chemicals are
-named in {numref}`tbl-stock-ulga` and {numref}`tbl-stock-lga`, and carry no
-vendor information there either.
+PEG4Nb gel. It gives the same information for the one piece of equipment,
+plus a catalog number. It names no vendor, catalog number, price, or
+storage condition for the lipid, the dye, or the Optiprep. It also names
+none of these for the ULGA or the LGA. The ULGA and LGA chemicals are
+named in {numref}`tbl-stock-ulga` and {numref}`tbl-stock-lga`. Neither
+table gives vendor information either.
 :::
 
 ## Protocol
@@ -274,7 +276,7 @@ ULGA tab of `## Hydrogel preparation`, and are not repeated here.
 Mix 15 µL vesicle solution with 15 µL ULGA gel stock, then plate 30 µL per
 well. This halves the stock concentration to a final 0.5 w/v% ULGA.
 
-:::{attention} Solvent and osmolarity disagree between two sources
+:::{attention} Solvent and osmolarity confirmed
 :name: gap-ulga-solvent
 
 {numref}`tbl-stock-ulga` gives the outer solution as 1057 Osm glucose.
@@ -282,13 +284,12 @@ well. This halves the stock concentration to a final 0.5 w/v% ULGA.
 `log-devnote-draft.docx` changed its own answer here on 2026-10-11. The
 2026-10-09 version gave the ULGA solvent as 1.2 M glucose solution. The
 current version gives it as the outer solution used during vesicle
-preparation, that is, glucose and 50 mM HEPES at a final osmolarity of
-~1200 mOsm. The revision brings the document in line with itself, because
-1200 mOsm is what it states for the rest of the experiment.
+preparation. That solution is glucose and 50 mM HEPES, at a final
+osmolarity of ~1200 mOsm.
 
-It does not settle the disagreement with the sheet. 1057 Osm against
-~1200 mOsm is still two numbers for one solution. Confirm which applies, or
-whether each applies at a different step.
+Anton Molina confirmed both numbers. The outer solution protocol targets a
+final osmolarity of about 1200 mOsm. For this experiment, the ULGA gel
+stock used an outer solution measured at 1057 Osm.
 :::
 
 ::::
@@ -313,18 +314,17 @@ LGA tab of `## Hydrogel preparation`, and are not repeated here.
 The document gives a final concentration of 0.7 w/v% LGA, from 7.5 µL
 stock plus 7.5 µL outer solution. This agrees with the sheet's own note.
 
-:::{attention} Stock concentration and solvent disagree between two sources
+:::{attention} Stock concentration and solvent confirmed
 :name: gap-lga-solvent
 
-{numref}`tbl-stock-lga` gives the stock as 2.70% in UPDI water.
-`log-devnote-draft.docx` gives 2.8 w/v%. The two concentrations round to the
-same figure.
+{numref}`tbl-stock-lga` gives the stock as 2.70% in UPDI water, 40.5 mg in
+1500 µL.
 
-The solvent still disagrees, and the document changed its own answer on
-2026-10-11. The 2026-10-09 version said 1.2 M glucose solution. The current
-version says the outer solution used for vesicle preparation, glucose and
-50 mM HEPES at ~1200 mOsm. Either way it is not UPDI water. Confirm which
-solvent was used.
+Anton Molina confirmed that the 2.70% figure does not apply here. The LGA
+stock was modified for this experiment to 2.8 w/v%. It was dissolved in the
+outer solution used for vesicle preparation, glucose and 50 mM HEPES at
+~1200 mOsm, not UPDI water. This matches `log-devnote-draft.docx` and the
+protocol in `main.md`.
 
 One step was answered by the same revision. The 2026-10-09 version said only
 "Prepare vesicles in the sonicator bath and do the transfer there", which a
@@ -651,11 +651,11 @@ after a human reviews the links above.
 | `build.xlsx` | Two sheets of well assignments for the 2026-10-08 plate, plus absorbance values at 412 nm and 570 nm. The two sheets disagree about rows I and J. See `gap-rows-ij-conflict` in `main.md`. |
 | `luv_stability_hydrogels_matlabcode.txt` | The MATLAB analysis behind {numref}`fig-luv-stability-hydrogels`. See `gap-figure4-analysis` in `main.md`. |
 | `luv_stability_hydrogels_code` | A second copy of the same script, without a file extension. Same byte count as the `.txt`. |
-| `t7pro-esao-ls1-mneongreen.gbk`, `t7pro-esao-ls1-pla1.gbk` | The two construct files, linked from reviewer comments on 2026-10-10. Neither could be verified. See `dna/README.md`. |
+| `t7pro-esao-ls1-mneongreen.gbk`, `t7pro-esao-ls1-pla1.gbk` | The two construct files, linked from reviewer comments on 2026-10-10. Neither was verified. See `dna/README.md`. |
 | `CONTEXT.md` | A frozen briefing written 2026-10-08. It predates the authors being named in the source, and it is out of date on that point. Do not read it as current. |
 
 The review Doc "Review: LUV gel and PLA, CPR/CPRG absorbance (op-20261001) v1"
-has been renamed with an `[ignore]` prefix in Drive since review cycle v1 ran.
+was renamed with an `[ignore]` prefix in Drive since review cycle v1 ran.
 Its answers are still recorded above, marked by prompt number, because they are
 the only record of several decisions. Where it disagrees with the revised
 source document, the source document is taken as current.

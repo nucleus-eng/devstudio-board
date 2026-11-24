@@ -96,20 +96,38 @@ def draw(name, well, um_per_px, arr):
 
     path = f'{OUTDIR}/fov-{well.lower()}.png'
     img.save(path)
-    return path, bar_um
+    return path, bar_um, img
 
 
 def main():
     params = {'zoom': ZOOM, 'target': TARGET, 't': T, 'gfp_channel': GFP_CHANNEL,
               'window': WINDOW, 'out_px': OUT_PX, 'wells': {}}
+    panels = []
     for name, well, path_in_store in WELLS:
         um_per_px, arr = load(STORE, path_in_store, TARGET)
-        out_path, bar_um = draw(name, well, um_per_px, arr)
+        out_path, bar_um, img = draw(name, well, um_per_px, arr)
         print(f'  -> {out_path}  {OUT_PX}x{OUT_PX} px  bar {bar_um} um')
         params['wells'][well] = {'condition': name, 'um_per_px': um_per_px,
                                   'bar_um': bar_um}
+        panels.append(img)
     with open(f'{OUTDIR}/fov-render-params.json', 'w') as handle:
         json.dump(params, handle, indent=1)
+
+    # One stitched image, left to right in WELLS order, each panel already
+    # labeled with its own well and condition and a scale bar. A single
+    # image lets the devnote use one plain figure with one caption, instead
+    # of three subfigures the theme cannot lay out in a row with a
+    # full-width caption.
+    gap = max(4, int(panels[0].width * 0.01))
+    stitched = Image.new('RGB', (sum(p.width for p in panels) + gap * (len(panels) - 1),
+                                  panels[0].height), color=(0, 0, 0))
+    x = 0
+    for p in panels:
+        stitched.paste(p, (x, 0))
+        x += p.width + gap
+    stitched_path = f'{OUTDIR}/fov-wells.png'
+    stitched.save(stitched_path)
+    print(f'  -> {stitched_path} {stitched.size}')
 
 
 if __name__ == '__main__':

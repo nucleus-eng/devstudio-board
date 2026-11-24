@@ -51,6 +51,26 @@
         "cd '/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-luxr-ahl' && exec curvenote start --port 3103"
       ],
       "port": 3103
+    },
+    {
+      "name": "curvenote-jpo-nm",
+      "cwd": "/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-jpo-nm-202609",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "cd '/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-jpo-nm-202609' && exec curvenote start --port 3104"
+      ],
+      "port": 3104
+    },
+    {
+      "name": "curvenote-op-luv-gel-pla",
+      "cwd": "/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-op-20261001-luv-gel-pla",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "cd '/Users/antonmolina/Documents/code/devstudio-board/devnotes/devnote-op-20261001-luv-gel-pla' && exec curvenote start --port 3105"
+      ],
+      "port": 3105
     }
   ]
 }

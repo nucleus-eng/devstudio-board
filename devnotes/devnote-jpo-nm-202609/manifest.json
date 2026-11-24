@@ -62,7 +62,7 @@
       "pattern": "static-png",
       "cell_label": null,
       "source_notebook": null,
-      "platemap": null,
+      "platemap": "experiments/20261005-solution-hsl-platemap.csv",
       "data_source": "Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/4/0",
       "zarr_url": null,
       "section_context": "Result 2, solution subsection, condition: HSL sensing GUVs",
@@ -72,8 +72,8 @@
         "Representative well for the HSL sensing GUVs condition (J3, J4, J5): the triplicate's middle well, for consistency with the Result 3 naming (C4, C7, C10).",
         "No notebook exists for this figure. Generated 2026-10-12.",
         "This store's dynamic range is far lower than the Result 3 store; the fixed 30000-60000 window used there would render this well almost entirely black, so a pooled-percentile window was computed instead.",
-        "No platemap exists yet for this store, so platemap is null rather than a filename.",
-        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+        "Platemap vendored 2026-11-19 as a CSV from the 'Microscopy_GUVs_solution_10uM_HSL_Niall_platemap' Google Sheet, replacing the earlier null value.",
+        "asset_chain_complete is false because no notebook is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
       ]
     },
     {
@@ -81,7 +81,7 @@
       "pattern": "static-png",
       "cell_label": null,
       "source_notebook": null,
-      "platemap": null,
+      "platemap": "experiments/20261005-solution-hsl-platemap.csv",
       "data_source": "Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/7/0",
       "zarr_url": null,
       "section_context": "Result 2, solution subsection, condition: negative control",
@@ -91,8 +91,8 @@
         "Representative well for the negative control condition (J6, J7, J8): the triplicate's middle well.",
         "A diagonal streak in the lower right is debris or a fiber on the plate, not biological signal; carried as imaged.",
         "No notebook exists for this figure. Generated 2026-10-12.",
-        "No platemap exists yet for this store, so platemap is null rather than a filename.",
-        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+        "Platemap vendored 2026-11-19 as a CSV from the 'Microscopy_GUVs_solution_10uM_HSL_Niall_platemap' Google Sheet, replacing the earlier null value.",
+        "asset_chain_complete is false because no notebook is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
       ]
     },
     {
@@ -100,7 +100,7 @@
       "pattern": "static-png",
       "cell_label": null,
       "source_notebook": null,
-      "platemap": null,
+      "platemap": "experiments/20261005-solution-hsl-platemap.csv",
       "data_source": "Lysate_LuxR_Cytosol_EsaR_2026-10-05_18-59-02.423661.zarr/J/10/0",
       "zarr_url": null,
       "section_context": "Result 2, solution subsection, condition: constitutive control",
@@ -110,8 +110,8 @@
         "Representative well for the constitutive control condition (J9, J10, J11): the triplicate's middle well.",
         "Brightest and densest of the three, consistent with the Doc's narrative that the constitutive control expresses faster and higher than the HSL-induced condition.",
         "No notebook exists for this figure. Generated 2026-10-12.",
-        "No platemap exists yet for this store, so platemap is null rather than a filename.",
-        "asset_chain_complete is false because neither a notebook nor a platemap is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
+        "Platemap vendored 2026-11-19 as a CSV from the 'Microscopy_GUVs_solution_10uM_HSL_Niall_platemap' Google Sheet, replacing the earlier null value.",
+        "asset_chain_complete is false because no notebook is confirmed present, per Step 5 of devstudio-log-to-devnote-m."
       ]
     },
     {

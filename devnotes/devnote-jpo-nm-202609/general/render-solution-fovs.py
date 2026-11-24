@@ -69,6 +69,7 @@ def main():
     font_path = os.path.join(matplotlib.get_data_path(), 'fonts', 'ttf', 'DejaVuSans.ttf')
     bar_px = round(BAR_UM / UM_PER_PX)
 
+    panels = []
     for name, well, path in WELLS:
         frame = frames[well]
         norm = np.clip((frame - lo) / (hi - lo), 0, 1)
@@ -84,14 +85,29 @@ def main():
                        fill=(255, 255, 255))
         label = f'{BAR_UM} µm'
         box = draw.textbbox((0, 0), label, font=font)
-        draw.text((x0 + (bar_px - (box[2] - box[0])) / 2,
-                   y0 - (box[3] - box[1]) - int(img.height * 0.02)),
+        draw.text((x0, y0 - (box[3] - box[1]) - int(img.height * 0.02)),
                   label, fill=(255, 255, 255), font=font)
         draw.text((margin, margin), well, fill=(255, 255, 255), font=font)
 
         path_out = f'{OUTDIR}/solution-{well.lower()}.png'
         img.save(path_out)
         print(f'  -> {path_out} {img.size}')
+        panels.append(img)
+
+    # One stitched image, left to right in WELLS order, each panel already
+    # labeled with its own well ID and scale bar. A single image lets the
+    # devnote use one plain figure with one caption, instead of three
+    # subfigures the theme cannot lay out in a row with a full-width caption.
+    gap = max(4, int(panels[0].width * 0.01))
+    stitched = Image.new('RGB', (sum(p.width for p in panels) + gap * (len(panels) - 1),
+                                  panels[0].height), color=(0, 0, 0))
+    x = 0
+    for p in panels:
+        stitched.paste(p, (x, 0))
+        x += p.width + gap
+    stitched_path = f'{OUTDIR}/solution-wells.png'
+    stitched.save(stitched_path)
+    print(f'  -> {stitched_path} {stitched.size}')
 
     with open(f'{OUTDIR}/solution-fov-params.json', 'w') as handle:
         json.dump({'t': T, 'gfp_channel': GFP_CHANNEL,
