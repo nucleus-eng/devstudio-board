@@ -78,6 +78,31 @@ main.md:
   section: 'GFP-expressing GUVs'
   text: |
     [`fig-fov-composite`, file:`figures/fov-composite.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr`, caption: (GFP-GUVs+LUVs across the four gel conditions: E14, E21, E15, E16. Contrast limits and grouping in the figure caption above.)]
+- id: main-11
+  section: 'Experimental design'
+  text: |
+    Plate map: `15-QRtbOExMxpLzzK5mwe1lvsUzQgJlNAuqf9PWi7KRs`. A Drive file
+    id, not a link a reader without Drive access could open; recorded here
+    rather than on the page.
+- id: main-12
+  section: 'GFP-expressing GUVs'
+  text: |
+    Plate map 2: `15F2gLuDLFGxJRSbk73k1AJpaMZUq_iTpFFEllDdRHug`. Same as
+    main-11: a Drive file id, not a link a reader without Drive access
+    could open.
+- id: main-13
+  section: 'GFP-expressing GUVs'
+  text: |
+    Implementation notes, not for the reader. GFP contrast is grouped
+    where the two wells' signal levels allow it, and kept per-well
+    otherwise. The PEG4Nb pre-gel and gel wells (E14, E21) share one
+    stretch, 11864 to 20155 counts, since their GFP medians are close.
+    ULGA and LGA (E15, E16) do not share a window: E15's whole GFP
+    distribution sits close to E16's ceiling, and pooling the two, even
+    with the high percentile raised to 99.99, left E15 a near-uniform
+    wash and E16 almost dark. E15 is stretched at 8405 to 11247 counts,
+    and E16 at 4158 to 7020 counts, each its own 50th-to-99.9th
+    percentile.
 main-supplement.md:
 - id: supp-01
   section: ''
