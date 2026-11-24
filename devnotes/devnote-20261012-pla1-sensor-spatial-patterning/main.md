@@ -233,4 +233,4 @@ We should note that CF-TetR is added as a volume of cell-free material rather th
 - Lipids: POPC and cholesterol (ovine) 9:1, 0.1 mol% 18:1 Liss Rhodamine PE (Avanti)
 - CPRG, chlorophenol red-β-D-galactopyranoside, with purified β-galactosidase (Sigma-Aldrich)
 - Kelly, M. (2026). [Double emulsion optimization: inner solution, lipid concentration, and composition](https://devnotes.nucleus.engineering/articles/mk0407). Nucleus Developer Notes, mk0407 — GUV preparation protocol and outer solution formulation
-- Ojaswita's devnote — REVIEW: not linked in the source; likely this board's `devnote-20261011-luv-gel-pla`
+- Pant, O. & Bibrowski, M. (2026). [Understanding Liposome Behaviour in Hydrogel Matrices](https://devnotes.nucleus.engineering/articles/ln-20261011-02). Nucleus Developer Notes, ln-20261011-02 — PEG-norbornene (PEG-NB) hydrogel preparation
