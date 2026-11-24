@@ -223,7 +223,7 @@ are descriptive and not statistically tested.
 
 ## GFP-expressing GUVs
 
-Wells, as the source lists them:
+The following conditions were tested per well:
 
 - E12: GFP-GUVs+LUVs in solution and G12 is control
 - E15: GFP-GUVs+LUVs in ULGA and G15 is control
