@@ -235,25 +235,16 @@ All four GFP-GUV gel conditions are shown as interactive viewers,
 deep-linked by well, on [Interactive viewers](./viewers.md). So are the
 solution condition and its control: E12, G12, E14, E15, E16 and E21.
 
-Archival figures for the four gel conditions, one field of view each, are
-below, stitched into one image with each well's label as its panel
-header. Each panel is a single z-plane, a centre crop covering 1/9 of
-the field's area. Brightfield is blended in at low weight for the gel
-matrix as context.
-
 GFP contrast is grouped where the two wells' signal levels allow it, and
-kept per-well otherwise; see the figure caption below for the stretch
-used per well, and `general/render-microscopy-fovs.py` with
-`figures/fov-render-params.json` for the full method.
+kept per-well otherwise.
 
 :::{figure} ./figures/fov-composite.png
 :label: fig-fov-composite
 :align: center
 :width: 85%
 GFP-GUVs+LUVs across the four gel conditions, one field of view each.
-PEG4Nb pre-gel (E14) and PEG4Nb gel (E21) share a GFP stretch of 11864
-to 20155 counts. ULGA (E15) is stretched at 8405 to 11247 counts, and
-LGA (E16) at 4158 to 7020 counts, each on its own. The two wells' GFP
+PEG4Nb pre-gel (E14) and PEG4Nb gel (E21) share a GFP stretch. ULGA
+(E15) and LGA (E16) are each stretched on their own; the two wells' GFP
 levels do not share a usable common window. Brightfield is blended in
 at 25% weight as gel-matrix context.
 :::
