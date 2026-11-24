@@ -28,17 +28,22 @@ project:
   # matching the EsaR DevNote. Charlie Newell's ORCID (0000-0001-9208-7542),
   # on record only in the EsaR DevNote, is added here too, as a
   # non-conflicting addition rather than a correction.
+  # Order changed 2026-11-24 per Julia's comment: Niall and Julia are
+  # co-first authors (Niall wrote most of the devnote and ran much of the
+  # experimental work), listed alphabetically between the two below.
   authors:
-    - name: Julia Purrinos de Oliveira
-      email: j.purrinosdeoliveira@imperial.ac.uk
-      affiliations:
-        - imperial
-      id: contributors-curvenote-generated-uid-0
     - name: Niall McIntyre
       email: niall.mcintyre16@imperial.ac.uk
       affiliations:
         - imperial
+      equal_contributor: true
       id: contributors-curvenote-generated-uid-1
+    - name: Julia Purrinos de Oliveira
+      email: j.purrinosdeoliveira@imperial.ac.uk
+      affiliations:
+        - imperial
+      equal_contributor: true
+      id: contributors-curvenote-generated-uid-0
     - name: Manuel Bibrowski
       email: manuel.bibrowski25@imperial.ac.uk
       affiliations:
