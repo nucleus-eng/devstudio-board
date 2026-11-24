@@ -15,8 +15,6 @@ Each viewer below opens at the store's own default contrast and timepoint. The
 static figures on the main page use a different window instead, GFP 30000 to 60000
 at T = 19. Use the sliders below to match that window.
 
-<!-- review-notes.yml#c-viewer-01 -->
-
 ## C3 — HSL sensing GUVs
 
 :::{anywidget} ./general/vizarr-viewer-patched.js
