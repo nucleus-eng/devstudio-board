@@ -1,7 +1,8 @@
-# Review and provenance notes, archived from this devnote's HTML comments.
-# The source file no longer marks where each one used to sit. 'section' is
-# the nearest heading above the comment in the original source, for
-# orientation only.
+# Review and provenance notes, archived from this devnote's HTML comments and
+# from review admonitions that used to render on the published page. The
+# source file no longer marks where each one used to sit. 'section' is the
+# nearest heading above the entry in the original source, for orientation
+# only.
 
 main.md:
 - id: main-01
@@ -12,6 +13,49 @@ main.md:
 - id: main-02
   section: ''
   text: " This page stays close to `log-devnote-draft.docx`, re-read on 2026-10-12\nafter the authors revised it a second time. `main-supplement.md` holds the full\nanalysis chain for `OP-20261001`, every disagreement found between sources, and\nthe review history, so that page and this one do not restate each other. Title\nand authors live in `curvenote.yml`, as project frontmatter, and render on this\npage from there. They are not repeated here as body text. \n"
+- id: main-03
+  section: 'Vesicle preparation'
+  text: |
+    Four preparation values changed in the 2026-10-11 revision.
+    `log-devnote-draft.docx` was revised on 2026-10-11, after this DevNote first
+    folded it. Four values in the vesicle preparation differ from the version
+    folded on 2026-10-09. The current values are carried above.
+
+    | Step | Folded 2026-10-09 | Current source |
+    | --- | --- | --- |
+    | GUV lipid-in-oil sonication | ~30 min, no temperature | ~20 min at 30 °C |
+    | Emulsion pipetting | 9 times | ~10 times |
+    | Inner solution DNA | no concentration stated | 10 ng/mL |
+    | Construct names | T7-mNG, T7-PLA1 | T7-EsaO-mNG, T7-EsaO-PLA1 |
+
+    Construct names confirmed by Anton Molina, 2026-10-22: the constructs
+    actually used were the current source's values, T7-EsaO-mNG and T7-EsaO-PLA1,
+    not the earlier T7-mNG/T7-PLA1. The other three rows above are still
+    unconfirmed. Confirm the sonication time and temperature, the pipetting
+    count, and the inner solution DNA concentration are the current source's
+    values and not the 2026-10-09 ones, and say which runs they apply to. A
+    protocol that changed across the two weeks of work is expected, and is a
+    different thing from a correction. Say which this is.
+- id: main-04
+  section: 'Vesicle preparation'
+  text: |
+    The vesicle preparation has no extrusion step. The LUV preparation above is
+    hydration, vortex, sonication, 5 freeze-thaw cycles, then washes. No
+    extrusion step is stated, and no filter pore size is given anywhere in the
+    source. Confirm whether the vesicles were extruded. If they were, give the
+    pore size. If they were not, confirm that "LUV" is the intended label for
+    the population.
+- id: main-05
+  section: 'GFP-expressing GUVs'
+  text: |
+    Each well's store carries a second, unexplained GFP-labelled channel. The
+    four gel-condition wells each carry three channels. One is Brightfield. The
+    other two are both labelled `GFP` in the store's own omero metadata, at
+    different intensity ranges: roughly 9000 to 14000 counts for one, 4000 to
+    7000 for the other. The figures above use the first of the two. Nothing in
+    the source says what the second channel is, or which of the two is the
+    intended GFP read. Confirm this before citing either figure as
+    quantitative.
 main-supplement.md:
 - id: supp-01
   section: ''

@@ -97,40 +97,6 @@ Snapshot of the LUV pellet after 4 washes.
 
 ::::
 
-:::{attention} Four preparation values changed in the 2026-10-11 revision
-:name: gap-prep-values-changed
-
-`log-devnote-draft.docx` was revised on 2026-10-11, after this DevNote first
-folded it. Four values in the vesicle preparation differ from the version
-folded on 2026-10-09. The current values are carried above.
-
-| Step | Folded 2026-10-09 | Current source |
-| --- | --- | --- |
-| GUV lipid-in-oil sonication | ~30 min, no temperature | ~20 min at 30 °C |
-| Emulsion pipetting | 9 times | ~10 times |
-| Inner solution DNA | no concentration stated | 10 ng/mL |
-| Construct names | T7-mNG, T7-PLA1 | T7-EsaO-mNG, T7-EsaO-PLA1 |
-
-**Construct names confirmed by Anton Molina, 2026-10-22**: the constructs
-actually used were the current source's values, T7-EsaO-mNG and T7-EsaO-PLA1,
-not the earlier T7-mNG/T7-PLA1. The other three rows above are still
-unconfirmed. Confirm the sonication time and temperature, the pipetting
-count, and the inner solution DNA concentration are the current source's
-values and not the 2026-10-09 ones, and say which runs they apply to. A
-protocol that changed across the two weeks of work is expected, and is a
-different thing from a correction. Say which this is.
-:::
-
-:::{attention} The vesicle preparation has no extrusion step
-:name: gap-no-extrusion
-
-The LUV preparation above is hydration, vortex, sonication, 5 freeze-thaw
-cycles, then washes. No extrusion step is stated, and no filter pore size is
-given anywhere in the source. Confirm whether the vesicles were extruded. If
-they were, give the pore size. If they were not, confirm that "LUV" is the
-intended label for the population.
-:::
-
 ## Hydrogel preparation
 
 Three hydrogels were prepared and plated using inputs shared across the London
@@ -311,19 +277,6 @@ at 25% weight as gel-matrix context.
 :::
 
 [`fig-fov-composite`, file:`figures/fov-composite.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr`, caption: (GFP-GUVs+LUVs across the four gel conditions: E14, E21, E15, E16. Contrast limits and grouping in the figure caption above.)]
-
-:::{attention} Each well's store carries a second, unexplained GFP-labelled channel
-:name: gap-second-gfp-channel
-
-The four gel-condition wells each carry three channels. One is
-Brightfield. The other two are both labelled `GFP` in the store's own
-omero metadata, at different intensity ranges: roughly 9000 to 14000
-counts for one, 4000 to 7000 for the other. The figures above use the
-first of the two.
-Nothing in the source says what the second channel is, or which of the
-two is the intended GFP read. Confirm this before citing either figure
-as quantitative.
-:::
 
 GFP expression was detected in GUVs encapsulated in all three hydrogel formats:
 the photocrosslinked PEG4Nb hydrogel and the physical (thermogelling) hydrogels
