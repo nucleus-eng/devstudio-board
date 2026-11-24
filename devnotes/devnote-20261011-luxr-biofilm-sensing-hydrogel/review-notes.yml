@@ -1,7 +1,7 @@
-# Review and provenance notes extracted from the interactive-viewer pages'
-# HTML comments. Each entry's id matches a pointer comment left in the
-# source file, e.g. <!-- review-notes.yml#gel-viewer-01 -->. 'section' is the
-# nearest heading above the comment in the source, for orientation only.
+# Review and provenance notes, archived from the interactive-viewer pages'
+# HTML comments. The source files no longer mark where each one used to sit.
+# 'section' is the nearest heading above the comment in the original source,
+# for orientation only.
 
 2026-10-07-interactive-viewer.md:
 - id: gel-viewer-01

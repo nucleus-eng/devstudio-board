@@ -15,8 +15,6 @@ Each viewer below opens at whatever contrast window and Z plane the store's own
 `omero` metadata carries. The static figures on the main page use a fixed GFP
 window instead, 4526 to 12204 at z = 50.
 
-<!-- review-notes.yml#gel-viewer-01 -->
-
 ## D7 — HSL sensing gels
 
 :::{anywidget} ./general/vizarr-viewer-patched.js
@@ -56,8 +54,6 @@ window instead, 4526 to 12204 at z = 50.
 D10's store covers a bigger area than the other two, measured that way because of a
 large air bubble. This viewer opens the well exactly as the store has it, with no
 crop or re-measurement.
-
-<!-- review-notes.yml#gel-viewer-02 -->
 
 ## D15 — empty ULGA gel
 
