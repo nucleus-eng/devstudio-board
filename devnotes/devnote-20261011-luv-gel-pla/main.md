@@ -29,8 +29,6 @@ effects of network chemistry, stiffness, and mesh size on vesicle behavior.
 Schematic representation of unilamellar vesicles contained in a hydrogel matrix.
 :::
 
-[`fig-schematic-hydrogel-overview`, file:`general/schematic-hydrogel-overview.png`, caption: (Schematic representation of unilamellar vesicles contained in a hydrogel matrix.)]
-
 # Methods
 
 ## Vesicle preparation
@@ -62,8 +60,6 @@ Schematic representation of unilamellar vesicles contained in a hydrogel matrix.
 :width: 40%
 Snapshot of the LUV pellet after 4 washes.
 :::
-
-[`fig-photo-luv-pellet`, file:`general/photo-luv-pellet.png`, caption: (Snapshot of the LUV pellet after 4 washes.)]
 
 ::::
 
@@ -182,8 +178,6 @@ and is initially yellow. CPR is the coloured product, red to pink-purple
 depending on conditions.
 :::
 
-[`fig-diagram-cprg-cpr-reaction`, file:`general/diagram-cprg-cpr-reaction.png`, caption: (CPRG is cleaved by beta-galactosidase to CPR and galactose.)]
-
 Plate map: `15-QRtbOExMxpLzzK5mwe1lvsUzQgJlNAuqf9PWi7KRs`.
 
 **Plating conditions**
@@ -214,8 +208,6 @@ A₅₇₀/A₄₁₂, CPR over CPRG, in four formats: PEG gel, ULGA, LGA and in
 Points are the individual wells, bars the mean of the duplicate, and error bars
 their standard deviation.
 :::
-
-[`fig-luv-stability-hydrogels`, notebook:`luv_stability_hydrogels_matlabcode.txt`, platemap:`none`, data source:`20261009-113443-synergy2-OJMB-gfp-pla-guv-luv-gels-16UmL-LacZ.txt`, caption: (Stability of CPRG-loaded LUVs across hydrogels, end-point A570/A412 ratio in four formats.)]
 
 CPRG-loaded LUVs were embedded in each hydrogel, and the CPRG-to-CPR conversion
 was read as the endpoint absorbance ratio A570/A412 (n = 2 wells per condition,
@@ -275,8 +267,6 @@ LGA (E16) at 4158 to 7020 counts, each on its own. The two wells' GFP
 levels do not share a usable common window. Brightfield is blended in
 at 25% weight as gel-matrix context.
 :::
-
-[`fig-fov-composite`, file:`figures/fov-composite.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr`, caption: (GFP-GUVs+LUVs across the four gel conditions: E14, E21, E15, E16. Contrast limits and grouping in the figure caption above.)]
 
 GFP expression was detected in GUVs encapsulated in all three hydrogel formats:
 the photocrosslinked PEG4Nb hydrogel and the physical (thermogelling) hydrogels

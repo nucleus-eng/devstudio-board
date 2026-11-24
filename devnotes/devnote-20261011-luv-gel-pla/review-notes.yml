@@ -1,8 +1,10 @@
-# Review and provenance notes, archived from this devnote's HTML comments and
-# from review admonitions that used to render on the published page. The
-# source file no longer marks where each one used to sit. 'section' is the
-# nearest heading above the entry in the original source, for orientation
-# only.
+# Review and provenance notes, archived from this devnote's HTML comments,
+# from review admonitions that used to render on the published page, and from
+# the authoring-stage figure-provenance lines (see
+# devstudio-figure-provenance.md in the nucleus-skills references) left in
+# main.md after asset assembly. The source file no longer marks where each
+# one used to sit. 'section' is the nearest heading above the entry in the
+# original source, for orientation only.
 
 main.md:
 - id: main-01
@@ -56,6 +58,26 @@ main.md:
     the source says what the second channel is, or which of the two is the
     intended GFP read. Confirm this before citing either figure as
     quantitative.
+- id: main-06
+  section: 'Overview'
+  text: |
+    [`fig-schematic-hydrogel-overview`, file:`general/schematic-hydrogel-overview.png`, caption: (Schematic representation of unilamellar vesicles contained in a hydrogel matrix.)]
+- id: main-07
+  section: 'Vesicle preparation'
+  text: |
+    [`fig-photo-luv-pellet`, file:`general/photo-luv-pellet.png`, caption: (Snapshot of the LUV pellet after 4 washes.)]
+- id: main-08
+  section: 'Experimental design'
+  text: |
+    [`fig-diagram-cprg-cpr-reaction`, file:`general/diagram-cprg-cpr-reaction.png`, caption: (CPRG is cleaved by beta-galactosidase to CPR and galactose.)]
+- id: main-09
+  section: 'CPRG-loaded LUVs across hydrogels'
+  text: |
+    [`fig-luv-stability-hydrogels`, notebook:`luv_stability_hydrogels_matlabcode.txt`, platemap:`none`, data source:`20261009-113443-synergy2-OJMB-gfp-pla-guv-luv-gels-16UmL-LacZ.txt`, caption: (Stability of CPRG-loaded LUVs across hydrogels, end-point A570/A412 ratio in four formats.)]
+- id: main-10
+  section: 'GFP-expressing GUVs'
+  text: |
+    [`fig-fov-composite`, file:`figures/fov-composite.png`, zarr-viewer, source:`https://data.nucleus.engineering/microscopy/nucleus-bnext-01/OP-20261006_endpoint-vescile-gel-MB-zstack-E15_2026-10-06_12-58-55.990402.zarr`, caption: (GFP-GUVs+LUVs across the four gel conditions: E14, E21, E15, E16. Contrast limits and grouping in the figure caption above.)]
 main-supplement.md:
 - id: supp-01
   section: ''
