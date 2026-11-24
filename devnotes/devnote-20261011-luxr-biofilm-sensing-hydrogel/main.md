@@ -193,7 +193,7 @@ the solution subsection above.
 {numref}`sec-methods`, under GUV embedding in gels for synthetic AHL
 experiment, covers the steps for embedding GUVs in 0.5% ULGA. In summary, 1
 wt% ULGA is heated above its gelling temperature and mixed thoroughly with
-the GUV pellet at equal volumes, then added to a 384 well plate. Z-stack
+resuspended GUVs at equal volumes, then added to a 384 well plate. Z-stack
 fluorescence microscopy is then used to assess fluorescence throughout the
 gel after 16 hours. After gelling, 10 µL of stock HSL is added to the top of
 the gel, corresponding to a final concentration of 100 µM; 10 µL of outer
@@ -337,11 +337,11 @@ Mix amino acids using equal volumes from each provided tube (−Met, −Cys,
 | Component | Volume (µL) |
 | --- | --- |
 | DNA | X (40 ng/µL final concentration) |
-| Amino acids | 2.5 |
-| S30 Premix | 10 |
-| S30 Extract | 7.5 |
-| Murine RNase Inhibitor | 1.25 |
-| Nuclease free water | 3.75 − X |
+| Amino acids | 1.25 |
+| S30 Premix | 5 |
+| S30 Extract | 3.75 |
+| Murine RNase Inhibitor | 0.625 |
+| Nuclease free water | 1.875 − X |
 | Total | 12.5 |
 :::
 
@@ -356,7 +356,7 @@ desiccator overnight. Add 1 mL of mineral oil to each film.
 
 Prepare the inner solution using the table below.
 
-:::{table} Inner solution (lysate), 12.5 µL.
+:::{table} Inner solution (lysate), 25 µL.
 :label: tbl-inner-solution
 :align: center
 
@@ -367,9 +367,9 @@ Prepare the inner solution using the table below.
 | S30 Premix | 10 |
 | S30 Extract | 7.5 |
 | Murine RNase Inhibitor | 1.25 |
-| Sucrose (3 M) | 1.25 |
-| Nuclease free water | 2.50 − X |
-| Total | 12.5 |
+| Sucrose (3 M) | 2.5 |
+| Nuclease free water | 1.25 − X |
+| Total | 25 |
 :::
 
 Prepare the outer solution with the concentrations in the table below.
@@ -417,12 +417,12 @@ with a 0.22 µm filter. Store at −20 °C until use.
 1. *E. coli* lysate-based cell-free protein expression with the
    LuxR-mNeonGreen plasmid can successfully detect 3-oxo-C6-HSL in bulk.
 2. The same system can be successfully encapsulated in synthetic cells, which
-   is activated with 10 µM purified HSL in solution, visible using
+   is activated with 10 µM purified HSL in solution and this activation is visible using
    fluorescence microscopy.
 3. Lysate-containing synthetic cells encapsulated within ULGA hydrogels can
    sense 100 µM HSL added to the top of the gels.
 4. Bacterial supernatant collected from *E. coli* containing the LuxI
-   plasmid induced GFP expression in lysate GUVs containing the
+   plasmid induced GFP expression in lysate GUVs in solution containing the
    LuxR-mNeonGreen plasmid.
 
 # What's next
