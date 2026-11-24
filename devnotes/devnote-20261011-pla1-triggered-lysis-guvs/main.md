@@ -90,7 +90,6 @@ Components are the OnePot PURE-style sub-mixes; each is dispensed as a fixed fra
 - HEPES, 1 M stock — both the GUV inner solution and the hydrogel are built on this
 - PEG-norbornene (PEG-NB) with crosslinker and photoinitiator, cast in 1 M HEPES
 - Outer solution — as in the deGFP GUV protocol (glucose/HEPES, osmotically matched to the inner solution)
-- β-galactosidase substrate for the plate reader — see open items
 - Bovine serum albumin (BSA), 2% w/v, for glass passivation
 - BioUltra mineral oil; chloroform for lipid handling; nuclease-free water
 :::
